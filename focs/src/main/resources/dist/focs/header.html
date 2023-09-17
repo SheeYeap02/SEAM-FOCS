@@ -1,0 +1,304 @@
+<!-- Top Navigation -->
+<nav class="s-12 grid background-none background-primary-hightlight background-white" style="background-color: white;">
+  <!-- logo -->
+  <a href="index.html" class="m-12 l-3 logo">
+    <img src="img/newLogo.png" style="max-height: 100%; max-width: 100%; position: relative; top: 25px;">
+  </a>
+
+
+
+  <div class="top-nav s-12 l-9">
+    <ul class="top-ul right chevron">
+      <li><a href="index.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-house-heart-fill" viewBox="0 0 16 16">
+            <path
+              d="M7.293 1.5a1 1 0 0 1 1.414 0L11 3.793V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v3.293l2.354 2.353a.5.5 0 0 1-.708.707L8 2.207 1.354 8.853a.5.5 0 1 1-.708-.707L7.293 1.5Z" />
+            <path
+              d="m14 9.293-6-6-6 6V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9.293Zm-6-.811c1.664-1.673 5.825 1.254 0 5.018-5.825-3.764-1.664-6.691 0-5.018Z" />
+          </svg>HOME</a></li>
+      <li><a href="about-us.html">ABOUT US</a></li>
+      <li><a href="services.html">FACILITIES</a></li>
+      <li><a href="gallery.html">RESEARCH</a></li>
+      <li><a href="contact.html">EXTERNAL ADVISORS</a></li>
+      <li><a href="programmes.html">OUR TEAM</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="alert alert-danger" style="display: none;" id="logoutalert" role="alert">
+  <h4 class="alert-heading">Well done!</h4>
+  <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so
+    that you can see how spacing within an alert works with this kind of content.</p>
+  <hr>
+  <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+</div>
+
+<!-- Modal -->
+<!-- Modal For POP LOGIN-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" id="signup">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- SIGN UP FORM -->
+        <section class="h-100" id="signupsection">
+          <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+              <div class="col">
+                <div class="card card-registration my-4">
+                  <div class="row g-0">
+                    <!-- <div class="col-xl-6 d-none d-xl-block">
+                          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp"
+                            alt="Sample photo" class="img-fluid"
+                            style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
+                        </div> -->
+                    <div class="">
+                      <div class="card-body p-md-5 text-black">
+                        <h3 class="mb-5 text-uppercase" style="color: black;">Student
+                          registration form</h3>
+
+                        <!-- <div class="row">
+                              <div class="col-md-6 mb-4">
+                                <div class="form-outline">
+                                  <input type="text" id="form3Example1m" class="form-control form-control-lg" />
+                                  <label class="form-label" for="form3Example1m">First name</label>
+                                </div>
+                              </div>
+                              <div class="col-md-6 mb-4">
+                                <div class="form-outline">
+                                  <input type="text" id="form3Example1n" class="form-control form-control-lg" />
+                                  <label class="form-label" for="form3Example1n">Last name</label>
+                                </div>
+                              </div>
+                            </div> -->
+                        <div class="form">
+                          <div class="forms">
+                            <div class="form-inputs form-outline mb-4">
+                              <label class="form-label" for="username">Username</label>
+                              <input type="text" id="username" value="" class="form-control form-control-lg"
+                                placeholder="User name" />
+                              <i class="fa fa-user" id="userprofile"></i>
+                            </div>
+                            <div class="form-inputs form-outline mb-4">
+                              <label class="form-label" for="email">Email</label>
+                              <input type="email" id="email" class="form-control form-control-lg" placeholder="Email"
+                                autocomplete="chrome-off" />
+                              <i class="fa fa-user" id="userprofile"></i>
+                            </div>
+                            <div class="form-inputs form-outline mb-4">
+                              <label class="form-label" for="password">Password</label>
+                              <input type="text" value="" id="password"
+                                class="form-control form-control-lg password-input" autocomplete="chrome-off"
+                                type="password" placeholder="Password" />
+                              <i class="fa fa-user" id="userprofile"></i>
+                            </div>
+
+                            <p>Already have an account? <a href="#" onclick="toggleSigninSection(); return false;">Sign
+                                In</a></p>
+
+
+                            <div class="d-flex justify-content-end pt-3">
+                              <button type="button" class="btn btn-light btn-lg">Reset
+                                all</button>
+                              <input type="submit" class="btn btn-warning btn-lg ms-2 submit-button" onclick="login()"
+                                placeholder="Submit" />
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- <div class="d-md-flex justify-content-start align-items-center mb-4 py-2">
+
+                              <h6 class="mb-0 me-4">Gender: </h6>
+
+                              <div class="form-check form-check-inline mb-0 me-4">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender"
+                                  value="option1" />
+                                <label class="form-check-label" for="femaleGender">Female</label>
+                              </div>
+
+                              <div class="form-check form-check-inline mb-0 me-4">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender"
+                                  value="option2" />
+                                <label class="form-check-label" for="maleGender">Male</label>
+                              </div>
+
+                              <div class="form-check form-check-inline mb-0">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="otherGender"
+                                  value="option3" />
+                                <label class="form-check-label" for="otherGender">Other</label>
+                              </div>
+                            </div> -->
+
+                        <!-- <div class="row">
+                              <div class="col-md-6 mb-4">
+
+                                <select class="select">
+                                  <option value="1">State</option>
+                                  <option value="2">Option 1</option>
+                                  <option value="3">Option 2</option>
+                                  <option value="4">Option 3</option>
+                                </select>
+
+                              </div>
+                              <div class="col-md-6 mb-4">
+
+                                <select class="select">
+                                  <option value="1">City</option>
+                                  <option value="2">Option 1</option>
+                                  <option value="3">Option 2</option>
+                                  <option value="4">Option 3</option>
+                                </select>
+
+                              </div>
+                            </div> -->
+
+                        <!-- <div class="d-flex justify-content-end pt-3">
+                              <button type="button" class="btn btn-light btn-lg">Reset all</button>
+                              <button type="button" class="btn btn-warning btn-lg ms-2">Submit form</button>
+                            </div> -->
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- SIGN UP FORM = END -->
+        <!-- SIGN IN FORM -->
+        <section class="h-100" id="signinsection">
+          <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+              <div class="col">
+                <div class="card card-registration my-4">
+                  <div class="row g-0">
+                    <!-- <div class="col-xl-6 d-none d-xl-block">
+                          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp"
+                            alt="Sample photo" class="img-fluid"
+                            style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
+                        </div> -->
+                    <div class="">
+                      <div class="card-body p-md-5 text-black">
+                        <h3 class="mb-5 text-uppercase" style="color: black;">Student Login form
+                        </h3>
+
+                        <!-- <div class="row">
+                              <div class="col-md-6 mb-4">
+                                <div class="form-outline">
+                                  <input type="text" id="form3Example1m" class="form-control form-control-lg" />
+                                  <label class="form-label" for="form3Example1m">First name</label>
+                                </div>
+                              </div>
+                              <div class="col-md-6 mb-4">
+                                <div class="form-outline">
+                                  <input type="text" id="form3Example1n" class="form-control form-control-lg" />
+                                  <label class="form-label" for="form3Example1n">Last name</label>
+                                </div>
+                              </div>
+                            </div> -->
+                        <div class="form">
+                          <div class="forms">
+                            <div class="form-inputs form-outline mb-4">
+                              <label class="form-label" for="username">Username</label>
+                              <input type="text" id="username" value="" class="form-control form-control-lg"
+                                placeholder="User name" />
+                              <i class="fa fa-user" id="userprofile"></i>
+                            </div>
+                            <div class="form-inputs form-outline mb-4">
+                              <label class="form-label" for="email">Email</label>
+                              <input type="email" id="email" class="form-control form-control-lg" placeholder="Email"
+                                autocomplete="chrome-off" />
+                              <i class="fa fa-user" id="userprofile"></i>
+                            </div>
+                            <div class="form-inputs form-outline mb-4">
+                              <label class="form-label" for="password">Password</label>
+                              <input type="text" value="" id="password"
+                                class="form-control form-control-lg password-input" autocomplete="chrome-off"
+                                type="password" placeholder="Password" />
+                              <i class="fa fa-user" id="userprofile"></i>
+                            </div>
+
+                            <p>Does not have an account? <a href="#" onclick="toggleSignupSection(); return false;">Sign
+                                Up</a></p>
+
+                            <div class="d-flex justify-content-end pt-3">
+                              <button type="button" class="btn btn-light btn-lg">Reset
+                                all</button>
+                              <input type="submit" class="btn btn-warning btn-lg ms-2 submit-button" onclick="login()"
+                                placeholder="Submit" />
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- <div class="d-md-flex justify-content-start align-items-center mb-4 py-2">
+
+                              <h6 class="mb-0 me-4">Gender: </h6>
+
+                              <div class="form-check form-check-inline mb-0 me-4">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender"
+                                  value="option1" />
+                                <label class="form-check-label" for="femaleGender">Female</label>
+                              </div>
+
+                              <div class="form-check form-check-inline mb-0 me-4">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender"
+                                  value="option2" />
+                                <label class="form-check-label" for="maleGender">Male</label>
+                              </div>
+
+                              <div class="form-check form-check-inline mb-0">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="otherGender"
+                                  value="option3" />
+                                <label class="form-check-label" for="otherGender">Other</label>
+                              </div>
+                            </div> -->
+
+                        <!-- <div class="row">
+                              <div class="col-md-6 mb-4">
+
+                                <select class="select">
+                                  <option value="1">State</option>
+                                  <option value="2">Option 1</option>
+                                  <option value="3">Option 2</option>
+                                  <option value="4">Option 3</option>
+                                </select>
+
+                              </div>
+                              <div class="col-md-6 mb-4">
+
+                                <select class="select">
+                                  <option value="1">City</option>
+                                  <option value="2">Option 1</option>
+                                  <option value="3">Option 2</option>
+                                  <option value="4">Option 3</option>
+                                </select>
+
+                              </div>
+                            </div> -->
+
+                        <!-- <div class="d-flex justify-content-end pt-3">
+                              <button type="button" class="btn btn-light btn-lg">Reset all</button>
+                              <button type="button" class="btn btn-warning btn-lg ms-2">Submit form</button>
+                            </div> -->
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- SIGN IN FORM = END -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal = END -->

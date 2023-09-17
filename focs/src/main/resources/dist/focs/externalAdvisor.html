@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<header>
+
+</header>
+
+<body>
+    <p id="result">
+
+    </p>
+</body>
+<footer>
+    <script>
+
+        setAdvisor();
+
+        // Function to get URL parameter by name
+        function getUrlParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        async function setAdvisor() {
+            // Get the value of the "id" parameter from the URL
+            const idParameter = getUrlParameter('id');
+            if (idParameter) {
+                console.log('ID parameter value:', idParameter);
+                // Perform any actions with the parameter value here
+                let html = "";
+                html = idParameter
+                document.getElementById("result").innerText = html;
+
+                const response = await fetch('./js/json/externalAdvisor.json');
+                let data = await response.json();
+                data = data[idParameter];
+                console.log("setAdvisor");
+
+                for (const attributeName in data) {
+                    console.log(attributeName);
+                    data = data[attributeName];
+                    console.log(data[0]);
+                    console.log(data[1]);
+                }
+
+            } else {
+                console.log('ID parameter not provided.');
+            }
+        }
+    </script>
+    <script type="text/javascript" src="js/headerAppend.js"></script>
+</footer>

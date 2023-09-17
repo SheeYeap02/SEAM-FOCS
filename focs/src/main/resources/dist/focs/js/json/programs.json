@@ -1,0 +1,37 @@
+{
+  "Diploma": {
+    "Diploma Programmes": {
+      "Diploma in Computer Science": {
+        "SPM": "",
+        "UEC": "",
+        "O": ""
+      },
+      "Diploma in Computer Science (Data Science)": {
+        "SPM": "",
+        "UEC": "",
+        "O": ""
+      },
+      "Diploma in Information Systems": {},
+      "Diploma in Information Technology": {},
+      "Diploma in Software Engineering": {}
+    }
+  },
+  "Degree": {
+    "Bachelor of Science": {},
+    "Bachelor of Computer Science": {
+      "Interactive Software Technology": {},
+      "Data Science": {}
+    },
+    "Bachelor of Information Systems": {
+      "Management Mathematics with Computing": {}
+    },
+    "Bachelor of Information Technology": {
+      "Information Security": {},
+      "Internet Technology": {},
+      "Software Systems Development": {}
+    },
+    "Bachelor of Software Engineering": {
+      "Bachelor of Software Engineering": {}
+    }
+  }
+}

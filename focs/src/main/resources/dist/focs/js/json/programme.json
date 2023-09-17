@@ -1,0 +1,1208 @@
+{
+    "Diploma": {
+        "Description": "The Faculty of Computing and Information Technology (FOCS) offers the following Diploma programmes:",
+        "Diploma Programmes": {
+            "Diploma in Computer Science": {
+                "Programme Overview": {
+                    "Programe Overview": "Students are trained in both theoretical knowledge and practical skills for software development, system design and related mathematical techniques. ",
+                    "Duration": "2 years",
+                    "Campuses": {
+                        "KL - Kuala Lumpur Main Campus": "(R2/481/4/0345A)(08/28)(AA0109)",
+                        "PG - Penang Branch Campus": "(R2/0613/4/0354A)(09/28)(AA0139)",
+                        "JH - Johor Branch Campus": "(R/481/4/0761)(07/26)(MQA/FA7636)"
+                    },
+                    "Intake": [
+                        "June"
+                    ],
+                    "Academic Progression:": {
+                        "Graduates may be admitted into Year 2 of:": [
+                            "Bachelor of Science (Honours) in Management Mathematics with Computing",
+                            "Bachelor of Software Engineering (Honours)",
+                            "Bachelor of Computer Science (Honours) in Interactive Software Technology",
+                            "Bachelor of Computer Science (Honours) in Data Science"
+                        ],
+                        "ImageURL": "https://www.tarc.edu.my/files/focs/mer202105/055388FD-EB0C-4744-855C-0F10C90CA62F.jpg"
+                    }
+                },
+                "Minimum Entry Requirements": {
+                    "Entry Requirements": "https://www.tarc.edu.my/files/focs/mer202308/04FFCB8A-B33D-406D-BF46-A8CFFF75F099.jpg"
+                },
+                "Programme Outline": {
+                    "Programme Outline": [
+                        "Introduction to Information Technology",
+                        "Programming Concepts and Design I",
+                        "Programming Concepts and Design II",
+                        "Operating Systems",
+                        "Web Design and Development",
+                        "Systems Analysis and Design",
+                        "Object-Oriented Programming Techniques",
+                        "Computer Systems Architecture",
+                        "Fundamentals of Computer Networks",
+                        "Database Development and Applications",
+                        "Pre-Calculus",
+                        "Introductory Calculus",
+                        "Statistics I",
+                        "Statistics II",
+                        "Discrete Mathematics",
+                        "Algebra",
+                        "Industrial Training"
+                    ],
+                    "Elective I (Choose 1)": [
+                        "Accounting Methods I",
+                        "Introduction to Data Science",
+                        "Computer Game Studies",
+                        "Software Engineering"
+                    ],
+                    "Elective II (Choose 1)": [
+                        "Accounting Methods II",
+                        "Introduction to Data Mining",
+                        "Computer Game Development",
+                        "Software Requirement and Design"
+                    ],
+                    "Elective III (Choose 1)": [
+                        "Fundamentals of Artificial Intelligence",
+                        "Mobile Application Development",
+                        "GUI and Web Application Programming"
+                    ],
+                    "Language, Mata Pelajaran Pengajian Umum (MPU) and Co-curricular Courses": [
+                        "English for Tertiary Studies",
+                        "Academic English",
+                        "Bahasa Kebangsaan A or Public Speaking",
+                        "Penghayatan Etika dan Peradaban",
+                        "Professional English",
+                        "Civic Consciousness and Volunteerism",
+                        "Co-curricular"
+                    ]
+                },
+                "Career Prospects:": {
+                    "Career Prospects": [
+                        "Junior Analyst Programmers",
+                        "Junior Systems Analysts",
+                        "Junior Software Engineers",
+                        "Junior Systems Engineers",
+                        "Junior Research Officers",
+                        "Junior Quantitative Analysts",
+                        "Junior Software Developers"
+                    ]
+                },
+                "Fees & Financial Aids": {
+                    "Fees & Financial Aid": [
+                        "Estimated Total Fees : RM 17,600 (Malaysian Student), RM33,300 (International Student)",
+                        "The estimated total fees may vary by 10%",
+                        "For more information on Fees, click here https://www.tarc.edu.my/bursary/content.jsp?cat_id=5AA0377F-4E7F-494A-8EB4-CEF5CE4DD7AE"
+                    ],
+                    "Merit Scholarship": "To find out more, click here https://www.tarc.edu.my/admissions/contentsub.jsp?cat_id=58F1E9DB-53BF-4657-8DD6-80056FEAF89F&fmenuid=",
+                    "Other Scholarship": "To find out more, click here https://www.tarc.edu.my/dsa/financial-aid/scholarships-grants/",
+                    "Financial Aid": [
+                        "For PTPTN, click here https://www.tarc.edu.my/dsa/financial-aid/ptptn/",
+                        "For Study Loan, click here https://www.tarc.edu.my/dsa/financial-aid/study-loans/",
+                        "For more information on Financial Aid, https://www.tarc.edu.my/dsa/financial-aid/financial-aid/"
+                    ]
+                }
+            },
+            "Diploma in Information Systems": {
+                "Programme Overview": {
+                    "Program Overview": "This program majors in business information systems. It aims to produce graduates with fundamental knowledge in information technology and its business-related applications. It covers the theoretical and practical aspects of developing information systems, management, costing, accounting, electronic commerce, and mathematics. This program is supported by case studies and computer laboratory assignments. In addition, students are exposed to part of the SAP curriculum like logistics and enterprise resource planning. Students will acquire practical skills in the C Language, HTML5, JavaScript, VB.NET, Microsoft Expression Web, Oracle Database, accounting software packages, and be guided through the process of developing an information system.",
+                    "Duration": "2 years",
+                    "Campuses": {
+                        "KL - Kuala Lumpur Main Campus": "(R2/482/4/0195A)(08/28)(AA0110)",
+                        "PG - Penang Branch Campus": "(R2/0611/4/0202A)(09/28)(AA0140)",
+                        "PK - Perak Branch Campus": "(R2/0611/4/0201A)(09/28)(AA0153)"
+                    },
+                    "Intake": [
+                        "June"
+                    ],
+                    "Academic Progression": {
+                        "Graduates may be admitted into Year 2 of": [
+                            "Bachelor of Information Systems (Honours) in Enterprise Information Systems"
+                        ]
+                    },
+                    "ImageURL": "https://www.tarc.edu.my/files/focs/mer202105/055388FD-EB0C-4744-855C-0F10C90CA62F.jpg"
+                },
+                "Minimum Entry Requirements": {
+                    "Entry Requirements": "https://www.tarc.edu.my/files/focs/mer202102/A1854FA6-0783-41E5-BAD2-BF61C7FF1EFE.jpg"
+                },
+                "Programme Outline": {
+                    "Programme Outline": [
+                        "Introduction to Information Technology",
+                        "Programming Concepts and Design I",
+                        "Programming Concepts and Design II",
+                        "Principles of Information Systems",
+                        "Web Design and Development",
+                        "Web Systems and Technologies",
+                        "Systems Analysis and Design",
+                        "Database Development and Applications",
+                        "Managing Information Systems",
+                        "Computer Systems Architecture",
+                        "Electronic Commerce",
+                        "Enterprise Resource Planning",
+                        "Operating Systems",
+                        "Fundamentals of Computer Networks",
+                        "Introductory Statistics",
+                        "Discrete Mathematics",
+                        "Principles of Accounting",
+                        "Industrial Training"
+                    ],
+                    "Elective 1 (Choose 1)": [
+                        "Introduction to Logistics Operations",
+                        "Mobile Commerce and Marketing"
+                    ],
+                    "Elective 2 (Choose 1)": [
+                        "Cost Accounting",
+                        "Introduction to Data Science"
+                    ],
+                    "Elective 3 (Choose 1)": [
+                        "Cloud Computing for Business",
+                        "Accounting Software Packages"
+                    ],
+                    "Language, Mata Pelajaran Pengajian Umum (MPU) and Co-curricular Courses": [
+                        "English for Tertiary Studies",
+                        "Academic English",
+                        "Bahasa Kebangsaan A",
+                        "Penghayatan Etika dan Peradaban",
+                        "Public Speaking",
+                        "Professional English",
+                        "Civic Consciousness and Volunteerism",
+                        "Co-curricular"
+                    ]
+                },
+                "Career Prospects": {
+                    "Career Prospects": [
+                        "Junior Programmers",
+                        "Junior Systems Analysts",
+                        "Junior SAP Support Consultants",
+                        "Junior IT Support Executives",
+                        "Junior IT Executives"
+                    ]
+                },
+                "Fees & Financial Aids": {
+                    "Fees & Financial Aid": [
+                        "Estimated Total Fees : RM 17,800 (Malaysian Student), RM33,600 (International Student)",
+                        "The estimated total fees may vary by 10%",
+                        "For more information on Fees, click here https://www.tarc.edu.my/bursary/content.jsp?cat_id=5AA0377F-4E7F-494A-8EB4-CEF5CE4DD7AE"
+                    ],
+                    "Merit Scholarship": "To find out more, click here https://www.tarc.edu.my/admissions/contentsub.jsp?cat_id=58F1E9DB-53BF-4657-8DD6-80056FEAF89F&fmenuid=",
+                    "Other Scholarship": "To find out more, click here https://www.tarc.edu.my/dsa/financial-aid/scholarships-grants/",
+                    "Financial Aid": [
+                        "For PTPTN, click here https://www.tarc.edu.my/dsa/financial-aid/ptptn/",
+                        "For Study Loan, click here https://www.tarc.edu.my/dsa/financial-aid/study-loans/",
+                        "For more information on Financial Aid, https://www.tarc.edu.my/dsa/financial-aid/financial-aid/"
+                    ]
+                }
+            },
+            "Diploma in Information Technology": {
+                "Programme Overview": {
+                    "Programme overview": "This programme provides students with a basic understanding of computing techniques and aims to develop the computing and information technology-based knowledge and skills required in modern industrial, commercial, and service organisations. It will equip students with essential knowledge of the underlying principles of modern computing technology and enable students to appreciate how modern computers are applied to a range of real-world problems. Students will learn C Language, Java, Assembly Language, Oracle Database, HTML5, CSS, PHP, and JavaScript. Upon completion, graduates will have acquired knowledge and developed skills in the areas of computer programming, systems analysis, operating systems, computer networking, computer applications, and object-oriented software development, as well as in generic business courses.",
+                    "Duration": "2 years",
+                    "Intake": "June",
+                    "Campuses": {
+                        "KL - Kuala Lumpur Main Campus": "(R2/482/4/0196A)(08/28)(AA0111)",
+                        "PG - Penang Branch Campus": "(R2/0611/4/0203A)(09/28)(AA0141)",
+                        "PK - Perak Branch Campus": "(R2/482/4/0200A)(09/28)(AA0154)",
+                        "JH - Johor Branch Campus": "(R2/0611/4/0199A)(09/28)(AA0163)",
+                        "PH - Pahang Branch": "(R2/0611/4/0198A)(12/28)(AA0168)",
+                        "SB - Sabah Branch": "(R2/0611/4/0197A)(12/28)(AA0122)"
+                    },
+                    "Academic Progression": {
+                        "Graduates may be admitted into Year 2 of": [
+                            "Bachelor of Information Technology (Honours) in Software Systems Development",
+                            "Bachelor of Information Technology (Honours) in Information Security",
+                            "Bachelor of Information Technology (Honours) in Internet Technology"
+                        ],
+                        "ImageURL": "https://www.tarc.edu.my/files/focs/mer202105/055388FD-EB0C-4744-855C-0F10C90CA62F.jpg"
+                    }
+                },
+                "Entry Requirements": {
+                    "Entry Requirements": "https://www.tarc.edu.my/files/focs/mer202102/A1854FA6-0783-41E5-BAD2-BF61C7FF1EFE.jpg"
+                },
+                "Programme Outline": {
+                    "Programme Outline": [
+                        "Introduction to Information Technology",
+                        "Programming Concepts and Design I",
+                        "Programming Concepts and Design II",
+                        "Principles of Information Systems",
+                        "Web Design and Development",
+                        "Systems Analysis and Design",
+                        "Object-Oriented Programming Techniques",
+                        "Operating Systems",
+                        "Computer Systems Architecture",
+                        "Fundamentals of Computer Networks",
+                        "Database Development and Applications",
+                        "Web Systems and Technologies",
+                        "GUI and Web Application Programming",
+                        "Introduction to Cybersecurity",
+                        "Calculus and Algebra",
+                        "Probability and Statistics",
+                        "Discrete Mathematics",
+                        "Industrial Training (10 weeks)"
+                    ],
+                    "Elective I (Choose 1)": [
+                        "Introduction to Business",
+                        "Mobile Commerce and Marketing"
+                    ],
+                    "Elective II (Choose 1)": [
+                        "Introduction to Marketing",
+                        "Introduction to Data Science"
+                    ],
+                    "Elective III (Choose 1)": [
+                        "Business Organisation and Management",
+                        "Cloud Computing for Business"
+                    ],
+                    "Language, Mata Pelajaran Pengajian Umum (MPU) and Co-curricular Courses": [
+                        "English for Tertiary Studies",
+                        "Academic English",
+                        "Bahasa Kebangsaan A",
+                        "Penghayatan Etika dan Peradaban",
+                        "Public Speaking",
+                        "Professional English",
+                        "Civic Consciousness and Volunteerism",
+                        "Co-curricular"
+                    ]
+                },
+                "Career Prospects": {
+                    "Career Prospects": [
+                        "Junior Programmers",
+                        "Junior Systems Analysts",
+                        "Junior Network Support Officers",
+                        "Junior IT Support Executives",
+                        "Junior IT Executives",
+                        "Web Developer"
+                    ]
+                },
+                "Fees & Financial Aids": {
+                    "Fees & Financial Aid": [
+                        "Estimated Total Fees : RM 17,800 (Malaysian Student), RM33,600 (International Student)",
+                        "The estimated total fees may vary by 10%",
+                        "For more information on Fees, click here: https://www.tarc.edu.my/bursary/content.jsp?cat_id=5AA0377F-4E7F-494A-8EB4-CEF5CE4DD7AE"
+                    ],
+                    "Merit Scholarship": "To find out more, click here: https://www.tarc.edu.my/admissions/contentsub.jsp?cat_id=58F1E9DB-53BF-4657-8DD6-80056FEAF89F&fmenuid=",
+                    "Other Scholarship": "To find out more, click here: https://www.tarc.edu.my/dsa/financial-aid/scholarships-grants/",
+                    "Financial Aid": [
+                        "For PTPTN, click here: https://www.tarc.edu.my/dsa/financial-aid/ptptn/",
+                        "For Study Loan, click here: https://www.tarc.edu.my/dsa/financial-aid/study-loans/",
+                        "For more information on Financial Aid, click here: https://www.tarc.edu.my/dsa/financial-aid/financial-aid/"
+                    ]
+                }
+            },
+            "Diploma in Software Engineering": {
+                "Programme Overview": {
+                    "Programme Overview": "This programme equips students with the fundamental knowledge of software engineering with practical and analytical thinking skills in software development. It also provides students with basic managerial skills and innovation in creating business opportunities in the area of software engineering, as well as educational experience that motivates them to pursue a higher level of study and lifelong learning.",
+                    "Duration": "2 years",
+                    "Intake": "June",
+                    "Campus": {
+                        "SB - Sabah Branch": "(R/481/4/0779)(08/27)(MQA/FA7566)"
+                    },
+                    "Academic Progression": {
+                        "Graduates may be admitted into Year 2 of": [
+                            "Bachelor of Software Engineering (Honours)"
+                        ],
+                        "ImageURL": "https://www.tarc.edu.my/files/focs/mer202105/055388FD-EB0C-4744-855C-0F10C90CA62F.jpg"
+                    }
+                },
+                "Entry Requirements": {
+                    "Entry Requirements": "https://www.tarc.edu.my/files/focs/mer202102/A1854FA6-0783-41E5-BAD2-BF61C7FF1EFE.jpg"
+                },
+                "Programme Outline": {
+                    "Programme Outline": [
+                        "Problem Solving and Programming",
+                        "Software Engineering",
+                        "Calculus and Algebra",
+                        "Software Requirement and Design",
+                        "Web Design and Development",
+                        "Object-Oriented Programming Techniques",
+                        "Software Testing and Quality",
+                        "Database Development and Applications",
+                        "Computer Systems Architecture",
+                        "Software Maintenance",
+                        "Operating Systems",
+                        "Mini Project",
+                        "Introduction to Data Structures and Algorithms",
+                        "Discrete Mathematics",
+                        "Mobile Application Development",
+                        "Fundamentals of Computer Networks",
+                        "Industrial Training (10 weeks)"
+                    ],
+                    "Electives (Choose 2)": [
+                        "Introduction to Artificial Intelligence",
+                        "Introduction to Cloud Computing",
+                        "Introduction to Data Science",
+                        "Electronic Commerce"
+                    ],
+                    "Language, Mata Pelajaran Pengajian Umum (MPU) and Co-curricular Courses": [
+                        "English for Tertiary Studies",
+                        "Pengajian Malaysia 2",
+                        "Academic English",
+                        "Bahasa Kebangsaan A",
+                        "Professional English",
+                        "Civic Consciousness and Volunteerism",
+                        "Public Speaking",
+                        "Co-curricular"
+                    ]
+                },
+                "Career Prospects": {
+                    "Career Prospects": [
+                        "Junior Software Engineers",
+                        "Junior Software Developers",
+                        "Junior Software Testers",
+                        "Junior Web Developers",
+                        "Junior Database Administrators",
+                        "Junior Systems Analysts"
+                    ]
+                },
+                "Fees & Financial Aid": {
+                    "Fees & Financial Aid": [
+                        "Estimated Total Fees : RM 17,800 (Malaysian Student)",
+                        "The estimated total fees may vary by 10%",
+                        "For more information on Fees, click here: https://www.tarc.edu.my/bursary/content.jsp?cat_id=5AA0377F-4E7F-494A-8EB4-CEF5CE4DD7AE"
+                    ],
+                    "Merit Scholarship": "To find out more, click here: https://www.tarc.edu.my/admissions/contentsub.jsp?cat_id=58F1E9DB-53BF-4657-8DD6-80056FEAF89F&fmenuid=",
+                    "Other Scholarship": "To find out more, click here: https://www.tarc.edu.my/dsa/financial-aid/scholarships-grants/",
+                    "Financial Aid": [
+                        "For PTPTN, click here: https://www.tarc.edu.my/dsa/financial-aid/ptptn/",
+                        "For Study Loan, click here: https://www.tarc.edu.my/dsa/financial-aid/study-loans/",
+                        "For more information on Financial Aid, click here: https://www.tarc.edu.my/dsa/financial-aid/financial-aid/"
+                    ]
+                }
+            }
+        }
+    },
+    "Degree": {
+        "Description": "The Faculty of Computing and Information Technology (FOCS) offers the following Bachelor Degree programmes:",
+        "Bachelor of Science": {
+            "Management Mathematics with Computing": {
+                "Programme Overview": {
+                    "Programme Overview": "This programme is a multi-disciplinary blend with Management Mathematics as the major, Computing as the minor and Economics or Accounting Methods as the associate study. Management Mathematics covers mathematical techniques, including resource allocation and planning, optimization, project management, quantitative decision, applied statistics, quality control and financial mathematics. Computing courses prepare students for software design and development including skills on programming and information management.",
+                    "Duration": "3 years",
+                    "Campuses": {
+                        "KL - Kuala Lumpur Main Campus": "(R2/0540/6/0004A)(09/28)(MQA/FA3925)"
+                    },
+                    "Intake": [
+                        "Year 1 Intake: June",
+                        "Year 2 Intake: June"
+                    ],
+                    "Academic Progression": {
+                        "ImageURL": "https://www.tarc.edu.my/files/focs/mer202105/055388FD-EB0C-4744-855C-0F10C90CA62F.jpg"
+                    }
+                },
+                "Entry Requirements": {
+                    "Entry Requirements": "https://www.tarc.edu.my/files/focs/mer202303/F2E4563F-7EF2-406D-82AB-FCA614D56772.png"
+                },
+                "Programme Outline": {
+                    "Programme Outline": [
+                        "Discrete Mathematics",
+                        "Calculus I",
+                        "Calculus II",
+                        "Algebra",
+                        "Probability and Statistics",
+                        "Linear Algebra",
+                        "Advanced Calculus",
+                        "Numerical Methods",
+                        "Mathematical and Statistical Software",
+                        "Problem Solving and Programming",
+                        "Database Management",
+                        "Computer Organisation and Architecture",
+                        "Object-Oriented Programming",
+                        "Operating Systems",
+                        "IT Fundamentals",
+                        "Visual Programming",
+                        "Industrial Training",
+                        "Project",
+                        "Mathematical Statistics",
+                        "Applied Statistics",
+                        "Operations Research I",
+                        "Operations Research II",
+                        "Financial Mathematics",
+                        "Quality Control",
+                        "Contemporary Malaysian Issues"
+                    ],
+                    "Elective 1A and 1B (Choose 2)": [
+                        "Microeconomics",
+                        "Macroeconomics",
+                        "Accounting Methods I",
+                        "Accounting Methods II"
+                    ],
+                    "Elective (Mathematics)(Choose 1)": [
+                        "Further Applied Statistics",
+                        "Cryptography",
+                        "Advanced Financial Mathematics"
+                    ],
+                    "Elective (ICT)(Choose 1)": [
+                        "Machine Learning",
+                        "Cloud Computing",
+                        "Business Intelligence",
+                        "Data Science"
+                    ],
+                    "Language, Mata Pelajaran Pengajian Umum (MPU) and Co-curricular Courses": [
+                        "English for Tertiary Studies",
+                        "Falsafah dan Isu Semasa",
+                        "Academic English",
+                        "Penghayatan Etika dan Peradaban",
+                        "English for Career Preparation",
+                        "Entrepreneurship or Bahasa Kebangsaan A",
+                        "Contemporary Malaysian Issues",
+                        "Co-curricular"
+                    ]
+                },
+                "Career Prospects": {
+                    "Career Prospects": [
+                        "Officers in financial institutions such as banks, insurance firms, and investment houses",
+                        "Quantitative Analysts",
+                        "Quality Managers",
+                        "Research Officers",
+                        "Investment Analysts",
+                        "Financial Analysts",
+                        "Management Consultants",
+                        "Financial Planners and Advisors",
+                        "Pricing Analysts",
+                        "Market Risk Managers",
+                        "Credit Risk Managers",
+                        "Asset/Liability Managers",
+                        "IT Managers",
+                        "Programmers"
+                    ]
+                },
+                "Fees & Financial Aid": {
+                    "Fees & Financial Aid": [
+                        "Estimated Total Fees : RM 34,100 (Malaysian Student)",
+                        "Estimated Total Fees : RM 59,500 (International Student)",
+                        "The estimated total fees may vary by 10%",
+                        "For more information on Fees, click here: https://www.tarc.edu.my/bursary/content.jsp?cat_id=5AA0377F-4E7F-494A-8EB4-CEF5CE4DD7AE"
+                    ],
+                    "Merit Scholarship": "To find out more, click here: https://www.tarc.edu.my/admissions/contentsub.jsp?cat_id=58F1E9DB-53BF-4657-8DD6-80056FEAF89F&fmenuid=",
+                    "Other Scholarship": "To find out more, click here: https://www.tarc.edu.my/dsa/financial-aid/scholarships-grants/",
+                    "Financial Aid": [
+                        "For PTPTN, click here: https://www.tarc.edu.my/dsa/financial-aid/ptptn/",
+                        "For Study Loan, click here: https://www.tarc.edu.my/dsa/financial-aid/study-loans/",
+                        "For more information on Financial Aid, click here: https://www.tarc.edu.my/dsa/financial-aid/financial-aid/"
+                    ]
+                }
+            }
+        },
+        "Bachelor of Computer Science": {
+            "Interactive Software Technology": {
+                "Programme Overview": {
+                    "Programme Overview": "This programme aims to teach students the technical knowledge and skills in computer science with a further focus on the design and development of interactive software such as mobile applications, video games, simulations, virtual reality, electronic magazines, educational and training materials. These interactive applications can then be utilized by the entertainment industry, businesses as well as in education.",
+                    "Duration": "3 years",
+                    "Campuses": {
+                        "KL - Kuala Lumpur Main Campus": "(R2/0613/6/0374A)(09/28)(MQA/FA3929)"
+                    },
+                    "Intake": [
+                        "Year 1 Intake: June",
+                        "Year 2 Intake: June"
+                    ],
+                    "Academic Progression": {
+                        "ImageURL": "https://www.tarc.edu.my/files/focs/mer202105/055388FD-EB0C-4744-855C-0F10C90CA62F.jpg"
+                    }
+                },
+                "Entry Requirements": {
+                    "Entry Requirements": "https://www.tarc.edu.my/files/focs/mer202303/986FE568-6D75-4E3A-A661-B07D22B05423.png"
+                },
+                "Programme Outline": {
+                    "Programme Outline": [
+                        "Problem Solving and Programming",
+                        "Computer Game Studies",
+                        "Database Management",
+                        "Computer Organisation and Architecture",
+                        "Object-Oriented Programming",
+                        "Research Methods",
+                        "Object-Oriented Analysis and Design",
+                        "Data Structures and Algorithms",
+                        "Operating Systems",
+                        "Software Engineering",
+                        "Graphics Programming",
+                        "Computer Game Programming",
+                        "Social and Professional Issues",
+                        "Contemporary Malaysian Issues",
+                        "Artificial Intelligence",
+                        "IT Fundamentals",
+                        "Web Design and Development",
+                        "Distributed Systems and Parallel Computing",
+                        "Fundamentals of Computer Networks",
+                        "Mobile Application Development",
+                        "Human Computer Interaction",
+                        "Discrete Mathematics",
+                        "Probability and Statistics",
+                        "Mathematics for Games Technology",
+                        "Project I",
+                        "Project II",
+                        "Industrial Training (6 months)"
+                    ],
+                    "Elective 1 (Choose 1)": [
+                        "3D Game Development",
+                        "3D Animation"
+                    ],
+                    "Elective 2, Elective 3 (Choose any 2)": [
+                        "Virtual Reality",
+                        "Computer Game Design",
+                        "Advanced Computer Game Programming",
+                        "Computer Games Technology",
+                        "Blockchain Application Development",
+                        "Digital Illustration"
+                    ],
+                    "Elective 4 (Choose 1)": [
+                        "Introduction to Short Story",
+                        "Music Appreciation"
+                    ],
+                    "Language, Mata Pelajaran Pengajian Umum (MPU) and Co-curricular Courses": [
+                        "English for Tertiary Studies",
+                        "Falsafah dan Isu Semasa",
+                        "Academic English",
+                        "Penghayatan Etika dan Peradaban",
+                        "English for Career Preparation",
+                        "Entrepreneurship",
+                        "Bahasa Kebangsaan A",
+                        "Contemporary Malaysian Issues",
+                        "Co-curricular"
+                    ]
+                },
+                "Career Prospects": {
+                    "Career Prospects": [
+                        "Games Designers",
+                        "Games Programmers",
+                        "Games Software Engineers",
+                        "Games Producers",
+                        "Games Testers",
+                        "Technical Lead",
+                        "Web Designers",
+                        "Multimedia Developers",
+                        "Software Developers",
+                        "Mobile Application Developers",
+                        "Systems Analysts"
+                    ]
+                },
+                "Fees & Financial Aid": {
+                    "Fees & Financial Aid": [
+                        "Estimated Total Fees : RM 35,100 (Malaysian Student)",
+                        "Estimated Total Fees : RM 61,200 (International Student)",
+                        "The estimated total fees may vary by 10%",
+                        "For more information on Fees, click here: https://www.tarc.edu.my/bursary/content.jsp?cat_id=5AA0377F-4E7F-494A-8EB4-CEF5CE4DD7AE"
+                    ],
+                    "Merit Scholarship": "To find out more, click here: https://www.tarc.edu.my/admissions/contentsub.jsp?cat_id=58F1E9DB-53BF-4657-8DD6-80056FEAF89F&fmenuid=",
+                    "Other Scholarship": "To find out more, click here: https://www.tarc.edu.my/dsa/financial-aid/scholarships-grants/",
+                    "Financial Aid": [
+                        "For PTPTN, click here: https://www.tarc.edu.my/dsa/financial-aid/ptptn/",
+                        "For Study Loan, click here: https://www.tarc.edu.my/dsa/financial-aid/study-loans/",
+                        "For more information on Financial Aid, click here: https://www.tarc.edu.my/dsa/financial-aid/financial-aid/"
+                    ]
+                }
+            },
+            "Data Science": {
+                "Programme Overview": {
+                    "Programme Overview": "This programme is designed to train students in both computer science and data science, which prepares them well for data professionals or data scientist career pathway. Graduates of this programme are highly demanded in the increasingly data-driven world where their main role is to make sense of big data to improve business processes, optimize resources, increase profits, increase customer satisfaction, personalized experience, automation, and so on.",
+                    "Duration": "3 years",
+                    "Campuses": {
+                        "KL - Kuala Lumpur Main Campus": "(R/0613/6/0021)(02/29)(MQA/FA10784)",
+                        "PG - Penang Branch Campus": "(N/481/6/0815)(06/24)(MQA/PA10813)"
+                    },
+                    "Intake": [
+                        "Year 1 Intake: January (KL); June (KL, PG); November (KL)",
+                        "Year 2 Intake: June (KL, PG)"
+                    ],
+                    "Academic Progression": {
+                        "ImageURL": "https://www.tarc.edu.my/files/focs/mer202105/055388FD-EB0C-4744-855C-0F10C90CA62F.jpg"
+                    }
+                },
+                "Entry Requirements": {
+                    "Entry Requirements": "https://www.tarc.edu.my/files/focs/mer202303/986FE568-6D75-4E3A-A661-B07D22B05423.png"
+                },
+                "Programme Outline": {
+                    "Programme Outline": [
+                        "Introduction to Computer Systems",
+                        "Web Design and Development",
+                        "Software Engineering",
+                        "Natural Language Processing",
+                        "Introduction to Computer Networks",
+                        "Data Science",
+                        "Statistics for Data Science",
+                        "Artificial Intelligence",
+                        "Machine Learning",
+                        "Data Engineering",
+                        "Data Visualization",
+                        "Data Warehouse Technology",
+                        "Cloud Computing",
+                        "Problem Solving and Programming",
+                        "Database Management",
+                        "Advanced Database Management",
+                        "Object-Oriented Programming",
+                        "Research Methods",
+                        "Data Structures and Algorithms",
+                        "Social and Professional Issues",
+                        "Probability and Statistics",
+                        "Discrete Mathematics",
+                        "Project I",
+                        "Project II",
+                        "Industrial Training (6 months)"
+                    ],
+                    "Elective 1 (Choose 1)": [
+                        "Introduction to Computer Security",
+                        "Mobile Application Development"
+                    ],
+                    "Elective 2 (Choose 1)": [
+                        "Principle of Marketing",
+                        "Business Organisation and Management"
+                    ],
+                    "Elective 3 (Choose 1)": [
+                        "Internet of Things",
+                        "Graphics Programming",
+                        "Distributed Systems and Parallel Computing"
+                    ],
+                    "Elective 4 (Choose 1)": [
+                        "Image Processing",
+                        "Algebra and Calculus",
+                        "Blockchain Application Development"
+                    ],
+                    "Language, Mata Pelajaran Pengajian Umum (MPU) and Co-curricular Courses": [
+                        "English for Tertiary Studies",
+                        "Falsafah dan Isu Semasa",
+                        "Academic English",
+                        "Penghayatan Etika dan Peradaban",
+                        "English for Career Preparation",
+                        "Entrepreneurship",
+                        "Bahasa Kebangsaan A",
+                        "Contemporary Malaysian Issues",
+                        "Co-curricular"
+                    ]
+                },
+                "Career Prospects": {
+                    "Career Prospects": [
+                        "Data Scientists",
+                        "Data Engineers",
+                        "Data Analysts",
+                        "Data Modelling Engineers",
+                        "Software Developers",
+                        "Mobile Application Developers",
+                        "Computer Science Researchers",
+                        "Machine Learning Engineers"
+                    ]
+                },
+                "Fees & Financial Aid": {
+                    "Fees & Financial Aid": [
+                        "Estimated Total Fees : RM34,300 (Malaysian Student)",
+                        "Estimated Total Fees : RM59,900 (International Student)",
+                        "The estimated total fees may vary by 10%",
+                        "For more information on Fees, click here: https://www.tarc.edu.my/bursary/content.jsp?cat_id=5AA0377F-4E7F-494A-8EB4-CEF5CE4DD7AE"
+                    ],
+                    "Merit Scholarship": "To find out more, click here: https://www.tarc.edu.my/admissions/contentsub.jsp?cat_id=58F1E9DB-53BF-4657-8DD6-80056FEAF89F&fmenuid=",
+                    "Other Scholarship": "To find out more, click here: https://www.tarc.edu.my/dsa/financial-aid/scholarships-grants/",
+                    "Financial Aid": [
+                        "For PTPTN, click here: https://www.tarc.edu.my/dsa/financial-aid/ptptn/",
+                        "For Study Loan, click here: https://www.tarc.edu.my/dsa/financial-aid/study-loans/",
+                        "For more information on Financial Aid, click here: https://www.tarc.edu.my/dsa/financial-aid/financial-aid/"
+                    ]
+                }
+            }
+        },
+        "Bachelor of Information Systems": {
+            "Management Mathematics with Computing": {
+                "Programme Overview": {
+                    "Overview": "Information systems are the heart of many organizations that support their daily business processes and promote business growth. This program is designed to equip students with the ability to solve practical problems in the implementation of enterprise information systems in large organizations. In addition to fundamentals of computing, the specialization subject area covers Business and Information Systems, Systems Analysis and Design, Enterprise Systems, Enterprise Resource Planning, Data Warehouse Technology, Business Intelligence, Business Process Management, Information Systems Implementation, IS Strategy and Management. Elective courses like Principles of Accounting, Introduction to Computer Security, Visual Programming, Software Project Management, Decision Support Systems, Advanced Database Management, and Database Administration will be offered to students undergoing this program. Students will have an opportunity to work with the industry through their 6 months of industrial training and carry out real-life projects on software development, implementation of enterprise information systems, and data analysis. All such training will add value to their qualification and increase their employment opportunities.",
+                    "Duration": "3 years",
+                    "Campuses": {
+                        "KL - Kuala Lumpur Main Campus": "(R2/0611/6/0376A)(09/28)(MQA/FA3931)"
+                    },
+                    "Intake": [
+                        "Year 1 Intake: June",
+                        "Year 2 Intake: June"
+                    ],
+                    "Academic Progression": {
+                        "ImageURL": "https://www.tarc.edu.my/files/focs/mer202105/055388FD-EB0C-4744-855C-0F10C90CA62F.jpg"
+                    }
+                },
+                "Entry Requirements": {
+                    "Entry Requirements": "https://www.tarc.edu.my/files/focs/mer202305/8B7CEFC7-9F45-459A-B6D5-301BF0E2E806.png"
+                },
+                "Programme Outline": {
+                    "Programme Outline": [
+                        "Business and Information Systems",
+                        "Problem Solving and Programming",
+                        "Database Management",
+                        "Object-Oriented Programming",
+                        "Research Methods",
+                        "Object-Oriented Analysis and Design",
+                        "Data Structures and Algorithms",
+                        "Enterprise Resource Planning",
+                        "Information Systems Implementation",
+                        "Social and Professional Issues",
+                        "IT Fundamentals",
+                        "Web Design and Development",
+                        "Systems Analysis and Design",
+                        "Enterprise Systems",
+                        "Fundamentals of Computer Networks",
+                        "IS Strategy and Management",
+                        "Software Project Management",
+                        "Business Process Management",
+                        "Data Warehouse Technology",
+                        "Business Intelligence",
+                        "Probability and Statistics",
+                        "Discrete Mathematics",
+                        "Business Organization and Management",
+                        "Project I",
+                        "Project II",
+                        "Industrial Training (6 months)"
+                    ],
+                    "Elective 1 (Choose 1)(Free Modules)": [
+                        "Music Appreciation",
+                        "Principles of Accounting"
+                    ],
+                    "Elective 2 (Choose 1)": [
+                        "Introduction to Computer Security",
+                        "Visual Programming"
+                    ],
+                    "Elective 3 (Choose 1)": [
+                        "Advanced Database Management",
+                        "Web Programming",
+                        "Introduction to Short Story"
+                    ],
+                    "Elective 4 (Choose 1)": [
+                        "Database Administration",
+                        "Artificial Intelligence",
+                        "Mobile Application Development"
+                    ],
+                    "Language, Mata Pelajaran Pengajian Umum (MPU) and Co-curricular Courses": [
+                        "English for Tertiary Studies",
+                        "Falsafah dan Isu Semasa",
+                        "Academic English",
+                        "Penghayatan Etika dan Peradaban",
+                        "English for Career Preparation",
+                        "Entrepreneurship",
+                        "Bahasa Kebangsaan A",
+                        "Contemporary Malaysian Issues",
+                        "Co-curricular"
+                    ]
+                },
+                "Career Prospects": {
+                    "Career Prospects": [
+                        "ERP Consultants",
+                        "Business and Systems Analysts",
+                        "Business Process Consultants",
+                        "Business Intelligence Specialists",
+                        "Data Warehouse Developers",
+                        "IT Consultants",
+                        "IT Managers",
+                        "Programmers",
+                        "Web Designers",
+                        "Database Administrators"
+                    ]
+                },
+                "Fees & Financial Aid": {
+                    "Fees & Financial Aid": [
+                        "Estimated Total Fees: RM 34,300 (Malaysian Student)",
+                        "Estimated Total Fees: RM 59,900 (International Student)",
+                        "The estimated total fees may vary by 10%",
+                        "For more information on Fees, click here: https://www.tarc.edu.my/bursary/content.jsp?cat_id=5AA0377F-4E7F-494A-8EB4-CEF5CE4DD7AE"
+                    ],
+                    "Merit Scholarship": "To find out more, click here: https://www.tarc.edu.my/admissions/contentsub.jsp?cat_id=58F1E9DB-53BF-4657-8DD6-80056FEAF89F&fmenuid=",
+                    "Other Scholarship": "To find out more, click here: https://www.tarc.edu.my/dsa/financial-aid/scholarships-grants/",
+                    "Financial Aid": [
+                        "For PTPTN, click here: https://www.tarc.edu.my/dsa/financial-aid/ptptn/",
+                        "For Study Loan, click here: https://www.tarc.edu.my/dsa/financial-aid/study-loans/",
+                        "For more information on Financial Aid, click here: https://www.tarc.edu.my/dsa/financial-aid/financial-aid/"
+                    ]
+                }
+            }
+        },
+        "Bachelor of Information Technology": {
+            "Information Security": {
+                "Programme Overview": {
+                    "Overview": "This programme is designed to equip students with technical abilities and knowledge of information security in the areas of Internet Security, Vulnerability Assessment and Penetration Testing, Information Assurance and Security, Systems Administration, and Software Security. In addition, students have the opportunity to learn about computer networking and software development. Students will learn and be trained on how to detect, prevent, and defend organizations’ systems from unauthorized access. Elective courses like Digital Forensics, Network Forensics, Security Assessment and Risk Management, Artificial Intelligence, Mobile Application Development, Internet of Things, Cloud Computing, and Blockchain Application Development will be offered to students undergoing this programme. Students will have an opportunity to work with the industry through their 6 months of industrial training and carry out real-life projects in information security. All such training will add value to their qualification and increase their employment opportunities.",
+                    "Duration": "3 years",
+                    "Campuses": {
+                        "KL - Kuala Lumpur Main Campus": "(R2/0611/6/0380A)(09/28)(MQA/FA3934)"
+                    },
+                    "Intake": [
+                        "Year 1 Intake: June, November",
+                        "Year 2 Intake: June"
+                    ],
+                    "Academic Progression": {
+                        "ImageURL": "https://www.tarc.edu.my/files/focs/mer202105/055388FD-EB0C-4744-855C-0F10C90CA62F.jpg"
+                    }
+                },
+                "Entry Requirements": {
+                    "Entry Requirements": "https://www.tarc.edu.my/files/focs/mer202305/8B7CEFC7-9F45-459A-B6D5-301BF0E2E806.png"
+                },
+                "Programme Outline": {
+                    "Programme Outline": [
+                        "IT Fundamentals",
+                        "Introduction to Computer Systems",
+                        "Web Design and Development",
+                        "Introduction to Internet Security",
+                        "Human Computer Interaction",
+                        "Fundamentals of Computer Networks",
+                        "Information Assurance and Security",
+                        "Web Application Development",
+                        "Enterprise Networking",
+                        "Software Security",
+                        "Systems Administration",
+                        "Vulnerability Assessment and Penetration Testing",
+                        "Problem Solving and Programming",
+                        "Database Management",
+                        "Integrative Programming",
+                        "Object-Oriented Programming",
+                        "Research Methods",
+                        "Object-Oriented Analysis and Design",
+                        "Data Structures and Algorithms",
+                        "Switching and Routing Technologies",
+                        "Social and Professional Issues",
+                        "Probability and Statistics",
+                        "Discrete Mathematics",
+                        "Contemporary Malaysian Issues",
+                        "Music Appreciation",
+                        "Project I",
+                        "Project II",
+                        "Industrial Training (6 months)"
+                    ],
+                    "Electives (Choose 3)": [
+                        "Digital Forensics",
+                        "Mobile Application Development",
+                        "Blockchain Application Development",
+                        "Security Assessment and Risk Management",
+                        "Network Forensics",
+                        "Artificial Intelligence",
+                        "Cloud Computing",
+                        "Internet of Things"
+                    ],
+                    "Language, Mata Pelajaran Pengajian Umum (MPU) and Co-curricular Courses": [
+                        "English for Tertiary Studies",
+                        "Falsafah dan Isu Semasa",
+                        "Academic English",
+                        "Penghayatan Etika dan Peradaban",
+                        "English for Career Preparation",
+                        "Entrepreneurship",
+                        "Bahasa Kebangsaan A",
+                        "Contemporary Malaysian Issues",
+                        "Co-curricular"
+                    ]
+                },
+                "Career Prospects": {
+                    "Career Prospects": [
+                        "Information Security Analysts",
+                        "Information Security Consultants",
+                        "Information Security Managers",
+                        "Information Security Engineers",
+                        "Information Security Administrators",
+                        "Information Security Auditors",
+                        "Forensics Analysts",
+                        "Forensics Investigators",
+                        "Security Software Developers",
+                        "Mobile Application Developers",
+                        "Network Security Engineers"
+                    ]
+                },
+                "Fees & Financial Aid": {
+                    "Fees & Financial Aid": [
+                        "Estimated Total Fees: RM33,800 (Malaysian Student)",
+                        "Estimated Total Fees: RM60,400 (International Student)",
+                        "The estimated total fees may vary by 10%",
+                        "For more information on Fees, click here: https://www.tarc.edu.my/bursary/content.jsp?cat_id=5AA0377F-4E7F-494A-8EB4-CEF5CE4DD7AE"
+                    ],
+                    "Merit Scholarship": "To find out more, click here: https://www.tarc.edu.my/admissions/contentsub.jsp?cat_id=58F1E9DB-53BF-4657-8DD6-80056FEAF89F&fmenuid=",
+                    "Other Scholarship": "To find out more, click here: https://www.tarc.edu.my/dsa/financial-aid/scholarships-grants/",
+                    "Financial Aid": [
+                        "For PTPTN, click here: https://www.tarc.edu.my/dsa/financial-aid/ptptn/",
+                        "For Study Loan, click here: https://www.tarc.edu.my/dsa/financial-aid/study-loans/",
+                        "For more information on Financial Aid, click here: https://www.tarc.edu.my/dsa/financial-aid/financial-aid/"
+                    ]
+                }
+            },
+            "Internet Technology": {
+                "Programme Overview": {
+                    "Overview": "The growth and development of the Internet is rapid and innovative. This phenomenon has enabled many companies to use web-based systems to operate their business processes in more efficient, effective and innovative ways. The use of the Internet has also led companies to be competitive.",
+                    "Duration": "3 years",
+                    "Campuses": {
+                        "KL - Kuala Lumpur Main Campus": "(R2/0611/6/0377A)(09/28)(MQA/FA3932)",
+                        "PG - Penang Branch Campus": "(N/482/6/0182)(05/24)(MQA/FA10736)"
+                    },
+                    "Intake": [
+                        "Year 1 Intake: June (KL, PG); November (KL)",
+                        "Year 2 Intake: June (KL, PG); November (KL)"
+                    ],
+                    "Academic Progression": {
+                        "ImageURL": "https://www.tarc.edu.my/files/focs/mer202105/055388FD-EB0C-4744-855C-0F10C90CA62F.jpg"
+                    }
+                },
+                "Entry Requirements": {
+                    "Entry Requirements": "https://www.tarc.edu.my/files/focs/mer202305/8B7CEFC7-9F45-459A-B6D5-301BF0E2E806.png"
+                },
+                "Programme Outline": {
+                    "Programme Outline": [
+                        "IT Fundamentals",
+                        "Introduction to Computer Systems",
+                        "Web Design and Development",
+                        "Systems Analysis and Design",
+                        "Human Computer Interaction",
+                        "Introduction to Internet Security",
+                        "Fundamentals of Computer Networks",
+                        "Web Programming",
+                        "Integrative Programming",
+                        "Enterprise Networking",
+                        "Enterprise Web Applications",
+                        "Mobile Application Development",
+                        "Problem Solving and Programming",
+                        "Research Methods",
+                        "Database Management",
+                        "Cloud Computing",
+                        "Switching and Routing Technologies",
+                        "Object-Oriented Programming",
+                        "Object-Oriented Analysis and Design",
+                        "Data Structures and Algorithms",
+                        "Contemporary Malaysian Issues",
+                        "Social and Professional Issues",
+                        "Probability and Statistics",
+                        "Discrete Mathematics",
+                        "Music Appreciation",
+                        "Project I",
+                        "Project II",
+                        "Industrial Training (6 months)"
+                    ],
+                    "Electives (Choose 3": [
+                        "Electronic Commerce",
+                        "Blockchain Application Development",
+                        "Artificial Intelligence",
+                        "Advanced Database Management",
+                        "Internet of things",
+                        "System Administration",
+                        "Web Engineering",
+                        "Emerging Web Technologies"
+                    ],
+                    "Language, Mata Pelajaran Pengajian Umum (MPU) and Co-curricular Courses": [
+                        "English for Tertiary Studies",
+                        "Falsafah dan Isu Semasa",
+                        "Academic English",
+                        "Penghayatan Etika dan Peradaban",
+                        "English for Career Preparation",
+                        "Entrepreneurship",
+                        "Bahasa Kebangsaan A",
+                        "Contemporary Malaysian Issues",
+                        "Co-curricular"
+                    ]
+                },
+                "Career Prospects": {
+                    "Career Prospects": [
+                        "Web Developers",
+                        "Multimedia Developers",
+                        "Mobile Application Developers",
+                        "Systems Analysts",
+                        "Network Engineers",
+                        "IT Consultants",
+                        "IT Managers",
+                        "IoT Developers"
+                    ]
+                },
+                "Fees & Financial Aid": {
+                    "Fees & Financial Aid": [
+                        "Estimated Total Fees : RM34,600 (Malaysian Student), RM60,400 (International Student)",
+                        "The estimated total fees may vary by 10%",
+                        "For more information on Fees, click here: https://www.tarc.edu.my/bursary/content.jsp?cat_id=5AA0377F-4E7F-494A-8EB4-CEF5CE4DD7AE"
+                    ],
+                    "Merit Scholarship": "To find out more, click here: https://www.tarc.edu.my/admissions/contentsub.jsp?cat_id=58F1E9DB-53BF-4657-8DD6-80056FEAF89F&fmenuid=",
+                    "Other Scholarship": "To find out more, click here: https://www.tarc.edu.my/dsa/financial-aid/scholarships-grants/",
+                    "Financial Aid": [
+                        "For PTPTN, click here: https://www.tarc.edu.my/dsa/financial-aid/ptptn/",
+                        "For Study Loan, click here: https://www.tarc.edu.my/dsa/financial-aid/study-loans/",
+                        "For more information on Financial Aid, click here: https://www.tarc.edu.my/dsa/financial-aid/financial-aid/"
+                    ]
+                }
+            },
+            "Software Systems Development": {
+                "Programme Overview": {
+                    "Overview": "The growth and development of the Internet is rapid and innovative. This phenomenon has enabled many companies to use web-based systems to operate their business processes in more efficient, effective and innovative ways. The use of the Internet has also led companies to be competitive.",
+                    "Duration": "3 years",
+                    "Campuses": {
+                        "KL - Kuala Lumpur Main Campus": "(R2/0611/6/0377A)(09/28)(MQA/FA3932)",
+                        "PG - Penang Branch Campus": "(N/482/6/0182)(05/24)(MQA/FA10736)"
+                    },
+                    "Intake": [
+                        "Year 1 Intake: June (KL, PG); November (KL)",
+                        "Year 2 Intake: June (KL, PG); November (KL)"
+                    ],
+                    "Academic Progression": {
+                        "ImageURL": "https://www.tarc.edu.my/files/focs/mer202105/055388FD-EB0C-4744-855C-0F10C90CA62F.jpg"
+                    }
+                },
+                "Entry Requirements": {
+                    "Entry Requirements": "https://www.tarc.edu.my/files/focs/mer202305/8B7CEFC7-9F45-459A-B6D5-301BF0E2E806.png"
+                },
+                "Programme Outline": {
+                    "Programme Outline": [
+                        "IT Fundamentals",
+                        "Introduction to Computer Systems",
+                        "Web Design and Development",
+                        "Systems Analysis and Design",
+                        "Human Computer Interaction",
+                        "Introduction to Internet Security",
+                        "Fundamentals of Computer Networks",
+                        "Web Programming",
+                        "Integrative Programming",
+                        "Enterprise Networking",
+                        "Enterprise Web Applications",
+                        "Mobile Application Development",
+                        "Problem Solving and Programming",
+                        "Research Methods",
+                        "Database Management",
+                        "Cloud Computing",
+                        "Switching and Routing Technologies",
+                        "Object-Oriented Programming",
+                        "Object-Oriented Analysis and Design",
+                        "Data Structures and Algorithms",
+                        "Contemporary Malaysian Issues",
+                        "Social and Professional Issues",
+                        "Probability and Statistics",
+                        "Discrete Mathematics",
+                        "Music Appreciation",
+                        "Project I",
+                        "Project II",
+                        "Industrial Training (6 months)"
+                    ],
+                    "Electives (Choose 3": [
+                        "Electronic Commerce",
+                        "Blockchain Application Development",
+                        "Artificial Intelligence",
+                        "Advanced Database Management",
+                        "Internet of things",
+                        "System Administration",
+                        "Web Engineering",
+                        "Emerging Web Technologies"
+                    ],
+                    "Language, Mata Pelajaran Pengajian Umum (MPU) and Co-curricular Courses": [
+                        "English for Tertiary Studies",
+                        "Falsafah dan Isu Semasa",
+                        "Academic English",
+                        "Penghayatan Etika dan Peradaban",
+                        "English for Career Preparation",
+                        "Entrepreneurship",
+                        "Bahasa Kebangsaan A",
+                        "Contemporary Malaysian Issues",
+                        "Co-curricular"
+                    ]
+                },
+                "Career Prospects": {
+                    "Career Prospects": [
+                        "Web Developers",
+                        "Multimedia Developers",
+                        "Mobile Application Developers",
+                        "Systems Analysts",
+                        "Network Engineers",
+                        "IT Consultants",
+                        "IT Managers",
+                        "IoT Developers"
+                    ]
+                },
+                "Fees & Financial Aid": {
+                    "Fees & Financial Aid": [
+                        "Estimated Total Fees : RM34,600 (Malaysian Student), RM60,400 (International Student)",
+                        "The estimated total fees may vary by 10%",
+                        "For more information on Fees, click here: https://www.tarc.edu.my/bursary/content.jsp?cat_id=5AA0377F-4E7F-494A-8EB4-CEF5CE4DD7AE"
+                    ],
+                    "Merit Scholarship": "To find out more, click here: https://www.tarc.edu.my/admissions/contentsub.jsp?cat_id=58F1E9DB-53BF-4657-8DD6-80056FEAF89F&fmenuid=",
+                    "Other Scholarship": "To find out more, click here: https://www.tarc.edu.my/dsa/financial-aid/scholarships-grants/",
+                    "Financial Aid": [
+                        "For PTPTN, click here: https://www.tarc.edu.my/dsa/financial-aid/ptptn/",
+                        "For Study Loan, click here: https://www.tarc.edu.my/dsa/financial-aid/study-loans/",
+                        "For more information on Financial Aid, click here: https://www.tarc.edu.my/dsa/financial-aid/financial-aid/"
+                    ]
+                }
+            }
+        },
+        "Bachelor of Software Engineering": {
+            "Bachelor of Software Engineering": {
+                "Programme Overview": {
+                    "Programme Overview": "The growth and development of the Internet is rapid and innovative. This phenomenon has enabled many companies to use web-based systems to operate their business processes in more efficient, effective and innovative ways. The use of the Internet has also led companies to be competitive.",
+                    "Duration": "3 years",
+                    "Campuses": {
+                        "KL - Kuala Lumpur Main Campus": "(R2/0611/6/0377A)(09/28)(MQA/FA3932)",
+                        "PG - Penang Branch Campus": "(N/482/6/0182)(05/24)(MQA/FA10736)"
+                    },
+                    "Intake": [
+                        "Year 1 Intake: June (KL, PG); November (KL)",
+                        "Year 2 Intake: June (KL, PG); November (KL)"
+                    ],
+                    "Academic Progression": {
+                        "ImageURL": "https://www.tarc.edu.my/files/focs/mer202105/055388FD-EB0C-4744-855C-0F10C90CA62F.jpg"
+                    }
+                },
+                "Entry Requirements": {
+                    "Entry Requirements": "https://www.tarc.edu.my/files/focs/mer202305/8B7CEFC7-9F45-459A-B6D5-301BF0E2E806.png"
+                },
+                "Programme Outline": {
+                    "Programme Outline": [
+                        "IT Fundamentals",
+                        "Introduction to Computer Systems",
+                        "Web Design and Development",
+                        "Systems Analysis and Design",
+                        "Human Computer Interaction",
+                        "Introduction to Internet Security",
+                        "Fundamentals of Computer Networks",
+                        "Web Programming",
+                        "Integrative Programming",
+                        "Enterprise Networking",
+                        "Enterprise Web Applications",
+                        "Mobile Application Development",
+                        "Problem Solving and Programming",
+                        "Research Methods",
+                        "Database Management",
+                        "Cloud Computing",
+                        "Switching and Routing Technologies",
+                        "Object-Oriented Programming",
+                        "Object-Oriented Analysis and Design",
+                        "Data Structures and Algorithms",
+                        "Contemporary Malaysian Issues",
+                        "Social and Professional Issues",
+                        "Probability and Statistics",
+                        "Discrete Mathematics",
+                        "Music Appreciation",
+                        "Project I",
+                        "Project II",
+                        "Industrial Training (6 months)"
+                    ],
+                    "Electives (Choose 3": [
+                        "Electronic Commerce",
+                        "Blockchain Application Development",
+                        "Artificial Intelligence",
+                        "Advanced Database Management",
+                        "Internet of things",
+                        "System Administration",
+                        "Web Engineering",
+                        "Emerging Web Technologies"
+                    ],
+                    "Language, Mata Pelajaran Pengajian Umum (MPU) and Co-curricular Courses": [
+                        "English for Tertiary Studies",
+                        "Falsafah dan Isu Semasa",
+                        "Academic English",
+                        "Penghayatan Etika dan Peradaban",
+                        "English for Career Preparation",
+                        "Entrepreneurship",
+                        "Bahasa Kebangsaan A",
+                        "Contemporary Malaysian Issues",
+                        "Co-curricular"
+                    ]
+                },
+                "Career Prospects": {
+                    "Career Prospects": [
+                        "Web Developers",
+                        "Multimedia Developers",
+                        "Mobile Application Developers",
+                        "Systems Analysts",
+                        "Network Engineers",
+                        "IT Consultants",
+                        "IT Managers",
+                        "IoT Developers"
+                    ]
+                },
+                "Fees & Financial Aid": {
+                    "Fees & Financial Aid": [
+                        "Estimated Total Fees : RM34,600 (Malaysian Student), RM60,400 (International Student)",
+                        "The estimated total fees may vary by 10%",
+                        "For more information on Fees, click here: https://www.tarc.edu.my/bursary/content.jsp?cat_id=5AA0377F-4E7F-494A-8EB4-CEF5CE4DD7AE"
+                    ],
+                    "Merit Scholarship": "To find out more, click here: https://www.tarc.edu.my/admissions/contentsub.jsp?cat_id=58F1E9DB-53BF-4657-8DD6-80056FEAF89F&fmenuid=",
+                    "Other Scholarship": "To find out more, click here: https://www.tarc.edu.my/dsa/financial-aid/scholarships-grants/",
+                    "Financial Aid": [
+                        "For PTPTN, click here: https://www.tarc.edu.my/dsa/financial-aid/ptptn/",
+                        "For Study Loan, click here: https://www.tarc.edu.my/dsa/financial-aid/study-loans/",
+                        "For more information on Financial Aid, click here: https://www.tarc.edu.my/dsa/financial-aid/financial-aid/"
+                    ]
+                }
+            }
+        }
+    }
+}
