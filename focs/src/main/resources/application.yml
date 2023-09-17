@@ -1,0 +1,23 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: focs-seam
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,classpath:/dist/
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/seam?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true&useTimezone=true&serverTimezone=Asia/Kuala_Lumpur
+      username: root      #Set your own username
+      password: memory15  #Set your own password
+mybatis-plus:
+  configuration:
+    # When mapping entities or attributes, remove the underscores from the table names
+    # and field names in the database and map them according to camel nomenclature
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: ASSIGN_ID
+      

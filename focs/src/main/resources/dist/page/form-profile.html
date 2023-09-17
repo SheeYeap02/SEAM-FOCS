@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAR UMT - Application for Admission Postgraduate Programme</title>
+    <link rel="shortcut icon" href="https://web.tarc.edu.my/portal/images/tarucLogo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../assets/compiled/css/app.css">
+    <link rel="stylesheet" href="../assets/compiled/css/app-dark.css">
+    <link rel="stylesheet" href="../assets/compiled/css/iconly.css">
+    <link rel="stylesheet" href="../plugins/element-ui/index.css" />
+</head>
+
+<body>
+    <script src="../assets/static/js/initTheme.js"></script>
+    <div id="app">
+        <div id="sidebar">
+            <div class="sidebar-wrapper active">
+    <div class="sidebar-header position-relative">
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="logo">
+                <a href="index.html"><img src="https://www.tarc.edu.my/images/tarumt-logo1.png?v=beyongEducation2" alt="Logo" srcset="" style="width: 150px; height: 60px;"></a>
+            </div>
+            <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+                    role="img" class="iconify iconify--system-uicons" width="20" height="20"
+                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21">
+                    <g fill="none" fill-rule="evenodd" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path
+                            d="M10.5 14.5c2.219 0 4-1.763 4-3.982a4.003 4.003 0 0 0-4-4.018c-2.219 0-4 1.781-4 4c0 2.219 1.781 4 4 4zM4.136 4.136L5.55 5.55m9.9 9.9l1.414 1.414M1.5 10.5h2m14 0h2M4.135 16.863L5.55 15.45m9.899-9.9l1.414-1.415M10.5 19.5v-2m0-14v-2"
+                            opacity=".3"></path>
+                        <g transform="translate(-210 -1)">
+                            <path d="M220.5 2.5v2m6.5.5l-1.5 1.5"></path>
+                            <circle cx="220.5" cy="11.5" r="4"></circle>
+                            <path d="m214 5l1.5 1.5m5 14v-2m6.5-.5l-1.5-1.5M214 18l1.5-1.5m-4-5h2m14 0h2"></path>
+                        </g>
+                    </g>
+                </svg>
+                <div class="form-check form-switch fs-6">
+                    <input class="form-check-input  me-0" type="checkbox" id="toggle-dark" style="cursor: pointer">
+                    <label class="form-check-label"></label>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+                    role="img" class="iconify iconify--mdi" width="20" height="20" preserveAspectRatio="xMidYMid meet"
+                    viewBox="0 0 24 24">
+                    <path fill="currentColor"
+                        d="m17.75 4.09l-2.53 1.94l.91 3.06l-2.63-1.81l-2.63 1.81l.91-3.06l-2.53-1.94L12.44 4l1.06-3l1.06 3l3.19.09m3.5 6.91l-1.64 1.25l.59 1.98l-1.7-1.17l-1.7 1.17l.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95l2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85c-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14c.4-.4.82-.76 1.27-1.08c.75-.53 1.93.36 1.85 1.19c-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82c-2.81 3.14-2.7 7.96.31 10.98c3.02 3.01 7.84 3.12 10.98.31Z">
+                    </path>
+                </svg>
+            </div>
+            <div class="sidebar-toggler  x">
+                <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar-menu">
+        <ul class="menu">
+            <li class="sidebar-title">Menu</li>
+            
+            <li
+                class="sidebar-item ">
+                <a href="../index.html" class='sidebar-link'>
+                    <i class="bi bi-grid-fill"></i>
+                    <span>My Application</span>
+                </a>
+                
+
+            </li>
+            
+            <li
+                class="sidebar-item  has-sub active">
+                <a href="#" class='sidebar-link'>
+                    <i class="bi bi-journal-check"></i>
+                    <span>New Form</span>
+                </a>         
+                <ul class="submenu ">
+                    <li class="submenu-item  active">
+                        <a href="./form-profile.html" class="submenu-link">Profile</a>                  
+                    </li> 
+                    <li class="submenu-item  ">
+                        <a href="./form-financial-support.html" class="submenu-link">Financial Support</a>                  
+                    </li> 
+                    <li class="submenu-item  ">
+                        <a href="./form-medical-details.html" class="submenu-link">Medical Details</a>                  
+                    </li> 
+                    <li class="submenu-item  ">
+                        <a href="./form-qualification.html" class="submenu-link">Qualifications</a>                  
+                    </li>                  
+                    <li class="submenu-item  ">
+                        <a href="./form-english-proficiency.html" class="submenu-link">English Proficiency</a>                  
+                    </li> 
+                    <li class="submenu-item  "> 
+                        <a href="./form-programme-applied.html" class="submenu-link">Programme Applied</a>                  
+                    </li> 
+                    <li class="submenu-item  ">
+                        <a href="./form-referees.html" class="submenu-link">2 Referees</a>                  
+                    </li> 
+                    <li class="submenu-item  ">
+                        <a href="./form-declaration.html" class="submenu-link">Declaration</a>                  
+                    </li> 
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+        </div>
+        <div id="main">
+            <header class="mb-3">
+                <a href="#" class="burger-btn d-block d-xl-none">
+                    <i class="bi bi-justify fs-3"></i>
+                </a>
+            </header>
+            
+<div class="page-heading">
+  <div class="page-title">
+    <div class="row">
+      <div class="col-12 col-md-6 order-md-1 order-last">
+        <h3>Profile Information/Details</h3>
+        <p class="text-subtitle text-muted">
+          Complete the application for admission postgraduate programme.
+        </p>
+      </div>
+      <div class="col-12 col-md-6 order-md-2 order-first">
+        <nav
+          aria-label="breadcrumb"
+          class="breadcrumb-header float-start float-lg-end"
+        >
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="../index.html">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">
+                New Form
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Profile</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <!-- // Basic multiple Column Form section start -->
+  <section id="multiple-column-form">
+    <div class="row match-height">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title"><i class="bi bi-person-fill" style="padding-right: 20px;"></i>Profile Information/Details</h4>
+          </div>
+          <div class="card-content">
+            <div class="card-body">
+              <form class="form" data-parsley-validate id="profile-app">
+                <div class="row">
+                  <div class="col-md-4 col-12">
+                    <div class="form-group mandatory">
+                      <label for="full-name-column" class="form-label">Full Name</label>
+                      <input type="text" id="full-name-column" class="form-control" placeholder="Full Name" name="fname-column" v-model="formData.fullName" data-parsley-required="true"/>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-12">
+                    <div class="form-group mandatory">
+                      <label for="mykad-column" class="form-label">MyKad No</label>
+                      <input type="text" id="mykad-column" class="form-control" placeholder="IC Number" name="ic-column" v-model="formData.mykadNo" data-parsley-required="true"/>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-12">
+                    <div class="form-group mandatory">
+                      <label for="national-column" class="form-label">National</label><br>
+                      <div class="col-md-12 mb-12">
+                        <fieldset class="form-group">
+                            <select class="form-select" id="basicSelect">
+                                <option>Malaysia</option>
+                            </select>
+                        </fieldset>
+                    </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-12">
+                    <div class="form-group mandatory">
+                      <label for="city-column" class="form-label">Date Of Birth</label>
+                      <input type="date" class="form-control mb-3 flatpickr-no-config" placeholder="Select date.." v-model="formData.dateOfBirth">
+                    </div>
+                  </div>
+                  <div class="col-md-2 col-12">
+                    <div class="form-group mandatory">
+                      <label for="country-floating" class="form-label">Gender</label>
+                      <div class="col-12">
+                        <div class="form-group mandatory" style="display: flex;">
+                          <fieldset style="display: flex;">
+                             <!-- Gender Radio Buttons -->
+                             <div v-for="(option, index) in genderOptions" :key="index" class="form-check" style="margin-left: 1rem;">
+                                <input
+                                  class="form-check-input"
+                                  type="radio"
+                                  :name="'flexRadioDefault1'"
+                                  :id="'flexRadioDefault' + (index)"
+                                  :value="option.value"
+                                  :checked="option.value === mappedGender"
+                                  @change="updateGenderStatus(option.value)"
+                                />
+                                <label class="form-check-label form-label" :for="'flexRadioDefault' + (index)">{{ option.value }}</label>
+                            </div>
+                          </fieldset>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-12">
+                    <div class="form-group mandatory">
+                      <label for="country-floating" class="form-label">Marital Status</label>
+                      <div class="col-12">
+                        <div class="form-group mandatory">
+                          <fieldset style="display: flex;">
+                             <!-- Marital Status Radio Buttons -->
+                            <div v-for="(option, index) in maritalStatusOptions" :key="index" class="form-check" style="margin-left: 1rem;">
+                                <input
+                                  class="form-check-input"
+                                  type="radio"
+                                  :name="'flexRadioDefault2'"
+                                  :id="'flexRadioDefault' + (index + 3)"
+                                  :value="option.value"
+                                  :checked="option.value === formData.maritalStatus"
+                                  @change="updateMaritalStatus(option.value)"
+                                />
+                                <label class="form-check-label form-label" :for="'flexRadioDefault' + (index + 3)">{{ option.value }}</label>
+                            </div>
+                          </fieldset>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-12">
+                    <div class="form-group mandatory">
+                      <label for="race-column" class="form-label">Race</label><br>
+                      <div class="col-md-12 mb-12">
+                        <fieldset class="form-group">
+                            <select v-model="formData.race" class="form-select" id="basicSelect">
+                                <option v-for="race in races" :value="race">{{ race }}</option>
+                            </select>
+                        </fieldset>
+                    </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-12">
+                    <div class="form-group mandatory">
+                      <label for="religion-column" class="form-label">Religion</label><br>
+                      <div class="col-md-12 mb-12">
+                        <fieldset class="form-group">
+                            <select v-model="formData.religion" class="form-select" id="basicSelect">
+                                <option v-for="religion in religions" :value="religion">{{ religion }}</option>
+                            </select>
+                        </fieldset>
+                    </div>
+                    </div>
+                  </div>
+                  <div class="card-header">
+                    <h4 class="card-title"><i class="bi bi-house-fill" style="padding-right: 20px;"></i>Correspondence Address</h4>
+                  </div>
+                  <div class="col-md-12 col-12">
+                    <div class="form-group mandatory">
+                      <label for="address-column" class="form-label">Address</label>
+                      <input type="text" id="address-column" class="form-control" name="address-column" placeholder="Please provide current address" data-parsley-required="true"
+                        v-model="formData.address"/>
+                    </div>
+                  </div>
+                  <div class="col-md-2 col-12">
+                    <div class="form-group mandatory">
+                      <label for="postcode-column" class="form-label">Post/Zipcode</label>
+                      <input type="text" id="postcode-column" class="form-control" placeholder="Post or Zipcode" name="postcode-column" data-parsley-required="true" v-model="formData.postcode"/>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <div class="form-group mandatory">
+                      <label for="state-column" class="form-label">State</label><br>
+                      <div class="col-md-12 mb-12">
+                        <fieldset class="form-group">
+                            <select v-model="formData.state" name="state-column" class="form-select" id="basicSelect">
+                                <option v-for="state in states" :value="state">{{ state }}</option>
+                            </select>
+                        </fieldset>
+                    </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-12">
+                    <div class="form-group mandatory">
+                      <label for="country-column" class="form-label">Country</label><br>
+                      <div class="col-md-12 mb-12">
+                        <fieldset class="form-group">
+                            <select v-model="formData.country" class="form-select" id="basicSelect">
+                                <option v-for="country in countries" :value="country">{{ country }}</option>
+                            </select>
+                        </fieldset>
+                    </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group mandatory">
+                        <label for="hometel-column" class="form-label">Home</label><br>
+                        <div class="form-group position-relative has-icon-left">
+                            <input type="text" class="form-control" name="hometel-column" placeholder="Home Tel. No" v-model="formData.homeTelNo">
+                            <div class="form-control-icon">
+                                <i class="bi bi-telephone"></i>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                   <div class="col-sm-6">
+                    <div class="form-group mandatory">
+                        <label for="mobileno-column" class="form-label">Mobile</label><br>
+                        <div class="form-group position-relative has-icon-left">
+                            <input type="text" class="form-control" name="mobileno-column" placeholder="Mobile No." v-model="formData.mobileNo">
+                            <div class="form-control-icon">
+                                <i class="bi bi-telephone"></i>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group">
+                      <div class="form-check mandatory">
+                        <input type="checkbox" id="checkbox5" class="form-check-input" data-parsley-required="true" data-parsley-error-message="You have to accept our terms and conditions to proceed."/>
+                        <label for="checkbox5" class="form-check-label form-label" >I accept these terms and conditions.</label>
+                      </div>
+                    </div>
+                  </div>
+               
+                <div class="card-header" style="display: flex;">
+                    <h4 class="card-title" style="padding-left: 0px !important"><i class="bi bi-exclamation-triangle-fill" style="padding-right: 20px;"></i>Emergency Contact</h4>
+                    <div class="form-check" style="padding-left: 60px">
+                        <div class="checkbox" >
+                            <input type="checkbox" id="sameInfo" class="form-check-input">
+                            <label for="sameInfo">Tick if same as Correspondence Address</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-12">
+                    <div class="form-group mandatory">
+                      <label for="full2-name-column" class="form-label">Full Name</label>
+                      <input type="text" id="full2-name-column" class="form-control" placeholder="Full Name" name="fname2-column" data-parsley-required="true"/>
+                    </div>
+                </div>
+                <div class="col-md-6 col-12">
+                    <div class="form-group mandatory">
+                      <label for="relation-column" class="form-label">Relationship</label>
+                      <input type="text" id="relation-column" class="form-control" placeholder="Relationship" name="relation-column" data-parsley-required="true"/>
+                    </div>
+                  </div>
+                <div class="col-md-12 col-12">
+                    <div class="form-group mandatory">
+                      <label for="address2-column" class="form-label">Address</label>
+                      <input type="text" id="address2-column" class="form-control" name="address2-column" placeholder="Please provide current address" data-parsley-required="true" v-model="formData.address"/>
+                    </div>
+                </div>
+                <div class="col-md-2 col-12">
+                    <div class="form-group mandatory">
+                      <label for="postcode2-column" class="form-label">Post/Zipcode</label>
+                      <input type="text" id="postcode2-column" class="form-control" placeholder="Post or Zipcode" name="postcode2-column" data-parsley-required="true" v-model="formData.postcode"/>
+                    </div>
+                </div>
+                <div class="col-md-6 col-12">
+                    <div class="form-group mandatory">
+                      <label for="state2-column" class="form-label">State</label><br>
+                      <div class="col-md-12 mb-12">
+                        <fieldset class="form-group">
+                            <select v-model="formData.state" name="state2-column" class="form-select" id="basicSelect">
+                                <option v-for="state in states" :value="state">{{ state }}</option>
+                            </select>
+                        </fieldset>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-12">
+                    <div class="form-group mandatory">
+                      <label for="country2-column" class="form-label">Country</label><br>
+                      <div class="col-md-12 mb-12">
+                        <fieldset class="form-group">
+                            <select v-model="formData.country" class="form-select" id="basicSelect">
+                                <option v-for="country in countries" :value="country">{{ country }}</option>
+                            </select>
+                        </fieldset>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group mandatory">
+                        <label for="hometel2-column" class="form-label">Home</label><br>
+                        <div class="form-group position-relative has-icon-left">
+                            <input type="text" class="form-control" name="hometel2-column" placeholder="Home Tel. No" v-model="formData.homeTelNo">
+                            <div class="form-control-icon">
+                                <i class="bi bi-telephone"></i>
+                            </div>
+                        </div>
+                   </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group mandatory">
+                        <label for="email-column" class="form-label">Email</label><br>
+                        <div class="form-group position-relative has-icon-left">
+                            <input type="text" class="form-control" placeholder="E-mail">
+                            <div class="form-control-icon">
+                                <i class="bi bi-envelope"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class="row">
+                  <div class="col-12 d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary me-1 mb-1">
+                      Submit
+                    </button>
+                    <button type="reset" class="btn btn-light-secondary me-1 mb-1">
+                      Reset
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- // Basic multiple Column Form section end -->
+</div>
+
+<footer>
+    <div class="float-start">
+        <p>2023 &copy; TAR UMT</p>
+    </div>
+    <div class="float-end">
+        <p>Kindly Complete <span class=""><i class="bi bi-caret-right-square-fill icon-mid"></i></span>
+            the <a href="#">Application</a></p>
+    </div>
+</footer>
+        </div>
+    </div>
+    <script src="../assets/static/js/components/dark.js"></script>
+    <script src="../assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    
+    
+    <script src="../assets/compiled/js/app.js"></script>
+    
+
+    
+<script src="../assets/extensions/jquery/jquery.min.js"></script>
+<script src="../assets/extensions/parsleyjs/parsley.min.js"></script>
+<script src="../assets/static/js/pages/parsley.js"></script>
+
+<script src="../plugins/axios/axios.min.js"></script>
+<script src="../plugins/element-ui/index.js"></script>
+<script src="../plugins/vue/vue.js"></script>
+<script src="../api/profile.js"></script>
+<script src="../js/request.js"></script>
+<script src="../js/index.js"></script>
+<script>
+    new Vue({
+      el: '#profile-app',
+        data() {
+            return {
+                id: '',
+                formData : {        // Default value, or load from the server
+                    race: 'Please select',
+                    religion: 'Please select',
+                    country: 'Please select',
+                    state: 'Please select',
+                    maritalStatus: 'Single', 
+                    gender: 'Male', 
+                },
+                userInfo: {},
+                selectedRace: '',
+                selectedReligion: '', 
+                selectedState: '',
+                selectedState2: '', 
+                selectedCountry: '',
+                selectedCountry2: '', 
+                races: 
+                    [  "Please select", "Malay",  "Chinese",  "Indian",  "Malayali",  "Punjabi (except Sikh)",  "Sikh",  "Sinhala",  "Tamil India",  "Tamil Sri Lanka",  "India Muslim/Malabari",  "Indonesian",  "Bumiputera Sabah",  "Bajau",  "Dusun",  "Kadazan",  "Murut",  "Sino-Native",  "Suluk",  "Binadan",  "Bisaya",  "Kedayan",  "Melanau",  "Rungus",  "Bumiputera Sarawak",  "Melayu Sarawak",  "Iban/Sea Dayak",  "Kayan",  "Kenyah",  "Murut/Lun Bawang",  "Kelabit",  "Balau",  "Bintulu",  "Sabah",  "Orang Asli (Semenanjung)",  "Orang Asli (Others)",  "Pakistan",  "Philipina",  "Siamese (Thailand)",  "Japanese",  "American",  "European",  "Australian",  "Serani",  "Others"],
+                religions: 
+                    [  "Please select",  "Bahai",  "Buddhist",  "Christian",  "Confucianism",  "Hindu",  "Islam",  "No religion",  "Sikhism",  "Taoism",  "Others"],
+                countries: 
+                    [ "Please select", "Canada", "Afghanistan", "Albania", "Algeria", "American Samoa", "Andorra", "Angola", "Anguilla", "Antarctica", "Antigua and/or Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Bouvet Island", "Brazil", "British Indian Ocean Territory", "Brunei Darussalam", "Bulgaria", "Burkina Faso", "Burundi", "Cambodia", "Cameroon", "Cape Verde", "Cayman Islands", "Central African Republic", "Chad", "Chile", "China", "Christmas Island", "Cocos (Keeling) Islands", "Colombia", "Comoros", "Congo", "Cook Islands", "Costa Rica", "Croatia (Hrvatska)", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "East Timor", "Ecudaor", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Falkland Islands (Malvinas)", "Faroe Islands", "Fiji", "Finland", "France", "France, Metropolitan", "French Guiana", "French Polynesia", "French Southern Territories", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Gibraltar", "Greece", "Greenland", "Grenada", "Guadeloupe", "Guam", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Heard and Mc Donald Islands", "Honduras", "Hong Kong", "Hungary", "Iceland", "India", "Indonesia", "Iran (Islamic Republic of)", "Iraq", "Ireland", "Israel", "Italy", "Ivory Coast", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Korea, Democratic People's Republic of", "Korea, Republic of", "Kosovo", "Kuwait", "Kyrgyzstan", "Lao People's Democratic Republic", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libyan Arab Jamahiriya", "Liechtenstein", "Lithuania", "Luxembourg", "Macau", "Macedonia", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Martinique", "Mauritania", "Mauritius", "Mayotte", "Mexico", "Micronesia, Federated States of", "Moldova, Republic of", "Monaco", "Mongolia", "Montserrat", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "Netherlands Antilles", "New Caledonia", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Niue", "Norfork Island", "Northern Mariana Islands", "Norway", "Oman", "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Pitcairn", "Poland", "Portugal", "Puerto Rico", "Qatar", "Reunion", "Romania", "Russian Federation", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Georgia South Sandwich Islands", "South Sudan", "Spain", "Sri Lanka", "St. Helena", "St. Pierre and Miquelon", "Sudan", "Suriname", "Svalbarn and Jan Mayen Islands", "Swaziland", "Sweden", "Switzerland", "Syrian Arab Republic", "Taiwan", "Tajikistan", "Tanzania, United Republic of", "Thailand", "Togo", "Tokelau", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Turks and Caicos Islands", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States minor outlying islands", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican City State", "Venezuela", "Vietnam", "Virigan Islands (British)", "Virgin Islands (U.S.)", "Wallis and Futuna Islands", "Western Sahara", "Yemen", "Yugoslavia", "Zaire", "Zambia", "Zimbabwe"],
+                states: 
+                    [ "Please select","JOHOR","KEDAH","KELANTAN","MELAKA","NEGERI SEMBILAN","PAHANG","PERAK","PERLIS","PULAU PINANG","SABAH","SARAWAK","SELANGOR","TERENGGANU","WILAYAH PERSEKUTUAN, KUALA LUMPUR","WILAYAH PERSEKUTUAN, LABUAN","WILAYAH PERSEKUTUAN, PUTRAJAYA","OTHERS"],
+                maritalStatusOptions: [
+                    { value: 'Single' },
+                    { value: 'Widower' },
+                    { value: 'Divorcee' },
+                    { value: 'Married' },
+                    { value: 'Widowe' },
+                ], 
+                genderOptions: [
+                    { value: 'Male' },
+                    { value: 'Female' },
+                ],    
+            }
+        },
+        computed: {
+            mappedGender() {
+              return this.formData.gender === "M" ? "Male" : "Female";
+            },
+        },
+        created() {
+            this.init()
+            const userInfo = localStorage.getItem('userInfo')
+            if (userInfo) {
+                console.log(userInfo)
+                this.userInfo = JSON.parse(userInfo)
+            }
+        },
+        mounted() {},
+        methods: {
+            async init() {
+                const userInfo = JSON.parse(localStorage.getItem('userInfo'))
+                if(userInfo) {
+                    this.id = parseInt(userInfo.applicantId);
+                } 
+                console.log("init id here: " + this.id )
+                
+                await getProfile(this.id).then(res => {
+                    console.log(res)
+                    if (String(res.code) === '1') {
+                        console.log(res.data)
+                        this.formData = res.data
+                        // Extract the date part from the dateOfBirth string
+                        const dateOfBirthParts = res.data.dateOfBirth.split(" ");
+                        this.formData.dateOfBirth = dateOfBirthParts[0];
+
+                    } else {
+                        this.$message.error(res.msg || 'Fail to handle')
+                    }
+                })
+            },
+            updateMaritalStatus(selectedMaritalStatus) {
+              // Update formData.maritalStatus when a radio button is changed
+              this.formData.maritalStatus = selectedMaritalStatus;
+            },
+            updateGenderStatus(selectedGender) {
+              // Update formData.gender when a radio button is changed
+              this.formData.gender = selectedGender;
+            },
+            handleQuery() {
+              this.init();
+            },
+        }
+
+    });
+
+    
+//                     {
+//     "profileInfoId": "1",
+//     "fullName": "John Doe",
+//     "mykadNo": "123456789012",
+//     "nationality": "Malaysian",
+//     "dateOfBirth": "1990-01-01",
+//     "gender": "M",
+//     "maritalStatus": "Single",
+//     "race": "Chinese",
+//     "religion": "Buddhism",
+//     "address": "123 Main Street",
+//     "postcode": "50000",
+//     "state": "Kuala Lumpur",
+//     "country": "Malaysia",
+//     "homeTelNo": "0312345678",
+//     "mobileNo": "0123456789"
+// }
+</script>
+
+
+</body>
+
+</html>
