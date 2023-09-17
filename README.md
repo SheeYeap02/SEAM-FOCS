@@ -4,7 +4,7 @@ Software Evolution and Maintenance on TAR UMT FOCS
 # Tech Stake
 SpringBoot + MybatisPlus Framework + MySQL + Vue.js + axios
 
-# Step to run the file:
+# Step to run the Application:
 1. First, you need to run the sqlscript to create database
 2. Install MySQL Workbench via https://dev.mysql.com/downloads/installer/ 
 3. Latest MySQL Version 8.0.34 is fine, open it when it's done installed (create account also --> remember the username and password!)
