@@ -4,6 +4,8 @@ target/
 !**/src/test/**/target/
 
 focs/src/main/resources/application.yml
+*/application.yml
+*.yml
 
 ### IntelliJ IDEA ###
 .idea/modules.xml
