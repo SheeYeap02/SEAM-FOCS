@@ -19,3 +19,5 @@ SpringBoot + MybatisPlus Framework + MySQL + Vue.js + axios
     ![image](https://github.com/SheeYeap02/SEAM-FOCS/assets/84632952/a86603bf-af01-4a7b-ae08-c981a81e5cbf)
 
 11. In browser, type localhost:8080/dist/{your desire page} to view the page. e.g. localhost:8080/dist/index.html  <-- this is for enrollment page testing
+
+Note: You may need to enable or install some plugins like Lombok. IDE will detect for you
