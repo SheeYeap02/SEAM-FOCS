@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import java.time.LocalDateTime;
 
 @Slf4j
 @RestController
@@ -68,20 +69,21 @@ public class ApplicantController {
         return Result.success("Logout Success");
     }
 
-//    /**
-//     * New Applicant
-//     * @param applicant
-//     * @return
-//     */
-//    @PostMapping
-//    public Result<String> save(HttpServletRequest request, @RequestBody Applicant applicant) {
-//        log.info("New Applicant, Applicant Details: {}", applicant.toString());
-//
-//        //Set Initial Password 123456, have to encrypt with MD5
-//        applicant.setPassword(DigestUtils.md5DigestAsHex(applicant.getPassword().getBytes()));
-//        applicantService.save(applicant);
-//
-//        return Result.success("Successfully Added New Applicant");
-//    }
+    /**
+     * New Applicant
+     * @param applicant
+     * @return
+     */
+    @PostMapping("/signup")
+    public Result<String> save(HttpServletRequest request, @RequestBody Applicant applicant) {
+        log.info("New Applicant, Applicant Details: {}", applicant.toString());
+
+        //Set and encrypt password with MD5
+        applicant.setPassword(DigestUtils.md5DigestAsHex(applicant.getPassword().getBytes()));
+        applicant.setRegisteredDate(LocalDateTime.now());
+        applicantService.save(applicant);
+
+        return Result.success("Successfully Added New Applicant");
+    }
 
 }

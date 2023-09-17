@@ -4,12 +4,14 @@ function loginApi(data) {
       'method': 'post',
       data
     })
-  }
+}
   
-  function logoutApi(){
+function logoutApi(){
     return $axios({
       'url': '/applicant/logout',
       'method': 'post',
     })
-  }
+}
+
+
   

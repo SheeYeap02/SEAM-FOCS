@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAR UMT - Application for Admission Postgraduate Programme</title>
+    <link rel="shortcut icon" href="https://web.tarc.edu.my/portal/images/tarucLogo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../assets/compiled/css/app.css">
+    <link rel="stylesheet" href="../assets/compiled/css/app-dark.css">
+    <link rel="stylesheet" href="../assets/compiled/css/iconly.css">
+    <link rel="stylesheet" href="../assets/compiled/css/common.css">
+    <link rel="stylesheet" href="../assets/compiled/css/login.css">
+    <link rel="stylesheet" href="../assets/compiled/fonts/iconfont/iconfont.css" />
+    <link rel="stylesheet" href="../plugins/element-ui/index.css" />
+    <style>
+        body {
+            /* min-width: 1366px; */
+            background-image: url('../assets/compiled/jpg/tarumt_bg1.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* Optional, makes the background fixed while scrolling */
+        }
+
+        .create-account {
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            /* Remove default underline */
+            color: #545bb8;
+            transition: color 0.3s;
+            /* Add smooth color transition */
+        }
+
+        .create-account:hover {
+            color: #6aa9ed;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login" id="signup-app">
+        <div class="" style="text-align: center; padding-bottom: 10px;">
+            <h2>Online Application Process</h2>
+          </div>
+        <div class="login-box">
+            <!-- <img src="../assets/compiled/jpg/tarumt_bg1.jpg" alt=""> -->
+            <div class="login-form">
+                <el-form ref="loginForm" :model="loginForm" :rules="loginRules">
+                    <div class="login-form-title">
+                        <img src="https://www.tarc.edu.my/images/tarumt-logo1.png?v=beyongEducation2"
+                            style="width:250px; height:102px;" alt="" />
+                    </div>
+                    <div class="form-title" style="text-align: center; padding-bottom: 10px;">
+                        <h3>Sign up for new account</h3>
+                    </div>
+                    <el-form-item prop="applicantEmail">
+                        <el-input v-model="loginForm.applicantEmail" type="text" auto-complete="off" placeholder="Email"
+                            maxlength="20" prefix-icon="iconfont icon-user" />
+                    </el-form-item>
+                    <el-form-item prop="password">
+                        <el-input v-model="loginForm.password" type="password" placeholder="Password"
+                            prefix-icon="iconfont icon-lock" maxlength="20" @keyup.enter.native="handleSignUp" />
+                    </el-form-item>
+                    <el-form-item style="width:100%; margin-bottom: 10px;">
+                        <el-button :loading="loading" class="login-btn" size="medium" type="primary" style="width:100%;"
+                            @click.native.prevent="handleSignUp">
+                            <span v-if="!loading">Sign Up</span>
+                            <span v-else>Processing</span>
+                        </el-button>
+                    </el-form-item>
+                    <a href="./login.html" class="create">
+                        <span class="create-account">Already have an account? Login Here</span>
+                    </a>
+                </el-form>
+            </div>
+        </div>
+    </div>
+
+    <script src="../plugins/vue/vue.js"></script>
+    <script src="../plugins/element-ui/index.js"></script>
+    <script src="../plugins/axios/axios.min.js"></script>
+    <script src="../assets/extensions/jquery/jquery.min.js"></script>
+    <script src="../assets/extensions/parsleyjs/parsley.min.js"></script>
+    <script src="../assets/static/js/pages/parsley.js"></script>
+    <script src="../api/applicant.js"></script>
+    <script src="../js/request.js"></script>
+    <script src="../js/index.js"></script>
+
+    <script>
+        new Vue({
+            el: '#signup-app',
+            data() {
+                return {
+                    loginForm: {
+                        applicantEmail: 'alibaba@gmail.com',
+                        password: 'password111'
+                    },
+                    loading: false
+                }
+            },
+            computed: {
+                loginRules() {
+                    const validateUserEmail = (rule, value, callback) => {
+                        if (value.length < 1) {
+                            callback(new Error('Please enter email'))
+                        } else {
+                            callback()
+                        }
+                    }
+                    const validatePassword = (rule, value, callback) => {
+                        if (value.length < 8) {
+                            callback(new Error('Password must be at least 8 characters'))
+                        } else {
+                            callback()
+                        }
+                    }
+                    return {
+                        'applicantEmail': [{
+                            'validator': validateUserEmail,
+                            'trigger': 'blur'
+                        }],
+                        'password': [{
+                            'validator': validatePassword,
+                            'trigger': 'blur'
+                        }]
+                    }
+                }
+            },
+            created() {},
+            methods: {
+                handleSignUp() {
+                    console.log(this.loginForm)
+                    this.$refs.loginForm.validate(async (valid) => {
+                        if (valid) {
+                            console.log(this.loginForm)
+                            this.loading = true
+                            const params = {
+                                ...this.loginForm
+                            }
+                            await addApplicant(params).then(res => {
+                                if (String(res.code) === '1') {
+                                    alert('Successfully Sign Up An Account！')
+                                    this.$message.success('Successfully Sign Up An Account！')
+                                    window.location.href = '/dist/page/login.html'
+                                } else {
+                                    alert('Fail to handle！')
+                                    this.$message.error(res.msg || 'Fail to handle')
+                                    this.loading = false
+                                }
+                            })
+                        }
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

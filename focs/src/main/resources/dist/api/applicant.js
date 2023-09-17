@@ -9,11 +9,19 @@ function getApplicantProfile(params) {
 // add new user
 function addApplicant(params) {
   return $axios({
-    url: '/applicant',
+    url: '/applicant/signup',
     method: 'post',
     data: { ...params }
   })
 }
+
+// function signUpApi(data) {
+//   return $axios({
+//     'url': '/applicant/signup',
+//     'method': 'post',
+//     data
+//   })
+// }
 
 // modify user
 function editApplicant(params) {

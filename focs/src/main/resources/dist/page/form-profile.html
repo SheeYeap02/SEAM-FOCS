@@ -154,13 +154,13 @@
                   <div class="col-md-4 col-12">
                     <div class="form-group mandatory">
                       <label for="full-name-column" class="form-label">Full Name</label>
-                      <input type="text" id="full-name-column" class="form-control" placeholder="Full Name" name="fname-column" v-model="formData.fullName" data-parsley-required="true"/>
+                      <input type="text" id="full-name-column" class="form-control" placeholder="Full Name" name="fname-column" v-model="formData.profileInfo.fullName" data-parsley-required="true"/>
                     </div>
                   </div>
                   <div class="col-md-4 col-12">
                     <div class="form-group mandatory">
                       <label for="mykad-column" class="form-label">MyKad No</label>
-                      <input type="text" id="mykad-column" class="form-control" placeholder="IC Number" name="ic-column" v-model="formData.mykadNo" data-parsley-required="true"/>
+                      <input type="text" id="mykad-column" class="form-control" placeholder="IC Number" name="ic-column" v-model="formData.profileInfo.mykadNo" data-parsley-required="true"/>
                     </div>
                   </div>
                   <div class="col-md-4 col-12">
@@ -178,12 +178,12 @@
                   <div class="col-md-4 col-12">
                     <div class="form-group mandatory">
                       <label for="city-column" class="form-label">Date Of Birth</label>
-                      <input type="date" class="form-control mb-3 flatpickr-no-config" placeholder="Select date.." v-model="formData.dateOfBirth">
+                      <input type="date" class="form-control mb-3 flatpickr-no-config" placeholder="Select date.." v-model="formData.profileInfo.dateOfBirth">
                     </div>
                   </div>
                   <div class="col-md-2 col-12">
                     <div class="form-group mandatory">
-                      <label for="country-floating" class="form-label">Gender</label>
+                      <label for="gener-floating" class="form-label">Gender</label>
                       <div class="col-12">
                         <div class="form-group mandatory" style="display: flex;">
                           <fieldset style="display: flex;">
@@ -207,7 +207,7 @@
                   </div>
                   <div class="col-md-4 col-12">
                     <div class="form-group mandatory">
-                      <label for="country-floating" class="form-label">Marital Status</label>
+                      <label for="marital-floating" class="form-label">Marital Status</label>
                       <div class="col-12">
                         <div class="form-group mandatory">
                           <fieldset style="display: flex;">
@@ -219,7 +219,7 @@
                                   :name="'flexRadioDefault2'"
                                   :id="'flexRadioDefault' + (index + 3)"
                                   :value="option.value"
-                                  :checked="option.value === formData.maritalStatus"
+                                  :checked="option.value === formData.profileInfo.maritalStatus"
                                   @change="updateMaritalStatus(option.value)"
                                 />
                                 <label class="form-check-label form-label" :for="'flexRadioDefault' + (index + 3)">{{ option.value }}</label>
@@ -234,7 +234,7 @@
                       <label for="race-column" class="form-label">Race</label><br>
                       <div class="col-md-12 mb-12">
                         <fieldset class="form-group">
-                            <select v-model="formData.race" class="form-select" id="basicSelect">
+                            <select v-model="formData.profileInfo.race" class="form-select" id="basicSelect">
                                 <option v-for="race in races" :value="race">{{ race }}</option>
                             </select>
                         </fieldset>
@@ -246,7 +246,7 @@
                       <label for="religion-column" class="form-label">Religion</label><br>
                       <div class="col-md-12 mb-12">
                         <fieldset class="form-group">
-                            <select v-model="formData.religion" class="form-select" id="basicSelect">
+                            <select v-model="formData.profileInfo.religion" class="form-select" id="basicSelect">
                                 <option v-for="religion in religions" :value="religion">{{ religion }}</option>
                             </select>
                         </fieldset>
@@ -260,13 +260,13 @@
                     <div class="form-group mandatory">
                       <label for="address-column" class="form-label">Address</label>
                       <input type="text" id="address-column" class="form-control" name="address-column" placeholder="Please provide current address" data-parsley-required="true"
-                        v-model="formData.address"/>
+                        v-model="formData.profileInfo.address"/>
                     </div>
                   </div>
                   <div class="col-md-2 col-12">
                     <div class="form-group mandatory">
                       <label for="postcode-column" class="form-label">Post/Zipcode</label>
-                      <input type="text" id="postcode-column" class="form-control" placeholder="Post or Zipcode" name="postcode-column" data-parsley-required="true" v-model="formData.postcode"/>
+                      <input type="text" id="postcode-column" class="form-control" placeholder="Post or Zipcode" name="postcode-column" data-parsley-required="true" v-model="formData.profileInfo.postcode"/>
                     </div>
                   </div>
                   <div class="col-md-6 col-12">
@@ -274,7 +274,7 @@
                       <label for="state-column" class="form-label">State</label><br>
                       <div class="col-md-12 mb-12">
                         <fieldset class="form-group">
-                            <select v-model="formData.state" name="state-column" class="form-select" id="basicSelect">
+                            <select v-model="formData.profileInfo.state" name="state-column" class="form-select" id="basicSelect">
                                 <option v-for="state in states" :value="state">{{ state }}</option>
                             </select>
                         </fieldset>
@@ -286,7 +286,7 @@
                       <label for="country-column" class="form-label">Country</label><br>
                       <div class="col-md-12 mb-12">
                         <fieldset class="form-group">
-                            <select v-model="formData.country" class="form-select" id="basicSelect">
+                            <select v-model="formData.profileInfo.country" class="form-select" id="basicSelect">
                                 <option v-for="country in countries" :value="country">{{ country }}</option>
                             </select>
                         </fieldset>
@@ -297,7 +297,7 @@
                     <div class="form-group mandatory">
                         <label for="hometel-column" class="form-label">Home</label><br>
                         <div class="form-group position-relative has-icon-left">
-                            <input type="text" class="form-control" name="hometel-column" placeholder="Home Tel. No" v-model="formData.homeTelNo">
+                            <input type="text" class="form-control" name="hometel-column" placeholder="Home Tel. No" v-model="formData.profileInfo.homeTelNo">
                             <div class="form-control-icon">
                                 <i class="bi bi-telephone"></i>
                             </div>
@@ -308,7 +308,7 @@
                     <div class="form-group mandatory">
                         <label for="mobileno-column" class="form-label">Mobile</label><br>
                         <div class="form-group position-relative has-icon-left">
-                            <input type="text" class="form-control" name="mobileno-column" placeholder="Mobile No." v-model="formData.mobileNo">
+                            <input type="text" class="form-control" name="mobileno-column" placeholder="Mobile No." v-model="formData.profileInfo.mobileNo">
                             <div class="form-control-icon">
                                 <i class="bi bi-telephone"></i>
                             </div>
@@ -336,25 +336,25 @@
                 <div class="col-md-6 col-12">
                     <div class="form-group mandatory">
                       <label for="full2-name-column" class="form-label">Full Name</label>
-                      <input type="text" id="full2-name-column" class="form-control" placeholder="Full Name" name="fname2-column" data-parsley-required="true"/>
+                      <input type="text" id="full2-name-column" class="form-control" placeholder="Full Name" name="fname2-column" data-parsley-required="true" v-model="formData.emergencyInfo.fullName"/>
                     </div>
                 </div>
                 <div class="col-md-6 col-12">
                     <div class="form-group mandatory">
                       <label for="relation-column" class="form-label">Relationship</label>
-                      <input type="text" id="relation-column" class="form-control" placeholder="Relationship" name="relation-column" data-parsley-required="true"/>
+                      <input type="text" id="relation-column" class="form-control" placeholder="Relationship" name="relation-column" data-parsley-required="true" v-model="formData.emergencyInfo.relationship"/>
                     </div>
                   </div>
                 <div class="col-md-12 col-12">
                     <div class="form-group mandatory">
                       <label for="address2-column" class="form-label">Address</label>
-                      <input type="text" id="address2-column" class="form-control" name="address2-column" placeholder="Please provide current address" data-parsley-required="true" v-model="formData.address"/>
+                      <input type="text" id="address2-column" class="form-control" name="address2-column" placeholder="Please provide current address" data-parsley-required="true" v-model="formData.emergencyInfo.address"/>
                     </div>
                 </div>
                 <div class="col-md-2 col-12">
                     <div class="form-group mandatory">
                       <label for="postcode2-column" class="form-label">Post/Zipcode</label>
-                      <input type="text" id="postcode2-column" class="form-control" placeholder="Post or Zipcode" name="postcode2-column" data-parsley-required="true" v-model="formData.postcode"/>
+                      <input type="text" id="postcode2-column" class="form-control" placeholder="Post or Zipcode" name="postcode2-column" data-parsley-required="true" v-model="formData.emergencyInfo.postcode"/>
                     </div>
                 </div>
                 <div class="col-md-6 col-12">
@@ -362,7 +362,7 @@
                       <label for="state2-column" class="form-label">State</label><br>
                       <div class="col-md-12 mb-12">
                         <fieldset class="form-group">
-                            <select v-model="formData.state" name="state2-column" class="form-select" id="basicSelect">
+                            <select v-model="formData.emergencyInfo.state" name="state2-column" class="form-select" id="basicSelect">
                                 <option v-for="state in states" :value="state">{{ state }}</option>
                             </select>
                         </fieldset>
@@ -374,7 +374,7 @@
                       <label for="country2-column" class="form-label">Country</label><br>
                       <div class="col-md-12 mb-12">
                         <fieldset class="form-group">
-                            <select v-model="formData.country" class="form-select" id="basicSelect">
+                            <select v-model="formData.emergencyInfo.country" class="form-select" id="basicSelect">
                                 <option v-for="country in countries" :value="country">{{ country }}</option>
                             </select>
                         </fieldset>
@@ -385,7 +385,7 @@
                     <div class="form-group mandatory">
                         <label for="hometel2-column" class="form-label">Home</label><br>
                         <div class="form-group position-relative has-icon-left">
-                            <input type="text" class="form-control" name="hometel2-column" placeholder="Home Tel. No" v-model="formData.homeTelNo">
+                            <input type="text" class="form-control" name="hometel2-column" placeholder="Home Tel. No" v-model="formData.emergencyInfo.contactNo">
                             <div class="form-control-icon">
                                 <i class="bi bi-telephone"></i>
                             </div>
@@ -396,7 +396,7 @@
                     <div class="form-group mandatory">
                         <label for="email-column" class="form-label">Email</label><br>
                         <div class="form-group position-relative has-icon-left">
-                            <input type="text" class="form-control" placeholder="E-mail">
+                            <input type="text" class="form-control" placeholder="E-mail" v-model="formData.emergencyInfo.email">
                             <div class="form-control-icon">
                                 <i class="bi bi-envelope"></i>
                             </div>
@@ -406,7 +406,7 @@
             </div>
                 <div class="row">
                   <div class="col-12 d-flex justify-content-end">
-                    <button type="submit" class="btn btn-primary me-1 mb-1">
+                    <button type="submit" class="btn btn-primary me-1 mb-1" @click="submitForm('formData', true)">
                       Submit
                     </button>
                     <button type="reset" class="btn btn-light-secondary me-1 mb-1">
@@ -460,12 +460,22 @@
             return {
                 id: '',
                 formData : {        // Default value, or load from the server
-                    race: 'Please select',
-                    religion: 'Please select',
-                    country: 'Please select',
-                    state: 'Please select',
-                    maritalStatus: 'Single', 
-                    gender: 'Male', 
+                    profileInfo: {
+                      race: 'Please select',
+                      religion: 'Please select',
+                      country: 'Please select',
+                      state: 'Please select',
+                      maritalStatus: 'Single', 
+                      gender: 'Male', 
+                   },
+                   emergencyInfo: {
+                      race: 'Please select',
+                      religion: 'Please select',
+                      country: 'Please select',
+                      state: 'Please select',
+                      maritalStatus: 'Single', 
+                      gender: 'Male', 
+                   }
                 },
                 userInfo: {},
                 selectedRace: '',
@@ -481,7 +491,7 @@
                 countries: 
                     [ "Please select", "Canada", "Afghanistan", "Albania", "Algeria", "American Samoa", "Andorra", "Angola", "Anguilla", "Antarctica", "Antigua and/or Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Bouvet Island", "Brazil", "British Indian Ocean Territory", "Brunei Darussalam", "Bulgaria", "Burkina Faso", "Burundi", "Cambodia", "Cameroon", "Cape Verde", "Cayman Islands", "Central African Republic", "Chad", "Chile", "China", "Christmas Island", "Cocos (Keeling) Islands", "Colombia", "Comoros", "Congo", "Cook Islands", "Costa Rica", "Croatia (Hrvatska)", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "East Timor", "Ecudaor", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Falkland Islands (Malvinas)", "Faroe Islands", "Fiji", "Finland", "France", "France, Metropolitan", "French Guiana", "French Polynesia", "French Southern Territories", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Gibraltar", "Greece", "Greenland", "Grenada", "Guadeloupe", "Guam", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Heard and Mc Donald Islands", "Honduras", "Hong Kong", "Hungary", "Iceland", "India", "Indonesia", "Iran (Islamic Republic of)", "Iraq", "Ireland", "Israel", "Italy", "Ivory Coast", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Korea, Democratic People's Republic of", "Korea, Republic of", "Kosovo", "Kuwait", "Kyrgyzstan", "Lao People's Democratic Republic", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libyan Arab Jamahiriya", "Liechtenstein", "Lithuania", "Luxembourg", "Macau", "Macedonia", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Martinique", "Mauritania", "Mauritius", "Mayotte", "Mexico", "Micronesia, Federated States of", "Moldova, Republic of", "Monaco", "Mongolia", "Montserrat", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "Netherlands Antilles", "New Caledonia", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Niue", "Norfork Island", "Northern Mariana Islands", "Norway", "Oman", "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Pitcairn", "Poland", "Portugal", "Puerto Rico", "Qatar", "Reunion", "Romania", "Russian Federation", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Georgia South Sandwich Islands", "South Sudan", "Spain", "Sri Lanka", "St. Helena", "St. Pierre and Miquelon", "Sudan", "Suriname", "Svalbarn and Jan Mayen Islands", "Swaziland", "Sweden", "Switzerland", "Syrian Arab Republic", "Taiwan", "Tajikistan", "Tanzania, United Republic of", "Thailand", "Togo", "Tokelau", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Turks and Caicos Islands", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States minor outlying islands", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican City State", "Venezuela", "Vietnam", "Virigan Islands (British)", "Virgin Islands (U.S.)", "Wallis and Futuna Islands", "Western Sahara", "Yemen", "Yugoslavia", "Zaire", "Zambia", "Zimbabwe"],
                 states: 
-                    [ "Please select","JOHOR","KEDAH","KELANTAN","MELAKA","NEGERI SEMBILAN","PAHANG","PERAK","PERLIS","PULAU PINANG","SABAH","SARAWAK","SELANGOR","TERENGGANU","WILAYAH PERSEKUTUAN, KUALA LUMPUR","WILAYAH PERSEKUTUAN, LABUAN","WILAYAH PERSEKUTUAN, PUTRAJAYA","OTHERS"],
+                    [ "Please select","JOHOR","KEDAH","KELANTAN","MELAKA","NEGERI SEMBILAN","PAHANG","PERAK","PERLIS","PULAU PINANG","SABAH","SARAWAK","SELANGOR","TERENGGANU","WILAYAH PERSEKUTUAN KUALA LUMPUR","WILAYAH PERSEKUTUAN LABUAN","WILAYAH PERSEKUTUAN PUTRAJAYA","OTHERS"],
                 maritalStatusOptions: [
                     { value: 'Single' },
                     { value: 'Widower' },
@@ -497,12 +507,12 @@
         },
         computed: {
             mappedGender() {
-              return this.formData.gender === "M" ? "Male" : "Female";
+              return this.formData.profileInfo.gender === "M" ? "Male" : "Female";
             },
         },
         created() {
             this.init()
-            const userInfo = localStorage.getItem('userInfo')
+            const userInfo = window.localStorage.getItem('userInfo')
             if (userInfo) {
                 console.log(userInfo)
                 this.userInfo = JSON.parse(userInfo)
@@ -511,7 +521,7 @@
         mounted() {},
         methods: {
             async init() {
-                const userInfo = JSON.parse(localStorage.getItem('userInfo'))
+                const userInfo = JSON.parse(window.localStorage.getItem('userInfo'))
                 if(userInfo) {
                     this.id = parseInt(userInfo.applicantId);
                 } 
@@ -523,21 +533,75 @@
                         console.log(res.data)
                         this.formData = res.data
                         // Extract the date part from the dateOfBirth string
-                        const dateOfBirthParts = res.data.dateOfBirth.split(" ");
-                        this.formData.dateOfBirth = dateOfBirthParts[0];
+                        const dateOfBirthParts = res.data.profileInfo.dateOfBirth.split(" ");
+                        this.formData.profileInfo.dateOfBirth = dateOfBirthParts[0];
 
                     } else {
+                        alert('No Result')
                         this.$message.error(res.msg || 'Fail to handle')
                     }
                 })
             },
+            submitForm (formName, st) {
+              this.$refs[formName].validate((valid) => {
+                if (valid) {
+                  if (true) {
+                    const params = {
+                      ...this.formData,
+                      sex: this.formData.sex === '女' ? '0' : '1'
+                    }
+                    addEmployee(params).then(res => {
+                      alert('Adding now')
+                      if (res.code === 1) {
+                        alert('Added new profile details！')
+                        this.$message.success('Added new profile details！')
+                        // if (!st) {
+                        //   this.goBack()
+                        // } else {
+                        //   this.ruleForm = {
+                        //     username: '',
+                        //     'name': '',
+                        //     'phone': '',
+                        //     // 'password': '',
+                        //     // 'rePassword': '',/
+                        //     'sex': '男',
+                        //     'idNumber': ''
+                        //   }
+                        // }
+                      } else {
+                        this.$message.error(res.msg || 'Fail to handle')
+                      }
+                    }).catch(err => {
+                      this.$message.error('Request error：' + err)
+                    })
+                  } else {
+                    const params = {
+                      ...this.formData,
+                    }
+                    // editProfile(params).then(res => {
+                    //   if (res.code === 1) {
+                    //     this.$message.success('Profile Details Updated Successfully！')
+                    //     this.goBack()
+                    //   } else {
+                    //     this.$message.error(res.msg || 'Fail to handle')
+                    //   }
+                    // }).catch(err => {
+                    //   this.$message.error('Request error: ' + err)
+                    // })
+                  }
+                } else {
+                  console.log('error submit!!')
+                  return false
+                }
+              })
+            },
             updateMaritalStatus(selectedMaritalStatus) {
               // Update formData.maritalStatus when a radio button is changed
-              this.formData.maritalStatus = selectedMaritalStatus;
+              this.formData.profileInfo.maritalStatus = selectedMaritalStatus;
             },
             updateGenderStatus(selectedGender) {
               // Update formData.gender when a radio button is changed
-              this.formData.gender = selectedGender;
+              this.formData.profileInfo.gender = selectedGender;
             },
             handleQuery() {
               this.init();
@@ -547,22 +611,36 @@
     });
 
     
-//                     {
-//     "profileInfoId": "1",
-//     "fullName": "John Doe",
-//     "mykadNo": "123456789012",
-//     "nationality": "Malaysian",
-//     "dateOfBirth": "1990-01-01",
-//     "gender": "M",
-//     "maritalStatus": "Single",
-//     "race": "Chinese",
-//     "religion": "Buddhism",
-//     "address": "123 Main Street",
-//     "postcode": "50000",
-//     "state": "Kuala Lumpur",
-//     "country": "Malaysia",
-//     "homeTelNo": "0312345678",
-//     "mobileNo": "0123456789"
+//     {
+//     "profileInfo": {
+//         "profileInfoId": "1",
+//         "fullName": "John Doe",
+//         "mykadNo": "123456789012",
+//         "nationality": "Malaysian",
+//         "dateOfBirth": "1990-01-01",
+//         "gender": "M",
+//         "maritalStatus": "Divorcee",
+//         "race": "Chinese",
+//         "religion": "Buddhist",
+//         "address": "123 Main Street",
+//         "postcode": "50000",
+//         "state": "WILAYAH PERSEKUTUAN, KUALA LUMPUR",
+//         "country": "Malaysia",
+//         "homeTelNo": "0312345678",
+//         "mobileNo": "0123456789"
+//     },
+//     "emergencyInfo": {
+//         "emergencyInfoId": "1",
+//         "fullName": "John Smith",
+//         "relationship": "Father",
+//         "address": "123 Main Street",
+//         "postcode": "50000",
+//         "state": "Kuala Lumpur",
+//         "country": "Malaysia",
+//         "contactNo": "0123456789",
+//         "email": "john.smith@gmail.com",
+//         "profileInfoId": "1"
+//     }
 // }
 </script>
 
