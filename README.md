@@ -1,7 +1,10 @@
 # SEAM-FOCS
 Software Evolution and Maintenance on TAR UMT FOCS 
 
-Step to run the file:
+# Tech Stake
+SpringBoot + MybatisPlus Framework + MySQL + Vue.js + axios
+
+# Step to run the file:
 1. First, you need to run the sqlscript to create database
 2. Install MySQL Workbench via https://dev.mysql.com/downloads/installer/ 
 3. Latest MySQL Version 8.0.34 is fine, open it when it's done installed (create account also --> remember the username and password!)
@@ -15,4 +18,4 @@ Step to run the file:
 10. Open "FocsApplication.java" and click to run it directly. It should show something "Run Successfully"
     ![image](https://github.com/SheeYeap02/SEAM-FOCS/assets/84632952/a86603bf-af01-4a7b-ae08-c981a81e5cbf)
 
-12. In browser, type localhost:8080/dist/{your desire page} to view the page. e.g. localhost:8080/dist/index.html  <-- this is for enrollment page testing
+11. In browser, type localhost:8080/dist/{your desire page} to view the page. e.g. localhost:8080/dist/index.html  <-- this is for enrollment page testing
