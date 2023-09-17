@@ -1,4 +1,4 @@
-![image](https://github.com/SheeYeap02/SEAM-FOCS/assets/84632952/af6dbb42-7491-4677-8afb-c6a8daee158a)# SEAM-FOCS
+# SEAM-FOCS
 Software Evolution and Maintenance on TAR UMT FOCS 
 
 Step to run the file:
