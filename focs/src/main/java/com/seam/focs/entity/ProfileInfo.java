@@ -1,5 +1,6 @@
 package com.seam.focs.entity;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -8,6 +9,7 @@ import java.time.LocalDateTime;
 @Data
 public class ProfileInfo implements Serializable {
     private static final long serialVersionUID = 1L;
+    @TableId
     private Long profileInfoId;
 
     private String fullName;
@@ -24,6 +26,7 @@ public class ProfileInfo implements Serializable {
     private String country;
     private String homeTelNo;
     private String mobileNo;
+    private Long applicantId;
 
     // Constructors, getters, and setters
 
@@ -31,7 +34,7 @@ public class ProfileInfo implements Serializable {
     public ProfileInfo() {
     }
 
-    public ProfileInfo(Long profileInfoId, String fullName, String mykadNo, String nationality, LocalDateTime dateOfBirth, char gender, String maritalStatus, String race, String religion, String address, String postcode, String state, String country, String homeTelNo, String mobileNo) {
+    public ProfileInfo(Long profileInfoId, String fullName, String mykadNo, String nationality, LocalDateTime dateOfBirth, char gender, String maritalStatus, String race, String religion, String address, String postcode, String state, String country, String homeTelNo, String mobileNo, Long applicantId) {
         this.profileInfoId = profileInfoId;
         this.fullName = fullName;
         this.mykadNo = mykadNo;
@@ -47,13 +50,14 @@ public class ProfileInfo implements Serializable {
         this.country = country;
         this.homeTelNo = homeTelNo;
         this.mobileNo = mobileNo;
+        this.applicantId = applicantId;
     }
 
     public Long getProfileInfoId() {
         return profileInfoId;
     }
 
-    public void setProfileInfoId(long profileInfoId) {
+    public void setProfileInfoId(Long profileInfoId) {
         this.profileInfoId = profileInfoId;
     }
 
@@ -167,6 +171,14 @@ public class ProfileInfo implements Serializable {
 
     public void setMobileNo(String mobileNo) {
         this.mobileNo = mobileNo;
+    }
+
+    public Long getApplicantId() {
+        return applicantId;
+    }
+
+    public void setApplicantId(Long applicantId) {
+        this.applicantId = applicantId;
     }
 }
 

@@ -14,21 +14,47 @@
   <link rel="stylesheet" href="../assets/compiled/css/login.css">
   <link rel="stylesheet" href="../assets/compiled/fonts/iconfont/iconfont.css" />
   <link rel="stylesheet" href="../plugins/element-ui/index.css" />
+
   <style>
-    .body{
-      min-width: 1366px;
+    body {
+      /* min-width: 1366px; */
+      background-image: url('../assets/compiled/jpg/tarumt_bg1.jpg');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: fixed; /* Optional, makes the background fixed while scrolling */
+    }
+
+    .create-account {
+      text-align: center;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none; /* Remove default underline */
+      color: #545bb8;
+      transition: color 0.3s; /* Add smooth color transition */
+    }
+  
+    .create-account:hover {
+        color: #6aa9ed;
+        text-decoration: underline;
     }
   </style>
 </head> 
 
 <body>
   <div class="login" id="login-app">
+    <div class="" style="text-align: center; padding-bottom: 10px;">
+      <h2>Online Application Process</h2>
+    </div>
     <div class="login-box">
-      <img src="../assets/compiled/jpg/tarumt_bg1.jpg" alt="">
+      <!-- <img src="../assets/compiled/jpg/tarumt_bg1.jpg" alt=""> -->
       <div class="login-form">
         <el-form ref="loginForm" :model="loginForm" :rules="loginRules" >
           <div class="login-form-title">
             <img src="https://www.tarc.edu.my/images/tarumt-logo1.png?v=beyongEducation2" style="width:250px; height:102px;" alt="" />
+          </div>
+          <div class="form-title" style="text-align: center; padding-bottom: 10px;">
+            <h3>User Login</h3>
           </div>
           <el-form-item prop="applicantEmail">
             <el-input v-model="loginForm.applicantEmail" type="text" auto-complete="off" placeholder="Email" maxlength="20"
@@ -38,20 +64,16 @@
             <el-input v-model="loginForm.password" type="password" placeholder="Password" prefix-icon="iconfont icon-lock" maxlength="20"
               @keyup.enter.native="handleLogin" />
           </el-form-item>
-          <el-form-item style="width:100%;">
+          <el-form-item style="width:100%; margin-bottom: 10px;">
             <el-button :loading="loading" class="login-btn" size="medium" type="primary" style="width:100%;"
               @click.native.prevent="handleLogin">
               <span v-if="!loading">Login</span>
               <span v-else>Processing</span>
             </el-button>
           </el-form-item>
-          <!-- <el-form-item style="width:100%;">
-            <el-button :loading="loading" class="login-btn" size="medium" type="primary" style="width:100%;"
-              @click.native.prevent="handleSignUp">
-              <span v-if="!loading">Sign Up</span>
-              <span v-else>Processing</span>
-            </el-button>
-          </el-form-item> -->
+          <a href="./signup.html" class="create">
+            <span class="create-account">Don't have an account? Create One</span>
+          </a>
         </el-form>
       </div>
     </div>
@@ -120,21 +142,6 @@
             }
           })
         }, 
-        // async handleSignUp() {
-        //   this.$refs.loginForm.validate(async (valid) => {
-        //     if (valid) {
-        //       this.loading = true
-        //       let res = await loginApi(this.loginForm)
-        //       if (String(res.code) === '1') {
-        //         localStorage.setItem('userInfo', JSON.stringify(res.data))
-        //         window.location.href= '/dist/index.html'
-        //       } else {
-        //         this.$message.error(res.msg)
-        //         this.loading = false
-        //       }
-        //     }
-        //   })
-        // }
       }
     })
   </script>

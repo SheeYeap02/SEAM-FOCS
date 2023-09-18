@@ -1,0 +1,21 @@
+
+focs/src/main/resources/application.yml
+src/main/resources/application.yml
+*.yml
+
+# IntelliJ IDEA
+.idea/
+
+# User-specific files
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/.name
+.idea/.ideaName
+
+# Generated files
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/encodings.xml
+.idea/jarRepositories.xml
+.idea/compiler.xml

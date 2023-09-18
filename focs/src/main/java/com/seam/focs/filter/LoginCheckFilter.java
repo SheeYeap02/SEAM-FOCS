@@ -31,6 +31,7 @@ public class LoginCheckFilter implements Filter {
 
         //Paths that no need to handle
         String[] urls = new String[] {
+                "/applicant/signup",
                 "/applicant/login",
                 "/applicant/logout",
                 "/dist/**",

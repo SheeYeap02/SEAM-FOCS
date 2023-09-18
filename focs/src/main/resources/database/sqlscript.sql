@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `applicant`;
 ------------------------------------------------------------------------------------------------------------------------------------
 -- User table
 CREATE TABLE `applicant` (
-	`applicant_id` BIGINT(20) NOT NULL,
+	`applicant_id` BIGINT(20) NOT NULL AUTO_INCREMENT,
     `applicant_email` VARCHAR(40) NOT NULL,
     `password` VARCHAR(64) NOT NULL,
     `registered_date` DATETIME NOT NULL,
@@ -33,7 +33,7 @@ CREATE TABLE `applicant` (
 
 -- Staff table
 CREATE TABLE `staff` (
-  `staff_id` BIGINT(20) NOT NULL,
+  `staff_id` BIGINT(20) NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(15) NOT NULL,
   `password` VARCHAR(64) NOT NULL,
   `staff_name` VARCHAR(30) NOT NULL,
@@ -47,7 +47,7 @@ CREATE TABLE `staff` (
 
 -- ProfileInfoId table
 CREATE TABLE `profile_info` (
-    `profile_info_id` BIGINT(20) NOT NULL,
+    `profile_info_id` BIGINT(20) NOT NULL AUTO_INCREMENT,
     `full_name` VARCHAR(30)  NOT NULL,
     `mykad_no` VARCHAR(14)  NOT NULL,
     `nationality` VARCHAR(30)  NOT NULL,
@@ -69,7 +69,7 @@ CREATE TABLE `profile_info` (
 
 -- Programme table
 CREATE TABLE `programme` (
-    `programme_id` BIGINT(20) NOT NULL,
+    `programme_id` BIGINT(20) NOT NULL AUTO_INCREMENT,
     `programme_name` VARCHAR(50)  NOT NULL,
     `overview` VARCHAR(255)  NOT NULL,
     `level_of_study` VARCHAR(30)  NOT NULL,
@@ -84,28 +84,28 @@ CREATE TABLE `programme` (
 
 -- Career table
 CREATE TABLE `career` (
-    `career_id` BIGINT(20) NOT NULL,
+    `career_id` BIGINT(20) NOT NULL AUTO_INCREMENT,
     `career_name` VARCHAR(30)  NOT NULL,
     PRIMARY KEY(`career_id`)
 );
 
 -- Progression table
 CREATE TABLE `progression` (
-    `progression_id` BIGINT(20) NOT NULL,
+    `progression_id` BIGINT(20) NOT NULL AUTO_INCREMENT,
     `programme_name` VARCHAR(50)  NOT NULL,
     PRIMARY KEY(`progression_id`)
 );
 
 -- Campus table
 CREATE TABLE `campus` (
-    `campus_id` BIGINT(20) NOT NULL,
+    `campus_id` BIGINT(20) NOT NULL AUTO_INCREMENT, 
     `campus_name` VARCHAR(40) NOT NULL,
     PRIMARY KEY(`campus_id`)
 );
 
 -- ProgrammeOutline table
 CREATE TABLE `programme_outline` (
-    `programme_outline_id` BIGINT(20)  NOT NULL,
+    `programme_outline_id` BIGINT(20)  NOT NULL AUTO_INCREMENT,
     `course_name` VARCHAR(50) NOT NULL,
     PRIMARY KEY(`programme_outline_id`)
 );
@@ -151,14 +151,14 @@ CREATE TABLE `campus_assign` (
 
 -- EmergencyInfo table
 CREATE TABLE `emergency_info` (
-    `emergency_info_id` BIGINT(20) NOT NULL,
-    `fullName` VARCHAR(30)  NOT NULL,
+    `emergency_info_id` BIGINT(20) NOT NULL AUTO_INCREMENT,
+    `full_name` VARCHAR(30)  NOT NULL,
     `relationship` VARCHAR(15)  NOT NULL,
     `address` VARCHAR(50)  NOT NULL,
     `postcode` VARCHAR(5)  NOT NULL,
-    `state` VARCHAR(30)  NOT NULL,
+    `state` VARCHAR(50)  NOT NULL,
     `country` VARCHAR(30)  NOT NULL,
-    `contactNo` VARCHAR(14)  NOT NULL,
+    `contact_no` VARCHAR(14)  NOT NULL,
     `email` VARCHAR(40)  NOT NULL,
     `profile_info_id` BIGINT(20) NOT NULL,
     PRIMARY KEY (`emergency_info_id`),
@@ -167,7 +167,7 @@ CREATE TABLE `emergency_info` (
 
 -- DetailedInfo table
 CREATE TABLE `detailed_info` (
-    `detailed_info_id` BIGINT(20) NOT NULL, 
+    `detailed_info_id` BIGINT(20) NOT NULL AUTO_INCREMENT, 
     `ic_front` BLOB  NOT NULL,
     `ic_back` BLOB  NOT NULL,
     `household_income` DECIMAL(10, 2) NOT NULL,
@@ -179,7 +179,7 @@ CREATE TABLE `detailed_info` (
 
 -- Qualification table
 CREATE TABLE `qualification` (
-    `qualification_id` BIGINT(20) NOT NULL, 
+    `qualification_id` BIGINT(20) NOT NULL AUTO_INCREMENT, 
     `start_date` DATETIME  NOT NULL,
     `end_date` DATETIME  NOT NULL,
     `mode_of_study` VARCHAR(20)  NOT NULL,
@@ -206,7 +206,7 @@ CREATE TABLE `preu_result` (
 
 -- Application table
 CREATE TABLE `application` (
-    `application_id` BIGINT(20) NOT NULL,
+    `application_id` BIGINT(20) NOT NULL AUTO_INCREMENT,
     `intake` VARCHAR(12) NOT NULL,
     `application_status` VARCHAR(15) NOT NULL,
     `study_mode` VARCHAR(20) NOT NULL,
@@ -240,7 +240,7 @@ CREATE TABLE `enquirer`(
 
 -- Enquiry table
 CREATE TABLE `enquiry`(
-    `enquiry_id` BIGINT(20) NOT NULL,
+    `enquiry_id` BIGINT(20) NOT NULL AUTO_INCREMENT,
     `highest_lvl_educ` VARCHAR(30) NOT NULL,
     `programme_lvl_interest` VARCHAR(40)  NOT NULL,
     `programme_interest` VARCHAR(40)  NOT NULL,
@@ -269,8 +269,8 @@ INSERT INTO `staff` VALUES (1, 'admin', 'password123', 'Ali Baba', '0123456789',
 INSERT INTO `staff` VALUES (2, 'staff', 'password456', 'Ali Mama', '0123456780', 'alimama@gmail.com', 'Lecturer', 'Teaching', 'Mathematics');
 
 -- ProfileInfo table
-INSERT INTO `profile_info` VALUES (1, 'John Doe', '123456789012', 'Malaysian', '1990-01-01', 'M', 'Divorcee', 'Chinese', 'Buddhist', '123 Main Street', '50000', 'WILAYAH PERSEKUTUAN, KUALA LUMPUR', 'Malaysia', '0312345678', '0123456789', 1);
-INSERT INTO `profile_info` VALUES (2, 'Jane Doe', '987654321009', 'Malaysian', '1991-02-02', 'F', 'Married', 'Malay', 'Islam', '456 Main Street', '50000', 'WILAYAH PERSEKUTUAN, KUALA LUMPUR', 'Malaysia', '0312345670', '0123456780', 2);
+INSERT INTO `profile_info` VALUES (1, 'John Doe', '123456789012', 'Malaysian', '1990-01-01', 'M', 'Divorcee', 'Chinese', 'Buddhist', '123 Main Street', '50000', 'WILAYAH PERSEKUTUAN KUALA LUMPUR', 'Malaysia', '0312345678', '0123456789', 1);
+INSERT INTO `profile_info` VALUES (2, 'Jane Doe', '987654321009', 'Malaysian', '1991-02-02', 'F', 'Married', 'Malay', 'Islam', '456 Main Street', '50000', 'WILAYAH PERSEKUTUAN KUALA LUMPUR', 'Malaysia', '0312345670', '0123456780', 2);
 
 -- Programme table
 -- (ProgrammeId, ProgrammeName, Overview, LevelOfStudy, Duration, Intake, localTotalFee, overseaTotalFee, ApplicantId)
@@ -320,8 +320,8 @@ INSERT INTO `campus_assign` VALUES (2, 1);
 
 -- EmergencyInfo table
 -- (EmergencyInfoId, FullName, Relationship, Address, Postcode, State, Country, ContactNo, Email, ProfileInfoId)
-INSERT INTO `emergency_info` VALUES (1, 'John Smith', 'Father', '123 Main Street', '50000', 'Kuala Lumpur', 'Malaysia', '0123456789', 'john.smith@gmail.com', 1);
-INSERT INTO `emergency_info` VALUES (2, 'Jane Doe', 'Mother', '456 Main Street', '50000', 'Kuala Lumpur', 'Malaysia', '0123456780', 'jane.doe@gmail.com', 2);
+INSERT INTO `emergency_info` VALUES (1, 'John Smith', 'Father', '123 Main Street', '50000', 'WILAYAH PERSEKUTUAN KUALA LUMPUR', 'Malaysia', '0123456789', 'john.smith@gmail.com', 1);
+INSERT INTO `emergency_info` VALUES (2, 'Jane Doe', 'Mother', '456 Main Street', '50000', 'WILAYAH PERSEKUTUAN KUALA LUMPUR', 'Malaysia', '0123456780', 'jane.doe@gmail.com', 2);
 
 -- DetailedInfo table
 -- (DetailedInfoId, ICFront, ICBack, HouseholdIncome, MedicalCondition, ApplicantId)

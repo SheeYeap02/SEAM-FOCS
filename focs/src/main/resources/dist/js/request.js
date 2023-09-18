@@ -55,7 +55,6 @@
          localStorage.removeItem("userInfo");
          window.top.location.href = "../page/login.html";
       } else {
-        console.log("Halo You're Here")
         return res.data;
       }
     },

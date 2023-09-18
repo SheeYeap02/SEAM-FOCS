@@ -1,5 +1,4 @@
 function getProfile(id) {
-    console.log("Halo Axios Here")
     return $axios({
       url: `/profile/${id}`,
       method: 'get'
@@ -9,7 +8,7 @@ function getProfile(id) {
 // add new profile
 function addProfile(params) {
   return $axios({
-    url: '/profile',
+    url: '/profile/add',
     method: 'post',
     data: { ...params }
   })
@@ -18,15 +17,8 @@ function addProfile(params) {
 // modify profile
 function editProfile(params) {
   return $axios({
-    url: '/profile',
+    url: '/profile/update',
     method: 'put',
     data: { ...params }
-  })
-}
-
-function queryProfileById (id) {
-  return $axios({
-    url: `/profile/${id}`,
-    method: 'get'
   })
 }
