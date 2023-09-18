@@ -53,10 +53,8 @@
         // back to login page
          console.log("---- ../page/login.html ----");
          localStorage.removeItem("userInfo");
-         alert('Halo Youre Here');
          window.top.location.href = "../page/login.html";
       } else {
-        alert('Halo Youre Error Here');
         return res.data;
       }
     },

@@ -8,4 +8,12 @@ import lombok.Data;
 public class ProfileEmergencyDTO {
     private ProfileInfo profileInfo;
     private EmergencyInfo emergencyInfo;
+
+    public ProfileEmergencyDTO() {
+    }
+
+    public ProfileEmergencyDTO(ProfileInfo profileInfo, EmergencyInfo emergencyInfo) {
+        this.profileInfo = profileInfo;
+        this.emergencyInfo = emergencyInfo;
+    }
 }

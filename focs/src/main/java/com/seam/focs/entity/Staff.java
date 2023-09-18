@@ -1,5 +1,6 @@
 package com.seam.focs.entity;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -7,6 +8,7 @@ import java.io.Serializable;
 @Data
 public class Staff implements Serializable {
     private static final long serialVersionUID = 1L;
+    @TableId
     private Long staffId;
     private String username;
     private String password;
