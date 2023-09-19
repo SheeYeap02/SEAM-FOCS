@@ -25,23 +25,30 @@ public class DetailedInfoController {
     @Autowired
     private DetailedInfoService detailedInfoService;
 
+    /**
+     *
+     * @param icImage
+     * @param householdIncome
+     * @param medicalCondition
+     * @param applicantId
+     * @return
+     */
     @PostMapping(value="/add", consumes={MediaType.MULTIPART_FORM_DATA_VALUE})
     public Result<String> save(
-            @RequestParam("icFront") MultipartFile icFront,
-            @RequestParam("icBack") MultipartFile icBack,
+            @RequestParam("icImage") MultipartFile icImage,
             @RequestParam("householdIncome") String householdIncome,
             @RequestParam("medicalCondition") String medicalCondition,
             @RequestParam("applicantId") Long applicantId) {
-        log.info("New Detailed Info: {}", icFront);
 
-        if (icFront != null && !icFront.isEmpty()) {
+        log.info("New Detailed Info: {}", icImage);
+
+        if (icImage != null && !icImage.isEmpty()) {
             try {
                 DetailedInfo detailedInfo = new DetailedInfo();
-                byte[] icFrontData = icFront.getBytes();
+                byte[] icFrontData = icImage.getBytes();
                 log.info("Here is the image data = {}", Arrays.toString(icFrontData));
 
-                detailedInfo.setIcFront(icFrontData);
-                detailedInfo.setIcBack(icFrontData);
+                detailedInfo.setIcImage(icFrontData);
                 detailedInfo.setMedicalCondition(medicalCondition);
                 detailedInfo.setHouseholdIncome(householdIncome);
                 detailedInfo.setApplicantId(applicantId);
@@ -57,65 +64,39 @@ public class DetailedInfoController {
 
     /**
      *
-     * @param detailedInfo
+     * @param icImage
+     * @param householdIncome
+     * @param medicalCondition
+     * @param applicantId
      * @return
      */
-//    @PostMapping(value="/add", consumes={MediaType.MULTIPART_FORM_DATA_VALUE})
-//    public Result<String> save(@RequestParam("icFront") MultipartFile icFront, @ModelAttribute DetailedInfo detailedInfo) {
-//        log.info("New Detailed Info: {}", detailedInfo.toString());
-//
-//        // Process and store the icFront file
-////        if (icFront != null && !icFront.isEmpty()) {
-////            try {
-////                //inputstream to read document content
-//////                InputStream fileInputStream = icFront.getInputStream();
-//////                ByteArrayOutputStream buffer = new ByteArrayOutputStream();
-//////
-//////                byte[] bytes = new byte[16384];
-//////                int len = 0;
-//////                while ((len = fileInputStream.read(bytes, 0, bytes.length)) != -1) {
-//////                    buffer.write(bytes, 0, len);
-//////                }
-////                // Convert the MultipartFile to a byte array
-//////                byte[] bytes = new byte[16384];
-//////                int len = 0;
-//////                byte[] icFrontBytes = icFront.getBytes();
-//////                while((len = fileInputStream.read(bytes)) != -1) {
-//////                    outputStream.write(bytes, 0, len);
-//////                    outputStream.flush();
-//////                }
-////                byte[] icFrontData = icFront.getBytes();
-////                // Set the byte array in your DetailedInfo entity
-////                detailedInfo.setIcFront(icFrontData);
-////                log.info("Here is the image data = {}", detailedInfo.getIcFront());
-////
-////                //Close stream source
-//////                fileInputStream.close();
-//////                buffer.close();
-////            } catch (IOException e) {
-////                // Handle the exception (e.g., log an error)
-////                e.printStackTrace();
-////            }
-////        }
-////
-////        //Set and encrypt password with MD5
-////        detailedInfoService.save(detailedInfo);
-//
-//        return Result.success("Successfully Added New Detailed Info");
-//    }
+    @PutMapping(value="/update", consumes={MediaType.MULTIPART_FORM_DATA_VALUE})
+    public Result<String> update(@RequestParam("icImage") MultipartFile icImage,
+                                 @RequestParam("householdIncome") String householdIncome,
+                                 @RequestParam("medicalCondition") String medicalCondition,
+                                 @RequestParam("applicantId") Long applicantId,
+                                 @RequestParam("detailedInfoId") Long detailedInfoId) {
+        log.info("New Detailed Info: {}", icImage);
 
-    /**
-     *
-     * @param httpServletRequest
-     * @param detailedInfo
-     * @return
-     */
-    @PutMapping("update")
-    public Result<String> update(HttpServletRequest httpServletRequest, @RequestBody DetailedInfo detailedInfo) {
-        log.info("This is update {}", detailedInfo.toString());
+        if (icImage != null && !icImage.isEmpty()) {
+            try {
+                DetailedInfo detailedInfo = new DetailedInfo();
+                byte[] icFrontData = icImage.getBytes();
+                log.info("Here is the image data = {}", Arrays.toString(icFrontData));
 
-        detailedInfoService.updateById(detailedInfo);
-        return Result.success("Detailed Info Edited Successfully");
+                detailedInfo.setIcImage(icFrontData);
+                detailedInfo.setMedicalCondition(medicalCondition);
+                detailedInfo.setHouseholdIncome(householdIncome);
+                detailedInfo.setApplicantId(applicantId);
+                detailedInfo.setDetailedInfoId(detailedInfoId);
+
+                detailedInfoService.updateById(detailedInfo);
+            } catch (IOException e) {
+                // Handle the exception (e.g., log an error)
+                e.printStackTrace();
+            }
+        }
+        return Result.success("Successfully Edited Detailed Info");
     }
 
     /**
@@ -125,10 +106,9 @@ public class DetailedInfoController {
      */
     @GetMapping("/{id}")
     public Result<DetailedInfo> getDetailedInfo(@PathVariable Long id) {
-        log.info("Initialize profile details");
+        log.info("Initialize Detailed Info details");
         log.info("Applicant id = {}", id);
         DetailedInfo detailedInfo = detailedInfoService.getOne(new QueryWrapper<DetailedInfo>().eq("applicant_id", id));
-
         return Result.success(detailedInfo);
     }
 }

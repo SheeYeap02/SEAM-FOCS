@@ -21,7 +21,8 @@
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
-            background-attachment: fixed; /* Optional, makes the background fixed while scrolling */
+            background-attachment: fixed;
+            /* Optional, makes the background fixed while scrolling */
         }
 
         .create-account {
@@ -45,7 +46,7 @@
     <div class="login" id="signup-app">
         <div class="" style="text-align: center; padding-bottom: 10px;">
             <h2>Online Application Process</h2>
-          </div>
+        </div>
         <div class="login-box">
             <!-- <img src="../assets/compiled/jpg/tarumt_bg1.jpg" alt=""> -->
             <div class="login-form">
@@ -143,9 +144,12 @@
                             }
                             await addApplicant(params).then(res => {
                                 if (String(res.code) === '1') {
-                                    alert('Successfully Sign Up An Account！')
+                                    // alert('Successfully Sign Up An Account！')
                                     this.$message.success('Successfully Sign Up An Account！')
-                                    window.location.href = '/dist/page/login.html'
+                                    setTimeout(() => {
+                                        window.location.href =
+                                            '/dist/page/login.html';
+                                    },500); // 0.5secs
                                 } else {
                                     alert('Fail to handle！')
                                     this.$message.error(res.msg || 'Fail to handle')

@@ -11,8 +11,7 @@ public class DetailedInfo {
     @TableId
     private Long detailedInfoId;
 
-    private byte[] icFront;
-    private byte[] icBack;
+    private byte[] icImage;
     private String householdIncome;
     private String medicalCondition;
     private Long applicantId;
@@ -20,10 +19,9 @@ public class DetailedInfo {
     public DetailedInfo() {
     }
 
-    public DetailedInfo(Long detailedInfoId, byte[] icFront, byte[] icBack, String householdIncome, String medicalCondition, Long applicantId) {
+    public DetailedInfo(Long detailedInfoId, byte[] icImage, String householdIncome, String medicalCondition, Long applicantId) {
         this.detailedInfoId = detailedInfoId;
-        this.icFront = icFront;
-        this.icBack = icBack;
+        this.icImage = icImage;
         this.householdIncome = householdIncome;
         this.medicalCondition = medicalCondition;
         this.applicantId = applicantId;
@@ -37,20 +35,12 @@ public class DetailedInfo {
         this.detailedInfoId = detailedInfoId;
     }
 
-    public byte[] getIcFront() {
-        return icFront;
+    public byte[] getIcImage() {
+        return icImage;
     }
 
-    public void setIcFront(byte[] icFront) {
-        this.icFront = icFront;
-    }
-
-    public byte[] getIcBack() {
-        return icBack;
-    }
-
-    public void setIcBack(byte[] icBack) {
-        this.icBack = icBack;
+    public void setIcImage(byte[] icImage) {
+        this.icImage = icImage;
     }
 
     public String getHouseholdIncome() {

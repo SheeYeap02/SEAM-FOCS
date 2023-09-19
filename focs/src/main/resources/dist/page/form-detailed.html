@@ -10,10 +10,7 @@
   <link rel="stylesheet" href="../assets/compiled/css/app-dark.css">
   <link rel="stylesheet" href="../assets/compiled/css/iconly.css">
   <link rel="stylesheet" href="../plugins/element-ui/index.css" />
-  <link rel="stylesheet" href="../assets/extensions/filepond/filepond.css">
-  <link rel="stylesheet" href="../assets/extensions/filepond-plugin-image-preview/filepond-plugin-image-preview.css">
-  <link rel="stylesheet" href="../assets/extensions/toastify-js/src/toastify.css">
-  <link rel="stylesheet" href="https://unpkg.com/element-ui@2.15.6/lib/theme-chalk/index.css">
+  <link rel="stylesheet" href="../assets/compiled/css/uploadFile.css" />
 
   <style>
     /* Apply specific styles to the first radio button */
@@ -235,7 +232,7 @@
                     Information/Details</h4>
                 </div>
                 <div class="card-content">
-                  <div class="card-body">                                      
+                  <div class="card-body">
                     <form class="form" data-parsley-validate id="detailed-app" enctype="multipart/form-data">
                       <div class="row">
                         <div class="col-md-12 col-12">
@@ -249,7 +246,7 @@
                                     style="margin-left: 1rem;">
                                     <input class="form-check-input" type="radio" :name="'flexRadioDefault2'"
                                       :id="'flexRadioDefault' + (index + 3)" :value="option.value"
-                                      :checked="option.value === formData.detailedInfo.householdIncome"
+                                      :checked="option.value === formData.householdIncome"
                                       @change="updateIncome(option.value)" :disabled="!isEditing" />
                                     <label class="form-check-label form-label"
                                       :for="'flexRadioDefault' + (index + 3)">{{ option.value }}</label>
@@ -270,8 +267,8 @@
                                     style="margin-left: 1rem;">
                                     <input class="form-check-input" type="radio" :id="'flexRadioDefault' + (index)"
                                       :value="option.value" :name="'flexRadioDefault1'"
-                                      :checked="option.value === formData.detailedInfo.medicalCondition"
-                                      @change="updateMedical(option.value)" :disabled="!isEditing" />
+                                      :checked="option.value === mappedMedical" @change="updateMedical(option.value)"
+                                      :disabled="!isEditing" />
                                     <label class="form-check-label form-label"
                                       :for="'flexRadioDefault' + (index)">{{ option.value }}</label>
                                   </div>
@@ -282,9 +279,8 @@
                         </div>
                         <div class="col-md-12 col-12">
                           <div class="form-group mandatory">
-                            <input v-if="formData.detailedInfo.medicalCondition === 'Yes'"
-                              v-model="formData.detailedInfo.medicalDetails" type="text" class="form-control"
-                              placeholder="If yes, please specify your medical details" :disabled="!isEditing" />
+                            <input v-if="mappedMedical === 'Yes'" v-model="formData.medicalCondition" type="text"
+                              class="form-control" :placeholder="mappedMedicalPlaceholder" :disabled="!isEditing" />
                           </div>
                         </div>
 
@@ -303,41 +299,80 @@
                                       <code>5MB. </code><br>
                                       The only accepted formats are
                                       <code>png, jpg or jpeg.</code><br>
-                                      Only two maximum files can be uploaded
+                                      Only <code>one file with IC Front & Back</code> can be uploaded.
                                     </p>
-                                    <input type="file" class="multiple-files-filepond"  multiple required ref="uploadImage2">
-                                    <input type="file" class="" @change="handleFileChange" name="icFront" ref="uploadImage" multiple required >
+
+                                    <div>
+                                      <button v-if="formData.icImage" @click="toggleImage" type="button"
+                                        class="toggleImg btn btn-light-secondary me-1 mb-1" :disabled="!isEditing"
+                                        style="border: none">
+                                        {{ showStoredImage ? 'Remain Image' : 'New Image' }}
+                                      </button>
+                                    </div>
+                                    <img v-if="showStoredImage && formData.icImage"
+                                      :src="'data:image/jpg;base64,' + formData.icImage" alt="" id="retainImage"
+                                      class="" draggable="false" width="170px" height="150px" ref="uploadImage2"/>
+
+                                    <!-- Upload Area -->
+                                    <div v-else id="uploadArea" class="upload-area">
+                                      <!-- Header -->
+                                      <div class="upload-area__header">
+                                        <h1 class="upload-area__title">Upload your file</h1>
+                                        <p class="upload-area__paragraph">
+                                          File should be an image
+                                          <strong class="upload-area__tooltip">
+                                            Like
+                                            <span class="upload-area__tooltip-data"></span>
+                                            <!-- Data Will be Comes From Js -->
+                                          </strong>
+                                        </p>
+                                      </div>
+                                      <!-- End Header -->
+
+                                      <!-- Drop Zoon -->
+                                      <div id="dropZoon" class="upload-area__drop-zoon drop-zoon">
+                                        <span class="drop-zoon__icon">
+                                          <i class='bx bxs-file-image'></i>
+                                        </span>
+                                        <p class="drop-zoon__paragraph">Drop your file here or Click to browse</p>
+                                        <span id="loadingText" class="drop-zoon__loading-text">Please Wait</span>
+
+                                        <img src="" alt="Preview Image" id="previewImage"
+                                          class="drop-zoon__preview-image" draggable="false">
+
+                                        <input type="file" id="fileInput" class="drop-zoon__file-input"
+                                          accept="image/jpeg、image/png、image/jpg" ref="uploadImage"
+                                          @change="handleFileChange" required style="opacity: 1; display: block">
+                                      </div>
+                                      <!-- End Drop Zoon -->
+
+                                      <!-- File Details -->
+                                      <div id="fileDetails" class="upload-area__file-details file-details">
+                                        <h3 class="file-details__title">Uploaded File</h3>
+
+                                        <div id="uploadedFile" class="uploaded-file">
+                                          <div class="uploaded-file__icon-container">
+                                            <i class='bx bxs-file-blank uploaded-file__icon'></i>
+                                            <span class="uploaded-file__icon-text"></span>
+                                            <!-- Data Will be Comes From Js -->
+                                          </div>
+
+                                          <div id="uploadedFileInfo" class="uploaded-file__info">
+                                            <span class="uploaded-file__name">Project 1</span>
+                                            <span class="uploaded-file__counter">0%</span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <!-- End File Details -->
+                                    </div>
+                                    <!-- End Upload Area -->
+
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </section>
-
-                        <!-- <div class="row">
-                          <div class="col-12 col-md-12">
-                            <div class="form-group mandatory">
-                              <label for="gener-floating" class="form-label">IC Image - Front & Back</label>
-                              <div class="col-12">
-                              <div class="form-group mandatory" style="">
-                                <p class="card-text">
-                                  Please note that maximum for each attached file size is
-                                  <code>5MB. </code><br>
-                                  The only accepted formats are
-                                  <code>pdf, doc, docx, bmp, png, jpg or gif.</code><br>
-                                  Only two maximum files can be uploaded
-                                </p>
-                                <div class="form-group col-md-4">
-                                  <div class="drop-zone">
-                                    <span class="drop-zone_prompt">Drag-and-Drop or Click file to upload</span>
-                                    <input type="file" name="photo" class="drop-zone_text" required>
-                                  </div>
-                                </div>
-                              </div>
-                              </div>
-                            </div>
-                          </div> -->
-
 
                         <div class="row">
                           <div class="col-md-12 col-12 d-flex justify-content-end align-items-end"
@@ -389,21 +424,6 @@
   <script src="../assets/static/js/pages/parsley.js"></script>
   <script src="../assets/extensions/sweetalert2/sweetalert2.min.js"></script>
 
-  <script src="../assets/extensions/filepond-plugin-file-validate-size/filepond-plugin-file-validate-size.min.js">
-  </script>
-  <script src="../assets/extensions/filepond-plugin-file-validate-type/filepond-plugin-file-validate-type.min.js">
-  </script>
-  <script src="../assets/extensions/filepond-plugin-image-crop/filepond-plugin-image-crop.min.js"></script>
-  <script
-    src="../assets/extensions/filepond-plugin-image-exif-orientation/filepond-plugin-image-exif-orientation.min.js">
-  </script>
-  <script src="../assets/extensions/filepond-plugin-image-filter/filepond-plugin-image-filter.min.js"></script>
-  <script src="../assets/extensions/filepond-plugin-image-preview/filepond-plugin-image-preview.min.js"></script>
-  <script src="../assets/extensions/filepond-plugin-image-resize/filepond-plugin-image-resize.min.js"></script>
-  <script src="../assets/extensions/filepond/filepond.js"></script>
-  <script src="../assets/extensions/toastify-js/src/toastify.js"></script>
-  <script src="../assets/static/js/pages/filepond.js"></script>
-
 
   <script src="../plugins/axios/axios.min.js"></script>
   <script src="../plugins/element-ui/index.js"></script>
@@ -411,7 +431,6 @@
   <script src="../api/detailedInfo.js"></script>
   <script src="../js/request.js"></script>
   <script src="../js/index.js"></script>
-  <script src="../js/uploadImage.js"></script>
   <script src="https://unpkg.com/element-ui@2.15.6/lib/index.js"></script>
   <script>
     new Vue({
@@ -420,17 +439,15 @@
         return {
           id: '',
           formData: { // Default value, or load from the server
-            detailedInfo: {
-              'icFront': '',
-              'icBack': '',
-              'householdIncome': 'B40 (no income to RM5000)',
-              'medicalCondition': 'Yes',
-            },
+            'icImage': '',
+            'householdIncome': 'B40 (no income to RM5000)',
+            'medicalCondition': 'No',
           },
-          gotData: false,
+          gotData: true,
           isEditing: true,
+          showStoredImage: true,
           userInfo: {},
-          imageUrl: '',
+          convertedFile: null,
           householdIncomeOptions: [{
               value: 'B40 (no income to RM5000)'
             },
@@ -450,7 +467,14 @@
           ],
         }
       },
-      computed: {},
+      computed: {
+        mappedMedical() {
+          return this.formData.medicalCondition === "No" ? "No" : "Yes";
+        },
+        mappedMedicalPlaceholder() {
+          return this.mappedMedical === 'Yes' ? 'If yes, please specify your medical details' : '';
+        }
+      },
       created() {
         // this.init()
         const userInfo = window.localStorage.getItem('userInfo')
@@ -459,7 +483,7 @@
           this.userInfo = JSON.parse(userInfo)
         }
         if (this.userInfo.applicantId) {
-          // this.init()
+          this.init()
         }
       },
       mounted() {},
@@ -467,66 +491,84 @@
         init() {
           const userInfo = JSON.parse(window.localStorage.getItem('userInfo'))
           if (userInfo) {
-            this.id = parseInt(userInfo.applicantId);
+            this.id = userInfo.applicantId;
           }
-          console.log("init id here: " + this.id)
+          console.log("Applicant id here: " + this.id)
 
           getDetailedInfo(this.id).then(res => {
             console.log(res)
             if (String(res.code) === '1') {
               console.log(res.data)
-              this.gotData = true;
-              this.isEditing = false;
-              this.formData = res.data
+              if (res.data != null) {
+                this.gotData = true;
+                this.isEditing = false;
+                this.showStoredImage = true;
+                this.formData = res.data
+                console.log("Here is the IC Image" + typeof this.formData.icImage)
+              } else {
+                this.gotData = false;
+                this.isEditing = true;
+                this.showStoredImage = false;
+                this.formData = {
+                  'icImage': '',
+                  'householdIncome': 'B40 (no income to RM5000)',
+                  'medicalCondition': 'No',
+                }
+                this.$message.error('Haven\' Fill Up This Form!')
+              }
             } else {
               this.$message.error(res.msg || 'Fail to handle')
               this.gotData = false;
               this.isEditing = true;
-              // alert('No Result')
+              this.showStoredImage = false;
               this.formData = {
-                detailedInfo: {
-                  "medicalCondition": "",
-                  "householdIncome": "",
-                }
+                'icImage': '',
+                'householdIncome': 'B40 (no income to RM5000)',
+                'medicalCondition': 'No',
               }
+              this.$message.error('Haven\' Fill Up This Form!')
             }
           })
         },
         submitForm(formName) {
-          console.log("Submit: " + this.formData.detailedInfo.icFront.name)
+          console.log("Submit: " + this.gotData)
           event.preventDefault();
-          // const params = {
-          //   ...this.formData
-          // }
-          this.formData.detailedInfo.applicantId = JSON.parse(window.localStorage.getItem('userInfo')).applicantId;
 
+          //For multipart/form-data to be passed to SpringBoot, cannot put JSON data
+          //So, one by one put the value
           const params = new FormData();
-          //Append JSON data as a blob
-          params.append('icFront', this.$refs.uploadImage.files[0])
-          params.append('icBack', this.$refs.uploadImage.files[0])
-          params.append('householdIncome', 'B40 (no income to RM5000)');
-          params.append('medicalCondition', 'Yes');
-          params.append('applicantId', JSON.parse(window.localStorage.getItem('userInfo')).applicantId); 
-          
-          // params.detailedInfo.applicantId = JSON.parse(window.localStorage.getItem('userInfo')).applicantId;
-          console.log("Submit: " + params.detailedInfo.icFront.name)
+          // params.append('icImage', this.showStoredImage ? this.formData.icImage : this.$refs.uploadImage.files[0])
+          params.append('householdIncome', this.formData.householdIncome);
+          params.append('medicalCondition', this.formData.medicalCondition);
+          params.append('applicantId', JSON.parse(window.localStorage.getItem('userInfo')).applicantId);
+          params.append('detailedInfoId', this.formData.detailedInfoId);
 
           if (!this.gotData) {
+            params.append('icImage', this.$refs.uploadImage.files[0])
             addDetailedInfo(params).then(res => {
               if (String(res.code) === '1') {
-                console.log('Added new profile details！')
+                console.log('Successfully added new profile details！')
                 this.$message.success('Added new profile details！')
+                setTimeout(() => {
+                  location.reload();
+                  alert('Halo Add')
+                }, 500); // 0.5secs
               } else {
                 this.$message.error(res.msg || 'Fail to handle')
               }
             }).catch(err => {
-              console.log('Fail to add new profile details！: ' + err)
+              console.log('Fail to add profile details！: ' + err)
               this.$message.error('Request error：' + err)
             })
           } else {
+            this.dataURLtoFile()
+            params.append('icImage', this.convertedFile)
             editDetailedInfo(params).then(res => {
               if (String(res.code) === '1') {
-                this.$message.success('Edited profile details！')
+                this.$message.success('Successfully edited profile details！')
+                setTimeout(() => {
+                  location.reload();;
+                }, 500); // 0.5secs
               } else {
                 this.$message.error(res.msg || 'Fail to handle')
               }
@@ -534,59 +576,209 @@
               this.$message.error('Request error：' + err)
             })
           }
-          location.reload();
+          // location.reload();
         },
         handleFileChange() {
-            let uploadedFile = this.$refs.uploadImage.files[0]
-            this.formData.detailedInfo.icFront = uploadedFile
-            console.log("Handle change: " + this.formData.detailedInfo.icFront.name)
-
-            const suffix = uploadedFile.name.split('.')[1]
-            // Check if the file match the format allowed
-            if (['png', 'jpeg', 'jpg'].indexOf(suffix) < 0) {
-              console.log("Handle change: Only accept .png、.jpeg、.jpg format！" )
-              this.$message.error('Only accept .png、.jpeg、.jpg format for IC images！')
-              this.$refs.uploadImage.value = ''
-              return false
-            }
-            // Check if the file size is less than or equal to 5MB
-            const size = uploadedFile.size / 1024 / 1024 <= 5
-            if (!size) {
-              console.log("Handle change: File uploaded cannot be larger than 5MB" )
-              this.$message.error('File uploaded cannot be larger than 5MB')
-              return false
-            }
+          let uploadedFile = this.$refs.uploadImage.files[0]
+          this.formData.icFront = uploadedFile
+          console.log("Handle change: " + this.formData.icFront.name)
+          const suffix = uploadedFile.name.split('.')[1]
+          // Check if the file match the format allowed
+          if (['png', 'jpeg', 'jpg'].indexOf(suffix) < 0) {
+            console.log("Handle change: Only accept .png、.jpeg、.jpg format！")
+            this.$message.error('Only accept .png、.jpeg、.jpg format for IC images！')
+            this.$refs.uploadImage.value = ''
+            return false
+          }
+          // Check if the file size is less than or equal to 5MB
+          const size = uploadedFile.size / 1024 / 1024 <= 5
+          if (!size) {
+            console.log("Handle change: File uploaded cannot be larger than 5MB")
+            this.$message.error('File uploaded cannot be larger than 5MB')
+            return false
+          }
         },
         updateIncome(selectedIncome) {
           // Update formData.householdIncome when a radio button is changed
-          this.formData.detailedInfo.householdIncome = selectedIncome;
+          this.formData.householdIncome = selectedIncome;
           // alert('You select the household income of : ' + this.formData.detailedInfo.householdIncome)
         },
         updateMedical(selectedCondition) {
           // Update formData.medicalCondition when a radio button is changed
-          this.formData.detailedInfo.medicalCondition = selectedCondition;
-          // alert('You select the medical condition of : ' + this.formData.detailedInfo.medicalCondition)
+          this.formData.medicalCondition = selectedCondition;
+          // alert('You select the medical condition of : ' + this.formData.medicalCondition)
         },
         toggleEditing() {
           // Toggle the isEditing variable to enable/disable form fields
           this.isEditing = !this.isEditing;
         },
+        toggleImage() {
+          this.showStoredImage = !this.showStoredImage;
+        },
+        dataURLtoFile() {
+          const base64ImageString = this.formData.icImage;
+          const mimeType = 'image/jpeg'; // Change to the actual image MIME type
+
+          // Decode the base64 string into binary data
+          const binaryData = atob(base64ImageString);
+
+          // Create a Uint8Array from the binary data
+          const uint8Array = new Uint8Array(binaryData.length);
+          for (let i = 0; i < binaryData.length; i++) {
+            uint8Array[i] = binaryData.charCodeAt(i);
+          }
+
+          // Create a Blob from the Uint8Array with the specified MIME type
+          const blob = new Blob([uint8Array], {
+            type: mimeType
+          });
+
+          // Create a File object with a desired filename (e.g., 'image.jpg')
+          const fileName = 'image.jpg'; // Change to the desired filename
+          const imageFile = new File([blob], fileName, {
+            type: mimeType
+          });
+
+          // Now, 'imageFile' contains your image data as a File object
+          console.log('Converted Image File:', imageFile);
+          this.convertedFile = imageFile;
+        }
       }
 
     });
   </script>
 
+
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      // Initialize FilePond
-      const inputElement = document.querySelector(".multiple-files-filepond");
-      FilePond.create(inputElement, {
-        allowMultiple: true,
-        maxFiles: 2,
-        acceptedFileTypes: ["image/png", "image/jpeg", "image/jpg"],
-        maxFileSize: "5MB",
-      });
+    const uploadArea = document.querySelector('#uploadArea')
+    const dropZoon = document.querySelector('#dropZoon');
+    const loadingText = document.querySelector('#loadingText');
+    const fileInput = document.querySelector('#fileInput');
+    const previewImage = document.querySelector('#previewImage');
+    const fileDetails = document.querySelector('#fileDetails');
+    const uploadedFile = document.querySelector('#uploadedFile');
+    const uploadedFileInfo = document.querySelector('#uploadedFileInfo');
+    const uploadedFileName = document.querySelector('.uploaded-file__name');
+    const uploadedFileIconText = document.querySelector('.uploaded-file__icon-text');
+    const uploadedFileCounter = document.querySelector('.uploaded-file__counter');
+    const toolTipData = document.querySelector('.upload-area__tooltip-data');
+
+    // Images Types
+    const imagesTypes = [
+      "jpeg",
+      "png",
+      "jpg",
+    ];
+
+    // Append Images Types Array Inside Tooltip Data
+    toolTipData.innerHTML = [...imagesTypes].join(', .');
+
+    dropZoon.addEventListener('dragover', function (event) {
+      event.preventDefault();
+      dropZoon.classList.add('drop-zoon--over');
     });
+
+    dropZoon.addEventListener('dragleave', function (event) {
+      dropZoon.classList.remove('drop-zoon--over');
+    });
+
+    dropZoon.addEventListener('drop', function (event) {
+      event.preventDefault();
+      dropZoon.classList.remove('drop-zoon--over');
+      const file = event.dataTransfer.files[0];
+      uploadFile(file);
+    });
+
+    dropZoon.addEventListener('click', function (event) {
+
+      fileInput.click();
+    });
+
+    fileInput.addEventListener('change', function (event) {
+      const file = event.target.files[0];
+      uploadFile(file);
+    });
+
+    function uploadFile(file) {
+      const fileReader = new FileReader();
+      const fileType = file.type;
+      const fileSize = file.size;
+
+      // If File Is Passed from the (File Validation) Function
+      if (fileValidate(fileType, fileSize)) {
+        dropZoon.classList.add('drop-zoon--Uploaded');
+        loadingText.style.display = "block";
+        previewImage.style.display = 'none';
+
+        uploadedFile.classList.remove('uploaded-file--open');
+        uploadedFileInfo.classList.remove('uploaded-file__info--active');
+
+        fileReader.addEventListener('load', function () {
+          // After Half Second 
+          setTimeout(function () {
+            uploadArea.classList.add('upload-area--open');
+            loadingText.style.display = "none";
+            previewImage.style.display = 'block';
+            fileDetails.classList.add('file-details--open');
+            uploadedFile.classList.add('uploaded-file--open');
+            uploadedFileInfo.classList.add('uploaded-file__info--active');
+          }, 500); // 0.5s
+
+          previewImage.setAttribute('src', fileReader.result);
+          uploadedFileName.innerHTML = file.name;
+          progressMove();
+        });
+        fileReader.readAsDataURL(file);
+      } else {
+        this; // (this) Represent The fileValidate(fileType, fileSize) Function
+      };
+    };
+
+    // Progress Counter Increase Function
+    function progressMove() {
+      let counter = 0;
+
+      // After 600ms 
+      setTimeout(() => {
+        // Every 100ms
+        let counterIncrease = setInterval(() => {
+          // If (counter) is equal 100 
+          if (counter === 100) {
+            // Stop (Counter Increase)
+            clearInterval(counterIncrease);
+          } else {
+            counter = counter + 10;
+            // add (counter) value inside (uploadedFileCounter)
+            uploadedFileCounter.innerHTML = `${counter}%`
+          }
+        }, 100);
+      }, 600);
+    };
+
+
+    // Simple File Validate Function
+    function fileValidate(fileType, fileSize) {
+      // File Type Validation
+      let isImage = imagesTypes.filter((type) => fileType.indexOf(`image/${type}`) !== -1);
+
+      // If The Uploaded File Type Is 'jpeg'
+      if (isImage[0] === 'jpeg') {
+        uploadedFileIconText.innerHTML = 'jpg';
+      } else {
+        uploadedFileIconText.innerHTML = isImage[0];
+      };
+
+      // If The Uploaded File Is An Image
+      if (isImage.length !== 0) {
+        if (fileSize <= 5000000) { // 5MB 
+          return true;
+        } else {
+          return alert('Please Your File Should be 2 Megabytes or Less');
+        };
+      } else {
+        return alert('Please make sure to upload An Image File Type');
+      };
+    };
   </script>
 
 

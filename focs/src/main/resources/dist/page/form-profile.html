@@ -545,18 +545,12 @@
               this.init()
             }
         },
-        mounted() {
-          if (this.$router) {
-            console.log('Halo route', this.router.currentRoute)
-          } else {
-            console.log('Router is not defined')
-          }
-        },
+        mounted() {},
         methods: {
             init() {
                 const userInfo = JSON.parse(window.localStorage.getItem('userInfo'))
                 if(userInfo) {
-                    this.id = parseInt(userInfo.applicantId);
+                    this.id = userInfo.applicantId;
                 } 
                 console.log("init id here: " + this.id )
                 
@@ -572,6 +566,7 @@
                           const dateOfBirthParts = res.data.profileInfo.dateOfBirth.split(" ");
                           this.formData.profileInfo.dateOfBirth = dateOfBirthParts[0];
                         } else {
+                          this.$message.error('Haven\' Fill Up This Form!')
                           this.gotData = false;
                           this.isEditing = true;
                           // alert('No Result')
@@ -628,11 +623,12 @@
                 if(!this.gotData) {
                     addProfile(params).then(res => {
                       if (String(res.code) === '1') {
-                        // alert('Added new profile details！')
-                        console.log('Added new profile details！')
-                        this.$message.success('Added new profile details！')
+                        console.log('Successfully added new profile details！')
+                        this.$message.success('Successfully added new profile details！')
+                        setTimeout(() => {
+                          location.reload();;
+                        }, 500); // 0.5secs
                       } else {
-                        // alert('Fail to add new profile details！')
                         this.$message.error(res.msg || 'Fail to handle')
                       }
                       window.location.href= '/dist/index.html'
@@ -640,12 +636,15 @@
                       // alert('Fail to add new profile details！: ' + err)
                       console.log('Fail to add new profile details！: ' + err)
                       this.$message.error('Request error：' + err)
-                      window.location.href= '/dist/index.html'
-                    }) 
+                      }) 
                 } else {
                     editProfile(params).then(res => {
                         if (String(res.code) === '1') {
-                            this.$message.success('Edited profile details！')
+                            console.log('Successfully edited profile details！')
+                            this.$message.success('Successfully edited profile details！')
+                            setTimeout(() => {
+                              location.reload();;
+                            }, 500); // 0.5secs
                         } else {
                             this.$message.error(res.msg || 'Fail to handle')
                         }
@@ -653,7 +652,7 @@
                         this.$message.error('Request error：' + err)
                     })
                 }
-                location.reload();
+                // location.reload();
             },
             updateMaritalStatus(selectedMaritalStatus) {
               // Update formData.maritalStatus when a radio button is changed
@@ -673,66 +672,7 @@
         }
 
     });
-            // const formData2 = {        
-              //      'profileInfo': {
-              //        'fullName': document.querySelector('input[name="fname-column"]').value,
-              //        'mykadNo': document.querySelector('input[name="ic-column"]').value,
-              //        'nationality': document.querySelector('input[name="national-column"]').value,
-              //        'dateOfBirth': document.querySelector('input[name="dob-column"]').value,
-              //        'gender': document.querySelector('input[name="flexRadioDefault1"]').value, 
-              //        'maritalStatus': document.querySelector('input[name="flexRadioDefault2"]').value, 
-              //        'race': document.querySelector('input[name="race-column"]').value,
-              //        'religion': document.querySelector('input[name="religion-column"]').value,
-              //        'address': document.querySelector('input[name="address-column"]').value,
-              //        'postcode': document.querySelector('input[name="postcode-column"]').value,
-              //        'state': document.querySelector('input[name="state-column"]').value,
-              //        'country': document.querySelector('input[name="country-column"]').value,
-              //        'homeTelNo': document.querySelector('input[name="hometel-column"]').value,
-              //        'mobileNo': document.querySelector('input[name="mobileno-column"]').value
-              //     },
-              //     'emergencyInfo': {
-              //        'fullName': document.querySelector('input[name="fname2-column"]').value,
-              //        'relationship': document.querySelector('input[name="relation-column"]').value,
-              //        'address': document.querySelector('input[name="address2-column"]').value,
-              //        'postcode': document.querySelector('input[name="postcode2-column"]').value,
-              //        'state': document.querySelector('input[name="state2-column"]').value,
-              //        'country': document.querySelector('input[name="country2-column"]').value,
-              //        'contactNo': document.querySelector('input[name="hometel2-column"]').value,
-              //        'email': document.querySelector('input[name="email-column"]').value
-              //     }
-              // }
-    
-//     {
-//     "profileInfo": {
-//         "profileInfoId": "1",
-//         "fullName": "John Doe",
-//         "mykadNo": "123456789012",
-//         "nationality": "Malaysian",
-//         "dateOfBirth": "1990-01-01",
-//         "gender": "M",
-//         "maritalStatus": "Divorcee",
-//         "race": "Chinese",
-//         "religion": "Buddhist",
-//         "address": "123 Main Street",
-//         "postcode": "50000",
-//         "state": "WILAYAH PERSEKUTUAN, KUALA LUMPUR",
-//         "country": "Malaysia",
-//         "homeTelNo": "0312345678",
-//         "mobileNo": "0123456789"
-//     },
-//     "emergencyInfo": {
-//         "emergencyInfoId": "1",
-//         "fullName": "John Smith",
-//         "relationship": "Father",
-//         "address": "123 Main Street",
-//         "postcode": "50000",
-//         "state": "Kuala Lumpur",
-//         "country": "Malaysia",
-//         "contactNo": "0123456789",
-//         "email": "john.smith@gmail.com",
-//         "profileInfoId": "1"
-//     }
-// }
+          
 </script>
 
 

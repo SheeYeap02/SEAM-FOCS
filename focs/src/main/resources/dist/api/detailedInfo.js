@@ -5,20 +5,22 @@ function getDetailedInfo(id) {
     })
 }
 
-// add new profile
+// add new detailed info
 function addDetailedInfo(params) {
   return $axios({
     url: '/detailedInfo/add',
     method: 'post',
-    data: { ...params },
+    data: params,
+    headers: { 'Content-Type': 'multipart/form-data' }
   })
 }
 
-// modify profile
+// modify detailed info
 function editDetailedInfo(params) {
   return $axios({
     url: '/detailedInfo/update',
     method: 'put',
-    data: { ...params }
+    data: params,
+    headers: { 'Content-Type': 'multipart/form-data' }
   })
 }
