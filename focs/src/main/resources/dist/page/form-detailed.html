@@ -562,7 +562,7 @@
             })
           } else {
             this.dataURLtoFile()
-            params.append('icImage', this.convertedFile)
+            params.append('icImage', this.showStoredImage ? this.convertedFile : this.$refs.uploadImage.files[0])
             editDetailedInfo(params).then(res => {
               if (String(res.code) === '1') {
                 this.$message.success('Successfully edited profile details！')
