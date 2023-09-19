@@ -75,11 +75,12 @@ CREATE TABLE `programme` (
     `level_of_study` VARCHAR(30)  NOT NULL,
     `duration` INT(2)  NOT NULL,
     `intake` VARCHAR(16)  NOT NULL,
+    `Campus` VARCHAR(255)  NOT NULL,
+    `Progression` VARCHAR(255)  NOT NULL,
+    `Career` VARCHAR(255) NOT NULL,
     `local_total_fee` DECIMAL(10,2) NOT NULL,
     `oversea_total_fee` DECIMAL(10,2) NOT NULL,
-    `applicant_id` BIGINT(20) NOT NULL,
-    PRIMARY KEY(`programme_id`),
-    FOREIGN KEY (`applicant_id`) REFERENCES `applicant`(`applicant_id`)
+    PRIMARY KEY(`programme_id`)
 );
 
 -- Career table
@@ -274,9 +275,8 @@ INSERT INTO `profile_info` VALUES (2, 'Jane Doe', '987654321009', 'Malaysian', '
 
 -- Programme table
 -- (ProgrammeId, ProgrammeName, Overview, LevelOfStudy, Duration, Intake, localTotalFee, overseaTotalFee, ApplicantId)
-INSERT INTO `programme` VALUES (1, 'Bachelor of Computer Science', 'A 3-year programme that prepares students for a career in computer science.', 'Undergraduate', 3, '2023/2024', '20000', '30000', 1);
-INSERT INTO `programme` VALUES (2, 'Master of Business Administration', 'A 2-year programme that prepares students for a career in business administration.', 'Postgraduate', 2, '2023/2024', '18000', '28000', 2);
-
+INSERT INTO `programme` VALUES (1, 'Bachelor of Computer Science', 'Students are trained in both theoretical knowledge and practical skills for software development, system design and related mathematical techniques. ', 'Diploma', 2, '2023/2024', 'KL - Kuala Lumpur Main Campus, PG - Penang Branch Campus,JH - Johor Branch Campus','Bachelor of Science (Honours) in Management Mathematics with Computing,Bachelor of Software Engineering (Honours),Bachelor of Computer Science (Honours) in Interactive Software Technology,Bachelor of Computer Science (Honours) in Data Science','Junior Analyst Programmers,Junior Systems Analysts,Junior Software Engineers,Junior Systems Engineers,Junior Research Officers,Junior Quantitative Analysts,Junior Software Developers', 20000, 30000);
+INSERT INTO `programme` VALUES (2, 'Diploma in Information Systems', 'This program majors in business information systems. It aims to produce graduates with fundamental knowledge in information technology and its business-related applications.', 'Diploma', 2, '2023/2024', 'KL - Kuala Lumpur Main Campus, PG - Penang Branch Campus,JH - Johor Branch Campus','Bachelor of Information Systems (Honours) in Enterprise Information Systems','Junior Programmers,Junior Systems Analysts,Junior SAP Support Consultants,Junior IT Support Executives,Junior IT Executives', 20000, 30000);
 -- Career table
 -- (CareerId, CareerName)
 INSERT INTO `career` VALUES (1, 'Software Engineer');
