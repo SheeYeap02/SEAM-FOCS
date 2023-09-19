@@ -51,6 +51,7 @@
       console.log("---- ../page/login.html ----");
       if (res.data.code === 0 || res.data.msg === "NOTLOGIN") {
         // back to login page
+        //  alert('Request.js : NOT LOGIN')
          console.log("---- ../page/login.html ----");
          localStorage.removeItem("userInfo");
          window.top.location.href = "../page/login.html";

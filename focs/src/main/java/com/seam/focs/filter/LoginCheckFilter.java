@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * CHeck current user has been already logged-in
+ * Check current user has been already logged-in
  */
 @WebFilter(filterName = "loginCheckFilter", urlPatterns = "/*")
 @Slf4j
@@ -62,8 +62,9 @@ public class LoginCheckFilter implements Filter {
             return;
         }
 
+        // If user haven't login, return login result to client side
         log.info("User Haven't Login");
-        // If haven't login, return login result to client side
+        response.setContentType("application/json");
         response.getWriter().write(JSON.toJSONString(Result.error("NOTLOGIN")));
 
         return;

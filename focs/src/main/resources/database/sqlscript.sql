@@ -168,10 +168,10 @@ CREATE TABLE `emergency_info` (
 -- DetailedInfo table
 CREATE TABLE `detailed_info` (
     `detailed_info_id` BIGINT(20) NOT NULL AUTO_INCREMENT, 
-    `ic_front` BLOB  NOT NULL,
-    `ic_back` BLOB  NOT NULL,
-    `household_income` DECIMAL(10, 2) NOT NULL,
-    `medical_condition` VARCHAR(80) NOT NULL,
+    `ic_front` BLOB  ,
+    `ic_back` BLOB  ,
+    `household_income` VARCHAR(40) NOT NULL,
+    `medical_condition` VARCHAR(150) NOT NULL,
     `applicant_id` BIGINT(20) NOT NULL,
     PRIMARY KEY(`detailed_info_id`),
     FOREIGN KEY (`applicant_id`) REFERENCES `applicant`(`applicant_id`)
