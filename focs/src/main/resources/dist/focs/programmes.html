@@ -26,6 +26,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+    <script src="../plugins/axios/axios.min.js"></script>
+    <script src="../plugins/vue/vue.js"></script>
+    <script src="../api/programme.js"></script>
+    <script>
+
+    </script>
     <style>
         /* Add your CSS styles here */
         .center2 {
@@ -68,17 +74,11 @@
 
         <nav>
             <div class="nav nav-fill nav-tabs center2" id="nav-tab" role="tablist">
-                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home"
-                    type="button" role="tab" aria-controls="nav-home" onclick="showTab(1)" aria-selected="true">Doctor
-                    of Philosophy</button>
-                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
-                    type="button" role="tab" aria-controls="nav-profile" onclick="showTab(2)"
-                    aria-selected="false">Master Degree</button>
                 <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact"
-                    type="button" role="tab" aria-controls="nav-contact" onclick="showTab(3)"
+                    type="button" role="tab" aria-controls="nav-contact" onclick="showTab(1)"
                     aria-selected="false">Bachelor</button>
                 <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact"
-                    type="button" role="tab" aria-controls="nav-contact" onclick="showTab(4)"
+                    type="button" role="tab" aria-controls="nav-contact" onclick="showTab(2)"
                     aria-selected="false">Diploma</button>
             </div>
         </nav>
@@ -86,31 +86,15 @@
 
         <div id="tabcontent center2" style="width: 100%;" class="m-12 l-6 padding-2x background-white center2">
             <div class="tab-content active" id="tab1-content">
-                <!-- Content for Tab 1 -->
-                Tab 1 Content
-                <ul class="list-group list-group-flush" style="color: black;">
-                    <li class="list-group-item"><a style="color: black;" href="/programme/programme.html?level=${level}&cert=${cert}&programme=${programme}">Programme
-                        1</a></li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
-                    <li class="list-group-item">A fourth item</li>
-                    <li class="list-group-item">And a fifth one</li>
-                </ul>
+                <div id="bachelorTab">
+                    Bachelor Information
+                </div>
             </div>
 
             <div class="tab-content" id="tab2-content">
-                <!-- Content for Tab 1 -->
-                Tab 2 Content
-            </div>
-
-            <div class="tab-content" id="tab3-content">
-                <!-- Content for Tab 1 -->
-                Tab 3 Content
-            </div>
-
-            <div class="tab-content" id="tab4-content">
-                <!-- Content for Tab 1 -->
-                Tab 4 Content
+                <div id="diplomaTab">
+                    Diploma Information
+                </div>
             </div>
         </div>
 
@@ -157,9 +141,74 @@
     <script type="text/javascript" src="js/responsee.js"></script>
     <script type="text/javascript" src="owl-carousel/owl.carousel.js"></script>
     <script type="text/javascript" src="js/template-scripts.js"></script>
+    <script src="../plugins/axios/axios.min.js"></script>
+    <script src="../plugins/vue/vue.js"></script>
+    <script src="../api/programme.js"></script>
     <script>
-        // script.js
-        //displayList();
+        displayDegree();
+        async function displayDegree() {
+            const response = await fetch('./js/json/programme.json');
+            const data = await response.json();
+            let html = "";
+            let tab = document.getElementById("bachelorTab");
+            let data2 = data['Degree'];
+
+            for (const degreeTitle in data2) {
+                if (degreeTitle != "Description") {
+                    html += `<h2 style="color: black;">${degreeTitle}</h2>`;
+                    const programs = data2[degreeTitle];
+
+                    for (const programTitle in programs) {
+                        // List program details inside the program title
+                        html += `<ul class="list-group list-group-flush" style="color: black;">`;
+                        html += `<li class="list-group-item"><a style="color: black;"
+                             href="/dist/focs/programme.html?level=Degree&cert=${degreeTitle}&programme=${programTitle}">${programTitle}</a></li>`;
+                        html += "</ul>";
+
+                        //         <ul class="list-group list-group-flush" id="bachelorTab" style="color: black;">
+                        //     <li class="list-group-item"><a style="color: black;"
+                        //             href="/programme/programme.html?level=${level}&cert=${cert}&programme=${programme}">Programme
+                        //             1</a></li>
+                        // </ul>
+                    }
+                }
+            }
+            tab.innerHTML = html;
+        }
+
+        displayDiploma();
+
+        async function displayDiploma() {
+            const response = await fetch('./js/json/programme.json');
+            const data = await response.json();
+            let html = "";
+            let tab = document.getElementById("diplomaTab");
+            let data2 = data['Diploma'];
+
+            for (const degreeTitle in data2) {
+                if (degreeTitle != "Description") {
+                    html += `<h2 style="color: black;">${degreeTitle}</h2>`;
+                    const programs = data2[degreeTitle];
+
+                    for (const programTitle in programs) {
+                        // List program details inside the program title
+                        html += `<ul class="list-group list-group-flush" style="color: black;">`;
+                        html += `<li class="list-group-item"><a style="color: black;"
+                             href="/dist/focs/programme.html?level=Diploma&cert=${degreeTitle}&programme=${programTitle}">${programTitle}</a></li>`;
+                        html += "</ul>";
+
+                        //         <ul class="list-group list-group-flush" id="bachelorTab" style="color: black;">
+                        //     <li class="list-group-item"><a style="color: black;"
+                        //             href="/programme/programme.html?level=${level}&cert=${cert}&programme=${programme}">Programme
+                        //             1</a></li>
+                        // </ul>
+                    }
+                }
+            }
+            tab.innerHTML = html;
+        }
+
+
 
         // Function to display products on the page
         async function displayList() {
@@ -221,6 +270,55 @@
     <h4 class="text-size-50 text-line-height-1 text-dark"><li><a href="/programme/programme.html?level=${level}&cert=${cert}&programme=${programme}">${programme}</a></li></h4>
   `;
         }
+        // const $axios = axios.create({
+        //     baseURL: 'http://localhost:8081/', // Replace with your API base URL
+        //     timeout: 5000, // Adjust the timeout as needed
+        // });
+        // console.log('PROGRAMMES :', localStorage.getItem('programmes'));
+        // document.addEventListener('DOMContentLoaded', function () {
+        //     new Vue({
+        //         data: {
+        //             programmes: [],
+        //         },
+        //         mounted() {
+        //             // Data not available in localStorage, fetch it from the API
+        //             console.log('MOUNT PROGRAMMES :');
+        //             this.init();
+        //         },
+        //         created() {
+        //             // Call the init method when the component is created
+        //             this.init();
+        //         },
+        //         methods: {
+        //             init() {
+        //                 console.log('INIT PROGRAMMES :');
+        //                 // getAllProgramme()
+        //                 //     .then((response) => {
+        //                 //         console.log('Response:', response);
+        //                 //         // Rest of your code
+        //                 //     })
+        //                 //     .catch((error) => {
+        //                 //         console.error('Error:', error);
+        //                 //         // Rest of your error handling code
+        //                 //     });
+        //                 getAllProgramme()
+        //                     .then((response) => {
+        //                         console.log('Response:', response);
+        //                         this.programmes = response.data.data;
+        //                         console.log('PROGRAMMES :', this.programmes);
+        //                         console.log('Programme1 :', this.programmes[0].programmeName);
+        //                         // Rest of your code
+        //                     })
+        //                     .catch((error) => {
+        //                         console.error('Error:', error);
+        //                         // Rest of your error handling code
+        //                     });
+
+        //             }
+        //         },
+        //     });
+        // });
+
         function showTab(tabIndex) {
             const tabContents = document.querySelectorAll('.tab-content');
 
@@ -233,6 +331,7 @@
             const selectedTabContent = document.getElementById(`tab${tabIndex}-content`);
             selectedTabContent.classList.add('active');
         }
+
     </script>
     <script type="text/javascript" src="js/headerAppend.js"></script>
 </body>

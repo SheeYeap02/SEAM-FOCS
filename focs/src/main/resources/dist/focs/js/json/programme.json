@@ -3,8 +3,8 @@
         "Description": "The Faculty of Computing and Information Technology (FOCS) offers the following Diploma programmes:",
         "Diploma Programmes": {
             "Diploma in Computer Science": {
-                "Programme Overview": {
-                    "Programe Overview": "Students are trained in both theoretical knowledge and practical skills for software development, system design and related mathematical techniques. ",
+                "Programme Overview": { 
+                    "Programme Overview": "Students are trained in both theoretical knowledge and practical skills for software development, system design and related mathematical techniques. ",
                     "Duration": "2 years",
                     "Campuses": {
                         "KL - Kuala Lumpur Main Campus": "(R2/481/4/0345A)(08/28)(AA0109)",
@@ -14,7 +14,7 @@
                     "Intake": [
                         "June"
                     ],
-                    "Academic Progression:": {
+                    "Academic Progression": {
                         "Graduates may be admitted into Year 2 of:": [
                             "Bachelor of Science (Honours) in Management Mathematics with Computing",
                             "Bachelor of Software Engineering (Honours)",
@@ -24,7 +24,7 @@
                         "ImageURL": "https://www.tarc.edu.my/files/focs/mer202105/055388FD-EB0C-4744-855C-0F10C90CA62F.jpg"
                     }
                 },
-                "Minimum Entry Requirements": {
+                "Entry Requirements": {
                     "Entry Requirements": "https://www.tarc.edu.my/files/focs/mer202308/04FFCB8A-B33D-406D-BF46-A8CFFF75F099.jpg"
                 },
                 "Programme Outline": {
@@ -74,7 +74,7 @@
                         "Co-curricular"
                     ]
                 },
-                "Career Prospects:": {
+                "Career Prospects": {
                     "Career Prospects": [
                         "Junior Analyst Programmers",
                         "Junior Systems Analysts",
@@ -85,9 +85,10 @@
                         "Junior Software Developers"
                     ]
                 },
-                "Fees & Financial Aids": {
+                "Fees & Financial Aid": {
                     "Fees & Financial Aid": [
-                        "Estimated Total Fees : RM 17,600 (Malaysian Student), RM33,300 (International Student)",
+                        "Estimated Total Fees : RM 17,600 (Malaysian Student)",
+                        "Estimated Total Fees : RM33,300 (International Student)",
                         "The estimated total fees may vary by 10%",
                         "For more information on Fees, click here https://www.tarc.edu.my/bursary/content.jsp?cat_id=5AA0377F-4E7F-494A-8EB4-CEF5CE4DD7AE"
                     ],
@@ -119,7 +120,7 @@
                     },
                     "ImageURL": "https://www.tarc.edu.my/files/focs/mer202105/055388FD-EB0C-4744-855C-0F10C90CA62F.jpg"
                 },
-                "Minimum Entry Requirements": {
+                "Entry Requirements": {
                     "Entry Requirements": "https://www.tarc.edu.my/files/focs/mer202102/A1854FA6-0783-41E5-BAD2-BF61C7FF1EFE.jpg"
                 },
                 "Programme Outline": {
@@ -175,9 +176,10 @@
                         "Junior IT Executives"
                     ]
                 },
-                "Fees & Financial Aids": {
+                "Fees & Financial Aid": {
                     "Fees & Financial Aid": [
-                        "Estimated Total Fees : RM 17,800 (Malaysian Student), RM33,600 (International Student)",
+                        "Estimated Total Fees : RM 17,800 (Malaysian Student)",
+                        "Estimated Total Fees : RM33,600 (International Student)",
                         "The estimated total fees may vary by 10%",
                         "For more information on Fees, click here https://www.tarc.edu.my/bursary/content.jsp?cat_id=5AA0377F-4E7F-494A-8EB4-CEF5CE4DD7AE"
                     ],
@@ -192,7 +194,7 @@
             },
             "Diploma in Information Technology": {
                 "Programme Overview": {
-                    "Programme overview": "This programme provides students with a basic understanding of computing techniques and aims to develop the computing and information technology-based knowledge and skills required in modern industrial, commercial, and service organisations. It will equip students with essential knowledge of the underlying principles of modern computing technology and enable students to appreciate how modern computers are applied to a range of real-world problems. Students will learn C Language, Java, Assembly Language, Oracle Database, HTML5, CSS, PHP, and JavaScript. Upon completion, graduates will have acquired knowledge and developed skills in the areas of computer programming, systems analysis, operating systems, computer networking, computer applications, and object-oriented software development, as well as in generic business courses.",
+                    "Programme Overview": "This programme provides students with a basic understanding of computing techniques and aims to develop the computing and information technology-based knowledge and skills required in modern industrial, commercial, and service organisations. It will equip students with essential knowledge of the underlying principles of modern computing technology and enable students to appreciate how modern computers are applied to a range of real-world problems. Students will learn C Language, Java, Assembly Language, Oracle Database, HTML5, CSS, PHP, and JavaScript. Upon completion, graduates will have acquired knowledge and developed skills in the areas of computer programming, systems analysis, operating systems, computer networking, computer applications, and object-oriented software development, as well as in generic business courses.",
                     "Duration": "2 years",
                     "Intake": "June",
                     "Campuses": {
@@ -269,9 +271,10 @@
                         "Web Developer"
                     ]
                 },
-                "Fees & Financial Aids": {
+                "Fees & Financial Aid": {
                     "Fees & Financial Aid": [
-                        "Estimated Total Fees : RM 17,800 (Malaysian Student), RM33,600 (International Student)",
+                        "Estimated Total Fees : RM 17,800 (Malaysian Student)",
+                        "Estimated Total Fees : RM33,600 (International Student)",
                         "The estimated total fees may vary by 10%",
                         "For more information on Fees, click here: https://www.tarc.edu.my/bursary/content.jsp?cat_id=5AA0377F-4E7F-494A-8EB4-CEF5CE4DD7AE"
                     ],
@@ -352,6 +355,7 @@
                 "Fees & Financial Aid": {
                     "Fees & Financial Aid": [
                         "Estimated Total Fees : RM 17,800 (Malaysian Student)",
+                        "Estimated Total Fees : RM 36,800 (International Student)",
                         "The estimated total fees may vary by 10%",
                         "For more information on Fees, click here: https://www.tarc.edu.my/bursary/content.jsp?cat_id=5AA0377F-4E7F-494A-8EB4-CEF5CE4DD7AE"
                     ],
@@ -990,7 +994,8 @@
                 },
                 "Fees & Financial Aid": {
                     "Fees & Financial Aid": [
-                        "Estimated Total Fees : RM34,600 (Malaysian Student), RM60,400 (International Student)",
+                        "Estimated Total Fees : RM34,600 (Malaysian Student)", 
+                        "Estimated Total Fees : RM60,400 (International Student)",
                         "The estimated total fees may vary by 10%",
                         "For more information on Fees, click here: https://www.tarc.edu.my/bursary/content.jsp?cat_id=5AA0377F-4E7F-494A-8EB4-CEF5CE4DD7AE"
                     ],
@@ -1089,7 +1094,8 @@
                 },
                 "Fees & Financial Aid": {
                     "Fees & Financial Aid": [
-                        "Estimated Total Fees : RM34,600 (Malaysian Student), RM60,400 (International Student)",
+                        "Estimated Total Fees : RM34,600 (Malaysian Student)",
+                        "Estimated Total Fees : RM60,400 (International Student)",
                         "The estimated total fees may vary by 10%",
                         "For more information on Fees, click here: https://www.tarc.edu.my/bursary/content.jsp?cat_id=5AA0377F-4E7F-494A-8EB4-CEF5CE4DD7AE"
                     ],
@@ -1190,7 +1196,8 @@
                 },
                 "Fees & Financial Aid": {
                     "Fees & Financial Aid": [
-                        "Estimated Total Fees : RM34,600 (Malaysian Student), RM60,400 (International Student)",
+                        "Estimated Total Fees : RM34,600 (Malaysian Student)",
+                        "Estimated Total Fees : RM60,400 (International Student)",
                         "The estimated total fees may vary by 10%",
                         "For more information on Fees, click here: https://www.tarc.edu.my/bursary/content.jsp?cat_id=5AA0377F-4E7F-494A-8EB4-CEF5CE4DD7AE"
                     ],
