@@ -77,58 +77,58 @@
                     <tr>
                         <th scope="col"></th>
                         <th scope="col">
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Select Programme</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                            <select class="form-select" id="progSelect" aria-label="Default select example">
+                                <option value="0" selected>Select Programme</option>
                             </select>
                         </th>
                         <th scope="col">
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Select Programme</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                            <select class="form-select" id="progSelect2" aria-label="Default select example">
+                                <option value="0" selected>Select Programme</option>
                             </select>
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <th scope="row">HDD Storage</th>
-                        <td>700 MB</td>
-                        <td>1,5 GB</td>
+                        <th scope="row">Duration</th>
+                        <td id="prog1Duration"></td>
+                        <td id="prog2Duration"></td>
                     </tr>
                     <tr>
-                        <th scope="row">Web Server</th>
-                        <td><i class="fas fa-check"></i></td>
-                        <td><i class="fas fa-check"></i></td>
+                        <th scope="row">Campuses</th>
+                        <td>
+                            <ul class="list-group list-group-flush" id="prog1Campuses" style="color: black;">
+
+                            </ul>
+                        </td>
+                        <td id="prog2Campuses">
+                            <ul class="list-group list-group-flush" id="prog2Campuses" style="color: black;">
+
+                            </ul>
+                        </td>
                     </tr>
                     <tr>
-                        <th scope="row">Database</th>
-                        <td>-</td>
-                        <td>Optional</td>
+                        <th scope="row">Intake</th>
+                        <td id="prog1Intake"></td>
+                        <td id="prog2Intake"></td>
                     </tr>
                     <tr>
-                        <th scope="row">DNS</th>
-                        <td>-</td>
-                        <td>-</td>
+                        <th scope="row">Career Prospects</th>
+                        <td id="prog1Career">
+                            <ul class="list-group list-group-flush" id="prog1Career" style="color: black;">
+
+                            </ul>
+                        </td>
+                        <td id="prog2Career">
+                            <ul class="list-group list-group-flush" id="prog2Career" style="color: black;">
+
+                            </ul>
+                        </td>
                     </tr>
                     <tr>
-                        <th scope="row">Backups</th>
-                        <td>-</td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Tech Support</th>
-                        <td>None</td>
-                        <td>35$/incident</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td class="fw-bold">Free</td>
-                        <td class="fw-bold">$99/mo</td>
+                        <th scope="row">Estimated Fees</th>
+                        <td id="prog1Fee" class="fw-bold"></td>
+                        <td id="prog2Fee" class="fw-bold"></td>
                     </tr>
                     <tr>
                         <th class=""></th>
@@ -152,81 +152,115 @@
         <script type="text/javascript" src="owl-carousel/owl.carousel.js"></script>
         <script type="text/javascript" src="js/template-scripts.js"></script>
         <script>
-            // script.js
-            //displayList();
 
-            // Function to display products on the page
-            async function displayList() {
+
+            const progSelect = document.getElementById("progSelect");
+            const progSelect2 = document.getElementById("progSelect2");
+
+            // Function to populate a select element with options from a given data object
+            async function populateSelect(selectElement) {
                 const response = await fetch('./js/json/programme.json');
                 const data = await response.json();
-                //console.log("displayProgramme");
 
-                let html = "";
-                let html2 = "";
-                let tabhtml = "";
-                let j = 0;
-                let count = 1;
-                for (const attributeName in data) {
-                    //console.log(attributeName);
-                    html2 = `<div class="tab-content" id="tab${count}-content">`;
-                    html2 += await convertToh2(attributeName);
-                    tabhtml += convertToTab(count, attributeName);
-
-                    const keys = Object.keys(data[attributeName]);
-                    for (let i = 1; i < keys.length; i++) {
-
-                        html2 += convertToListh3(keys[i]);
-                        //console.log(keys[i]);
-                        for (const programmes in data[attributeName][keys[i]]) {
-                            html2 += convertToListh4(attributeName, keys[i], programmes);
-                            //console.log(attributeName);
+                selectElement.innerHTML = `<option value="0">Select Programme</option>`;
+                for (const level in data) {
+                    for (const cert in data[level]) {
+                        if (cert !== "Description") {
+                            for (const prog in data[level][cert]) {
+                                selectElement.innerHTML += `<option value="${prog}">${prog}</option>`;
+                            }
                         }
-                        html2 += `</ul>`;
                     }
-                    html2 += `</div>`;
-                    html += html2;
-                    document.getElementById("tabcontent tabcontent2").innerHTML = html;
-                    document.getElementById("tabtab").innerHTML = tabhtml;
-                    count++;
                 }
             }
 
-            function convertToTab(n, id) {
-                return `
-            <button onclick="showTab(${n})"><li class="list-group-item">${id}</li></button>
-  `;
+
+            // Function to disable selected option in the other select element
+            function disableSelectedOption(selectElement, selectedValue) {
+                const options = selectElement.options;
+                for (let i = 0; i < options.length; i++) {
+                    if (options[i].value === selectedValue) {
+                        options[i].disabled = true;
+                    } else {
+                        options[i].disabled = false; // Enable other options
+                    }
+                }
             }
 
+            // Event listener for progSelect
+            progSelect.addEventListener("change", function () {
+                const selectedValue = this.value;
+                disableSelectedOption(progSelect2, selectedValue);
+                setProgrammeDetails(1, selectedValue);
+            });
 
-            // Function to generate HTML for a single product
-            function convertToh2(id) {
-                return `
-            <h2 class="text-size-50 text-line-height-1 text-dark" id="subtab${id}"><b>${id}</b></h2>
-  `;
-            }
-            function convertToListh3(id) {
-                return `
-    <h3 class="text-size-40 text-line-height-1 text-dark" id="${id}">${id}</h3><ul>
-  `;
-            }
-            function convertToListh4(level, cert, programme) {
-                console.log(programme);
-                return `
-    <h4 class="text-size-50 text-line-height-1 text-dark"><li><a href="/programme/programme.html?level=${level}&cert=${cert}&programme=${programme}">${programme}</a></li></h4>
-  `;
-            }
-            function showTab(tabIndex) {
-                const tabContents = document.querySelectorAll('.tab-content');
+            // Event listener for p rogSelect2
+            progSelect2.addEventListener("change", function () {
+                const selectedValue = this.value;
+                disableSelectedOption(progSelect, selectedValue);
+                setProgrammeDetails(2, selectedValue);
+            });
 
-                // Hide all tab contents
-                tabContents.forEach(content => {
-                    content.classList.remove('active');
-                });
+            // Populate both select elements
+            populateSelect(progSelect);
+            populateSelect(progSelect2);
 
-                // Show the selected tab content
-                const selectedTabContent = document.getElementById(`tab${tabIndex}-content`);
-                selectedTabContent.classList.add('active');
+            async function setProgrammeDetails(prog, progName) {
+                const response = await fetch('./js/json/programme.json');
+                const data = await response.json();
+
+                console.log(progName);
+                if (prog == 1) {
+                    for (const level in data) {
+                        for (const cert in data[level]) {
+                            for (const prog in data[level][cert]) {
+                                if (prog !== "Description" && prog == progName) {
+                                    console.log(data[level][cert][progName]['Career Prospects']);
+                                    document.getElementById('prog1Duration').innerText = data[level][cert][progName]['Programme Overview']['Duration'];
+                                    document.getElementById('prog1Campuses').innerHTML = "";
+                                    for(const cmp in data[level][cert][progName]['Programme Overview']['Campuses']){
+                                        document.getElementById('prog1Campuses').innerHTML += `<li class="list-group-item">${cmp}</li>`;
+                                    }
+                                    document.getElementById('prog1Intake').innerText = data[level][cert][progName]['Programme Overview']['Intake'];
+                                    document.getElementById('prog1Career').innerHTML = "";
+                                    for(let i = 0; i < data[level][cert][progName]['Career Prospects']['Career Prospects'].length; i++){
+                                        document.getElementById('prog1Career').innerHTML += `<li class="list-group-item">${data[level][cert][progName]['Career Prospects']['Career Prospects'][i]}</li>`;
+                                    }
+                                    document.getElementById('prog1Fee').innerText = data[level][cert][progName]['Fees & Financial Aid']['Fees & Financial Aid'][0];
+                                    //add break line in prog1Fee
+                                    document.getElementById('prog1Fee').innerHTML += `<br>`;
+                                    document.getElementById('prog1Fee').innerText += data[level][cert][progName]['Fees & Financial Aid']['Fees & Financial Aid'][1];
+                                }
+                            }
+                        }
+                    }
+                }else if(prog==2){
+                    for (const level in data) {
+                        for (const cert in data[level]) {
+                            for (const prog in data[level][cert]) {
+                                if (prog !== "Description" && prog == progName) {
+                                    console.log(data[level][cert][progName]['Career Prospects']);
+                                    document.getElementById('prog2Duration').innerText = data[level][cert][progName]['Programme Overview']['Duration'];
+                                    document.getElementById('prog2Campuses').innerHTML = "";
+                                    for(const cmp in data[level][cert][progName]['Programme Overview']['Campuses']){
+                                        document.getElementById('prog2Campuses').innerHTML += `<li class="list-group-item">${cmp}</li>`;
+                                    }
+                                    document.getElementById('prog2Intake').innerText = data[level][cert][progName]['Programme Overview']['Intake'];
+                                    document.getElementById('prog2Career').innerHTML = "";
+                                    for(let i = 0; i < data[level][cert][progName]['Career Prospects']['Career Prospects'].length; i++){
+                                        document.getElementById('prog2Career').innerHTML += `<li class="list-group-item">${data[level][cert][progName]['Career Prospects']['Career Prospects'][i]}</li>`;
+                                    }
+                                    document.getElementById('prog2Fee').innerText = data[level][cert][progName]['Fees & Financial Aid']['Fees & Financial Aid'][0];
+                                    //add break line in prog1Fee
+                                    document.getElementById('prog2Fee').innerHTML += `<br>`;
+                                    document.getElementById('prog2Fee').innerText += data[level][cert][progName]['Fees & Financial Aid']['Fees & Financial Aid'][1];
+                                }
+                            }
+                        }
+                    }
+                }
             }
+
         </script>
         <script type="text/javascript" src="js/headerAppend.js"></script>
 </body>

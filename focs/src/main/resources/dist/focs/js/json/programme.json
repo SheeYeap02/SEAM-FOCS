@@ -196,7 +196,7 @@
                 "Programme Overview": {
                     "Programme Overview": "This programme provides students with a basic understanding of computing techniques and aims to develop the computing and information technology-based knowledge and skills required in modern industrial, commercial, and service organisations. It will equip students with essential knowledge of the underlying principles of modern computing technology and enable students to appreciate how modern computers are applied to a range of real-world problems. Students will learn C Language, Java, Assembly Language, Oracle Database, HTML5, CSS, PHP, and JavaScript. Upon completion, graduates will have acquired knowledge and developed skills in the areas of computer programming, systems analysis, operating systems, computer networking, computer applications, and object-oriented software development, as well as in generic business courses.",
                     "Duration": "2 years",
-                    "Intake": "June",
+                    "Intake": ["June"],
                     "Campuses": {
                         "KL - Kuala Lumpur Main Campus": "(R2/482/4/0196A)(08/28)(AA0111)",
                         "PG - Penang Branch Campus": "(R2/0611/4/0203A)(09/28)(AA0141)",
@@ -291,8 +291,8 @@
                 "Programme Overview": {
                     "Programme Overview": "This programme equips students with the fundamental knowledge of software engineering with practical and analytical thinking skills in software development. It also provides students with basic managerial skills and innovation in creating business opportunities in the area of software engineering, as well as educational experience that motivates them to pursue a higher level of study and lifelong learning.",
                     "Duration": "2 years",
-                    "Intake": "June",
-                    "Campus": {
+                    "Intake": ["June"],
+                    "Campuses": {
                         "SB - Sabah Branch": "(R/481/4/0779)(08/27)(MQA/FA7566)"
                     },
                     "Academic Progression": {
