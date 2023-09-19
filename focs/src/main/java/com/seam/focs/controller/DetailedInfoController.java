@@ -6,11 +6,17 @@ import com.seam.focs.entity.DetailedInfo;
 import com.seam.focs.service.DetailedInfoService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
+import java.io.ByteArrayOutputStream;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.Arrays;
 
 @Slf4j
 @RestController
@@ -19,35 +25,84 @@ public class DetailedInfoController {
     @Autowired
     private DetailedInfoService detailedInfoService;
 
-    /**
-     *
-     * @param detailedInfo
-     * @return
-     */
-    @PostMapping("/add")
-    public Result<String> save(@RequestParam("icFront") MultipartFile icFront, @RequestBody DetailedInfo detailedInfo) {
-        log.info("New Detailed Info: {}", detailedInfo.toString());
+    @PostMapping(value="/add", consumes={MediaType.MULTIPART_FORM_DATA_VALUE})
+    public Result<String> save(
+            @RequestParam("icFront") MultipartFile icFront,
+            @RequestParam("icBack") MultipartFile icBack,
+            @RequestParam("householdIncome") String householdIncome,
+            @RequestParam("medicalCondition") String medicalCondition,
+            @RequestParam("applicantId") Long applicantId) {
+        log.info("New Detailed Info: {}", icFront);
 
-        // Process and store the icFront file
         if (icFront != null && !icFront.isEmpty()) {
             try {
-                // Convert the MultipartFile to a byte array
-                byte[] icFrontBytes = icFront.getBytes();
+                DetailedInfo detailedInfo = new DetailedInfo();
+                byte[] icFrontData = icFront.getBytes();
+                log.info("Here is the image data = {}", Arrays.toString(icFrontData));
 
-                // Set the byte array in your DetailedInfo entity
-                detailedInfo.setIcFront(icFrontBytes);
-                log.info("Here is the image data = {}", detailedInfo.getIcFront());
+                detailedInfo.setIcFront(icFrontData);
+                detailedInfo.setIcBack(icFrontData);
+                detailedInfo.setMedicalCondition(medicalCondition);
+                detailedInfo.setHouseholdIncome(householdIncome);
+                detailedInfo.setApplicantId(applicantId);
+
+                detailedInfoService.save(detailedInfo);
             } catch (IOException e) {
                 // Handle the exception (e.g., log an error)
                 e.printStackTrace();
             }
         }
-
-        //Set and encrypt password with MD5
-        detailedInfoService.save(detailedInfo);
-
         return Result.success("Successfully Added New Detailed Info");
     }
+
+    /**
+     *
+     * @param detailedInfo
+     * @return
+     */
+//    @PostMapping(value="/add", consumes={MediaType.MULTIPART_FORM_DATA_VALUE})
+//    public Result<String> save(@RequestParam("icFront") MultipartFile icFront, @ModelAttribute DetailedInfo detailedInfo) {
+//        log.info("New Detailed Info: {}", detailedInfo.toString());
+//
+//        // Process and store the icFront file
+////        if (icFront != null && !icFront.isEmpty()) {
+////            try {
+////                //inputstream to read document content
+//////                InputStream fileInputStream = icFront.getInputStream();
+//////                ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+//////
+//////                byte[] bytes = new byte[16384];
+//////                int len = 0;
+//////                while ((len = fileInputStream.read(bytes, 0, bytes.length)) != -1) {
+//////                    buffer.write(bytes, 0, len);
+//////                }
+////                // Convert the MultipartFile to a byte array
+//////                byte[] bytes = new byte[16384];
+//////                int len = 0;
+//////                byte[] icFrontBytes = icFront.getBytes();
+//////                while((len = fileInputStream.read(bytes)) != -1) {
+//////                    outputStream.write(bytes, 0, len);
+//////                    outputStream.flush();
+//////                }
+////                byte[] icFrontData = icFront.getBytes();
+////                // Set the byte array in your DetailedInfo entity
+////                detailedInfo.setIcFront(icFrontData);
+////                log.info("Here is the image data = {}", detailedInfo.getIcFront());
+////
+////                //Close stream source
+//////                fileInputStream.close();
+//////                buffer.close();
+////            } catch (IOException e) {
+////                // Handle the exception (e.g., log an error)
+////                e.printStackTrace();
+////            }
+////        }
+////
+////        //Set and encrypt password with MD5
+////        detailedInfoService.save(detailedInfo);
+//
+//        return Result.success("Successfully Added New Detailed Info");
+//    }
 
     /**
      *

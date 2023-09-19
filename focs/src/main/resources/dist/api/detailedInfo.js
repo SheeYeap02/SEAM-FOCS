@@ -11,9 +11,6 @@ function addDetailedInfo(params) {
     url: '/detailedInfo/add',
     method: 'post',
     data: { ...params },
-    headers: {
-      'Content-Type': 'multipart/form-data'
-    }
   })
 }
 

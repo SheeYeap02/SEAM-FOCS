@@ -314,7 +314,6 @@
                           </div>
                         </section>
 
-
                         <!-- <div class="row">
                           <div class="col-12 col-md-12">
                             <div class="form-group mandatory">
@@ -338,19 +337,6 @@
                               </div>
                             </div>
                           </div> -->
-
-                        <!-- <input
-                          type="file"
-                          id="fileInput"
-                          style="display: none;"
-                          accept="image/*" 
-                          @change="handleFileChange" 
-                        />
-
-                        <div class="uploadImg">
-                          <img v-if="imageUrl" :src="imageUrl" class="avatar"></img>
-                          <i v-else class="el-icon-plus avatar-uploader-icon"></i>
-                        </div> -->
 
 
                         <div class="row">
@@ -509,10 +495,20 @@
         submitForm(formName) {
           console.log("Submit: " + this.formData.detailedInfo.icFront.name)
           event.preventDefault();
-          const params = {
-            ...this.formData
-          }
-          params.detailedInfo.applicantId = JSON.parse(window.localStorage.getItem('userInfo')).applicantId;
+          // const params = {
+          //   ...this.formData
+          // }
+          this.formData.detailedInfo.applicantId = JSON.parse(window.localStorage.getItem('userInfo')).applicantId;
+
+          const params = new FormData();
+          //Append JSON data as a blob
+          params.append('icFront', this.$refs.uploadImage.files[0])
+          params.append('icBack', this.$refs.uploadImage.files[0])
+          params.append('householdIncome', 'B40 (no income to RM5000)');
+          params.append('medicalCondition', 'Yes');
+          params.append('applicantId', JSON.parse(window.localStorage.getItem('userInfo')).applicantId); 
+          
+          // params.detailedInfo.applicantId = JSON.parse(window.localStorage.getItem('userInfo')).applicantId;
           console.log("Submit: " + params.detailedInfo.icFront.name)
 
           if (!this.gotData) {
@@ -523,11 +519,9 @@
               } else {
                 this.$message.error(res.msg || 'Fail to handle')
               }
-              window.location.href = '/dist/index.html'
             }).catch(err => {
               console.log('Fail to add new profile details！: ' + err)
               this.$message.error('Request error：' + err)
-              window.location.href = '/dist/index.html'
             })
           } else {
             editDetailedInfo(params).then(res => {
@@ -556,7 +550,7 @@
               return false
             }
             // Check if the file size is less than or equal to 5MB
-            const size = file.size / 1024 / 1024 <= 5
+            const size = uploadedFile.size / 1024 / 1024 <= 5
             if (!size) {
               console.log("Handle change: File uploaded cannot be larger than 5MB" )
               this.$message.error('File uploaded cannot be larger than 5MB')
