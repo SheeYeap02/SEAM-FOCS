@@ -1,0 +1,55 @@
+{
+    "faculty": "Faculty of Computing And Information Technology",
+    "staff": [
+        {
+            "name": "Ts. Lim Shen Huoy",
+            "designation": "Dean",
+            "qualification": "DipIT (PTPL), BSc (Hons) (Staffs), ExecDipMgt, MCompSc (Mal), P.Tech.",
+            "email": "limsh@tarc.edu.my",
+            "majorOfStudy": "Management Information Systems",
+            "areaOfInterest": "Information Security, Networking",
+            "imageURL": "https://www.tarc.edu.my/getPhoto.jsp?fkey=5P3MLVXKil546W1C8dJb7w%3D%3D&fnicno=5P3MLVXKil48bq2GB22ULVX7Q8dRlbAM",
+            "biography": ""
+        },
+        {
+            "name": "Dr Wong Thein Lai",
+            "designation": "Deputy Dean (Research & Development)",
+            "qualification": "BAppSc (Hons) (USM), MInfScTech, PhD (Osaka)",
+            "email": "wongtl@tarc.edu.my",
+            "majorOfStudy": "Information Security",
+            "areaOfInterest": "Blockchain, Networking, Data Sharing Framework for IR4.0",
+            "imageURL": "https://www.tarc.edu.my/getPhoto.jsp?fkey=5P3MLVXKil6BfZDMcgtR4A%3D%3D&fnicno=5P3MLVXKil4CxY87UPxPysVS%2FdfNLa61",
+            "biography": ""
+        },
+        {
+            "name": "Ts. Chok Len Mooi",
+            "designation": "Deputy Dean (Academic)",
+            "qualification": "BEng (Hons), MInfTech (Mal), CCNA ITQ, P.Tech., CCNA certified",
+            "email": "choklm@tarc.edu.my",
+            "majorOfStudy": "Networking",
+            "areaOfInterest": "Networking, Network Security",
+            "imageURL": "https://www.tarc.edu.my/getPhoto.jsp?fkey=5P3MLVXKil67ZaNyWzSpuw%3D%3D&fnicno=5P3MLVXKil5GK%2BSWnNUNAs1J2xabORW2",
+            "biography": ""
+        },
+        {
+            "name": "Encik Ooi Chun Pew",
+            "designation": "Deputy Dean (Academic)",
+            "qualification": "AdvDipSc (TARC), BS (Campbell), MInfComnTechMgt (AeU)",
+            "email": "cpooi@tarc.edu.my",
+            "majorOfStudy": "Information and Communication Technology Management",
+            "areaOfInterest": "Systems Analysis and Design, Management Information Systems, Enterprise Resource Planning",
+            "imageURL": "https://www.tarc.edu.my/getPhoto.jsp?fkey=5P3MLVXKil5oujYYsV%2F7BQ%3D%3D&fnicno=5P3MLVXKil7PeUeEjbVwGMZlvn5iH1J7",
+            "biography": ""
+        },
+        {
+            "name": "Puan Choy Lai Fun",
+            "designation": "Associate Dean For Quality Assurance",
+            "qualification": "AdvDipSc (TARC), BS (Campbell), MInfComnTechMgt (AeU)",
+            "email": "choylf@tarc.edu.my",
+            "majorOfStudy": "ICT management, e-commerce, Computer systems architecture",
+            "areaOfInterest": "Big data, Web development, Mobile development",
+            "imageURL": "https://www.tarc.edu.my/getPhoto.jsp?fkey=5P3MLVXKil49dspceGVBiQ%3D%3D&fnicno=5P3MLVXKil4juOnYIkq3Ck4aahy5VE3v",
+            "biography": ""
+        }
+    ]
+}

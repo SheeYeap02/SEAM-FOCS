@@ -5,7 +5,7 @@
     <script src="//code.tidio.co/m6kdihlblyie9jlb1otfxudgzisuz4fx.js" async></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Free responsive business website template</title>
+    <title>Compare Programme</title>
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/icons.css">
     <link rel="stylesheet" href="css/responsee.css">
@@ -47,6 +47,30 @@
             width: 70%;
             background-image: "img/img-04.jpg";
         }
+
+        /* Styles for the enlarged image container */
+        .enlarged-image-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            text-align: center;
+            z-index: 999;
+        }
+
+        /* Style for the enlarged image */
+        .enlarged-image {
+            max-width: 80%;
+            max-height: 80%;
+            margin: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
     </style>
 </head>
 
@@ -61,15 +85,15 @@
         <header class="grid">
             <div class="s-12 padding-2x">
                 <h1 class="text-strong text-white text-center center text-size-60 text-uppercase margin-bottom-20">
-                    Our
-                    Services</h1>
-                <p class="text-size-20 text-white text-center center text-uppercase">Con nonummy sem integer
-                    interdum
-                    volutpat dis eget eligendi aliquip dolorum magnam. Iriure duis autem vel<br> eum dolor in
-                    hendrerit
-                    in vulputate velit esse molestie consequat.</p>
+                    FIND YOUR BEST</h1>
+                <p class="text-size-20 text-white text-center center text-uppercase">Compare different academic programs or courses to make informed decisions about your academic pursuits</p>
             </div>
         </header>
+
+        <!-- Enlarged image container -->
+        <div id="enlarged-image-container" class="enlarged-image-container">
+            <img id="enlarged-image" class="enlarged-image" src="" alt="Enlarged Image">
+        </div>
 
         <div class="table-responsive">
             <table class="table table-striped text-successtable-border border-light">
@@ -126,6 +150,16 @@
                         </td>
                     </tr>
                     <tr>
+                        <th scope="row">Academic Progression</th>
+                        <td id="prog1Progession"></td>
+                        <td id="prog2Progession"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Entry Requirements</th>
+                        <td id="prog1Entry"></td>
+                        <td id="prog2Entry"></td>
+                    </tr>
+                    <tr>
                         <th scope="row">Estimated Fees</th>
                         <td id="prog1Fee" class="fw-bold"></td>
                         <td id="prog2Fee" class="fw-bold"></td>
@@ -152,6 +186,23 @@
         <script type="text/javascript" src="owl-carousel/owl.carousel.js"></script>
         <script type="text/javascript" src="js/template-scripts.js"></script>
         <script>
+
+            // Function to display the enlarged image
+            function enlargeImage(imageSrc) {
+                const enlargedImageContainer = document.getElementById("enlarged-image-container");
+                const enlargedImage = document.getElementById("enlarged-image");
+
+                // Set the source of the enlarged image
+                enlargedImage.src = imageSrc;
+
+                // Display the enlarged image container
+                enlargedImageContainer.style.display = "block";
+            }
+
+            // Function to close the enlarged image when clicking on the container
+            document.getElementById("enlarged-image-container").addEventListener("click", function () {
+                this.style.display = "none";
+            });
 
 
             const progSelect = document.getElementById("progSelect");
@@ -208,33 +259,37 @@
             async function setProgrammeDetails(prog, progName) {
                 const response = await fetch('./js/json/programme.json');
                 const data = await response.json();
-
-                console.log(progName);
                 if (prog == 1) {
                     for (const level in data) {
                         for (const cert in data[level]) {
                             for (const prog in data[level][cert]) {
                                 if (prog !== "Description" && prog == progName) {
-                                    console.log(data[level][cert][progName]['Career Prospects']);
                                     document.getElementById('prog1Duration').innerText = data[level][cert][progName]['Programme Overview']['Duration'];
                                     document.getElementById('prog1Campuses').innerHTML = "";
-                                    for(const cmp in data[level][cert][progName]['Programme Overview']['Campuses']){
+                                    for (const cmp in data[level][cert][progName]['Programme Overview']['Campuses']) {
                                         document.getElementById('prog1Campuses').innerHTML += `<li class="list-group-item">${cmp}</li>`;
                                     }
                                     document.getElementById('prog1Intake').innerText = data[level][cert][progName]['Programme Overview']['Intake'];
                                     document.getElementById('prog1Career').innerHTML = "";
-                                    for(let i = 0; i < data[level][cert][progName]['Career Prospects']['Career Prospects'].length; i++){
+                                    for (let i = 0; i < data[level][cert][progName]['Career Prospects']['Career Prospects'].length; i++) {
                                         document.getElementById('prog1Career').innerHTML += `<li class="list-group-item">${data[level][cert][progName]['Career Prospects']['Career Prospects'][i]}</li>`;
                                     }
                                     document.getElementById('prog1Fee').innerText = data[level][cert][progName]['Fees & Financial Aid']['Fees & Financial Aid'][0];
                                     //add break line in prog1Fee
                                     document.getElementById('prog1Fee').innerHTML += `<br>`;
                                     document.getElementById('prog1Fee').innerText += data[level][cert][progName]['Fees & Financial Aid']['Fees & Financial Aid'][1];
+
+                                    document.getElementById('prog1Progession').innerHTML = `<img onclick="enlargeImage('${data[level][cert][progName]['Programme Overview']['Academic Progression']['ImageURL']}')" src="${data[level][cert][progName]['Programme Overview']['Academic Progression']['ImageURL']}">`;
+                                    console.log(data[level][cert][progName]['Programme Overview']['Academic Progression']['ImageURL']);
+                                    document.getElementById('prog1Progession').innerHTML += `<span>Click to enlarge image</span>`;
+
+                                    document.getElementById('prog1Entry').innerHTML = `<img onclick="enlargeImage('${data[level][cert][progName]['Entry Requirements']['Entry Requirements']}')" src="${data[level][cert][progName]['Entry Requirements']['Entry Requirements']}">`;;
+                                    document.getElementById('prog1Entry').innerHTML += `<span>Click to enlarge image</span>`;
                                 }
                             }
                         }
                     }
-                }else if(prog==2){
+                } else if (prog == 2) {
                     for (const level in data) {
                         for (const cert in data[level]) {
                             for (const prog in data[level][cert]) {
@@ -242,18 +297,24 @@
                                     console.log(data[level][cert][progName]['Career Prospects']);
                                     document.getElementById('prog2Duration').innerText = data[level][cert][progName]['Programme Overview']['Duration'];
                                     document.getElementById('prog2Campuses').innerHTML = "";
-                                    for(const cmp in data[level][cert][progName]['Programme Overview']['Campuses']){
+                                    for (const cmp in data[level][cert][progName]['Programme Overview']['Campuses']) {
                                         document.getElementById('prog2Campuses').innerHTML += `<li class="list-group-item">${cmp}</li>`;
                                     }
                                     document.getElementById('prog2Intake').innerText = data[level][cert][progName]['Programme Overview']['Intake'];
                                     document.getElementById('prog2Career').innerHTML = "";
-                                    for(let i = 0; i < data[level][cert][progName]['Career Prospects']['Career Prospects'].length; i++){
+                                    for (let i = 0; i < data[level][cert][progName]['Career Prospects']['Career Prospects'].length; i++) {
                                         document.getElementById('prog2Career').innerHTML += `<li class="list-group-item">${data[level][cert][progName]['Career Prospects']['Career Prospects'][i]}</li>`;
                                     }
                                     document.getElementById('prog2Fee').innerText = data[level][cert][progName]['Fees & Financial Aid']['Fees & Financial Aid'][0];
                                     //add break line in prog1Fee
                                     document.getElementById('prog2Fee').innerHTML += `<br>`;
                                     document.getElementById('prog2Fee').innerText += data[level][cert][progName]['Fees & Financial Aid']['Fees & Financial Aid'][1];
+
+                                    document.getElementById('prog2Progession').innerHTML = `<img onclick="enlargeImage('${data[level][cert][progName]['Programme Overview']['Academic Progression']['ImageURL']}')" src="${data[level][cert][progName]['Programme Overview']['Academic Progression']['ImageURL']}">`;
+                                    document.getElementById('prog2Progession').innerHTML += `<span>Click to enlarge image</span>`;
+
+                                    document.getElementById('prog2Entry').innerHTML = `<img onclick="enlargeImage('${data[level][cert][progName]['Entry Requirements']['Entry Requirements']}')" src="${data[level][cert][progName]['Entry Requirements']['Entry Requirements']}">`;;
+                                    document.getElementById('prog2Entry').innerHTML += `<span>Click to enlarge image</span>`;
                                 }
                             }
                         }
