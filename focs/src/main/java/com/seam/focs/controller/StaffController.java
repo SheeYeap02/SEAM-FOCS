@@ -13,24 +13,4 @@ public class StaffController {
     @Autowired
     private StaffService staffService;
 
-
-//    public Result<Staff> page(int page, int pageSize, String name) {
-//        log.info("page = {}, pageSize = {}, name = {}", page, pageSize, name);
-//
-//        //Construct pagination constitution
-//        Page pageInfo = new Page(page, pageSize);
-//
-//        //Construct condition constitution
-//        LambdaQueryWrapper<Staff> queryWrapper = new LambdaQueryWrapper();
-//        //Add filter condition
-//        queryWrapper.like(!StringUtils.isEmpty(name), Staff::getName, name);
-//        //Add order condition
-//        queryWrapper.orderByDesc(Staff::getUpdateTime);
-//
-//        //Execute query
-//        staffService.page(pageInfo, queryWrapper);
-//        return Result.success(pageInfo);
-//    }
-
-
 }

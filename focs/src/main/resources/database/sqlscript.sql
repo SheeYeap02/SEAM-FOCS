@@ -5,14 +5,7 @@ DROP TABLE IF EXISTS `preu_result`;
 DROP TABLE IF EXISTS `qualification`;
 DROP TABLE IF EXISTS `detailed_info`;
 DROP TABLE IF EXISTS `emergency_info`;
-DROP TABLE IF EXISTS `campus_assign`;
-DROP TABLE IF EXISTS `career_assign`;
-DROP TABLE IF EXISTS `progession_assign`;
-DROP TABLE IF EXISTS `outline_assign`;
-DROP TABLE IF EXISTS `programme_outline`;
-DROP TABLE IF EXISTS `career`;
-DROP TABLE IF EXISTS `campus`;
-DROP TABLE IF EXISTS `progression`;
+DROP TABLE IF EXISTS `intake`;
 DROP TABLE IF EXISTS `programme`;
 DROP TABLE IF EXISTS `profile_info`;
 DROP TABLE IF EXISTS `staff`;
@@ -83,71 +76,18 @@ CREATE TABLE `programme` (
     PRIMARY KEY(`programme_id`)
 );
 
--- Career table
-CREATE TABLE `career` (
-    `career_id` BIGINT(20) NOT NULL AUTO_INCREMENT,
-    `career_name` VARCHAR(30)  NOT NULL,
-    PRIMARY KEY(`career_id`)
-);
-
--- Progression table
-CREATE TABLE `progression` (
-    `progression_id` BIGINT(20) NOT NULL AUTO_INCREMENT,
-    `programme_name` VARCHAR(50)  NOT NULL,
-    PRIMARY KEY(`progression_id`)
-);
-
--- Campus table
-CREATE TABLE `campus` (
-    `campus_id` BIGINT(20) NOT NULL AUTO_INCREMENT, 
-    `campus_name` VARCHAR(40) NOT NULL,
-    PRIMARY KEY(`campus_id`)
-);
-
--- ProgrammeOutline table
-CREATE TABLE `programme_outline` (
-    `programme_outline_id` BIGINT(20)  NOT NULL AUTO_INCREMENT,
-    `course_name` VARCHAR(50) NOT NULL,
-    PRIMARY KEY(`programme_outline_id`)
-);
-
--- OutlineAssign table
-CREATE TABLE `outline_assign` (
-    `programme_id` BIGINT(20)  NOT NULL,
-    `programme_outline_id` BIGINT(20)  NOT NULL,
-    `is_elective` BOOLEAN  NOT NULL,
-    `elective_no` INT(2) ,
-    PRIMARY KEY (`programme_id`, `programme_outline_id`),
-    FOREIGN KEY (`programme_id`) REFERENCES `programme`(`programme_id`),
-    FOREIGN KEY (`programme_outline_id`) REFERENCES `programme_outline`(`programme_outline_id`)
-);
-
--- ProgessionAssign table
-CREATE TABLE `progession_assign` (
-    `programme_id` BIGINT(20) NOT NULL,
-    `progression_id` BIGINT(20) NOT NULL,
-    `description` VARCHAR(150)  NOT NULL,
-    PRIMARY KEY (`programme_id`, `progression_id`),
-    FOREIGN KEY (`programme_id`) REFERENCES `programme`(`programme_id`),
-    FOREIGN KEY (`progression_id`) REFERENCES `progression`(`progression_id`)
-);
-
--- CareerAssign table
-CREATE TABLE `career_assign` (
-    `programme_id` BIGINT(20) NOT NULL,
-    `career_id` BIGINT(20) NOT NULL,
-    PRIMARY KEY (`programme_id`, `career_id`),
-    FOREIGN KEY (`programme_id`) REFERENCES `programme`(`programme_id`),
-    FOREIGN KEY (`career_id`) REFERENCES `career`(`career_id`)
-);
-
--- CampusAssign table
-CREATE TABLE `campus_assign` (
-    `programme_id` BIGINT(20) NOT NULL,
-    `campus_id` BIGINT(20) NOT NULL,
-    PRIMARY KEY (`programme_id`, `campus_id`),
-    FOREIGN KEY (`programme_id`) REFERENCES `programme`(`programme_id`),
-    FOREIGN KEY (`campus_id`) REFERENCES `campus`(`campus_id`)
+-- Intake table
+CREATE TABLE `intake` (
+    `intake_id` BIGINT(20) NOT NULL AUTO_INCREMENT,
+    `session` VARCHAR(20)  NOT NULL,
+    `campus` VARCHAR(40)  NOT NULL,
+    `level_of_study` VARCHAR(30) NOT NULL,
+    `entry_qualification` VARCHAR(80) ,
+    `programme` VARCHAR(80) NOT NULL,
+    `first_sem` VARCHAR(20)  ,
+    `applicant_id` BIGINT(20) NOT NULL,
+    PRIMARY KEY(`intake_id`),
+    FOREIGN KEY (`applicant_id`) REFERENCES `applicant`(`applicant_id`)
 );
 
 -- EmergencyInfo table
@@ -211,7 +151,6 @@ CREATE TABLE `application` (
     `application_status` VARCHAR(15) NOT NULL,
     `study_mode` VARCHAR(20) NOT NULL,
     `start_year` INT(4) NOT NULL,
-    `campus_id` BIGINT(20) NOT NULL,
     `programme_id` BIGINT(20) NOT NULL,
     `profile_info_id` BIGINT(20) NOT NULL,
     `detailed_info_id` BIGINT(20) NOT NULL,
@@ -219,7 +158,6 @@ CREATE TABLE `application` (
     `applicant_id` BIGINT(20) NOT NULL,
     `staff_id` BIGINT(20),
     PRIMARY KEY (`application_id`),
-    FOREIGN KEY (`campus_id`) REFERENCES `campus`(`campus_id`),
     FOREIGN KEY (`programme_id`) REFERENCES `programme`(`programme_id`),
     FOREIGN KEY (`profile_info_id`) REFERENCES `profile_info`(`profile_info_id`),
     FOREIGN KEY (`detailed_info_id`) REFERENCES `detailed_info`(`detailed_info_id`),
@@ -276,46 +214,13 @@ INSERT INTO `profile_info` VALUES (2, 'Jane Doe', '987654321009', 'Malaysian', '
 -- (ProgrammeId, ProgrammeName, Overview, LevelOfStudy, Duration, Intake, localTotalFee, overseaTotalFee, ApplicantId)
 INSERT INTO `programme` VALUES (1, 'Bachelor of Computer Science', 'Students are trained in both theoretical knowledge and practical skills for software development, system design and related mathematical techniques. ', 'Diploma', 2, '2023/2024', 'KL - Kuala Lumpur Main Campus, PG - Penang Branch Campus,JH - Johor Branch Campus','Bachelor of Science (Honours) in Management Mathematics with Computing,Bachelor of Software Engineering (Honours),Bachelor of Computer Science (Honours) in Interactive Software Technology,Bachelor of Computer Science (Honours) in Data Science','Junior Analyst Programmers,Junior Systems Analysts,Junior Software Engineers,Junior Systems Engineers,Junior Research Officers,Junior Quantitative Analysts,Junior Software Developers', 20000, 30000);
 INSERT INTO `programme` VALUES (2, 'Diploma in Information Systems', 'This program majors in business information systems. It aims to produce graduates with fundamental knowledge in information technology and its business-related applications.', 'Diploma', 2, '2023/2024', 'KL - Kuala Lumpur Main Campus, PG - Penang Branch Campus,JH - Johor Branch Campus','Bachelor of Information Systems (Honours) in Enterprise Information Systems','Junior Programmers,Junior Systems Analysts,Junior SAP Support Consultants,Junior IT Support Executives,Junior IT Executives', 20000, 30000);
--- Career table
--- (CareerId, CareerName)
-INSERT INTO `career` VALUES (1, 'Software Engineer');
-INSERT INTO `career` VALUES (2, 'Data Scientist');
 
--- Progression table
--- (ProgressionId, ProgrammeName)
-INSERT INTO `progression` VALUES (1, 'Bachelor of Computer Science (Honours)');
-INSERT INTO `progression` VALUES (2, 'Master of Business Administration (MBA)');
+-- Intake table
+INSERT INTO `intake`  VALUES ('1', 'Oct/Nov 2023','KUALA LUMPUR CAMPUS','DIPLOMA','SPM/O LEVEL/UEC/EQUIVALENT','DIPLOMA IN ACCOUNTING','Year 1 Sem 1', 1);
+INSERT INTO `intake`  VALUES ('2', 'Oct/Nov 2023','KUALA LUMPUR CAMPUS','DIPLOMA','TAR UMT Certificate','DIPLOMA IN ACCOUNTING','Year 1 Sem 1', 1);
+INSERT INTO `intake`  VALUES ('3', 'Oct/Nov 2023','KUALA LUMPUR CAMPUS','DIPLOMA','OTHER INSTITUTION OF HIGHER LEARNING CERTIFICATE/EQUIVALENT','DIPLOMA IN ACCOUNTING','Year 1 Sem 1', 1);
+INSERT INTO `intake`  VALUES ('4', 'Oct/Nov 2023','KUALA LUMPUR CAMPUS','DIPLOMA','SPM/O LEVEL/UEC/EQUIVALENT','DIPLOMA IN ACCOUNTING','Year 1 Sem 1', 2);
 
--- Campus table
--- (CampusId, CampusName)
-INSERT INTO `campus` VALUES (1, 'Kuala Lumpur Campus');
-INSERT INTO `campus` VALUES (2, 'Penang Campus');
-
--- ProgrammeOutline table
--- (ProgrammeOutlineId, CourseName)
-INSERT INTO `programme_outline` VALUES (1, 'Introduction to Computer Science');
-INSERT INTO `programme_outline` VALUES (2, 'Data Structures and Algorithms');
-
--- OutlineAssign table
--- (ProgrammeId, ProgrammeOutlineId, IsElective, ElectiveNo)
-INSERT INTO `outline_assign` VALUES (1, 1, 0, 1);
-INSERT INTO `outline_assign` VALUES (1, 2, 1, 2);
-
--- ProgessionAssign table
--- (ProgrammeId, ProgressionId, Description)
-INSERT INTO `progession_assign` VALUES (1, 1, 'A 1-year programme that allows students to specialize in a particular area of computer science.');
-INSERT INTO `progession_assign` VALUES (2, 2, 'A 1-year programme that allows students to specialize in a particular area of business administration.');
-
--- CareerAssign table
--- (ProgrammeId, CareerId)
-INSERT INTO `career_assign` VALUES (1, 1);
-INSERT INTO `career_assign` VALUES (2, 2);
-
--- CampusAssign table
--- (ProgrammeId, CampusId)
-INSERT INTO `campus_assign` VALUES (1, 1);
-INSERT INTO `campus_assign` VALUES (1, 2);
-INSERT INTO `campus_assign` VALUES (2, 1);
 
 -- EmergencyInfo table
 -- (EmergencyInfoId, FullName, Relationship, Address, Postcode, State, Country, ContactNo, Email, ProfileInfoId)
@@ -340,8 +245,8 @@ INSERT INTO `preu_result` VALUES ('Chemistry', 1, 'A');
 
 -- Application table
 -- (ApplicationId, Intake, ApplicationStatus, StudyMode, StartYear, CampusId, ProgrammeId, ProfileInfoId, DetailedInfoId, QualificationId, ApplicantId, StaffId)
-INSERT INTO `application` VALUES (1, '2023/2024', 'Pending', 'Full-time', '2023', 1, 1, 1, 1, 1, 1, 2);
-INSERT INTO `application` VALUES (2, '2023/2024', 'Pending', 'Part-time', '2023', 2, 2, 2, 2, 2, 2, 1);
+INSERT INTO `application` VALUES (1, '2023/2024', 'Pending', 'Full-time', '2023', 1, 1, 1, 1, 1, 2);
+INSERT INTO `application` VALUES (2, '2023/2024', 'Pending', 'Part-time', '2023', 2, 2, 2, 2, 2, 1);
 
 -- Enquirer table
 -- (EnquirerEmail, Contact, Name, Nationality)
