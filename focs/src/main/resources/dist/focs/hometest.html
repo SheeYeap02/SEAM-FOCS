@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
+    <title>Bootstrap Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/icons.css" />
+    <link rel="stylesheet" href="css/responsee.css" />
+    <link rel="stylesheet" href="owl-carousel/owl.carousel.css" />
+    <link rel="stylesheet" href="owl-carousel/owl.theme.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- CUSTOM STYLE -->
+    <link rel="stylesheet" href="css/template-style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Barlow:100,300,400,700,800&amp;subset=latin-ext"
+      rel="stylesheet"
+    />
+    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    
+    <style>
+        .button-container {
+  display: flex;
+  gap: 20px;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1%;
+  margin-bottom: 5%;
+  flex-wrap: wrap; /* Allow buttons to wrap onto a new line */
+}
+
+.button-57 {
+  position: relative;
+  overflow: hidden;
+  border: 5px solid #809fff;
+  color: #18181a;
+  display: inline-block;
+  font: small-caps bold 19px/2 sans-serif;
+  line-height: 22px;
+  padding: 18px 18px 17px;
+  width: 200px; /* Adjusted width to match the "Programmes" button */
+  height: 300px; /* Adjusted height to match the "Programmes" button */
+  text-decoration: none;
+  cursor: pointer;
+  background: white;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-57 span:first-child {
+  position: relative;
+  transition: color 600ms cubic-bezier(0.48, 0, 0.12, 1);
+  z-index: 10;
+}
+
+.button-57 span:last-child {
+  color: white;
+  font: small-caps bold 19px/2 sans-serif;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  transition: all 500ms cubic-bezier(0.48, 0, 0.12, 1);
+  z-index: 100;
+  opacity: 0;
+  top: 50%;
+  left: 50%;
+  transform: translateY(225%) translateX(-50%);
+  height: 14px;
+  line-height: 22px;
+}
+
+.button-57:after {
+  content: "";
+  position: absolute;
+  bottom: -50%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #809fff;
+  transform-origin: bottom center;
+  transition: transform 600ms cubic-bezier(0.48, 0, 0.12, 1);
+  transform: skewY(9.3deg) scaleY(0);
+  z-index: 50;
+}
+
+.button-57:hover:after {
+  transform-origin: bottom center;
+  transform: skewY(9.3deg) scaleY(2);
+}
+
+.button-57:hover span:last-child {
+  transform: translateX(-50%) translateY(-100%);
+  opacity: 1;
+  transition: all 900ms cubic-bezier(0.48, 0, 0.12, 1);
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+}
+
+.button-wrapper {
+  margin-bottom: 20px; /* Adds some space between buttons */
+}
+
+@media (max-width: 767px) {
+    .carousel-item img {
+      width: 100%; /* Adjust image width to fill the carousel item */
+      height: auto; /* Maintain aspect ratio */
+    }
+    
+  .button-container {
+    display: flex;
+    align-items: center;
+    
+  }
+
+  .button-57 {
+    width: 130px; /* Make buttons fill the width */
+    height: 220px; /* Adjust height to fit content */
+    margin-bottom: 10px; /* Adds space between buttons */
+  }
+  .button-57 span{
+    font-size: small;
+  }
+}
+</style>
+        
+  </head>
+  <body class="p-3 m-0 border-0 bd-example">
+    <header class="grid headerjs"></header>
+    <!-- Example Code -->
+    
+    <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-label="Slide 1" aria-current="true"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 4" class=""></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="4" aria-label="Slide 5" class=""></button>
+
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="20000">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" role="img" aria-label="Placeholder: First slide" preserveAspectRatio="xMidYMid slice" focusable="false">
+                <title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#f5f5f5"></rect>
+                <image xlink:href="img/newslide1.png" width="100%" height="100%"/>
+                <text x="50%" y="50%" fill="#aaa" dy=".3em"></text>
+              </svg>
+              
+
+          <div class="carousel-caption d-none d-md-block">
+            <h5>First slide label</h5>
+            <p>Some representative placeholder content for the first slide.</p>
+          </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="20000">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" role="img" aria-label="Placeholder: First slide" preserveAspectRatio="xMidYMid slice" focusable="false">
+                <title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#f5f5f5"></rect>
+                <image xlink:href="img/8.png" width="100%" height="100%" />
+                <text x="50%" y="50%" fill="#aaa" dy=".3em"></text>
+              </svg>    
+          <div class="carousel-caption d-none d-md-block" data-bs-interval="2000">
+            <h5>Second slide label</h5>
+            <p>Some representative placeholder content for the second slide.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" role="img" aria-label="Placeholder: First slide" preserveAspectRatio="xMidYMid slice" focusable="false">
+                <title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#f5f5f5"></rect>
+                <image xlink:href="img/5.png" width="100%" height="100%" />
+                <text x="50%" y="50%" fill="#aaa" dy=".3em"></text>
+              </svg>      
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Third slide label</h5>
+            <p>Some representative placeholder content for the third slide.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" role="img" aria-label="Placeholder: First slide" preserveAspectRatio="xMidYMid slice" focusable="false">
+                <title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#f5f5f5"></rect>
+                <image xlink:href="img/6.png" width="100%" height="100%" />
+                <text x="50%" y="50%" fill="#aaa" dy=".3em"></text>
+              </svg>        
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Third slide label</h5>
+              <p>Some representative placeholder content for the third slide.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" role="img" aria-label="Placeholder: First slide" preserveAspectRatio="xMidYMid slice" focusable="false">
+                <title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#f5f5f5"></rect>
+                <image xlink:href="img/7.png" width="100%" height="100%" />
+                <text x="50%" y="50%" fill="#aaa" dy=".3em"></text>
+              </svg>         
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Third slide label</h5>
+              <p>Some representative placeholder content for the third slide.</p>
+            </div>
+          </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <!-- HTML !-->
+<div class="button-container">
+    <div class="button-wrapper">
+  <a href="whychooseus.html">
+    <button class="button-57" role="button">
+      <span class="text">Why Choose Us
+        <br/><br/>
+        <img width="50" height="50" src="https://img.icons8.com/pulsar-color/48/why-us-male.png" alt="why-us-male"/>
+      </span>
+      <span>Alternate text</span>
+    </button>
+  </a>
+</div>
+<div class="button-wrapper">
+    <button class="button-57 buttonsize2" role="button">
+      <span class="text">Programmes
+        <br/><br/>
+        <img width="60" height="60" src="https://img.icons8.com/matisse/100/programming.png" alt="programming"/>
+      </span>
+      <span>Alternate text</span>
+    </button>
+</div>
+
+<div class="button-wrapper">
+  <a href="partners.html">
+    <button class="button-57 buttonsize3" role="button">
+        <span class="text">Collaboration Partners
+          <br/><br/>
+          <img width="60" height="60" src="https://img.icons8.com/officel/80/meeting-room.png" alt="meeting-room"/>        </span>
+        <span>Alternate text</span>
+      </button>
+      </a>
+    </div>
+
+    <div class="button-wrapper">
+      <button class="button-57 " role="button">
+        <span class="text">Highlights
+          <br/><br/><br/>
+          <img width="60" height="60" src="https://img.icons8.com/external-flatarticons-blue-flatarticons/65/external-Star-achievements-and-badges-flatarticons-blue-flatarticons.png" alt="external-Star-achievements-and-badges-flatarticons-blue-flatarticons"/>
+        </span>
+        <span>Alternate text</span>
+      </button>
+    </div>
+
+    <div class="button-wrapper">
+      <button class="button-57 buttonsize2" role="button">
+        <span class="text">Recognition
+          <br/><br/>
+          <img width="60" height="60" src="https://img.icons8.com/external-soft-fill-juicy-fish/60/external-good-marketing-soft-fill-soft-fill-juicy-fish.png" alt="external-good-marketing-soft-fill-soft-fill-juicy-fish"/>
+        </span>
+        <span>Alternate text</span>
+      </button>
+    </div>
+    <div class="button-wrapper">
+      <button class="button-57 buttonsize2" role="button">
+        <span class="text">Testimonials
+          <br/><br/>
+          <img width="60" height="60" src="https://img.icons8.com/external-flaticons-flat-flat-icons/64/external-professionals-nursing-flaticons-flat-flat-icons.png" alt="external-professionals-nursing-flaticons-flat-flat-icons"/>        </span>
+        <span>Alternate text</span>
+      </button>
+    </div>
+  </div>
+    <script type="text/javascript" src="js/headerAppend.js"></script>
+    <!-- End Example Code -->
+  </body>
+  <footer class=" grid footerjs"></footer>
+</html>

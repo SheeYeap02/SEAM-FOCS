@@ -133,8 +133,11 @@
               let res = await loginApi(this.loginForm)
               if (String(res.code) === '1') {
                 localStorage.setItem('userInfo', JSON.stringify(res.data))
-                window.location.href= '/dist/index.html'
                 sessionStorage.setItem('lastActivityTime', Date.now())
+                this.$message.success('Successfully Login Your Account！')
+                setTimeout(() => {
+                    window.location.href ='/dist/index.html';
+                },500); // 0.5secs
               } else {
                 this.$message.error(res.msg)
                 this.loading = false

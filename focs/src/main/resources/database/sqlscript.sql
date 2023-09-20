@@ -169,8 +169,7 @@ CREATE TABLE `emergency_info` (
 -- DetailedInfo table
 CREATE TABLE `detailed_info` (
     `detailed_info_id` BIGINT(20) NOT NULL AUTO_INCREMENT, 
-    `ic_front` BLOB  ,
-    `ic_back` BLOB  ,
+    `ic_image` longblob  ,
     `household_income` VARCHAR(40) NOT NULL,
     `medical_condition` VARCHAR(150) NOT NULL,
     `applicant_id` BIGINT(20) NOT NULL,
@@ -262,7 +261,7 @@ CREATE TABLE `enquiry`(
 -- Users table
 -- (UserEmail, Password, RegisteredDate)
 INSERT INTO `applicant` VALUES (1, 'johndoe@gmail.com', '482c811da5d5b4bc6d497ffa98491e38', '2023-03-08');
-INSERT INTO `applicant` VALUES (2,'janedoe@gmail.com', 'password456', '2023-03-09');
+INSERT INTO `applicant` VALUES (2,'janedoe@gmail.com', '96b33694c4bb7dbd07391e0be54745fb', '2023-03-09');
 
 -- Staff table
 -- (StaffId, Username, Password, StaffName, StaffContact, StaffEmail, StaffPosition, StaffRole, ResearchArea)
@@ -325,8 +324,8 @@ INSERT INTO `emergency_info` VALUES (2, 'Jane Doe', 'Mother', '456 Main Street',
 
 -- DetailedInfo table
 -- (DetailedInfoId, ICFront, ICBack, HouseholdIncome, MedicalCondition, ApplicantId)
-INSERT INTO `detailed_info` VALUES (1, '123456789012.jpg', '987654321009.jpg', 50000, 'None', 1);
-INSERT INTO `detailed_info` VALUES (2, '456789012345.jpg', '678901234567.jpg', 80000, 'Asthma', 2);
+INSERT INTO `detailed_info` VALUES (1, '123456789012.jpg', 'T20 (RM9001 and above)', 'Asthma', 1);
+INSERT INTO `detailed_info` VALUES (2, '456789012345.jpg', 'M40 (RM5001 to RM9000)', 'No', 2);
 
 -- Qualification table
 -- (QualificationId, StartDate, EndDate, ModeOfStudy, InstitutionName, InstitutionLocation, QualificationType, CGPA, LanguageOfInstruction, AcademicCertificate, AcademicTranscript, ApplicantId)
