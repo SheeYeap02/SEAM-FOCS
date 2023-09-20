@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <script src="//code.tidio.co/m6kdihlblyie9jlb1otfxudgzisuz4fx.js" async></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Staff Directory</title>
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/icons.css">
+    <link rel="stylesheet" href="css/responsee.css">
+    <link rel="stylesheet" href="owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="owl-carousel/owl.theme.css">
+    <!-- CUSTOM STYLE -->
+    <link rel="stylesheet" href="css/template-style.css">
+    <link href="https://fonts.googleapis.com/css?family=Barlow:100,300,400,700,800&amp;subset=latin-ext"
+        rel="stylesheet">
+    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/userlog.js"></script>
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="../plugins/axios/axios.min.js"></script>
+    <script src="../plugins/vue/vue.js"></script>
+    <script src="../api/programme.js"></script>
+    <script>
+
+    </script>
+    <style>
+        body {
+            color: #888888;
+            margin-top: 20px;
+        }
+
+        .progress {
+            position: relative;
+            overflow: inherit;
+            height: 6px;
+            margin: 30px 0px 15px;
+            width: 100%;
+            display: inline-block;
+            border-radius: 10px;
+        }
+
+        .progress .progress-bar {
+            height: 6px;
+            background: #009b72;
+            border-radius: 10px;
+        }
+
+        .progress .progress-bar-title {
+            position: absolute;
+            left: 0;
+            top: -30px;
+            color: #818181;
+            font-size: 16px;
+        }
+
+        .progress .progress-bar-number {
+            position: absolute;
+            right: 0;
+            color: #888888;
+            top: -30px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .media {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: start;
+            -ms-flex-align: start;
+            align-items: flex-start;
+        }
+
+        .media-body {
+            -webkit-box-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+        }
+
+        .text-black {
+            color: #000000;
+        }
+
+        .font-weight-normal {
+            font-weight: 500 !important;
+        }
+
+        .w-25 {
+            width: 25% !important;
+        }
+
+        .text-muted {
+            color: #b2b2b2 !important;
+        }
+
+        .mr-1,
+        .mx-1 {
+            margin-right: 0.625rem !important;
+        }
+    </style>
+</head>
+
+<body class="size-1520 primary-color-red background-dark">
+    <!-- HEADER -->
+    <header class="grid headerjs">
+    </header>
+
+    <!-- MAIN -->
+    <main role="main">
+        <!-- TOP SECTION -->
+        <header class="grid">
+            <div class="s-12 padding-2x">
+                <h1 id="stfTitle" class="text-strong text-white text-center center text-size-60 text-uppercase margin-bottom-20">
+                    FIND YOUR BEST</h1>
+                <p id="stfsub" class="text-size-20 text-white text-center center text-uppercase">Look for different academic
+                    programs or courses to make informed decisions about your academic pursuits</p>
+            </div>
+        </header>
+
+
+        <div class="container" style="padding-bottom: 5%;">
+            <div class="row">
+                <div class="col-lg-5 col-md-6">
+                    <div class="mb-2">
+                        <img class="w-100" id="stfImage" style="border-radius: 30px;" src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="">
+                    </div>
+                    <div class="mb-2 d-flex">
+                        <h4 class="font-weight-normal" id="stfName">John Doe</h4>
+                    </div>
+                    <div class="mb-2">
+                        <ul class="list-unstyled">
+                            <li class="media">
+                                <span class="w-25 text-white font-weight-normal">Designation:</span>
+                                <label class="media-body" id="stfDesignation">Design</label>
+                            </li>
+                            <li class="media">
+                                <span class="w-25 text-white font-weight-normal">Email: </span>
+                                <label class="media-body" id="stfEmail">gmail.com</label>
+                            </li>
+                            <li class="media">
+                                <span class="w-25 text-white font-weight-normal">Major of Study: </span>
+                                <label class="media-body" id="stfMajor">Major</label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-6 pl-xl-3">
+                    <h5 class="font-weight-normal">Biography</h5>
+                    <p id="stfBio">Along with your plans, you should consider developing an action orientation that will keep you
+                        motivated to move forward at all times. This requires a little self-discipline, but is a crucial
+                        component to achievement of any kind. Before starting any new activity, ask yourself if that
+                        activity will move you closer to your goals. If the answer is no, you may want to reconsider
+                        doing it at that time.</p>
+                    <!-- <div class="my-2 bg-light p-2">
+                        <p class="font-italic mb-0">The price is something not necessarily defined as financial. It
+                            could be time, effort, sacrifice, money or perhaps, something else.</p>
+                    </div>
+                    <ul class="list list-unstyled mb-3">
+                        <li class="text-secondary font-weight-normal mb-1">
+                            <span class="ti-arrow-right pr-1 text-primary"></span>
+                            Commitment is something that comes from understanding that!
+                        </li>
+                        <li class="text-secondary font-weight-normal mb-1">
+                            <span class="ti-arrow-right pr-1 text-primary"></span>
+                            Its price and then having the willingness to pay that price.
+                        </li>
+                        <li class="text-secondary font-weight-normal mb-1">
+                            <span class="ti-arrow-right pr-1 text-primary"></span>
+                            Out after the fact that the price was too high.
+                        </li>
+                        <li class="text-secondary font-weight-normal mb-1">
+                            <span class="ti-arrow-right pr-1 text-primary"></span>
+                            This is important because nobody wants to put significant.
+                        </li>
+                    </ul> -->
+                    <h5 class="font-weight-normal">Interested Area</h5>
+                    <ul class="list-group list-group-flush" id="stfArea" style="color: black;">
+                        <!-- <li class="list-group-item">A second item</li>
+                        <li class="list-group-item">A third item</li>
+                        <li class="list-group-item">A fourth item</li>
+                        <li class="list-group-item">And a fifth one</li> -->
+                    </ul>
+                    <div class="mb-2 mt-2 pt-1">
+                        <h5 class="font-weight-normal">Qualification</h5>
+                    </div>
+                    <ul class="list-group list-group-flush" id="stfQualification" style="color: black;">
+                        <!-- <li class="list-group-item">A second item</li>
+                        <li class="list-group-item">A third item</li>
+                        <li class="list-group-item">A fourth item</li>
+                        <li class="list-group-item">And a fifth one</li> -->
+                    </ul>
+
+                    <!-- <div class="py-1">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width:85%" aria-valuenow="85"
+                                aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar-title">Finance</div>
+                                <span class="progress-bar-number">85%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="py-1">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width:70%" aria-valuenow="70"
+                                aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar-title">Information Technologies</div>
+                                <span class="progress-bar-number">70%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="py-1">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width:77%" aria-valuenow="77"
+                                aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar-title">Education</div>
+                                <span class="progress-bar-number">77%</span>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="grid">
+        <!-- Footer - top -->
+        <!-- Image-->
+        <div class="s-12 l-3 m-row-3 margin-bottom background-image" style="background-image:url(img/img-04.jpg)"></div>
+
+        <div class="s-12 m-9 l-3 padding-2x margin-bottom background-dark">
+            <h2 class="text-strong text-uppercase">Who We Are?</h2>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                sed diam nonummy.</p>
+        </div>
+
+        <div class="s-12 m-9 l-3 padding-2x margin-bottom background-dark">
+            <h2 class="text-strong text-uppercase">Where We Are?</h2>
+            <img class="full-img" src="img/map.svg" alt="" />
+        </div>
+
+        <div class="s-12 m-9 l-3 padding-2x margin-bottom background-dark">
+            <h2 class="text-strong text-uppercase">Contact Us</h2>
+            <p><b class="text-primary margin-right-10">P</b> 0800 4521 800 50</p>
+            <p><b class="text-primary margin-right-10">M</b> <a class="text-primary-hover"
+                    href="mailto:contact@sampledomain.com">contact@sampledomain.com</a></p>
+            <p><b class="text-primary margin-right-10">M</b> <a class="text-primary-hover"
+                    href="mailto:office@sampledomain.com">office@sampledomain.com</a></p>
+        </div>
+
+        <!-- Footer - bottom -->
+        <div class="s-12 text-center margin-bottom">
+            <p class="text-size-12">Copyright 2019, Vision Design - graphic zoo</p>
+            <p class="text-size-12">All images have been purchased from Bigstock. Do not use the images in your website.
+            </p>
+            <p><a class="text-size-12 text-primary-hover" href="http://www.myresponsee.com"
+                    title="Responsee - lightweight responsive framework">Design and coding by Responsee Team</a></p>
+        </div>
+    </footer>
+    <script type="text/javascript" src="js/responsee.js"></script>
+    <script type="text/javascript" src="owl-carousel/owl.carousel.js"></script>
+    <script type="text/javascript" src="js/template-scripts.js"></script>
+    <script src="../plugins/axios/axios.min.js"></script>
+    <script src="../plugins/vue/vue.js"></script>
+    <script src="../api/programme.js"></script>
+    <script>
+
+        // Function to get URL parameter by name
+        async function getUrlParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        displayStaff();
+        async function displayStaff() {
+            const response = await fetch('./js/json/staff.json');
+            const data = await response.json();
+            const idx = await getUrlParameter('idx');
+            const staff = data['staff'][idx];
+            console.log(staff[idx]);
+
+            document.getElementById('stfTitle').innerHTML = staff['name'];
+            document.getElementById('stfsub').innerHTML = staff['qualification'];
+
+            document.getElementById('stfImage').src = staff['imageURL'];
+            document.getElementById('stfName').innerHTML = staff['name'];
+            document.getElementById('stfDesignation').innerHTML = staff['designation'];
+            document.getElementById('stfEmail').innerHTML = staff['email'];
+            document.getElementById('stfMajor').innerHTML = staff['majorOfStudy'];
+            document.getElementById('stfBio').innerHTML = staff['biography'];
+
+
+
+            let area = staff['areaOfInterest'].split(',');
+            for(let i = 0;i < area.length;i++){
+                document.getElementById('stfArea').innerHTML += `<li class="list-group-item">${area[i]}</li>`;
+            }
+
+            let qua = staff['qualification'].split(',');
+            for(let i = 0;i < qua.length;i++){
+                document.getElementById('stfQualification').innerHTML += `<li class="list-group-item">${qua[i]}</li>`;
+            }
+
+        }
+
+
+
+        function showTab(tabIndex) {
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            // Hide all tab contents
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Show the selected tab content
+            const selectedTabContent = document.getElementById(`tab${tabIndex}-content`);
+            selectedTabContent.classList.add('active');
+        }
+
+    </script>
+    <script type="text/javascript" src="js/headerAppend.js"></script>
+</body>
+
+</html>

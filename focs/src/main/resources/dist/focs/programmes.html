@@ -5,7 +5,7 @@
     <script src="//code.tidio.co/m6kdihlblyie9jlb1otfxudgzisuz4fx.js" async></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Free responsive business website template</title>
+    <title>Programme Detail</title>
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/icons.css">
     <link rel="stylesheet" href="css/responsee.css">
@@ -47,6 +47,11 @@
         .tab-content.active {
             display: block;
         }
+
+        .nav-link {
+            
+            color: white;
+        }
     </style>
 </head>
 
@@ -61,20 +66,15 @@
         <header class="grid">
             <div class="s-12 padding-2x">
                 <h1 class="text-strong text-white text-center center text-size-60 text-uppercase margin-bottom-20">
-                    Our
-                    Services</h1>
-                <p class="text-size-20 text-white text-center center text-uppercase">Con nonummy sem integer
-                    interdum
-                    volutpat dis eget eligendi aliquip dolorum magnam. Iriure duis autem vel<br> eum dolor in
-                    hendrerit
-                    in vulputate velit esse molestie consequat.</p>
+                    FIND YOUR BEST</h1>
+                <p class="text-size-20 text-white text-center center text-uppercase">Look for different academic programs or courses to make informed decisions about your academic pursuits</p>
             </div>
         </header>
 
 
         <nav>
-            <div class="nav nav-fill nav-tabs center2" id="nav-tab" role="tablist">
-                <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact"
+            <div class="nav nav-fill nav-tabs center2 background-dark" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact"
                     type="button" role="tab" aria-controls="nav-contact" onclick="showTab(1)"
                     aria-selected="false">Bachelor</button>
                 <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact"
@@ -155,6 +155,7 @@
 
             for (const degreeTitle in data2) {
                 if (degreeTitle != "Description") {
+                    //Degree ICON here
                     html += `<h2 style="color: black;">${degreeTitle}</h2>`;
                     const programs = data2[degreeTitle];
 
@@ -187,6 +188,7 @@
 
             for (const degreeTitle in data2) {
                 if (degreeTitle != "Description") {
+                    //Diploma ICON here
                     html += `<h2 style="color: black;">${degreeTitle}</h2>`;
                     const programs = data2[degreeTitle];
 

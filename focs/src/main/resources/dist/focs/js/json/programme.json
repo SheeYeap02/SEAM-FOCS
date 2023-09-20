@@ -3,7 +3,7 @@
         "Description": "The Faculty of Computing and Information Technology (FOCS) offers the following Diploma programmes:",
         "Diploma Programmes": {
             "Diploma in Computer Science": {
-                "Programme Overview": { 
+                "Programme Overview": {
                     "Programme Overview": "Students are trained in both theoretical knowledge and practical skills for software development, system design and related mathematical techniques. ",
                     "Duration": "2 years",
                     "Campuses": {
@@ -103,7 +103,7 @@
             },
             "Diploma in Information Systems": {
                 "Programme Overview": {
-                    "Program Overview": "This program majors in business information systems. It aims to produce graduates with fundamental knowledge in information technology and its business-related applications. It covers the theoretical and practical aspects of developing information systems, management, costing, accounting, electronic commerce, and mathematics. This program is supported by case studies and computer laboratory assignments. In addition, students are exposed to part of the SAP curriculum like logistics and enterprise resource planning. Students will acquire practical skills in the C Language, HTML5, JavaScript, VB.NET, Microsoft Expression Web, Oracle Database, accounting software packages, and be guided through the process of developing an information system.",
+                    "Programme Overview": "This program majors in business information systems. It aims to produce graduates with fundamental knowledge in information technology and its business-related applications. It covers the theoretical and practical aspects of developing information systems, management, costing, accounting, electronic commerce, and mathematics. This program is supported by case studies and computer laboratory assignments. In addition, students are exposed to part of the SAP curriculum like logistics and enterprise resource planning. Students will acquire practical skills in the C Language, HTML5, JavaScript, VB.NET, Microsoft Expression Web, Oracle Database, accounting software packages, and be guided through the process of developing an information system.",
                     "Duration": "2 years",
                     "Campuses": {
                         "KL - Kuala Lumpur Main Campus": "(R2/482/4/0195A)(08/28)(AA0110)",
@@ -116,9 +116,9 @@
                     "Academic Progression": {
                         "Graduates may be admitted into Year 2 of": [
                             "Bachelor of Information Systems (Honours) in Enterprise Information Systems"
-                        ]
-                    },
-                    "ImageURL": "https://www.tarc.edu.my/files/focs/mer202105/055388FD-EB0C-4744-855C-0F10C90CA62F.jpg"
+                        ],
+                        "ImageURL": "https://www.tarc.edu.my/files/focs/mer202105/055388FD-EB0C-4744-855C-0F10C90CA62F.jpg"
+                    }
                 },
                 "Entry Requirements": {
                     "Entry Requirements": "https://www.tarc.edu.my/files/focs/mer202102/A1854FA6-0783-41E5-BAD2-BF61C7FF1EFE.jpg"
@@ -196,7 +196,9 @@
                 "Programme Overview": {
                     "Programme Overview": "This programme provides students with a basic understanding of computing techniques and aims to develop the computing and information technology-based knowledge and skills required in modern industrial, commercial, and service organisations. It will equip students with essential knowledge of the underlying principles of modern computing technology and enable students to appreciate how modern computers are applied to a range of real-world problems. Students will learn C Language, Java, Assembly Language, Oracle Database, HTML5, CSS, PHP, and JavaScript. Upon completion, graduates will have acquired knowledge and developed skills in the areas of computer programming, systems analysis, operating systems, computer networking, computer applications, and object-oriented software development, as well as in generic business courses.",
                     "Duration": "2 years",
-                    "Intake": ["June"],
+                    "Intake": [
+                        "June"
+                    ],
                     "Campuses": {
                         "KL - Kuala Lumpur Main Campus": "(R2/482/4/0196A)(08/28)(AA0111)",
                         "PG - Penang Branch Campus": "(R2/0611/4/0203A)(09/28)(AA0141)",
@@ -291,7 +293,9 @@
                 "Programme Overview": {
                     "Programme Overview": "This programme equips students with the fundamental knowledge of software engineering with practical and analytical thinking skills in software development. It also provides students with basic managerial skills and innovation in creating business opportunities in the area of software engineering, as well as educational experience that motivates them to pursue a higher level of study and lifelong learning.",
                     "Duration": "2 years",
-                    "Intake": ["June"],
+                    "Intake": [
+                        "June"
+                    ],
                     "Campuses": {
                         "SB - Sabah Branch": "(R/481/4/0779)(08/27)(MQA/FA7566)"
                     },
@@ -699,7 +703,7 @@
         "Bachelor of Information Systems": {
             "Management Mathematics with Computing": {
                 "Programme Overview": {
-                    "Overview": "Information systems are the heart of many organizations that support their daily business processes and promote business growth. This program is designed to equip students with the ability to solve practical problems in the implementation of enterprise information systems in large organizations. In addition to fundamentals of computing, the specialization subject area covers Business and Information Systems, Systems Analysis and Design, Enterprise Systems, Enterprise Resource Planning, Data Warehouse Technology, Business Intelligence, Business Process Management, Information Systems Implementation, IS Strategy and Management. Elective courses like Principles of Accounting, Introduction to Computer Security, Visual Programming, Software Project Management, Decision Support Systems, Advanced Database Management, and Database Administration will be offered to students undergoing this program. Students will have an opportunity to work with the industry through their 6 months of industrial training and carry out real-life projects on software development, implementation of enterprise information systems, and data analysis. All such training will add value to their qualification and increase their employment opportunities.",
+                    "Programme Overview": "Information systems are the heart of many organizations that support their daily business processes and promote business growth. This program is designed to equip students with the ability to solve practical problems in the implementation of enterprise information systems in large organizations. In addition to fundamentals of computing, the specialization subject area covers Business and Information Systems, Systems Analysis and Design, Enterprise Systems, Enterprise Resource Planning, Data Warehouse Technology, Business Intelligence, Business Process Management, Information Systems Implementation, IS Strategy and Management. Elective courses like Principles of Accounting, Introduction to Computer Security, Visual Programming, Software Project Management, Decision Support Systems, Advanced Database Management, and Database Administration will be offered to students undergoing this program. Students will have an opportunity to work with the industry through their 6 months of industrial training and carry out real-life projects on software development, implementation of enterprise information systems, and data analysis. All such training will add value to their qualification and increase their employment opportunities.",
                     "Duration": "3 years",
                     "Campuses": {
                         "KL - Kuala Lumpur Main Campus": "(R2/0611/6/0376A)(09/28)(MQA/FA3931)"
@@ -808,7 +812,7 @@
         "Bachelor of Information Technology": {
             "Information Security": {
                 "Programme Overview": {
-                    "Overview": "This programme is designed to equip students with technical abilities and knowledge of information security in the areas of Internet Security, Vulnerability Assessment and Penetration Testing, Information Assurance and Security, Systems Administration, and Software Security. In addition, students have the opportunity to learn about computer networking and software development. Students will learn and be trained on how to detect, prevent, and defend organizations’ systems from unauthorized access. Elective courses like Digital Forensics, Network Forensics, Security Assessment and Risk Management, Artificial Intelligence, Mobile Application Development, Internet of Things, Cloud Computing, and Blockchain Application Development will be offered to students undergoing this programme. Students will have an opportunity to work with the industry through their 6 months of industrial training and carry out real-life projects in information security. All such training will add value to their qualification and increase their employment opportunities.",
+                    "Programme Overview": "This programme is designed to equip students with technical abilities and knowledge of information security in the areas of Internet Security, Vulnerability Assessment and Penetration Testing, Information Assurance and Security, Systems Administration, and Software Security. In addition, students have the opportunity to learn about computer networking and software development. Students will learn and be trained on how to detect, prevent, and defend organizations’ systems from unauthorized access. Elective courses like Digital Forensics, Network Forensics, Security Assessment and Risk Management, Artificial Intelligence, Mobile Application Development, Internet of Things, Cloud Computing, and Blockchain Application Development will be offered to students undergoing this programme. Students will have an opportunity to work with the industry through their 6 months of industrial training and carry out real-life projects in information security. All such training will add value to their qualification and increase their employment opportunities.",
                     "Duration": "3 years",
                     "Campuses": {
                         "KL - Kuala Lumpur Main Campus": "(R2/0611/6/0380A)(09/28)(MQA/FA3934)"
@@ -910,7 +914,7 @@
             },
             "Internet Technology": {
                 "Programme Overview": {
-                    "Overview": "The growth and development of the Internet is rapid and innovative. This phenomenon has enabled many companies to use web-based systems to operate their business processes in more efficient, effective and innovative ways. The use of the Internet has also led companies to be competitive.",
+                    "Programme Overview": "The growth and development of the Internet is rapid and innovative. This phenomenon has enabled many companies to use web-based systems to operate their business processes in more efficient, effective and innovative ways. The use of the Internet has also led companies to be competitive.",
                     "Duration": "3 years",
                     "Campuses": {
                         "KL - Kuala Lumpur Main Campus": "(R2/0611/6/0377A)(09/28)(MQA/FA3932)",
@@ -994,7 +998,7 @@
                 },
                 "Fees & Financial Aid": {
                     "Fees & Financial Aid": [
-                        "Estimated Total Fees : RM34,600 (Malaysian Student)", 
+                        "Estimated Total Fees : RM34,600 (Malaysian Student)",
                         "Estimated Total Fees : RM60,400 (International Student)",
                         "The estimated total fees may vary by 10%",
                         "For more information on Fees, click here: https://www.tarc.edu.my/bursary/content.jsp?cat_id=5AA0377F-4E7F-494A-8EB4-CEF5CE4DD7AE"
@@ -1010,7 +1014,7 @@
             },
             "Software Systems Development": {
                 "Programme Overview": {
-                    "Overview": "The growth and development of the Internet is rapid and innovative. This phenomenon has enabled many companies to use web-based systems to operate their business processes in more efficient, effective and innovative ways. The use of the Internet has also led companies to be competitive.",
+                    "Programme Overview": "The growth and development of the Internet is rapid and innovative. This phenomenon has enabled many companies to use web-based systems to operate their business processes in more efficient, effective and innovative ways. The use of the Internet has also led companies to be competitive.",
                     "Duration": "3 years",
                     "Campuses": {
                         "KL - Kuala Lumpur Main Campus": "(R2/0611/6/0377A)(09/28)(MQA/FA3932)",
