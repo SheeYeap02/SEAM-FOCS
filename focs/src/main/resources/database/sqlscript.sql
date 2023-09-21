@@ -90,6 +90,7 @@ CREATE TABLE `intake` (
     `entry_qualification` VARCHAR(80) ,
     `programme` VARCHAR(80) NOT NULL,
     `first_sem` VARCHAR(20)  ,
+    `priority` INT(2)  NOT NULL,
     `applicant_id` BIGINT(20) NOT NULL,
     PRIMARY KEY(`intake_id`),
     FOREIGN KEY (`applicant_id`) REFERENCES `applicant`(`applicant_id`)
@@ -235,10 +236,9 @@ INSERT INTO `programme` VALUES (1, 'Bachelor of Computer Science', 'Students are
 INSERT INTO `programme` VALUES (2, 'Diploma in Information Systems', 'This program majors in business information systems. It aims to produce graduates with fundamental knowledge in information technology and its business-related applications.', 'Diploma', 2, '2023/2024', 'KL - Kuala Lumpur Main Campus, PG - Penang Branch Campus,JH - Johor Branch Campus','Bachelor of Information Systems (Honours) in Enterprise Information Systems','Junior Programmers,Junior Systems Analysts,Junior SAP Support Consultants,Junior IT Support Executives,Junior IT Executives', 20000, 30000);
 
 -- Intake table
-INSERT INTO `intake`  VALUES ('1', 'Oct/Nov 2023','KUALA LUMPUR CAMPUS','DIPLOMA','SPM/O LEVEL/UEC/EQUIVALENT','DIPLOMA IN ACCOUNTING','Year 1 Sem 1', 1);
-INSERT INTO `intake`  VALUES ('2', 'Oct/Nov 2023','KUALA LUMPUR CAMPUS','DIPLOMA','TAR UMT Certificate','DIPLOMA IN ACCOUNTING','Year 1 Sem 1', 1);
-INSERT INTO `intake`  VALUES ('3', 'Oct/Nov 2023','KUALA LUMPUR CAMPUS','DIPLOMA','OTHER INSTITUTION OF HIGHER LEARNING CERTIFICATE/EQUIVALENT','DIPLOMA IN ACCOUNTING','Year 1 Sem 1', 1);
-INSERT INTO `intake`  VALUES ('4', 'Oct/Nov 2023','KUALA LUMPUR CAMPUS','DIPLOMA','SPM/O LEVEL/UEC/EQUIVALENT','DIPLOMA IN ACCOUNTING','Year 1 Sem 1', 2);
+INSERT INTO `intake`  VALUES ('1', 'Oct/Nov 2023','KUALA LUMPUR CAMPUS','DIPLOMA','SPM/O LEVEL/UEC/EQUIVALENT','DIPLOMA IN ACCOUNTING','Year 1 Sem 1', 1, 1);
+INSERT INTO `intake`  VALUES ('2', 'Oct/Nov 2023','KUALA LUMPUR CAMPUS','DIPLOMA','TAR UMT Certificate','DIPLOMA IN ACCOUNTING','Year 1 Sem 1', 2, 1);
+INSERT INTO `intake`  VALUES ('3', 'Oct/Nov 2023','KUALA LUMPUR CAMPUS','DIPLOMA','OTHER INSTITUTION OF HIGHER LEARNING CERTIFICATE/EQUIVALENT','DIPLOMA IN ACCOUNTING','Year 1 Sem 1', 3, 1);
 
 
 -- EmergencyInfo table
