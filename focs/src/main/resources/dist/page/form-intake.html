@@ -195,16 +195,15 @@
                   <h4 class="card-title"><i class="bi bi-box-seam-fill" style="padding-right: 20px;"></i>Programme</h4>
                 </div>
 
-                
-                <div class="row">
-                  <label for="state-column" class="form-label">1st Programme Choice</label><br>
+                <div class="row" v-for="choice in programChoices" :key="choice.id">
+                  <label for="state-column" class="form-label">{{ choice.label }}</label><br>
                   <div class="col-md-4 col-12">
-                    <div class="form-group ">
+                    <div class="form-group">
                       <div class="col-md-12 mb-12">
                         <fieldset class="form-group">
-                          <select v-model="formData.campus" class="form-select" :disabled="!isEditing" id="basicSelect" @change="updateLevelOptions">
+                          <select v-model="formData[choice.id].campus" class="form-select" :disabled="!isEditing" id="basicSelect" @change="updateLevelOptions(choice.id)">
                             <option value="">Please select</option>
-                            <option v-for="campusName in campusOptions" :value="campusName">{{ campusName  }}</option>
+                            <option v-for="campusName in campusOptions" :value="campusName">{{ campusName }}</option>
                           </select>
                         </fieldset>
                       </div>
@@ -214,9 +213,9 @@
                     <div class="form-group ">
                       <div class="col-md-12 mb-12">
                         <fieldset class="form-group">
-                          <select v-model="formData.levelOfStudy" class="form-select" :disabled="!isEditing" id="basicSelect" @change="updateQualifctProgOptions">
+                          <select v-model="formData[choice.id].levelOfStudy" class="form-select" :disabled="!isEditing" id="basicSelect" @change="updateQualifctProgOptions(choice.id)">
                             <option value="">Please select</option>
-                            <option v-for="level in levelOptions" :value="level">{{ level  }}</option>
+                            <option v-for="level in programChoicesData[choice.id].levelOptions" :value="level">{{ level  }}</option>
                           </select>
                         </fieldset>
                       </div>
@@ -226,9 +225,9 @@
                     <div class="form-group ">
                       <div class="col-md-12 mb-12">
                         <fieldset class="form-group">
-                          <select v-model="formData.entryQualification" class="form-select" :disabled="!isEditing" id="basicSelect">
+                          <select v-model="formData[choice.id].entryQualification" class="form-select" :disabled="!isEditing" id="basicSelect">
                             <option value="">Please select</option>
-                            <option v-for="qualf in qualificationOptions" :value="qualf">{{ qualf  }}</option>
+                            <option v-for="qualf in programChoicesData[choice.id].qualificationOptions" :value="qualf">{{ qualf  }}</option>
                           </select>
                         </fieldset>
                       </div>
@@ -238,9 +237,9 @@
                     <div class="form-group ">
                       <div class="col-md-12 mb-12">
                         <fieldset class="form-group">
-                          <select v-model="formData.programme" class="form-select" :disabled="!isEditing" id="basicSelect" @change="updateFirstSemOptions">
+                          <select v-model="formData[choice.id].programme" class="form-select" :disabled="!isEditing" id="basicSelect" @change="updateFirstSemOptions(choice.id)">
                             <option value="">Please select</option>
-                            <option v-for="programme in programmeOptions" :value="programme">{{ programme  }}</option>
+                            <option v-for="programme in programChoicesData[choice.id].programmeOptions" :value="programme">{{ programme  }}</option>
                           </select>
                         </fieldset>
                       </div>
@@ -250,15 +249,18 @@
                     <div class="form-group ">
                       <div class="col-md-12 mb-12">
                         <fieldset class="form-group">
-                          <select v-model="formData.firstYear" class="form-select" :disabled="!isEditing" id="basicSelect">
+                          <select v-model="formData[choice.id].firstYear" class="form-select" :disabled="!isEditing" id="basicSelect">
                             <option value="">Please select</option>
-                            <option v-for="sem in firstSemOptions" :value="sem">{{ sem  }}</option>
+                            <option v-for="sem in programChoicesData[choice.id].firstSemOptions" :value="sem">{{ sem  }}</option>
                           </select>
                         </fieldset>
                       </div>
                     </div>
                   </div>
                 </div>
+                
+                
+                
 
                 <div class="row">
                   <div class="col-md-12 col-12 d-flex justify-content-end align-items-end" style="padding-top: 20px; ">
@@ -325,23 +327,67 @@
             return {
                 id: '',
                 formData : {        // Default value, or load from the server
+                    programmeChoice1: {
+                      "campus": "", 
+                      "levelOfStudy": "",
+                      "entryQualification": "",
+                      "programme": "",
+                      "firstSem": "",
+                    },
+                    programmeChoice2: {
+                      "campus": "", 
+                      "levelOfStudy": "",
+                      "entryQualification": "",
+                      "programme": "",
+                      "firstSem": "",
+                    },
+                    programmeChoice3: {
+                      "campus": "", 
+                      "levelOfStudy": "",
+                      "entryQualification": "",
+                      "programme": "",
+                      "firstSem": "",
+                    },
+                    "applicantId": "",
                     "session": "",
-                    "campus": "", 
-                    "levelOfStudy": "",
-                    "entryQualification": "",
-                    "programme": "",
-                    "firstSem": "",
-                    "applicantId": ""
+                },
+                programChoices: [
+                  { id: 'programmeChoice1', label: '1st Programme Choice' },
+                  { id: 'programmeChoice2', label: '2nd Programme Choice' },
+                  { id: 'programmeChoice3', label: '3rd Programme Choice' },
+                ],
+                programChoicesData: {
+                  programmeChoice1: {
+                    campusOptions: [],
+                    levelOptions: [],
+                    qualificationOptions: [],
+                    programmeOptions: [],
+                    firstSemOptions: [],
+                  },
+                  programmeChoice2: {
+                    campusOptions: [],
+                    levelOptions: [],
+                    qualificationOptions: [],
+                    programmeOptions: [],
+                    firstSemOptions: [],
+                  },
+                  programmeChoice3: {
+                    campusOptions: [],
+                    levelOptions: [],
+                    qualificationOptions: [],
+                    programmeOptions: [],
+                    firstSemOptions: [],
+                  },
                 },
                 gotData: true,
                 isEditing: true,
                 userInfo: {},
                 sessionOptions: ["Oct/Nov 2023", "Feb 2024"],
-                campusOptions: [],
-                levelOptions: [],
-                qualificationOptions: [],
-                programmeOptions: [],
-                firstSemOptions: [],
+                // campusOptions: [],
+                // levelOptions: [],
+                // qualificationOptions: [],
+                // programmeOptions: [],
+                // firstSemOptions: [],
                 campusData : {
                   "intakes": {
                     "Oct/Nov 2023": {
@@ -827,49 +873,44 @@
                 // }
             },
             updateCampusOptions() {
-              // Update campus options based on the selected intake
-              const selectedIntake = this.formData.session;
-              if (selectedIntake && this.campusData.intakes[selectedIntake]) {
-                this.campusOptions = Object.keys(this.campusData.intakes[selectedIntake].campuses);
-                console.log(this.campusOptions)
-                console.log("SOhai")
-              } else {
-                this.campusOptions = [];
-              }
+                // Update campus options based on the selected intake
+                const selectedIntake = this.formData.session;
+                if (selectedIntake && this.campusData.intakes[selectedIntake]) {
+                  this.campusOptions = Object.keys(this.campusData.intakes[selectedIntake].campuses);
+                  console.log(this.campusOptions)
+                } else {
+                  this.campusOptions = [];
+                }
             },
-            updateLevelOptions() {
-              // Update level options based on the selected campus
-              const selectedCampus = this.formData.campus;
-              if (selectedCampus && this.campusData.intakes[this.formData.session].campuses[selectedCampus]) {
-                this.levelOptions = Object.keys(this.campusData.intakes[this.formData.session].campuses[selectedCampus].levelsOfStudy);
-                console.log(this.levelOptions)
-              } else {
-                this.levelOptions = [];
-              }
+            updateLevelOptions(choiceId) {
+                const selectedCampus = this.formData[choiceId].campus;
+                if (selectedCampus && this.campusData.intakes[this.formData.session].campuses[selectedCampus]) {
+                  this.programChoicesData[choiceId].levelOptions = Object.keys(this.campusData.intakes[this.formData.session].campuses[selectedCampus].levelsOfStudy);
+                  console.log(this.programChoicesData[choiceId].levelOptions);
+                } else {
+                  this.programChoicesData[choiceId].levelOptions = [];
+                }
             },
-            updateQualifctProgOptions() {
-              // Update qualification options based on the selected level
-              const selectedLevel = this.formData.levelOfStudy;
-              if (selectedLevel && this.campusData.intakes[this.formData.session].campuses[this.formData.campus].levelsOfStudy[selectedLevel]) {
-                this.qualificationOptions = this.campusData.intakes[this.formData.session].campuses[this.formData.campus].levelsOfStudy[selectedLevel].entryQualifications;
-                this.programmeOptions = this.campusData.intakes[this.formData.session].campuses[this.formData.campus].levelsOfStudy[selectedLevel].programs;
-                console.log(this.qualificationOptions)
-                console.log(this.programmeOptions)
-              } else {
-                this.qualificationOptions = [];
-                this.programmeOptions = [];
-              }
+            updateQualifctProgOptions(choiceId) {
+                 // Update qualification options based on the selected level
+                const selectedLevel = this.formData[choiceId].levelOfStudy;
+                if (selectedLevel && this.campusData.intakes[this.formData.session].campuses[this.formData[choiceId].campus].levelsOfStudy[selectedLevel]) {
+                  this.programChoicesData[choiceId].qualificationOptions = this.campusData.intakes[this.formData.session].campuses[this.formData[choiceId].campus].levelsOfStudy[selectedLevel].entryQualifications;
+                  this.programChoicesData[choiceId].programmeOptions = this.campusData.intakes[this.formData.session].campuses[this.formData[choiceId].campus].levelsOfStudy[selectedLevel].programs;
+                  console.log(this.programChoicesData[choiceId].qualificationOptions)
+                  console.log(this.programChoicesData[choiceId].programmeOptions)
+                } else {
+                  this.programChoicesData[choiceId].qualificationOptions = [];
+                  this.programChoicesData[choiceId].programmeOptions = [];
+                }
             },
-            updateFirstSemOptions() {
-              console.log(this.formData.levelOfStudy + "\n" + this.formData.entryQualification)
-              if (
-                this.formData.levelOfStudy === "DEGREE" &&
-                this.formData.entryQualification === "TAR UMT DIPLOMA"
-              ) {
-                this.firstSemOptions = ["Year 1 Sem 1", "Year 2 Sem 1"];
-              } else {
-                this.formData.firstYear = "";
-              }
+            updateFirstSemOptions(choiceId) {
+                console.log(this.formData[choiceId].levelOfStudy + "\n" + this.formData[choiceId].entryQualification)
+                if (this.formData[choiceId].levelOfStudy === "DEGREE" && this.formData[choiceId].entryQualification === "TAR UMT DIPLOMA") {
+                  this.programChoicesData[choiceId].firstSemOptions = ["Year 1 Sem 1", "Year 2 Sem 1"];
+                } else {
+                  this.formData[choiceId].firstYear = "Year 1 Sem 1";
+                }
             },
             toggleEditing() {
                // Toggle the isEditing variable to enable/disable form fields
