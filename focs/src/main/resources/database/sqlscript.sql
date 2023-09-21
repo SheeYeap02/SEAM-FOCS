@@ -5,11 +5,16 @@ DROP TABLE IF EXISTS `preu_result`;
 DROP TABLE IF EXISTS `qualification`;
 DROP TABLE IF EXISTS `detailed_info`;
 DROP TABLE IF EXISTS `emergency_info`;
+DROP TABLE IF EXISTS `outline_assign`;
+DROP TABLE IF EXISTS `progession_assign`;
+DROP TABLE IF EXISTS `career_assign`;
+DROP TABLE IF EXISTS `campus_assign`;
 DROP TABLE IF EXISTS `intake`;
 DROP TABLE IF EXISTS `programme`;
 DROP TABLE IF EXISTS `profile_info`;
 DROP TABLE IF EXISTS `staff`;
 DROP TABLE IF EXISTS `applicant`;
+DROP TABLE IF EXISTS `query`;
 
 ------------------------------------------------------------------------------------------------------------------------------------
 -- Create Statements
@@ -108,7 +113,7 @@ CREATE TABLE `emergency_info` (
 
 -- DetailedInfo table
 CREATE TABLE `detailed_info` (
-    `detailed_info_id` BIGINT(20) NOT NULL AUTO_INCREMENT, 
+    `detailed_info_id` BIGINT(20) NOT NULL AUTO_INCREMENT,
     `ic_image` longblob  ,
     `household_income` VARCHAR(40) NOT NULL,
     `medical_condition` VARCHAR(150) NOT NULL,
@@ -119,7 +124,7 @@ CREATE TABLE `detailed_info` (
 
 -- Qualification table
 CREATE TABLE `qualification` (
-    `qualification_id` BIGINT(20) NOT NULL AUTO_INCREMENT, 
+    `qualification_id` BIGINT(20) NOT NULL AUTO_INCREMENT,
     `start_date` DATETIME  NOT NULL,
     `end_date` DATETIME  NOT NULL,
     `mode_of_study` VARCHAR(20)  NOT NULL,
@@ -186,28 +191,24 @@ CREATE TABLE `enquiry`(
     `reply` TEXT(2000)  NOT NULL,
     `enquiry_status` VARCHAR(25)  NOT NULL,
     `enquirer_email` VARCHAR(30) NOT NULL,
-    `staff_id` BIGINT(20) ,    
+    `staff_id` BIGINT(20) ,
     PRIMARY KEY (`enquiry_id`),
     FOREIGN KEY (`enquirer_email`) REFERENCES `enquirer`(`enquirer_email`),
     FOREIGN KEY (`staff_id`) REFERENCES `staff`(`staff_id`)
 );
 
+-- Query Table
 CREATE TABLE `query`(
-	`applicant_id` BIGINT(20) NOT NULL,
+	`applicant_id` varchar(50) NOT NULL,
     `query_id` BIGINT(20) NOT NULL,
+    `title` VARCHAR(50) NOT NULL,
     `question` VARCHAR(200)  NOT NULL,
     `reply` TEXT(2000),
     `query_status` VARCHAR(25)  NOT NULL,
     `created` DATETIME NOT NULL,
-    `completed` DATETIME
+    `completed` DATETIME,
+    primary key(`query_id`)
 );
-
-CREATE TABLE `visitor`(
-	`ip_address` VARCHAR(20) NOT NULL,
-    `deviceInfo` VARCHAR(200) NOT NULL,
-    `timing` DATETIME  NOT NULL
-);
-
 
 
 ------------------------------------------------------------------------------------------------------------------------------------
