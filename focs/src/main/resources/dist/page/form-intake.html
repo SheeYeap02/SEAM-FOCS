@@ -248,7 +248,7 @@
                     <div class="form-group ">
                       <div class="col-md-12 mb-12">
                         <fieldset class="form-group">
-                          <select v-model="formData[choice.id].firstYear" class="form-select" :disabled="!isEditing" id="basicSelect">
+                          <select v-model="formData[choice.id].firstSem" class="form-select" :disabled="!isEditing" id="basicSelect">
                             <option value="">Please select</option>
                             <option v-for="sem in programChoicesData[choice.id].firstSemOptions" :value="sem">{{ sem  }}</option>
                           </select>
@@ -305,13 +305,14 @@
     <script src="../assets/extensions/jquery/jquery.min.js"></script>
     <script src="../assets/extensions/parsleyjs/parsley.min.js"></script>
     <script src="../assets/static/js/pages/parsley.js"></script>
-    <script src="https://unpkg.com/element-ui@2.15.6/lib/index.js"></script>
     <script src="../plugins/axios/axios.min.js"></script>
     <script src="../plugins/element-ui/index.js"></script>
     <script src="../plugins/vue/vue.js"></script>
     <script src="../api/intake.js"></script>
     <script src="../js/request.js"></script>
     <script src="../js/index.js"></script>
+    <script src="https://unpkg.com/element-ui@2.15.6/lib/index.js"></script>
+
 
 <script>
     new Vue({
@@ -358,6 +359,11 @@
                   { id: 'programmeChoice2', label: '2nd Programme Choice' },
                   { id: 'programmeChoice3', label: '3rd Programme Choice' },
                 ],
+                selectedChoices: {
+                  programmeChoice1: 'programmeChoice1',
+                  programmeChoice2: 'programmeChoice2',
+                  programmeChoice3: 'programmeChoice3',
+                },
                 programChoicesData: {
                   programmeChoice1: {
                     campusOptions: [],
@@ -788,7 +794,17 @@
                 }
             }
         },
-        computed: {},
+        computed: {
+          selectedProgrammeChoice1() {
+            return this.selectedChoices.programmeChoice1;
+          },
+          selectedProgrammeChoice2() {
+            return this.selectedChoices.programmeChoice2;
+          },
+          selectedProgrammeChoice3() {
+            return this.selectedChoices.programmeChoice3;
+          },
+        },
         created() {
             // this.init()
             const userInfo = window.localStorage.getItem('userInfo')
@@ -797,7 +813,7 @@
                 this.userInfo = JSON.parse(userInfo)
             }
             if(this.userInfo.applicantId) {
-              // this.init()
+              this.init()
             }
         },
         mounted() {},
@@ -809,28 +825,78 @@
                 } 
                 console.log("init id here: " + this.id )
                 
-                //  getProfile(this.id).then(res => {
-                //     console.log(res)
-                //     if (String(res.code) === '1') {
-                //         console.log(res.data)
-                //         this.gotData = true;
-                //         this.isEditing = false;
-                //         this.formData = res.data
-                //         if(res.data.profileInfo) {
-                //           // Extract the date part from the dateOfBirth string
-                //           const dateOfBirthParts = res.data.profileInfo.dateOfBirth.split(" ");
-                //           this.formData.profileInfo.dateOfBirth = dateOfBirthParts[0];
-                //         } else {
-                //           this.$message.error('Haven\' Fill Up This Form!')
-                //           this.gotData = false;
-                //           this.isEditing = true;
-                //           // alert('No Result')
-                //           this.formData = {}
-                //         }
-                //     } else {
-                //         this.$message.error(res.msg || 'Fail to handle')
-                //     }
-                // })
+                 getIntake(this.id).then(res => {
+                    console.log(res)
+                    if (String(res.code) === '1') {
+                        const newData = res.data;
+                        if(newData[0] != null) {
+                            console.log(res.data)
+                            this.gotData = true;
+                            this.isEditing = false;
+
+                            // Assign data from backend to formData
+                            this.formData.programmeChoice1 = newData[0];
+                            this.formData.programmeChoice2 = newData[1];
+                            this.formData.programmeChoice3 = newData[2];
+                            this.formData.session = newData[0].session;
+
+                            this.updateCampusOptionsInit();
+                            this.updateLevelOptionsInit('programmeChoice1');
+                            this.updateLevelOptionsInit('programmeChoice2');
+                            this.updateLevelOptionsInit('programmeChoice3');
+                            this.updateQualifctProgOptionsInit('programmeChoice1');
+                            this.updateQualifctProgOptionsInit('programmeChoice2');
+                            this.updateQualifctProgOptionsInit('programmeChoice3');
+                            this.updateFirstSemOptionsInit('programmeChoice1');
+                            this.updateFirstSemOptionsInit('programmeChoice2');
+                            this.updateFirstSemOptionsInit('programmeChoice3');
+                            console.log(this.formData)                        
+                        } else {
+                          this.$message.warning('Haven\' Fill Up This Form!')
+                          this.gotData = false;
+                          this.isEditing = true;
+                          this.formData = {
+                              programmeChoice1: {
+                                  "session": "",
+                                  "campus": "",
+                                  "levelOfStudy": "",
+                                  "entryQualification": "",
+                                  "programme": "",
+                                  "firstSem": "",
+                                  "priority": "1",
+                                  "applicantId": "",
+                              },
+                              programmeChoice2: {
+                                  "session": "",
+                                  "campus": "",
+                                  "levelOfStudy": "",
+                                  "entryQualification": "",
+                                  "programme": "",
+                                  "firstSem": "",
+                                  "priority": "2",
+                                  "applicantId": "",
+                              },
+                              programmeChoice3: {
+                                  "session": "",
+                                  "campus": "",
+                                  "levelOfStudy": "",
+                                  "entryQualification": "",
+                                  "programme": "",
+                                  "firstSem": "",
+                                  "priority": "3",
+                                  "applicantId": "",
+                              },
+                              "applicantId": "",
+                              "session": "",
+                          };
+                        }
+                    } else {
+                        // this.$message.error(res.msg || 'Fail to handle')
+                        this.$message.error('Haven\' Fill Up This Form!')
+                        this.gotData = false;
+                        this.isEditing = true;                   
+                    }
+                })
             },
             submitForm (formName) {
                 event.preventDefault(); 
@@ -844,15 +910,16 @@
                 choices.forEach(choice => {
                   this.formData[choice].applicantId = userInfo.applicantId;
                   this.formData[choice].session = session;
-                  this.formData[choice].firstSem = this.formData[choice].firstSem ? this.formData[choice].firstSem : 'Year 1 Sem 1';
+                  if (this.formData[choice].entryQualification !== 'TAR UMT DIPLOMA') {
+                    this.formData[choice].firstSem = '';
+                  }
                 });
 
                 const params = choices.map(choice => this.formData[choice]);
 
-                // if(!this.gotData) {
+                if(!this.gotData) {
                     addIntake(params).then(res => {
-                      if (res.code === 1) {
-                        alert("Halo added lo")
+                      if (String(res.code) === '1') {
                         console.log('Successfully added new intake details！');
                         this.$message.success('Successfully added new intake details！');
                         setTimeout(() => {
@@ -865,21 +932,21 @@
                       console.log('Fail to add new intake details！: ' + err)
                       this.$message.error('Request error：' + err)
                     }) 
-                // } else {
-                //     editIntake(params).then(res => {
-                //         if (String(res.code) === '1') {
-                //             console.log('Successfully edited intake details！')
-                //             this.$message.success('Successfully edited intake details！')
-                //             setTimeout(() => {
-                //               location.reload();;
-                //             }, 500); // 0.5secs
-                //         } else {
-                //             this.$message.error(res.msg || 'Fail to handle')
-                //         }
-                //     }).catch(err => {
-                //         this.$message.error('Request error：' + err)
-                //     })
-                // }
+                } else {
+                    editIntake(params).then(res => {
+                        if (String(res.code) === '1') {
+                            console.log('Successfully edited intake details！')
+                            this.$message.success('Successfully edited intake details！')
+                            setTimeout(() => {
+                              location.reload();;
+                            }, 500); // 0.5secs
+                        } else {
+                            this.$message.error(res.msg || 'Fail to handle')
+                        }
+                    }).catch(err => {
+                        this.$message.error('Request error：' + err)
+                    })
+                }
                 
             },
             updateCampusOptions() {
@@ -921,6 +988,47 @@
                 } else {
                   this.formData[choiceId].firstYear = "Year 1 Sem 1";
                 }
+            },
+            updateCampusOptionsInit() {
+            const selectedIntake = this.formData.session;
+            if (selectedIntake && this.campusData.intakes[selectedIntake]) {
+              this.campusOptions = Object.keys(this.campusData.intakes[selectedIntake].campuses);
+            } else {
+              this.campusOptions = [];
+            }
+            },
+            updateLevelOptionsInit(choiceId) {
+              const selectedCampus = this.formData[choiceId].campus;
+              const selectedIntake = this.formData.session;
+              if (selectedCampus && selectedIntake && this.campusData.intakes[selectedIntake].campuses[selectedCampus]) {
+                const levelsOfStudy = this.campusData.intakes[selectedIntake].campuses[selectedCampus].levelsOfStudy;
+                this.programChoicesData[choiceId].levelOptions = Object.keys(levelsOfStudy);
+              } else {
+                this.programChoicesData[choiceId].levelOptions = [];
+              }
+            },
+            updateQualifctProgOptionsInit(choiceId) {
+              const selectedLevel = this.formData[choiceId].levelOfStudy;
+              const selectedCampus = this.formData[choiceId].campus;
+              const selectedIntake = this.formData.session;
+              if (selectedLevel && selectedCampus && selectedIntake && this.campusData.intakes[selectedIntake].campuses[selectedCampus].levelsOfStudy[selectedLevel]) {
+                const entryQualifications = this.campusData.intakes[selectedIntake].campuses[selectedCampus].levelsOfStudy[selectedLevel].entryQualifications;
+                const programs = this.campusData.intakes[selectedIntake].campuses[selectedCampus].levelsOfStudy[selectedLevel].programs;
+                this.programChoicesData[choiceId].qualificationOptions = entryQualifications;
+                this.programChoicesData[choiceId].programmeOptions = programs;
+              } else {
+                this.programChoicesData[choiceId].qualificationOptions = [];
+                this.programChoicesData[choiceId].programmeOptions = [];
+              }
+            },
+            updateFirstSemOptionsInit(choiceId) {
+              const selectedLevel = this.formData[choiceId].levelOfStudy;
+              const selectedQualification = this.formData[choiceId].entryQualification;
+              if (selectedLevel === "DEGREE" && selectedQualification === "TAR UMT DIPLOMA") {
+                this.programChoicesData[choiceId].firstSemOptions = ["Year 1 Sem 1", "Year 2 Sem 1"];
+              } else {
+                this.programChoicesData[choiceId].firstSemOptions = [];
+              }
             },
             toggleEditing() {
                // Toggle the isEditing variable to enable/disable form fields
