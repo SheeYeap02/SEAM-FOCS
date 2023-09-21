@@ -5,12 +5,21 @@ function getIntake(id) {
     })
 }
 
+// // add new intake
+// function addIntake(params) {
+//   return $axios({
+//     url: '/intake/add',
+//     method: 'post',
+//     data: { ...params }
+//   })
+// }
+
 // add new intake
 function addIntake(params) {
   return $axios({
     url: '/intake/add',
     method: 'post',
-    data: { ...params }
+    data: params
   })
 }
 
