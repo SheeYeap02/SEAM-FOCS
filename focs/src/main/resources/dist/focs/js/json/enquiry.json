@@ -1,0 +1,11 @@
+{
+    "Enquiry": {
+        "username": "",
+        "title": "",
+        "question": "",
+        "answer": "",
+        "status": "",
+        "created_at": "",
+        "updated_at": ""
+    }
+}

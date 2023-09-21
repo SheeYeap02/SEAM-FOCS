@@ -254,6 +254,23 @@ CREATE TABLE `enquiry`(
     FOREIGN KEY (`staff_id`) REFERENCES `staff`(`staff_id`)
 );
 
+CREATE TABLE `query`(
+	`applicant_id` BIGINT(20) NOT NULL,
+    `query_id` BIGINT(20) NOT NULL,
+    `question` VARCHAR(200)  NOT NULL,
+    `reply` TEXT(2000),
+    `query_status` VARCHAR(25)  NOT NULL,
+    `created` DATETIME NOT NULL,
+    `completed` DATETIME
+);
+
+CREATE TABLE `visitor`(
+	`ip_address` VARCHAR(20) NOT NULL,
+    `deviceInfo` VARCHAR(200) NOT NULL,
+    `timing` DATETIME  NOT NULL
+);
+
+
 
 ------------------------------------------------------------------------------------------------------------------------------------
 -- Insert Statements

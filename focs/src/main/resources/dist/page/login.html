@@ -22,24 +22,27 @@
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
-      background-attachment: fixed; /* Optional, makes the background fixed while scrolling */
+      background-attachment: fixed;
+      /* Optional, makes the background fixed while scrolling */
     }
 
     .create-account {
       text-align: center;
       font-size: 14px;
       font-weight: 500;
-      text-decoration: none; /* Remove default underline */
+      text-decoration: none;
+      /* Remove default underline */
       color: #545bb8;
-      transition: color 0.3s; /* Add smooth color transition */
+      transition: color 0.3s;
+      /* Add smooth color transition */
     }
-  
+
     .create-account:hover {
-        color: #6aa9ed;
-        text-decoration: underline;
+      color: #6aa9ed;
+      text-decoration: underline;
     }
   </style>
-</head> 
+</head>
 
 <body>
   <div class="login" id="login-app">
@@ -49,20 +52,21 @@
     <div class="login-box">
       <!-- <img src="../assets/compiled/jpg/tarumt_bg1.jpg" alt=""> -->
       <div class="login-form">
-        <el-form ref="loginForm" :model="loginForm" :rules="loginRules" >
+        <el-form ref="loginForm" :model="loginForm" :rules="loginRules">
           <div class="login-form-title">
-            <img src="https://www.tarc.edu.my/images/tarumt-logo1.png?v=beyongEducation2" style="width:250px; height:102px;" alt="" />
+            <img src="https://www.tarc.edu.my/images/tarumt-logo1.png?v=beyongEducation2"
+              style="width:250px; height:102px;" alt="" />
           </div>
           <div class="form-title" style="text-align: center; padding-bottom: 10px;">
             <h3>User Login</h3>
           </div>
           <el-form-item prop="applicantEmail">
-            <el-input v-model="loginForm.applicantEmail" type="text" auto-complete="off" placeholder="Email" maxlength="20"
-              prefix-icon="iconfont icon-user" />
+            <el-input v-model="loginForm.applicantEmail" type="text" auto-complete="off" placeholder="Email"
+              maxlength="20" prefix-icon="iconfont icon-user" />
           </el-form-item>
           <el-form-item prop="password">
-            <el-input v-model="loginForm.password" type="password" placeholder="Password" prefix-icon="iconfont icon-lock" maxlength="20"
-              @keyup.enter.native="handleLogin" />
+            <el-input v-model="loginForm.password" type="password" placeholder="Password"
+              prefix-icon="iconfont icon-lock" maxlength="20" @keyup.enter.native="handleLogin" />
           </el-form-item>
           <el-form-item style="width:100%; margin-bottom: 10px;">
             <el-button :loading="loading" class="login-btn" size="medium" type="primary" style="width:100%;"
@@ -90,11 +94,12 @@
   <script src="../js/index.js"></script>
 
   <script>
+
     new Vue({
       el: '#login-app',
       data() {
         return {
-          loginForm:{
+          loginForm: {
             applicantEmail: 'johndoe@gmail.com',
             password: 'password123'
           },
@@ -104,7 +109,7 @@
       computed: {
         loginRules() {
           const validateUserEmail = (rule, value, callback) => {
-            if (value.length < 1 ) {
+            if (value.length < 1) {
               callback(new Error('Please enter email'))
             } else {
               callback()
@@ -135,16 +140,20 @@
                 localStorage.setItem('userInfo', JSON.stringify(res.data))
                 sessionStorage.setItem('lastActivityTime', Date.now())
                 this.$message.success('Successfully Login Your Account！')
+                if(localStorage.getItem('redirect') == 'submitEnquiry.html'){
+                  localStorage.removeItem('redirect');
+                  window.location.href = '../focs/submitEnquiry.html';
+                }
                 setTimeout(() => {
-                    window.location.href ='/dist/index.html';
-                },500); // 0.5secs
+                  window.location.href = '/dist/index.html';
+                }, 500); // 0.5secs
               } else {
                 this.$message.error(res.msg)
                 this.loading = false
               }
             }
           })
-        }, 
+        },
       }
     })
   </script>
