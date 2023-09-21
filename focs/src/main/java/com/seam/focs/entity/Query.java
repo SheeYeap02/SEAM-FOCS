@@ -1,22 +1,30 @@
 package com.seam.focs.entity;
+import com.baomidou.mybatisplus.annotation.TableId;
+
+import java.io.Serializable;
 import java.util.Date;
 
-public class Query {
-    private long applicantId;
-    private long queryId;
+public class Query implements Serializable {
+    private static final long serialVersionUID = 1L;
+
+    @TableId
+    private Long queryId;
+    private String title;
     private String question;
     private String reply;
     private String queryStatus;
     private Date created;
     private Date completed;
+    private Long applicantId;
 
     public Query() {
         // Default constructor
     }
 
-    public Query(long applicantId, long queryId, String question, String reply, String queryStatus, Date created, Date completed) {
+    public Query(Long applicantId, Long queryId, String title, String question, String reply, String queryStatus, Date created, Date completed) {
         this.applicantId = applicantId;
         this.queryId = queryId;
+        this.title = title;
         this.question = question;
         this.reply = reply;
         this.queryStatus = queryStatus;
@@ -24,20 +32,20 @@ public class Query {
         this.completed = completed;
     }
 
-    public long getApplicantId() {
-        return applicantId;
-    }
-
-    public void setApplicantId(long applicantId) {
-        this.applicantId = applicantId;
-    }
-
-    public long getQueryId() {
+    public Long getQueryId() {
         return queryId;
     }
 
-    public void setQueryId(long queryId) {
+    public void setQueryId(Long queryId) {
         this.queryId = queryId;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getQuestion() {
@@ -80,16 +88,11 @@ public class Query {
         this.completed = completed;
     }
 
-    @Override
-    public String toString() {
-        return "Query{" +
-                "applicantId=" + applicantId +
-                ", queryId=" + queryId +
-                ", question='" + question + '\'' +
-                ", reply='" + reply + '\'' +
-                ", queryStatus='" + queryStatus + '\'' +
-                ", created=" + created +
-                ", completed=" + completed +
-                '}';
+    public Long getApplicantId() {
+        return applicantId;
+    }
+
+    public void setApplicantId(Long applicantId) {
+        this.applicantId = applicantId;
     }
 }

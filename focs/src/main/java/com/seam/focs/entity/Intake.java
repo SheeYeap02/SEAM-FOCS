@@ -15,12 +15,13 @@ public class Intake {
     private String entryQualification;
     private String programme;
     private String firstSem;
+    private int priority;
     private Long applicantId;
 
     public Intake() {
     }
 
-    public Intake(Long intakeId, String session, String campus, String levelOfStudy, String entryQualification, String programme, String firstSem, Long applicantId) {
+    public Intake(Long intakeId, String session, String campus, String levelOfStudy, String entryQualification, String programme, String firstSem, int priority, Long applicantId) {
         this.intakeId = intakeId;
         this.session = session;
         this.campus = campus;
@@ -28,6 +29,7 @@ public class Intake {
         this.entryQualification = entryQualification;
         this.programme = programme;
         this.firstSem = firstSem;
+        this.priority = priority;
         this.applicantId = applicantId;
     }
 
@@ -85,6 +87,14 @@ public class Intake {
 
     public void setFirstSem(String firstSem) {
         this.firstSem = firstSem;
+    }
+
+    public int getPriority() {
+        return priority;
+    }
+
+    public void setPriority(int priority) {
+        this.priority = priority;
     }
 
     public Long getApplicantId() {
