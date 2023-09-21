@@ -253,7 +253,7 @@
     <script src="../js/request.js"></script>
     <script src="./js/submitEnquiry.js"></script>
     <script src="../api/query.js"></script>
-    
+
     <script>
 
         onload = function () {
@@ -400,75 +400,127 @@
 
     <script>
         new Vue({
-                el: '#submitEnquiry',
-                data() {
-                    return {
-                        enquiry: {
-                            "title": "asd",
-                            "question": "asd",
-                            "reply": "asd",
-                            "queryStatus": "asd",
-                            "created": new Date().toISOString(),
-                            "completed": new Date().toISOString(),
-                            "applicantId": "1"
-                        },
-                    }
-                },
-                mounted() {
-                    // Data not available in localStorage, fetch it from the API
-                    console.log('MOUNT QUERY :');
-                    this.init();
-                },
-                created() {
-                    // Call the init method when the component is created
-                    this.init();
-                },
-                methods: {
-                    init() {
-                        console.log('INIT QUERY :');
-                        // getAllQueries()
-                        //     .then((response) => {
-                        //         console.log('Response:', response);
-                        //         this.programmes = response.data.data;
-                        //         console.log('PROGRAMMES :', this.programmes);
-                        //         console.log('Programme1 :', this.programmes[0].programmeName);
-                        //         // Rest of your code
-                        //     })
-                        //     .catch((error) => {
-                        //         console.error('Error:', error);
-                        //         // Rest of your error handling code
-                        //     });
+            el: '#submitEnquiry',
+            data() {
+                return {
+                    enquiry: {
+                        "title": "asd",
+                        "question": "asd",
+                        "reply": "asd",
+                        "queryStatus": "asd",
+                        "created": new Date().toISOString(),
+                        "completed": new Date().toISOString(),
+                        "applicantId": "1"
                     },
-                    submitForm(enquiry) {
-                        event.preventDefault();
-
-                        console.log('ADD QUERY :', enquiry);
-
-                        const params = { ...this.enquiry };
-                        //params.applicantEmail = localStorage.getItem('username');
-                        // params.applicantId =  1;
-                        // params.title = document.getElementById('title').value;
-                        // params.question = document.getElementById('message').value;
-                        // params.reply = 'abc';
-                        // params.queryStatus = 'pending';
-                        // params.created = new Date();
-                        // params.completed = new Date();
-
-                        console.log('PARAMS :', params);
-
-                        addQuery(params).then((response) => {
+                }
+            },
+            mounted() {
+                // Data not available in localStorage, fetch it from the API
+                console.log('MOUNT QUERY :');
+                this.init();
+            },
+            created() {
+                // Call the init method when the component is created
+                this.init();
+            },
+            methods: {
+                init() {
+                    console.log('INIT QUERY :');
+                    getAllQueries()
+                        .then((response) => {
                             console.log('Response:', response);
                             // Rest of your code
+                            let enquiryList = response.data;
+
+                            console.log(enquiryList);
+
+                            //let html = document.getElementById('tab2-content').innerHTML;
+                            var userInfo = JSON.parse(localStorage.getItem('userInfo'));
+                            let applicantId = userInfo['applicantId'];
+
+                            let html = "";
+                            for (let i = 0; i < enquiryList.length; i++) {
+                                let enquiry = enquiryList[i];
+
+                                let appId = enquiry['applicantId'];
+                                if (appId == applicantId) {
+                                    let title = enquiry['title'];
+                                    let ques = enquiry['question'];
+                                    let reply = enquiry['reply'];
+                                    let status = enquiry['queryStatus'];
+                                    let cdate = enquiry['completed'];
+                                    let rdate = enquiry['created'];
+
+                                    let stats = 'border-danger';
+                                    let statusText = 'Pending for reply...';
+
+
+
+                                    if (reply != 'null') {
+                                        stats = 'border-success';
+                                        statusText = 'Replied !';
+                                    }
+
+
+                                    html += `
+    <div  class="card text-dark ${stats} bg-light mb-3">
+        <div class="card-header">${statusText}</div>
+        <div class="card-body">
+            <h5 class="card-title">${title}</h5>
+            <p class="card-text">${ques}</p>
+        </div>
+
+    `;
+
+                                    if (reply != 'null') {
+                                        html += `
+        <div class="card-footer text-muted">
+            ${reply}
+        </div>
+        `;
+                                    }
+
+                                    html += `</div>`;
+                                }
+                            }
+
+                            document.getElementById('tab2-content').innerHTML = html;
                         })
-                            .catch((error) => {
-                                console.error('Error:', error);
-                                // Rest of your error handling code
-                            });
-
-                    }
-
+                        .catch((error) => {
+                            console.error('Error:', error);
+                            // Rest of your error handling code
+                        });
                 },
-            });
+                submitForm(enquiry) {
+                    event.preventDefault();
+
+                    console.log('ADD QUERY :', enquiry);
+
+                    const params = { ...this.enquiry };
+                    //params.applicantEmail = localStorage.getItem('username');
+                    // params.applicantId =  1;
+                    // params.title = document.getElementById('title').value;
+                    // params.question = document.getElementById('message').value;
+                    // params.reply = 'abc';
+                    // params.queryStatus = 'pending';
+                    // params.created = new Date();
+                    // params.completed = new Date();
+
+                    console.log('PARAMS :', params);
+
+                    addQuery(params).then((response) => {
+                        console.log('Response:', response);
+                        // Rest of your code
+                    })
+                        .catch((error) => {
+                            console.error('Error:', error);
+                            // Rest of your error handling code
+                        });
+
+                }
+
+            },
+        });
     </script>
     <script type="text/javascript" src="js/headerAppend.js"></script>
 </body>
