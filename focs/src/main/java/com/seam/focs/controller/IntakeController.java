@@ -38,13 +38,13 @@ public class IntakeController {
     /**
      *
      * @param httpServletRequest
-     * @param intake
+     * @param intakes
      * @return
      */
     @PutMapping("update")
-    public Result<String> update(HttpServletRequest httpServletRequest, @RequestBody Intake intake) {
-        log.info("This is update {}", intake.toString());
-        intakeService.updateById(intake);
+    public Result<String> update(HttpServletRequest httpServletRequest, @RequestBody List<Intake> intakes) {
+        log.info("This is update {}", intakes.toString());
+        intakeService.updateBatchById(intakes);
         return Result.success("Intake Details Edited Successfully");
     }
 
@@ -62,11 +62,13 @@ public class IntakeController {
         LambdaQueryWrapper<Intake> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.eq(Intake::getApplicantId, id);
         //Add order condition
-        queryWrapper.orderByDesc(Intake::getPriority);
+        queryWrapper.orderByAsc(Intake::getPriority);
 
         List<Intake> list = intakeService.list(queryWrapper);
-
-        return Result.success(list);
+//        if(list.size() > 0) {
+            return Result.success(list);
+//        }
+//        return Result.error("There is no result");
     }
 
 }
