@@ -9,6 +9,17 @@
     <link rel="stylesheet" href="../assets/compiled/css/app.css">
     <link rel="stylesheet" href="../assets/compiled/css/app-dark.css">
     <link rel="stylesheet" href="../assets/compiled/css/iconly.css">
+    <link rel="stylesheet" href="../plugins/element-ui/index.css" />
+    <link rel="stylesheet" href="https://unpkg.com/element-ui@2.15.6/lib/theme-chalk/index.css">
+
+    <style>
+      /* Apply specific styles to the first radio button */
+      fieldset .form-check:first-child {
+          padding-left: 0.7rem; /* Remove padding-left for the first radio button */
+      }
+    
+    </style>
+
 </head>
 
 <body>
@@ -72,32 +83,38 @@
                 class="sidebar-item  has-sub active">
                 <a href="#" class='sidebar-link'>
                     <i class="bi bi-journal-check"></i>
-                    <span>New Form</span>
+                    <span>New Application</span>
                 </a>         
                 <ul class="submenu ">
-                    <li class="submenu-item  ">
-                        <a href="form-profile.html" class="submenu-link">Profile</a>                  
+                    <li class="submenu-item ">
+                      <a href="./form-intake.html" class="submenu-link">Intake & Programme</a>                  
+                    </li> 
+                    <li class="submenu-item ">
+                        <a href="./form-profile.html" class="submenu-link">Profile</a>                  
                     </li> 
                     <li class="submenu-item  ">
-                      <a href="./form-detailed.html" class="submenu-link">Detailed Info</a>                  
-                  </li> 
+                        <a href="./form-detailed.html" class="submenu-link">Detailed Info</a>                  
+                    </li> 
                     <li class="submenu-item  active">
-                        <a href="form-qualification.html" class="submenu-link">Qualifications</a>                  
-                    </li>                  
+                        <a href="./form-qualification.html" class="submenu-link">Qualifications</a>                  
+                    </li>                            
                     <li class="submenu-item  ">
-                        <a href="form-english-proficiency.html" class="submenu-link">English Prodiciency</a>                  
-                    </li> 
-                    <li class="submenu-item  ">
-                        <a href="form-programme-applied.html" class="submenu-link">Programme Applied</a>                  
-                    </li> 
-                    <li class="submenu-item  ">
-                        <a href="form-referees.html" class="submenu-link">2 Referees</a>                  
-                    </li> 
-                    <li class="submenu-item  ">
-                        <a href="form-declaration.html" class="submenu-link">Declaration</a>                  
+                        <a href="./form-declaration.html" class="submenu-link">Declaration</a>                  
                     </li> 
                 </ul>
             </li>
+            <li class="sidebar-item ">
+              <a href="https://web.tarc.edu.my/portal/cpsr/admission/user/Manual.pdf" target="_blank" class='sidebar-link'>
+                  <i class="bi bi-journal-richtext"></i>
+                  <span>Manual Guide</span>
+              </a>
+          </li>
+          <li class="sidebar-item ">
+              <a href="https://web.tarc.edu.my/portal/cpsr/admission/user/doc/TARUMT_ApplicationChecklist.pdf" target="_blank" class='sidebar-link'>
+                  <i class="bi bi-card-checklist"></i>
+                  <span>Application Checklist</span>
+              </a>
+          </li>
         </ul>
     </div>
 </div>
@@ -113,9 +130,9 @@
   <div class="page-title">
     <div class="row">
       <div class="col-12 col-md-6 order-md-1 order-last">
-        <h3>Form Validation</h3>
+        <h3>Qualification</h3>
         <p class="text-subtitle text-muted">
-          Complete the form with powerful validation library such as Parsley.
+          Complete the application for admission postgraduate programme.
         </p>
       </div>
       <div class="col-12 col-md-6 order-md-2 order-first">
@@ -126,7 +143,7 @@
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="../index.html">Dashboard</a></li>
             <li class="breadcrumb-item active" aria-current="page">
-              New Form
+                New Application
             </li>
             <li class="breadcrumb-item active" aria-current="page">Qualification</li>
           </ol>
@@ -140,171 +157,101 @@
     <div class="row match-height">
       <div class="col-12">
         <div class="card">
-          <div class="card-header">
-            <h4 class="card-title">Multiple Column</h4>
+          <div class="card-header" style="">
+            <h4 class="card-title"><i class="bi bi-person-fill" style="padding-right: 20px;"></i>Qualification</h4>
           </div>
           <div class="card-content">
             <div class="card-body">
-              <form class="form" data-parsley-validate>
+              <p class="card-text">
+                Please note that maximum <code>12 subjects </code> will be allowed for spm results.
+              </p>
+              <form class="form" data-parsley-validate id="profile-app">
                 <div class="row">
-                  <div class="col-md-6 col-12">
-                    <div class="form-group mandatory">
-                      <label for="first-name-column" class="form-label"
-                        >First Name</label
-                      >
-                      <input
-                        type="text"
-                        id="first-name-column"
-                        class="form-control"
-                        placeholder="First Name"
-                        name="fname-column"
-                        data-parsley-required="true"
-                      />
+                  <div class="col-6">
+                    <div class="row">
+                      <div class="col-md-8 col-12">
+                        <label for="subject-column" class="form-label">Subject</label><br>
+                      </div>
+                      <div class="col-md-4 col-12">
+                          <label for="grade-column" class="form-label">Grade</label><br>
+                      </div>
+                    </div>
+                    <div class="col-12" v-for="(subject, index) in leftSubjects" :key="index">
+                      <div class="row">
+                        <div class="col-md-8 col-12">
+                          <div class="form-group mandatory">
+                            <div class="col-md-12 mb-12">
+                              <select v-model="subject.selectedSubject" class="form-select" id="subjectSelect">
+                                <option v-for="subjectOption in subjectOptions" :value="subjectOption.name">{{ subjectOption.name }}</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-4 col-12">
+                          <div class="form-group mandatory">
+                            <div class="col-md-12 mb-12">
+                              <select v-model="subject.selectedGrade" class="form-select" id="gradeSelect">
+                                <option v-for="gradeOption in grades" :value="gradeOption">{{ gradeOption }}</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div class="col-md-6 col-12">
-                    <div class="form-group">
-                      <label for="last-name-column" class="form-label"
-                        >Last Name</label
-                      >
-                      <input
-                        type="text"
-                        id="last-name-column"
-                        class="form-control"
-                        placeholder="Last Name"
-                        name="lname-column"
-                        data-parsley-required="true"
-                      />
+                  <div class="col-6">
+                    <div class="row">
+                      <div class="col-md-8 col-12">
+                        <label for="subject-column" class="form-label">Subject</label><br>
+                      </div>
+                      <div class="col-md-4 col-12">
+                          <label for="grade-column" class="form-label">Grade</label><br>
+                      </div>
                     </div>
-                  </div>
-                  <div class="col-md-6 col-12">
-                    <div class="form-group">
-                      <label for="city-column" class="form-label">City</label>
-                      <input
-                        type="text"
-                        id="city-column"
-                        class="form-control"
-                        placeholder="Custom validation. Value has to be Jakarta."
-                        name="city-column"
-                        data-parsley-restricted-city="Jakarta"
-                        data-parsley-required="true"
-                      />
-                    </div>
-                  </div>
-                  <div class="col-md-6 col-12">
-                    <div class="form-group">
-                      <label for="country-floating" class="form-label"
-                        >Country</label
-                      >
-                      <input
-                        type="text"
-                        id="country-floating"
-                        class="form-control"
-                        name="country-floating"
-                        placeholder="Country"
-                        data-parsley-required="true"
-                      />
-                    </div>
-                  </div>
-                  <div class="col-md-6 col-12">
-                    <div class="form-group">
-                      <label for="company-column" class="form-label"
-                        >Company</label
-                      >
-                      <input
-                        type="text"
-                        id="company-column"
-                        class="form-control"
-                        name="company-column"
-                        placeholder="Company"
-                        data-parsley-required="true"
-                      />
-                    </div>
-                  </div>
-                  <div class="col-md-6 col-12">
-                    <div class="form-group mandatory">
-                      <label for="email-id-column" class="form-label"
-                        >Email</label
-                      >
-                      <input
-                        type="email"
-                        id="email-id-column"
-                        class="form-control"
-                        name="email-id-column"
-                        placeholder="Email"
-                        data-parsley-required="true"
-                      />
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <div class="form-group">
-                      <div class="form-check mandatory">
-                        <input
-                          type="checkbox"
-                          id="checkbox5"
-                          class="form-check-input"
-                          checked
-                          data-parsley-required="true"
-                          data-parsley-error-message="You have to accept our terms and conditions to proceed."
-                        />
-                        <label
-                          for="checkbox5"
-                          class="form-check-label form-label"
-                          >I accept these terms and conditions.</label
-                        >
+                    <div class="col-12" v-for="(subject, index) in rightSubjects" :key="index">
+                      <div class="row">
+                        <div class="col-md-8 col-12">
+                          <div class="form-group mandatory">
+                            <div class="col-md-12 mb-12">
+                              <select v-model="subject.selectedSubject" class="form-select" id="subjectSelect">
+                                <option v-for="subjectOption in subjectOptions" :value="subjectOption.name">{{ subjectOption.name }}</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-4 col-12">
+                          <div class="form-group mandatory">
+                            <div class="col-md-12 mb-12">
+                              <select v-model="subject.selectedGrade" class="form-select" id="gradeSelect">
+                                <option v-for="gradeOption in grades" :value="gradeOption">{{ gradeOption }}</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
+   
+
+                <button @click="addSubject" type="button">Add Subject</button>
+                <button @click="removeSubject(index)" type="button">Remove Subject</button>
+
                 <div class="row">
-                  <div class="col-12">
-                    <div class="form-group mandatory">
-                      <fieldset>
-                        <label class="form-label"> Favourite Colour </label>
-                        <div class="form-check">
-                          <input
-                            class="form-check-input"
-                            type="radio"
-                            name="flexRadioDefault"
-                            id="flexRadioDefault1"
-                            data-parsley-required="true"
-                          />
-                          <label
-                            class="form-check-label form-label"
-                            for="flexRadioDefault1"
-                          >
-                            Red
-                          </label>
-                        </div>
-                        <div class="form-check">
-                          <input
-                            class="form-check-input"
-                            type="radio"
-                            name="flexRadioDefault"
-                            id="flexRadioDefault2"
-                          />
-                          <label
-                            class="form-check-label form-label"
-                            for="flexRadioDefault2"
-                          >
-                            Blue
-                          </label>
-                        </div>
-                      </fieldset>
+                  <div class="col-md-12 col-12 d-flex justify-content-end align-items-end" style="padding-top: 20px; ">
+                    <div class="col-md-4">
+                      <button @click="toggleEditing" type="button" class="btn btn-warning me-1 mb-1" style="float:left ">
+                        Click to Edit 
+                      </button>
                     </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-12 d-flex justify-content-end">
-                    <button type="submit" class="btn btn-primary me-1 mb-1">
-                      Submit
-                    </button>
-                    <button
-                      type="reset"
-                      class="btn btn-light-secondary me-1 mb-1"
-                    >
-                      Reset
-                    </button>
+                    <div class="col-md-8 d-flex justify-content-end">
+                      <button type="submit" class="btn btn-primary me-1 mb-1" :disabled="!isEditing" @click="submitForm('formData')">
+                        Save
+                      </button>
+                      <button type="reset" :disabled="!isEditing" class="btn btn-light-secondary me-1 mb-1" style="border: none !important;">
+                        Reset
+                      </button>
+                    </div>
                   </div>
                 </div>
               </form>
@@ -317,24 +264,266 @@
   <!-- // Basic multiple Column Form section end -->
 </div>
 
-            <footer>
-                <div class="float-start">
-                    <p>2023 &copy; TAR UMT</p>
-                </div>
-                <div class="float-end">
-                    <p>Kindly Complete <span class=""><i class="bi bi-caret-right-square-fill icon-mid"></i></span>
-                        the <a href="#">Application</a></p>
-                </div>
+<footer>
+    <div class="float-start">
+        <p>2023 &copy; TAR UMT</p>
+    </div>
+    <div class="float-end">
+        <p>Kindly Complete <span class=""><i class="bi bi-caret-right-square-fill icon-mid"></i></span>
+            the <a href="#">Application</a></p>
+    </div>
 </footer>
         </div>
     </div>
     <script src="../assets/static/js/components/dark.js"></script>
     <script src="../assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    
+    
     <script src="../assets/compiled/js/app.js"></script>
-    <script src="../js/request.js"></script>
-    <script src="../assets/extensions/jquery/jquery.min.js"></script>
-    <script src="../assets/extensions/parsleyjs/parsley.min.js"></script>
-    <script src="../assets/static/js/pages/parsley.js"></script>
+    
+
+    
+<script src="../assets/extensions/jquery/jquery.min.js"></script>
+<script src="../assets/extensions/parsleyjs/parsley.min.js"></script>
+<script src="../assets/static/js/pages/parsley.js"></script>
+<script src="assets/extensions/sweetalert2/sweetalert2.min.js"></script>
+
+<script src="../plugins/axios/axios.min.js"></script>
+<script src="../plugins/element-ui/index.js"></script>
+<script src="../plugins/vue/vue.js"></script>
+<script src="../api/profile.js"></script>
+<script src="../js/request.js"></script>
+<script src="../js/index.js"></script>
+<script src="https://unpkg.com/element-ui@2.15.6/lib/index.js"></script>
+<script>
+    new Vue({
+      el: '#profile-app',
+        data() {
+            return {
+                id: '',
+                formData : {        // Default value, or load from the server
+                },
+                gotData: true,
+                isEditing: true,
+                userInfo: {},
+                // subjects: Array(12).fill({ selectedSubject: '', selectedGrade: '' }),
+                subjects: [
+                  { selectedSubject: '', selectedGrade: '' },
+                  { selectedSubject: '', selectedGrade: '' },
+                  { selectedSubject: '', selectedGrade: '' },
+                  { selectedSubject: '', selectedGrade: '' },
+                  { selectedSubject: '', selectedGrade: '' },
+                  { selectedSubject: '', selectedGrade: '' },
+                  { selectedSubject: '', selectedGrade: '' },
+                  { selectedSubject: '', selectedGrade: '' },
+                ],
+                grades: 
+                  ['A+', 'A', 'A-', 'B+', 'B', 'C+', 'C', 'D', 'E', "G"],
+                subjectOptions: [
+                    {
+                      "code": "1103",
+                      "name": "BAHASA MELAYU",
+                      "grade": ""
+                    },
+                    {
+                      "code": "1119",
+                      "name": "BAHASA INGERRIES",
+                      "grade": ""
+                    },
+                    {
+                      "code": "6351",
+                      "name": "BAHASA CINA",
+                      "grade": ""
+                    },
+                    {
+                      "code": "6354",
+                      "name": "BAHASA TAMIL",
+                      "grade": ""
+                    },
+                    {
+                      "code": "1449",
+                      "name": "MATHEMATICS",
+                      "grade": ""
+                    },
+                    {
+                      "code": "1511",
+                      "name": "SCIENCE",
+                      "grade": ""
+                    },
+                    {
+                      "code": "3472",
+                      "name": "ADDITIONAL MATHEMATICS",
+                      "grade": ""
+                    },
+                    {
+                      "code": "4551",
+                      "name": "BIOLOGY",
+                      "grade": ""
+                    },
+                    {
+                      "code": "4541",
+                      "name": "CHEMISTRY",
+                      "grade": ""
+                    },
+                    {
+                      "code": "4531",
+                      "name": "PHYSICS",
+                      "grade": ""
+                    },
+                    {
+                      "code": "1249",
+                      "name": "SEJARAH",
+                      "grade": ""
+                    },
+                    {
+                      "code": "1225",
+                      "name": "PENDIDIKAN MORAL",
+                      "grade": ""
+                    },
+                    {
+                      "code": "1223",
+                      "name": "PENDIDIKAN ISLAM",
+                      "grade": ""
+                    },
+                    {
+                      "code": "3755",
+                      "name": "PERDAGANGAN",
+                      "grade": ""
+                    },
+                    {
+                      "code": "3756",
+                      "name": "PRINSIP PERAKAUNAN",
+                      "grade": ""
+                    },
+                    {
+                      "code": "3757",
+                      "name": "EKONOMI ASAS",
+                      "grade": ""
+                    },
+                  ]    
+            }
+        },
+        computed: {
+            leftSubjects() {
+               // Return the first 6 subjects
+               return this.subjects.slice(0, 6);
+             },
+             rightSubjects() {
+               // Return the remaining subjects
+               return this.subjects.slice(6);
+             },
+        },
+        created() {
+            // this.init()
+            const userInfo = window.localStorage.getItem('userInfo')
+            if (userInfo) {
+                console.log(userInfo)
+                this.userInfo = JSON.parse(userInfo)
+            }
+            if(this.userInfo.applicantId) {
+              this.init()
+            }
+        },
+        mounted() {},
+        methods: {
+            init() {
+                const userInfo = JSON.parse(window.localStorage.getItem('userInfo'))
+                if(userInfo) {
+                    this.id = userInfo.applicantId;
+                } 
+                console.log("init id here: " + this.id )
+                
+                 getProfile(this.id).then(res => {
+                    console.log(res)
+                    if (String(res.code) === '1') {
+                        console.log(res.data)
+                        this.gotData = true;
+                        this.isEditing = false;
+                        this.formData = res.data
+                        if(res.data.profileInfo) {
+                          // Extract the date part from the dateOfBirth string
+                          const dateOfBirthParts = res.data.profileInfo.dateOfBirth.split(" ");
+                          this.formData.profileInfo.dateOfBirth = dateOfBirthParts[0];
+                        } else {
+                          this.$message.error('Haven\' Fill Up This Form!')
+                          this.gotData = false;
+                          this.isEditing = true;
+                          // alert('No Result')
+                          this.formData = {}
+                        }
+                    } else {
+                        this.$message.error(res.msg || 'Fail to handle')
+                    }
+                })
+              },
+            submitForm (formName) {
+                event.preventDefault(); 
+                // alert('Halo Man')
+                // window.location.href= '/dist/index.html'
+                console.log(this.formData.profileInfo)
+
+                const params = {...this.formData}
+                // params.profileInfo.applicantId = JSON.parse(window.localStorage.getItem('userInfo')).applicantId;
+                // alert(params.profileInfo.fullName + "\n" + params.profileInfo.mykadNo + "\n" + params.emergencyInfo.email)
+  
+                // if(!this.gotData) {
+                //     addProfile(params).then(res => {
+                //       if (String(res.code) === '1') {
+                //         console.log('Successfully added new profile details！')
+                //         this.$message.success('Successfully added new profile details！')
+                //         setTimeout(() => {
+                //           location.reload();;
+                //         }, 500); // 0.5secs
+                //       } else {
+                //         this.$message.error(res.msg || 'Fail to handle')
+                //       }
+                //       window.location.href= '/dist/index.html'
+                //     }).catch(err => {
+                //       // alert('Fail to add new profile details！: ' + err)
+                //       console.log('Fail to add new profile details！: ' + err)
+                //       this.$message.error('Request error：' + err)
+                //       }) 
+                // } else {
+                //     editProfile(params).then(res => {
+                //         if (String(res.code) === '1') {
+                //             console.log('Successfully edited profile details！')
+                //             this.$message.success('Successfully edited profile details！')
+                //             setTimeout(() => {
+                //               location.reload();;
+                //             }, 500); // 0.5secs
+                //         } else {
+                //             this.$message.error(res.msg || 'Fail to handle')
+                //         }
+                //     }).catch(err => {
+                //         this.$message.error('Request error：' + err)
+                //     })
+                // }
+                // location.reload();
+            },
+            addSubject() {
+              if (this.subjects.length < 12) {    //Maximum 12 Subjects
+                this.subjects.push({
+                  selectedSubject: '', 
+                  selectedGrade: '',   
+                });
+                console.log(this.subjects);
+              }
+            },
+            removeSubject(index) {
+              if (this.subjects.length > 4) {
+                  this.subjects.splice(index, 1);
+              }
+            },
+            toggleEditing() {
+               // Toggle the isEditing variable to enable/disable form fields
+               this.isEditing = !this.isEditing;
+            },
+        }
+
+    });
+          
+</script>
+
 
 </body>
 

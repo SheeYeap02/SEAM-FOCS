@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAR UMT - Application for Admission Postgraduate Programme</title>
+    <link rel="shortcut icon" href="https://web.tarc.edu.my/portal/images/tarucLogo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../assets/compiled/css/app.css">
+    <link rel="stylesheet" href="../assets/compiled/css/app-dark.css">
+    <link rel="stylesheet" href="../assets/compiled/css/iconly.css">
+    <link rel="stylesheet" href="../plugins/element-ui/index.css" />
+    <link rel="stylesheet" href="https://unpkg.com/element-ui@2.15.6/lib/theme-chalk/index.css">
+
+    <style>
+      /* Apply specific styles to the first radio button */
+      fieldset .form-check:first-child {
+          padding-left: 0.7rem; /* Remove padding-left for the first radio button */
+      }
+    
+    </style>
+
+</head>
+
+<body>
+    <script src="../assets/static/js/initTheme.js"></script>
+    <div id="app">
+        <div id="sidebar">
+            <div class="sidebar-wrapper active">
+    <div class="sidebar-header position-relative">
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="logo">
+                <a href="../index.html"><img src="https://www.tarc.edu.my/images/tarumt-logo1.png?v=beyongEducation2" alt="Logo" srcset="" style="width: 150px; height: 60px;"></a>
+            </div>
+            <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+                    role="img" class="iconify iconify--system-uicons" width="20" height="20"
+                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21">
+                    <g fill="none" fill-rule="evenodd" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path
+                            d="M10.5 14.5c2.219 0 4-1.763 4-3.982a4.003 4.003 0 0 0-4-4.018c-2.219 0-4 1.781-4 4c0 2.219 1.781 4 4 4zM4.136 4.136L5.55 5.55m9.9 9.9l1.414 1.414M1.5 10.5h2m14 0h2M4.135 16.863L5.55 15.45m9.899-9.9l1.414-1.415M10.5 19.5v-2m0-14v-2"
+                            opacity=".3"></path>
+                        <g transform="translate(-210 -1)">
+                            <path d="M220.5 2.5v2m6.5.5l-1.5 1.5"></path>
+                            <circle cx="220.5" cy="11.5" r="4"></circle>
+                            <path d="m214 5l1.5 1.5m5 14v-2m6.5-.5l-1.5-1.5M214 18l1.5-1.5m-4-5h2m14 0h2"></path>
+                        </g>
+                    </g>
+                </svg>
+                <div class="form-check form-switch fs-6">
+                    <input class="form-check-input  me-0" type="checkbox" id="toggle-dark" style="cursor: pointer">
+                    <label class="form-check-label"></label>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+                    role="img" class="iconify iconify--mdi" width="20" height="20" preserveAspectRatio="xMidYMid meet"
+                    viewBox="0 0 24 24">
+                    <path fill="currentColor"
+                        d="m17.75 4.09l-2.53 1.94l.91 3.06l-2.63-1.81l-2.63 1.81l.91-3.06l-2.53-1.94L12.44 4l1.06-3l1.06 3l3.19.09m3.5 6.91l-1.64 1.25l.59 1.98l-1.7-1.17l-1.7 1.17l.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95l2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85c-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14c.4-.4.82-.76 1.27-1.08c.75-.53 1.93.36 1.85 1.19c-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82c-2.81 3.14-2.7 7.96.31 10.98c3.02 3.01 7.84 3.12 10.98.31Z">
+                    </path>
+                </svg>
+            </div>
+            <div class="sidebar-toggler  x">
+                <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar-menu">
+        <ul class="menu">
+            <li class="sidebar-title">Menu</li>
+            
+            <li
+                class="sidebar-item ">
+                <a href="../index.html" class='sidebar-link'>
+                    <i class="bi bi-grid-fill"></i>
+                    <span>My Application</span>
+                </a>
+                
+
+            </li>
+            
+            <li
+                class="sidebar-item  has-sub active">
+                <a href="#" class='sidebar-link'>
+                    <i class="bi bi-journal-check"></i>
+                    <span>New Application</span>
+                </a>         
+                <ul class="submenu ">
+                    <li class="submenu-item active">
+                      <a href="./form-intake.html" class="submenu-link">Intake & Programme</a>                  
+                    </li> 
+                    <li class="submenu-item ">
+                        <a href="./form-profile.html" class="submenu-link">Profile</a>                  
+                    </li> 
+                    <li class="submenu-item  ">
+                        <a href="./form-detailed.html" class="submenu-link">Detailed Info</a>                  
+                    </li> 
+                    <li class="submenu-item  ">
+                        <a href="./form-qualification.html" class="submenu-link">Qualifications</a>                  
+                    </li>                            
+                    <li class="submenu-item  ">
+                        <a href="./form-declaration.html" class="submenu-link">Declaration</a>                  
+                    </li> 
+                </ul>
+            </li>
+            <li class="sidebar-item ">
+              <a href="https://web.tarc.edu.my/portal/cpsr/admission/user/Manual.pdf" target="_blank" class='sidebar-link'>
+                  <i class="bi bi-journal-richtext"></i>
+                  <span>Manual Guide</span>
+              </a>
+          </li>
+          <li class="sidebar-item ">
+              <a href="https://web.tarc.edu.my/portal/cpsr/admission/user/doc/TARUMT_ApplicationChecklist.pdf" target="_blank" class='sidebar-link'>
+                  <i class="bi bi-card-checklist"></i>
+                  <span>Application Checklist</span>
+              </a>
+          </li>
+        </ul>
+    </div>
+</div>
+        </div>
+        <div id="main">
+            <header class="mb-3">
+                <a href="#" class="burger-btn d-block d-xl-none">
+                    <i class="bi bi-justify fs-3"></i>
+                </a>
+            </header>
+            
+<div class="page-heading">
+  <div class="page-title">
+    <div class="row">
+      <div class="col-12 col-md-6 order-md-1 order-last">
+        <h3>Intake & Programme</h3>
+        <p class="text-subtitle text-muted">
+          Complete the application for admission postgraduate programme.
+        </p>
+      </div>
+      <div class="col-12 col-md-6 order-md-2 order-first">
+        <nav
+          aria-label="breadcrumb"
+          class="breadcrumb-header float-start float-lg-end"
+        >
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="../index.html">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">
+                New Application
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Intake & Programme</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <!-- // Basic multiple Column Form section start -->
+  <section id="multiple-column-form">
+    <div class="row match-height">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header" style="">
+            <h4 class="card-title"><i class="bi bi-info-square-fill" style="padding-right:20px;"></i>
+              Intake</h4>
+          </div>
+          <div class="card-content">
+            <div class="card-body">
+              <form class="form" data-parsley-validate id="intake-app">
+                <div class="row">
+                  <div class="col-12">
+                    <div class="col-md-4 col-12">
+                      <fieldset class="form-group">
+                        <select v-model="formData.session" class="form-select" id="basicSelect" :disabled="!isEditing" @change="updateCampusOptions">
+                          <option value="">Please select</option>
+                          <option v-for="session in sessionOptions" :value="session">{{ session }}</option>
+                        </select>
+                      </fieldset>
+                    </div>
+                    <div  v-if="formData.session !== ''">
+                      <p class="card-text" style="padding-top: 10px;"> 
+                        List of <code>supporting documents</code> required for application. <br>
+                        You are given 3 choices in order of preference. Please refer to the minimum entry requirements before selecting your choice of programmes. <br>
+                        List of Programmes Offered & Minimum Entry Requirements
+                      </p>
+                      <ul>
+                        <li><a href="https://www.tarc.edu.my/files/admissions/202401/8CC7B1AE-8F41-472F-BC8F-C6F0DE137E42.pdf" 
+                          target="_blank" rel="noopener noreferrer">Bachelor Degree</a></li>
+                        <li><a href="https://www.tarc.edu.my/files/admissions/202401/A9748DFC-152D-4E02-B5BF-07B925BC4092.pdf" 
+                          target="_blank" rel="noopener noreferrer">Diploma</a></li>
+                        <li><a href="https://www.tarc.edu.my/files/admissions/202401/10BF8F08-AEC7-4E1C-9C75-A22B676D2FEB.pdf" 
+                          target="_blank" rel="noopener noreferrer">Foundation</a></li>
+                      </ul>
+                    </div>
+                </div>
+
+                <div class="card-header" style="padding-left: 13px;">
+                  <h4 class="card-title"><i class="bi bi-box-seam-fill" style="padding-right: 20px;"></i>Programme</h4>
+                </div>
+
+                
+                <div class="row">
+                  <label for="state-column" class="form-label">1st Programme Choice</label><br>
+                  <div class="col-md-4 col-12">
+                    <div class="form-group ">
+                      <div class="col-md-12 mb-12">
+                        <fieldset class="form-group">
+                          <select v-model="formData.campus" class="form-select" :disabled="!isEditing" id="basicSelect" @change="updateLevelOptions">
+                            <option value="">Please select</option>
+                            <option v-for="campusName in campusOptions" :value="campusName">{{ campusName  }}</option>
+                          </select>
+                        </fieldset>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-12">
+                    <div class="form-group ">
+                      <div class="col-md-12 mb-12">
+                        <fieldset class="form-group">
+                          <select v-model="formData.levelOfStudy" class="form-select" :disabled="!isEditing" id="basicSelect" @change="updateQualifctProgOptions">
+                            <option value="">Please select</option>
+                            <option v-for="level in levelOptions" :value="level">{{ level  }}</option>
+                          </select>
+                        </fieldset>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-12">
+                    <div class="form-group ">
+                      <div class="col-md-12 mb-12">
+                        <fieldset class="form-group">
+                          <select v-model="formData.entryQualification" class="form-select" :disabled="!isEditing" id="basicSelect">
+                            <option value="">Please select</option>
+                            <option v-for="qualf in qualificationOptions" :value="qualf">{{ qualf  }}</option>
+                          </select>
+                        </fieldset>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-8 col-12">
+                    <div class="form-group ">
+                      <div class="col-md-12 mb-12">
+                        <fieldset class="form-group">
+                          <select v-model="formData.programme" class="form-select" :disabled="!isEditing" id="basicSelect" @change="updateFirstSemOptions">
+                            <option value="">Please select</option>
+                            <option v-for="programme in programmeOptions" :value="programme">{{ programme  }}</option>
+                          </select>
+                        </fieldset>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-12">
+                    <div class="form-group ">
+                      <div class="col-md-12 mb-12">
+                        <fieldset class="form-group">
+                          <select v-model="formData.firstYear" class="form-select" :disabled="!isEditing" id="basicSelect">
+                            <option value="">Please select</option>
+                            <option v-for="sem in firstSemOptions" :value="sem">{{ sem  }}</option>
+                          </select>
+                        </fieldset>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-12 col-12 d-flex justify-content-end align-items-end" style="padding-top: 20px; ">
+                    <div class="col-md-4">
+                      <button @click="toggleEditing" type="button" class="btn btn-warning me-1 mb-1" style="float:left ">
+                        Click to Edit 
+                      </button>
+                    </div>
+                    <div class="col-md-8 d-flex justify-content-end">
+                      <button type="submit" class="btn btn-primary me-1 mb-1" :disabled="!isEditing" @click="submitForm('formData')">
+                        Save
+                      </button>
+                      <button type="reset" :disabled="!isEditing" class="btn btn-light-secondary me-1 mb-1" style="border: none !important;">
+                        Reset
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- // Basic multiple Column Form section end -->
+</div>
+
+<footer>
+    <div class="float-start">
+        <p>2023 &copy; TAR UMT</p>
+    </div>
+    <div class="float-end">
+        <p>Kindly Complete <span class=""><i class="bi bi-caret-right-square-fill icon-mid"></i></span>
+            the <a href="#">Application</a></p>
+    </div>
+</footer>
+        </div>
+    </div>
+    <script src="../assets/static/js/components/dark.js"></script>
+    <script src="../assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    
+    
+    <script src="../assets/compiled/js/app.js"></script>
+    
+
+    
+<script src="../assets/extensions/jquery/jquery.min.js"></script>
+<script src="../assets/extensions/parsleyjs/parsley.min.js"></script>
+<script src="../assets/static/js/pages/parsley.js"></script>
+
+<script src="../plugins/axios/axios.min.js"></script>
+<script src="../plugins/element-ui/index.js"></script>
+<script src="../plugins/vue/vue.js"></script>
+<script src="../api/intake.js"></script>
+<script src="../js/request.js"></script>
+<script src="../js/index.js"></script>
+
+<script>
+    new Vue({
+      el: '#intake-app',
+        data() {
+            return {
+                id: '',
+                formData : {        // Default value, or load from the server
+                    "session": "",
+                    "campus": "", 
+                    "levelOfStudy": "",
+                    "entryQualification": "",
+                    "programme": "",
+                    "firstSem": "",
+                    "applicantId": ""
+                },
+                gotData: true,
+                isEditing: true,
+                userInfo: {},
+                sessionOptions: ["Oct/Nov 2023", "Feb 2024"],
+                campusOptions: [],
+                levelOptions: [],
+                qualificationOptions: [],
+                programmeOptions: [],
+                firstSemOptions: [],
+                campusData : {
+                  "intakes": {
+                    "Oct/Nov 2023": {
+                      "campuses": {
+                         "KUALA LUMPUR CAMPUS": {
+                            "levelsOfStudy": {
+                              "DIPLOMA": {
+                                "entryQualifications": [
+                                  "SPM/O LEVEL/UEC/EQUIVALENT",
+                                  "TAR UMT CERTIFICATE",
+                                  "OTHER INSTITUTION OF HIGHER LEARNING CERTIFICATE/EQUIVALENT"
+                                ],
+                                "programs": [
+                                  "DIPLOMA IN ACCOUNTING",
+                                  "DIPLOMA IN ADVERTISING",
+                                  "DIPLOMA IN BANKING AND FINANCE",
+                                  "DIPLOMA IN BROADCAST COMMUNICATION",
+                                  "DIPLOMA IN BUILDING",
+                                  "DIPLOMA IN BUSINESS ADMINISTRATION",
+                                  "DIPLOMA IN BUSINESS ECONOMICS",
+                                  "DIPLOMA IN COUNSELLING",
+                                  "DIPLOMA IN E-MARKETING",
+                                  "DIPLOMA IN EARLY CHILDHOOD EDUCATION",
+                                  "DIPLOMA IN EARLY CHILDHOOD EDUCATION (PART TIME)",
+                                  "DIPLOMA IN FASHION DESIGN",
+                                  "DIPLOMA IN FINANCE AND INVESTMENT",
+                                  "DIPLOMA IN FOOD SCIENCE",
+                                  "DIPLOMA IN HOTEL MANAGEMENT",
+                                  "DIPLOMA IN HUMAN RESOURCE MANAGEMENT",
+                                  "DIPLOMA IN INTERNATIONAL BUSINESS",
+                                  "DIPLOMA IN JOURNALISM",
+                                  "DIPLOMA IN LOGISTICS AND SUPPLY CHAIN MANAGEMENT",
+                                  "DIPLOMA IN MANUFACTURING TECHNOLOGY",
+                                  "DIPLOMA IN MARKETING",
+                                  "DIPLOMA IN MEDIA STUDIES",
+                                  "DIPLOMA IN PRODUCT DEVELOPMENT TECHNOLOGY",
+                                  "DIPLOMA IN RETAIL MANAGEMENT",
+                                  "DIPLOMA IN SCIENCE",
+                                  "DIPLOMA IN SPORT AND EXERCISE SCIENCE",
+                                  "DIPLOMA IN TOURISM MANAGEMENT",
+                                  "DIPLOMA IN ELECTRONIC ENGINEERING",
+                                  "DIPLOMA IN MECHANICAL ENGINEERING",
+                                  "DIPLOMA IN MECHATRONIC ENGINEERING"
+                                ],
+                              },
+                              "DEGREE": {
+                                "entryQualifications": [
+                                  "STPM/A LEVEL/UEC/EQUIVALENT",
+                                  "TAR UMT DIPLOMA",
+                                  "TAR UMT FOUNDATION",
+                                  "OTHER INSTITUTION OF HIGHER LEARNING DIPLOMA",
+                                  "OTHER INSTITUTION OF HIGHER LEARNING FOUNDATION/EQUIVALENT"
+                                ],
+                                "programs": [
+                                  "BACHELOR OF ACCOUNTING (HONOURS)",
+                                  "BACHELOR OF ARTS (HONOURS) ENGLISH WITH EDUCATION",
+                                  "BACHELOR OF ARTS IN ENGLISH STUDIES (HONOURS)",
+                                  "BACHELOR OF BANKING AND FINANCE (HONOURS)",
+                                  "BACHELOR OF BUSINESS (HONOURS) IN BUSINESS ANALYTICS",
+                                  "BACHELOR OF BUSINESS (HONOURS) IN ENTREPRENEURSHIP",
+                                  "BACHELOR OF BUSINESS (HONOURS) IN HUMAN RESOURCE MANAGEMENT",
+                                  "BACHELOR OF BUSINESS (HONOURS) IN INTERNATIONAL BUSINESS",
+                                  "BACHELOR OF BUSINESS (HONOURS) IN LOGISTICS AND SUPPLY CHAIN MANAGEMENT",
+                                  "BACHELOR OF BUSINESS (HONOURS) IN MARKETING",
+                                  "BACHELOR OF BUSINESS ADMINISTRATION (HONOURS)",
+                                  "BACHELOR OF COMMERCE (HONOURS)",
+                                  "BACHELOR OF COMMUNICATION (HONOURS) IN ADVERTISING",
+                                  "BACHELOR OF COMMUNICATION (HONOURS) IN BROADCASTING",
+                                  "BACHELOR OF COMMUNICATION (HONOURS) IN JOURNALISM",
+                                  "BACHELOR OF COMMUNICATION (HONOURS) IN MEDIA STUDIES",
+                                  "BACHELOR OF COMPUTER SCIENCE (HONOURS) IN DATA SCIENCE",
+                                  "BACHELOR OF CONSTRUCTION MANAGEMENT AND ECONOMICS (HONOURS)",
+                                  "BACHELOR OF CORPORATE ADMINISTRATION (HONOURS)",
+                                  "BACHELOR OF CREATIVE MULTIMEDIA (HONOURS)",
+                                  "BACHELOR OF DESIGN (HONOURS) IN FASHION DESIGN",
+                                  "BACHELOR OF DESIGN (HONOURS) IN GRAPHIC DESIGN",
+                                  "BACHELOR OF EARLY CHILDHOOD EDUCATION (HONOURS)",
+                                  "BACHELOR OF EARLY CHILDHOOD EDUCATION (HONOURS) (PART TIME)",
+                                  "BACHELOR OF ECONOMICS (HONOURS)",
+                                  "BACHELOR OF ELECTRICAL AND ELECTRONICS ENGINEERING (HONOURS)",
+                                  "BACHELOR OF FINANCE (HONOURS)",
+                                  "BACHELOR OF FINANCE AND INVESTMENT (HONOURS)",
+                                  "BACHELOR OF HOSPITALITY MANAGEMENT (HONOURS)",
+                                  "BACHELOR OF INFORMATION TECHNOLOGY (HONOURS) IN INFORMATION SECURITY",
+                                  "BACHELOR OF INFORMATION TECHNOLOGY (HONOURS) IN INTERNET TECHNOLOGY",
+                                  "BACHELOR OF INFORMATION TECHNOLOGY (HONOURS) IN SOFTWARE SYSTEMS DEVELOPMENT",
+                                  "BACHELOR OF MECHANICAL ENGINEERING (HONOURS)",
+                                  "BACHELOR OF MECHATRONICS ENGINEERING (HONOURS)",
+                                  "BACHELOR OF QUANTITY SURVEYING(HONOURS)",
+                                  "BACHELOR OF REAL ESTATE MANAGEMENT (HONOURS)",
+                                  "BACHELOR OF RETAIL MANAGEMENT (HONOURS)",
+                                  "BACHELOR OF SCIENCE (HONOURS) IN ANALYTICAL CHEMISTRY",
+                                  "BACHELOR OF SCIENCE (HONOURS) IN APPLIED PHYSICS (INSTRUMENTATION)",
+                                  "BACHELOR OF SCIENCE (HONOURS) IN BIOSCIENCE WITH CHEMISTRY",
+                                  "BACHELOR OF SCIENCE (HONOURS) IN FOOD SCIENCE",
+                                  "BACHELOR OF SCIENCE (HONOURS) IN NUTRITION",
+                                  "BACHELOR OF SCIENCE (HONOURS) IN SPORTS AND EXERCISE SCIENCE",
+                                  "BACHELOR OF SOCIAL SCIENCE (HONOURS) IN PSYCHOLOGY",
+                                  "BACHELOR OF SOFTWARE ENGINEERING (HONOURS)",
+                                  "BACHELOR OF TOURISM MANAGEMENT (HONOURS)"
+                                ],
+                                "firstSem": ["Year 1 Sem 1", "Year 2 Sem 1"]
+                              }
+                            }
+                          },
+                         "PENANG BRANCH": {
+                           "levelsOfStudy": {
+                             "DIPLOMA": {
+                               "entryQualifications": [
+                                 "SPM/O LEVEL/UEC/EQUIVALENT",
+                                 "TAR UMT CERTIFICATE",
+                                 "OTHER INSTITUTION OF HIGHER LEARNING CERTIFICATE/EQUIVALENT"
+                               ],
+                               "programs": [
+                                 "DIPLOMA IN ACCOUNTING",
+                                 "DIPLOMA IN BUILDING",
+                                 "DIPLOMA IN FINANCE AND INVESTMENT",
+                                 "DIPLOMA IN INTERNATIONAL BUSINESS",
+                                 "DIPLOMA IN ELECTRONIC ENGINEERING",
+                               ],
+                             },
+                             "DEGREE": {
+                               "entryQualifications": [
+                                 "STPM/A LEVEL/UEC/EQUIVALENT",
+                                 "TAR UMT DIPLOMA",
+                                 "TAR UMT FOUNDATION",
+                                 "OTHER INSTITUTION OF HIGHER LEARNING DIPLOMA",
+                                 "OTHER INSTITUTION OF HIGHER LEARNING FOUNDATION/EQUIVALENT"
+                               ],
+                               "programs": [
+                                 "BACHELOR OF ACCOUNTING AND FINANCE (HONOURS)",
+                                 "BACHELOR OF BUSINESS (HONOURS) IN INTERNATIONAL BUSINESS MANAGEMENT",
+                                 "BACHELOR OF BUSINESS ADMINISTRATION (HONOURS)",
+                                 "BACHELOR OF FINANCE AND INVESTMENT (HONOURS)",
+                                 "BACHELOR OF INFORMATION TECHNOLOGY (HONOURS) IN SOFTWARE SYSTEMS DEVELOPMENT", 
+                               ],
+                               "firstYear": ["Year 1 Sem 1", "Year 2 Sem 1"]
+                             }
+                           }
+                          },
+                         "PERAK BRANCH": {
+                            "levelsOfStudy": {
+                              "DIPLOMA": {
+                                "entryQualifications": [
+                                  "SPM/O LEVEL/UEC/EQUIVALENT",
+                                  "TAR UMT CERTIFICATE",
+                                  "OTHER INSTITUTION OF HIGHER LEARNING CERTIFICATE/EQUIVALENT"
+                                ],
+                                "programs": [
+                                  "DIPLOMA IN ACCOUNTING",
+                                  "DIPLOMA IN BUSINESS ADMINISTRATION",
+                                  "DIPLOMA IN COMMUNICATION AND MEDIA STUDIES",
+                                  "DIPLOMA IN CULINARY ARTS",
+                                  "DIPLOMA IN E-MARKETING",
+                                  "DIPLOMA IN EVENT MANAGEMENT",
+                                  "DIPLOMA IN HOTEL MANAGEMENT",
+                                ],
+                              },
+                              "DEGREE": {
+                                "entryQualifications": [
+                                  "STPM/A LEVEL/UEC/EQUIVALENT",
+                                  "TAR UMT DIPLOMA",
+                                  "TAR UMT FOUNDATION",
+                                  "OTHER INSTITUTION OF HIGHER LEARNING DIPLOMA",
+                                  "OTHER INSTITUTION OF HIGHER LEARNING FOUNDATION/EQUIVALENT"
+                                ],
+                                "programs": [
+                                  "BACHELOR OF BUSINESS (HONOURS) ACCOUNTING AND FINANCE",
+                                  "BACHELOR OF BUSINESS ADMINISTRATION (HONOURS)",
+                                  "BACHELOR OF COMMUNICATION STUDIES (HONOURS)",
+                                  "BACHELOR OF GASTROPRENEURSHIP (HONOURS)",
+                                  "BACHELOR OF HOSPITALITY AND CATERING MANAGEMENT (HONOURS)",
+                                  "BACHELOR OF TOURISM MANAGEMENT (HONOURS) EVENT MANAGEMENT", 
+                                ],
+                                "firstYear": ["Year 1 Sem 1", "Year 2 Sem 1"]
+                              }
+                            }
+                          },
+                         "JOHOR BRANCH": {
+                            "levelsOfStudy": {
+                              "DIPLOMA": {
+                                "entryQualifications": [
+                                  "SPM/O LEVEL/UEC/EQUIVALENT",
+                                  "TAR UMT CERTIFICATE",
+                                  "OTHER INSTITUTION OF HIGHER LEARNING CERTIFICATE/EQUIVALENT"
+                                ],
+                                "programs": [
+                                  "DIPLOMA IN ACCOUNTING",
+                                  "DIPLOMA IN AQUACULTURE",
+                                  "DIPLOMA IN BUSINESS ADMINISTRATION",,
+                                  "DIPLOMA IN ENTREPRENEURSHIP",
+                                  "DIPLOMA IN HOTEL MANAGEMENT",
+                                ],
+                              },
+                              "DEGREE": {
+                                "entryQualifications": [
+                                  "STPM/A LEVEL/UEC/EQUIVALENT",
+                                  "TAR UMT DIPLOMA",
+                                  "TAR UMT FOUNDATION",
+                                  "OTHER INSTITUTION OF HIGHER LEARNING DIPLOMA",
+                                  "OTHER INSTITUTION OF HIGHER LEARNING FOUNDATION/EQUIVALENT"
+                                ],
+                                "programs": [
+                                  "BACHELOR OF BUSINESS (HONOURS) ACCOUNTING AND FINANCE",
+                                  "BACHELOR OF BUSINESS ADMINISTRATION (HONOURS)",
+                                ],
+                                "firstYear": ["Year 1 Sem 1", "Year 2 Sem 1"]
+                              }
+                            }
+                          },
+                         "PAHANG BRANCH": {
+                            "levelsOfStudy": {
+                              "DIPLOMA": {
+                                "entryQualifications": [
+                                  "SPM/O LEVEL/UEC/EQUIVALENT",
+                                  "TAR UMT CERTIFICATE",
+                                  "OTHER INSTITUTION OF HIGHER LEARNING CERTIFICATE/EQUIVALENT"
+                                ],
+                                "programs": [
+                                  "DIPLOMA IN ACCOUNTING",
+                                  "DIPLOMA IN BUSINESS ADMINISTRATION",,
+                                  "DIPLOMA IN E-MARKETING",
+                                  "DIPLOMA IN EARLY CHILDHOOD EDUCATION",
+                                  "DIPLOMA IN EARLY CHILDHOOD EDUCATION (PART TIME)",
+                                  "DIPLOMA IN LOGISTICS AND SUPPLY CHAIN MANAGEMENT",
+                                ],
+                              },
+                              "DEGREE": {
+                                "entryQualifications": [
+                                  "STPM/A LEVEL/UEC/EQUIVALENT",
+                                  "TAR UMT DIPLOMA",
+                                  "TAR UMT FOUNDATION",
+                                  "OTHER INSTITUTION OF HIGHER LEARNING DIPLOMA",
+                                  "OTHER INSTITUTION OF HIGHER LEARNING FOUNDATION/EQUIVALENT"
+                                ],
+                                "programs": [
+                                  "BACHELOR OF LOGISTICS AND SUPPLY CHAIN MANAGEMENT (HONOURS)",
+                                  "BACHELOR OF BUSINESS (HONOURS) ACCOUNTING AND FINANCE",
+                                  "BACHELOR OF BUSINESS ADMINISTRATION (HONOURS)",
+                                  "BACHELOR OF INFORMATION TECHNOLOGY (HONOURS) IN SOFTWARE SYSTEMS DEVELOPMENTS",
+                                ],
+                                "firstYear": ["Year 1 Sem 1", "Year 2 Sem 1"]
+                              }
+                            }
+                          },
+                         "SABAH BRANCH": {
+                            "levelsOfStudy": {
+                              "DIPLOMA": {
+                                "entryQualifications": [
+                                  "SPM/O LEVEL/UEC/EQUIVALENT",
+                                  "TAR UMT CERTIFICATE",
+                                  "OTHER INSTITUTION OF HIGHER LEARNING CERTIFICATE/EQUIVALENT"
+                                ],
+                                "programs": [
+                                  "DIPLOMA IN ACCOUNTING",
+                                  "DIPLOMA IN BUSINESS ADMINISTRATION",,
+                                  "DIPLOMA IN EARLY CHILDHOOD EDUCATION",
+                                  "DIPLOMA IN EARLY CHILDHOOD EDUCATION (PART TIME)",
+                                  "DIPLOMA IN HOTEL MANAGEMENT",
+                                ],
+                              },
+                              "DEGREE": {
+                                "entryQualifications": [
+                                  "STPM/A LEVEL/UEC/EQUIVALENT",
+                                  "TAR UMT DIPLOMA",
+                                  "TAR UMT FOUNDATION",
+                                  "OTHER INSTITUTION OF HIGHER LEARNING DIPLOMA",
+                                  "OTHER INSTITUTION OF HIGHER LEARNING FOUNDATION/EQUIVALENT"
+                                ],
+                                "programs": [
+                                  "BACHELOR OF BUSINESS (HONOURS) ACCOUNTING AND FINANCE",
+                                  "BACHELOR OF BUSINESS ADMINISTRATION (HONOURS)",
+                                ],
+                                "firstYear": ["Year 1 Sem 1", "Year 2 Sem 1"]
+                              }
+                            }
+                          },
+                       }
+                    },
+                    "Feb 2024": {
+                      "campuses": {
+                         "KUALA LUMPUR CAMPUS": {
+                            "levelsOfStudy": {
+                              "DIPLOMA": {
+                                "entryQualifications": [
+                                  "SPM/O LEVEL/UEC/EQUIVALENT",
+                                  "TAR UMT CERTIFICATE",
+                                  "OTHER INSTITUTION OF HIGHER LEARNING CERTIFICATE/EQUIVALENT"
+                                ],
+                                "programs": [
+                                  "DIPLOMA IN BUILDING",
+                                  "DIPLOMA IN COUNSELLING",
+                                  "DIPLOMA IN E-MARKETING",
+                                  "DIPLOMA IN EARLY CHILDHOOD EDUCATION",
+                                  "DIPLOMA IN EARLY CHILDHOOD EDUCATION (PART TIME)",
+                                  "DIPLOMA IN FOOD SCIENCE",
+                                  "DIPLOMA IN MANUFACTURING TECHNOLOGY",
+                                  "DIPLOMA IN PRODUCT DEVELOPMENT TECHNOLOGY",
+                                  "DIPLOMA IN QUANTITY SURVEYING",
+                                  "DIPLOMA IN REAL ESTATE MANAGEMENT",
+                                  "DIPLOMA IN SCIENCE",
+                                  "DIPLOMA IN SPORT AND EXERCISE SCIENCE",
+                                  "DIPLOMA IN ELECTRONIC ENGINEERING",
+                                  "DIPLOMA IN MECHANICAL ENGINEERING",
+                                  "DIPLOMA IN MECHATRONIC ENGINEERING"
+                                ],
+                              },
+                              "DEGREE": {
+                                "entryQualifications": [
+                                  "STPM/A LEVEL/UEC/EQUIVALENT",
+                                  "TAR UMT DIPLOMA",
+                                  "TAR UMT FOUNDATION",
+                                  "OTHER INSTITUTION OF HIGHER LEARNING DIPLOMA",
+                                  "OTHER INSTITUTION OF HIGHER LEARNING FOUNDATION/EQUIVALENT"
+                                ],
+                                "programs": [
+                                  "BACHELOR OF ACCOUNTING (HONOURS)",
+                                  "BACHELOR OF ARTS (HONOURS) ENGLISH WITH DRAMA",
+                                  "BACHELOR OF ARTS (HONOURS) ENGLISH WITH EDUCATION",
+                                  "BACHELOR OF ARTS IN ENGLISH STUDIES (HONOURS)",
+                                  "BACHELOR OF BUSINESS (HONOURS) IN LOGISTICS AND SUPPLY CHAIN MANAGEMENT",
+                                  "BACHELOR OF BUSINESS (HONOURS) IN MARKETING",
+                                  "BACHELOR OF BUSINESS ADMINISTRATION (HONOURS)",
+                                  "BACHELOR OF COMPUTER SCIENCE (HONOURS) IN DATA SCIENCE",
+                                  "BACHELOR OF CONSTRUCTION MANAGEMENT AND ECONOMICS (HONOURS)",
+                                  "BACHELOR OF EARLY CHILDHOOD EDUCATION (HONOURS)",
+                                  "BACHELOR OF EARLY CHILDHOOD EDUCATION (HONOURS) (PART TIME)",
+                                  "BACHELOR OF ELECTRICAL AND ELECTRONICS ENGINEERING (HONOURS)",
+                                  "BACHELOR OF FINANCE AND INVESTMENT (HONOURS)",
+                                  "BACHELOR OF HOSPITALITY MANAGEMENT (HONOURS)",
+                                  "BACHELOR OF INFORMATION TECHNOLOGY (HONOURS) IN SOFTWARE SYSTEMS DEVELOPMENT",
+                                  "BACHELOR OF MECHANICAL ENGINEERING (HONOURS)",
+                                  "BACHELOR OF MECHATRONICS ENGINEERING (HONOURS)",
+                                  "BACHELOR OF QUANTITY SURVEYING(HONOURS)",
+                                  "BACHELOR OF REAL ESTATE MANAGEMENT (HONOURS)",
+                                  "BACHELOR OF SCIENCE (HONOURS) IN ANALYTICAL CHEMISTRY",
+                                  "BACHELOR OF SCIENCE (HONOURS) IN APPLIED PHYSICS (INSTRUMENTATION)",
+                                  "BACHELOR OF SCIENCE (HONOURS) IN BIOSCIENCE WITH CHEMISTRY",
+                                  "BACHELOR OF SCIENCE (HONOURS) IN FOOD SCIENCE",
+                                  "BACHELOR OF SCIENCE (HONOURS) IN NUTRITION",
+                                  "BACHELOR OF SCIENCE (HONOURS) IN SPORTS AND EXERCISE SCIENCE",
+                                  "BACHELOR OF SCIENCE (HONOURS) IN SPORTS COACHING AND PERFORMANCE ANALYSIS",
+                                  "BACHELOR OF SOCIAL SCIENCE (HONOURS) IN PSYCHOLOGY",
+                                  "BACHELOR OF SOFTWARE ENGINEERING (HONOURS)",
+                                  "BACHELOR OF TOURISM MANAGEMENT (HONOURS)"
+                                ],
+                                "firstYear": ["Year 1 Sem 1", "Year 2 Sem 1"]
+                              }
+                            }
+                          },
+                         "PENANG BRANCH": {
+                           "levelsOfStudy": {
+                             "DIPLOMA": {
+                               "entryQualifications": [
+                                 "SPM/O LEVEL/UEC/EQUIVALENT",
+                                 "TAR UMT CERTIFICATE",
+                                 "OTHER INSTITUTION OF HIGHER LEARNING CERTIFICATE/EQUIVALENT"
+                               ],
+                               "programs": [
+                                 "DIPLOMA IN BUILDING",
+                                 "DIPLOMA IN QUANTITY SURVEYING",
+                                 "DIPLOMA IN ELECTRONIC ENGINEERING",
+                               ],
+                             },
+                             "DEGREE": {
+                               "entryQualifications": [
+                                 "STPM/A LEVEL/UEC/EQUIVALENT",
+                                 "TAR UMT DIPLOMA",
+                                 "TAR UMT FOUNDATION",
+                                 "OTHER INSTITUTION OF HIGHER LEARNING DIPLOMA",
+                                 "OTHER INSTITUTION OF HIGHER LEARNING FOUNDATION/EQUIVALENT"
+                               ],
+                               "programs": [
+                                 "BACHELOR OF ACCOUNTING AND FINANCE (HONOURS)",
+                                 "BACHELOR OF BUSINESS (HONOURS) IN INTERNATIONAL BUSINESS MANAGEMENT",
+                               ],
+                               "firstYear": ["Year 1 Sem 1", "Year 2 Sem 1"]
+                             }
+                           }
+                         },      
+                         "PAHANG BRANCH": {
+                           "levelsOfStudy": {
+                             "DIPLOMA": {
+                               "entryQualifications": [
+                                 "SPM/O LEVEL/UEC/EQUIVALENT",
+                                 "TAR UMT CERTIFICATE",
+                                 "OTHER INSTITUTION OF HIGHER LEARNING CERTIFICATE/EQUIVALENT"
+                               ],
+                               "programs": [
+                                 "DIPLOMA IN EARLY CHILDHOOD EDUCATION",
+                                 "DIPLOMA IN EARLY CHILDHOOD EDUCATION (PART TIME)",
+                               ],
+                             },
+                           }
+                         },
+                       }
+                    }
+                  }
+                  
+                }
+            }
+        },
+        computed: {},
+        created() {
+            // this.init()
+            const userInfo = window.localStorage.getItem('userInfo')
+            if (userInfo) {
+                console.log(userInfo)
+                this.userInfo = JSON.parse(userInfo)
+            }
+            if(this.userInfo.applicantId) {
+              // this.init()
+            }
+        },
+        mounted() {},
+        methods: {
+            init() {
+                const userInfo = JSON.parse(window.localStorage.getItem('userInfo'))
+                if(userInfo) {
+                    this.id = userInfo.applicantId;
+                } 
+                console.log("init id here: " + this.id )
+                
+                //  getProfile(this.id).then(res => {
+                //     console.log(res)
+                //     if (String(res.code) === '1') {
+                //         console.log(res.data)
+                //         this.gotData = true;
+                //         this.isEditing = false;
+                //         this.formData = res.data
+                //         if(res.data.profileInfo) {
+                //           // Extract the date part from the dateOfBirth string
+                //           const dateOfBirthParts = res.data.profileInfo.dateOfBirth.split(" ");
+                //           this.formData.profileInfo.dateOfBirth = dateOfBirthParts[0];
+                //         } else {
+                //           this.$message.error('Haven\' Fill Up This Form!')
+                //           this.gotData = false;
+                //           this.isEditing = true;
+                //           // alert('No Result')
+                //           this.formData = {}
+                //         }
+                //     } else {
+                //         this.$message.error(res.msg || 'Fail to handle')
+                //     }
+                // })
+              },
+            submitForm (formName) {
+                event.preventDefault(); 
+                console.log(this.formData)
+
+                const params = {...this.formData}
+                params.applicantId = JSON.parse(window.localStorage.getItem('userInfo')).applicantId;
+  
+                // if(!this.gotData) {
+                    addIntake(params).then(res => {
+                      if (String(res.code) === '1') {
+                        console.log('Successfully added new intake details！')
+                        this.$message.success('Successfully added new intake details！')
+                        setTimeout(() => {
+                          location.reload();
+                        }, 500); // 0.5secs
+                      } else {
+                        this.$message.error(res.msg || 'Fail to handle')
+                      }
+                    }).catch(err => {
+                      console.log('Fail to add new intake details！: ' + err)
+                      this.$message.error('Request error：' + err)
+                    }) 
+                // } else {
+                //     editIntake(params).then(res => {
+                //         if (String(res.code) === '1') {
+                //             console.log('Successfully edited intake details！')
+                //             this.$message.success('Successfully edited intake details！')
+                //             setTimeout(() => {
+                //               location.reload();;
+                //             }, 500); // 0.5secs
+                //         } else {
+                //             this.$message.error(res.msg || 'Fail to handle')
+                //         }
+                //     }).catch(err => {
+                //         this.$message.error('Request error：' + err)
+                //     })
+                // }
+            },
+            updateCampusOptions() {
+              // Update campus options based on the selected intake
+              const selectedIntake = this.formData.session;
+              if (selectedIntake && this.campusData.intakes[selectedIntake]) {
+                this.campusOptions = Object.keys(this.campusData.intakes[selectedIntake].campuses);
+                console.log(this.campusOptions)
+                console.log("SOhai")
+              } else {
+                this.campusOptions = [];
+              }
+            },
+            updateLevelOptions() {
+              // Update level options based on the selected campus
+              const selectedCampus = this.formData.campus;
+              if (selectedCampus && this.campusData.intakes[this.formData.session].campuses[selectedCampus]) {
+                this.levelOptions = Object.keys(this.campusData.intakes[this.formData.session].campuses[selectedCampus].levelsOfStudy);
+                console.log(this.levelOptions)
+              } else {
+                this.levelOptions = [];
+              }
+            },
+            updateQualifctProgOptions() {
+              // Update qualification options based on the selected level
+              const selectedLevel = this.formData.levelOfStudy;
+              if (selectedLevel && this.campusData.intakes[this.formData.session].campuses[this.formData.campus].levelsOfStudy[selectedLevel]) {
+                this.qualificationOptions = this.campusData.intakes[this.formData.session].campuses[this.formData.campus].levelsOfStudy[selectedLevel].entryQualifications;
+                this.programmeOptions = this.campusData.intakes[this.formData.session].campuses[this.formData.campus].levelsOfStudy[selectedLevel].programs;
+                console.log(this.qualificationOptions)
+                console.log(this.programmeOptions)
+              } else {
+                this.qualificationOptions = [];
+                this.programmeOptions = [];
+              }
+            },
+            updateFirstSemOptions() {
+              console.log(this.formData.levelOfStudy + "\n" + this.formData.entryQualification)
+              if (
+                this.formData.levelOfStudy === "DEGREE" &&
+                this.formData.entryQualification === "TAR UMT DIPLOMA"
+              ) {
+                this.firstSemOptions = ["Year 1 Sem 1", "Year 2 Sem 1"];
+              } else {
+                this.formData.firstYear = "";
+              }
+            },
+            toggleEditing() {
+               // Toggle the isEditing variable to enable/disable form fields
+               this.isEditing = !this.isEditing;
+            },
+        }
+
+    });
+          
+</script>
+
+
+</body>
+
+</html>
