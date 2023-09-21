@@ -13,7 +13,7 @@ spring:
       password: memory15  #Set your own password
 mybatis-plus:
   configuration:
-    # When mapping entities or attributes, remove the underscores from the table names
+    # When mapping entities or attri  butes, remove the underscores from the table names
     # and field names in the database and map them according to camel nomenclature
     map-underscore-to-camel-case: true
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

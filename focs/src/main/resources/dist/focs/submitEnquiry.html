@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <script src="//code.tidio.co/m6kdihlblyie9jlb1otfxudgzisuz4fx.js" async></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Programme Detail</title>
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/icons.css">
+    <link rel="stylesheet" href="css/responsee.css">
+    <link rel="stylesheet" href="owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="owl-carousel/owl.theme.css">
+    <!-- CUSTOM STYLE -->
+    <link rel="stylesheet" href="css/template-style.css">
+    <link href="https://fonts.googleapis.com/css?family=Barlow:100,300,400,700,800&amp;subset=latin-ext"
+        rel="stylesheet">
+    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/userlog.js"></script>
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="../plugins/axios/axios.min.js"></script>
+    <script src="../plugins/vue/vue.js"></script>
+    <script src="../api/programme.js"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.css" rel="stylesheet" />
+    <!-- MDB -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        /* Add your CSS styles here */
+        .center2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .nav-link {
+            color: white;
+        }
+
+        .row {
+            padding-top: 3%;
+        }
+    </style>
+</head>
+
+<body class="size-1520 primary-color-red background-dark">
+    <!-- HEADER -->
+    <header class="grid headerjs">
+    </header>
+
+    <!-- MAIN -->
+    <main role="main">
+        <!-- TOP SECTION -->
+        <header class="grid">
+            <div class="s-12 padding-2x">
+                <h1 class="text-strong text-white text-center center text-size-60 text-uppercase margin-bottom-20">
+                    Contact us</h1>
+                <p class="text-size-20 text-white text-center center text-uppercase">Do you have any questions? Please
+                    do not hesitate to contact us directly. Our team will come back to you within a matter of hours to
+                    help you.</p>
+            </div>
+        </header>
+
+        <!--Section: Contact v.2-->
+        <section class="mb-4 bg-light " style="margin: 10%;padding: 5%;border-radius: 20px;">
+
+            <ul class="nav nav-pills nav-justified">
+                <li class="nav-item">
+                    <a class="nav-link active" id="tab1" aria-current="page" onclick="showTab(1)">Submission</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="tab2" onclick="showTab(2)">Progression</a>
+                </li>
+            </ul>
+
+
+            <div id="tab1-content">
+                <form id="submitEnquiry" data-parsley-validate>
+                    <!--Section heading-->
+                    <h2 class="h1-responsive font-weight-bold text-dark text-center my-4">Contact us</h2>
+                    <!--Section description-->
+                    <p class="text-center text-dark w-responsive mx-auto mb-5">Do you have any questions? Please do not
+                        hesitate
+                        to
+                        contact us directly. Our team will come back to you within
+                        a matter of hours to help you.</p>
+
+                    <div class="row">
+
+                        <!--Grid column-->
+                        <div class="col-md-9 mb-md-0 mb-5">
+                            <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+
+                                <!--Grid row-->
+                                <div class="row">
+
+                                    <!--Grid column-->
+                                    <div class="col-md-6">
+                                        <div class="md-form mb-0">
+                                            <input type="text" id="name" name="name" class="form-control" disabled>
+                                            <label for="name" class="">Username</label>
+                                        </div>
+                                    </div>
+                                    <!--Grid column-->
+
+                                    <!--Grid column-->
+                                    <div class="col-md-6">
+                                        <div class="md-form mb-0">
+                                            <input type="text" id="email" name="email" class="form-control" disabled>
+                                            <label for="email" class="">Your email</label>
+                                        </div>
+                                    </div>
+                                    <!--Grid column-->
+
+                                </div>
+                                <!--Grid row-->
+
+                                <!--Grid row-->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="md-form mb-0">
+                                            <input type="text" id="title" name="title" class="form-control">
+                                            <label for="title" class="">Title</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Grid row-->
+
+                                <!--Grid row-->
+                                <div class="row">
+
+                                    <!--Grid column-->
+                                    <div class="col-md-12">
+
+                                        <div class="md-form">
+                                            <textarea type="text" id="message" name="message" rows="2"
+                                                class="form-control md-textarea"></textarea>
+                                            <label for="message">Your message</label>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!--Grid row-->
+
+                            </form>
+
+                            <div class="text-center text-md-left">
+                                <a class="btn btn-primary text-light" @click="submitForm('enquiry')">Send</a>
+                            </div>
+                            <div class="status"></div>
+                        </div>
+                        <!--Grid column-->
+
+                        <!--Grid column-->
+                        <div class="col-md-3 text-center">
+                            <ul class="list-unstyled mb-0">
+                                <li><i class="fas fa-map-marker-alt fa-2x"></i>
+                                    <p>TARUMT, CA 94126, Kuala Lumpur</p>
+                                </li>
+
+                                <li><i class="fas fa-phone mt-4 fa-2x"></i>
+                                    <p>+ 01 234 567 89</p>
+                                </li>
+
+                                <li><i class="fas fa-envelope mt-4 fa-2x"></i>
+                                    <p>contact@tarumt.com</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--Grid column-->
+                    </div>
+                </form>
+            </div>
+
+            <div id="tab2-content" style="margin-top: 30px;">
+                <div class="card text-dark bg-light mb-3">
+                    <div class="card-header">Header</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Light card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+        <!--Section: Contact v.2-->
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="grid">
+        <!-- Footer - top -->
+        <!-- Image-->
+        <div class="s-12 l-3 m-row-3 margin-bottom background-image" style="background-image:url(img/img-04.jpg)"></div>
+
+        <div class="s-12 m-9 l-3 padding-2x margin-bottom background-dark">
+            <h2 class="text-strong text-uppercase">Who We Are?</h2>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                sed diam nonummy.</p>
+        </div>
+
+        <div class="s-12 m-9 l-3 padding-2x margin-bottom background-dark">
+            <h2 class="text-strong text-uppercase">Where We Are?</h2>
+            <img class="full-img" src="img/map.svg" alt="" />
+        </div>
+
+        <div class="s-12 m-9 l-3 padding-2x margin-bottom background-dark">
+            <h2 class="text-strong text-uppercase">Contact Us</h2>
+            <p><b class="text-primary margin-right-10">P</b> 0800 4521 800 50</p>
+            <p><b class="text-primary margin-right-10">M</b> <a class="text-primary-hover"
+                    href="mailto:contact@sampledomain.com">contact@sampledomain.com</a></p>
+            <p><b class="text-primary margin-right-10">M</b> <a class="text-primary-hover"
+                    href="mailto:office@sampledomain.com">office@sampledomain.com</a></p>
+        </div>
+
+        <!-- Footer - bottom -->
+        <div style="text-align: right;" class="s-12 text-center margin-bottom">
+            <p class="text-size-12">Copyright 2019, Vision Design - graphic zoo</p>
+            <p class="text-size-12">All images have been purchased from Bigstock. Do not use the images in your website.
+            </p>
+            <p><a class="text-size-12 text-primary-hover" href="http://www.myresponsee.com"
+                    title="Responsee - lightweight responsive framework">Design and coding by Responsee Team</a></p>
+        </div>
+    </footer>
+    <script type="text/javascript" src="js/responsee.js"></script>
+    <script type="text/javascript" src="owl-carousel/owl.carousel.js"></script>
+    <script type="text/javascript" src="js/template-scripts.js"></script>
+    <script src="../plugins/axios/axios.min.js"></script>
+    <script src="../plugins/vue/vue.js"></script>
+    <script src="../api/programme.js"></script>
+    <script type="text/javascript" src="./js/submitEnquiry.js"></script>
+    <script src="../plugins/axios/axios.min.js"></script>
+    <script src="../plugins/vue/vue.js"></script>
+    <script src="../api/query.js"></script>
+    <script>
+
+        onload = function () {
+            // if (localStorage.getItem('userInfo') == null) {
+            //     //navigate user to other page
+            //     localStorage.setItem('redirect', 'submitEnquiry.html');
+            //     window.location.href = "../page/login.html";
+            //     //
+            // } else {
+            //     //get user info
+            //     var userInfo = JSON.parse(localStorage.getItem('userInfo'));
+            //     console.log(userInfo);
+            //     let userEmail = userInfo['applicantEmail'];
+            //     document.getElementById('email').value = userEmail;
+            //     document.getElementById('name').value = userEmail.split('@')[0];
+
+            // }
+
+            document.getElementById('tab2-content').style.display = 'none';
+
+        }
+
+        //onProgress();
+
+        function onProgress() {
+            let enquiryList = JSON.parse(localStorage.getItem('enquiry'));
+
+            console.log(enquiryList);
+
+            //let html = document.getElementById('tab2-content').innerHTML;
+            let html = "";
+            for (let i = 0; i < enquiryList.length; i++) {
+
+
+                let enquiry = enquiryList[i];
+                let email = enquiry['email'];
+                let title = enquiry['title'];
+                let ques = enquiry['question'];
+                let date = enquiry['date'];
+                let reply = enquiry['reply'];
+                let status = enquiry['status'];
+
+                let stats = 'border-danger';
+                let statusText = 'Pending for reply...';
+
+                if (reply != 'null') {
+                    stats = 'border-success';
+                    statusText = 'Replied !';
+                }
+
+
+                html += `
+                <div onclick="replyEnquiry(${i})" class="card text-dark ${stats} bg-light mb-3">
+                    <div class="card-header">${statusText}</div>
+                    <div class="card-body">
+                        <h5 class="card-title">${title}</h5>
+                        <p class="card-text">${ques}</p>
+                    </div>
+
+                `;
+
+                if (reply != 'null') {
+                    html += `
+                    <div class="card-footer text-muted">
+                        ${reply}
+                    </div>
+                    `;
+                }
+
+                html += `</div>`;
+            }
+
+            document.getElementById('tab2-content').innerHTML = html;
+        }
+
+        function replyEnquiry(index) {
+            console.log(index);
+            let enquiryList = JSON.parse(localStorage.getItem('enquiry'));
+            let enquiry = enquiryList[index];
+            let reply = "Your reply is here";
+            enquiry['reply'] = reply;
+            enquiry['status'] = 'replied';
+            enquiryList[0] = enquiry;
+            localStorage.setItem('enquiry', JSON.stringify(enquiryList));
+            window.location.reload();
+            alert('Your reply has been submitted successfully!');
+        }
+
+        function onSubmit() {
+            let usrname = document.getElementById('name').value; //localStorage.getItem('username');
+            let email = document.getElementById('email').value;
+            let title = document.getElementById('title').value;
+            let ques = document.getElementById('message').value;
+            let date = new Date();
+
+            let enquiry = {
+                name: usrname,
+                email: email,
+                title: title,
+                question: ques,
+                date: date,
+                "reply": "null",
+                "status": "pending"
+            };
+
+            if (localStorage.getItem('enquiry') == null) {
+                localStorage.setItem('enquiry', JSON.stringify(enquiry));
+                console.log(enquiry);
+            } else {
+                let enquiryList = JSON.parse(localStorage.getItem('enquiry'));
+                enquiryList.push(enquiry);
+                localStorage.setItem('enquiry', JSON.stringify(enquiryList));
+                console.log(enquiryList);
+            }
+
+            alert('Your enquiry has been submitted successfully!');
+            window.location.reload();
+        }
+
+        function showTab(tabIndex) {
+            const tabContents = document.querySelectorAll('.nav-link');
+
+            // Hide all tab contents
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Show the selected tab content
+            const selectedTabContent = document.getElementById(`tab${tabIndex}`);
+            selectedTabContent.classList.add('active');
+
+            if (tabIndex == 1) {
+                document.getElementById('tab1-content').style.display = 'block';
+                document.getElementById('tab2-content').style.display = 'none';
+            } else if (tabIndex == 2) {
+                document.getElementById('tab2-content').style.display = 'block';
+                document.getElementById('tab1-content').style.display = 'none';
+            }
+
+        }
+
+        console.log('PROGRAMMES :', localStorage.getItem('programmes'));
+        document.addEventListener('DOMContentLoaded', function () {
+            new Vue({
+                el: '#submitEnquiry',
+                data() {
+                    return {
+                        enquiry: {
+                            applicantEmail: 0,
+                            queryId: 0,
+                            title: '',
+                            question: '',
+                            reply: '',
+                            queryStatus: '',
+                            created: '',
+                            completed: ''
+                        },
+                    }
+                },
+                mounted() {
+                    // Data not available in localStorage, fetch it from the API
+                    console.log('MOUNT QUERY :');
+                    this.init();
+                },
+                created() {
+                    // Call the init method when the component is created
+                    this.init();
+                },
+                methods: {
+                    init() {
+                        console.log('INIT QUERY :');
+                        // getAllQueries()
+                        //     .then((response) => {
+                        //         console.log('Response:', response);
+                        //         this.programmes = response.data.data;
+                        //         console.log('PROGRAMMES :', this.programmes);
+                        //         console.log('Programme1 :', this.programmes[0].programmeName);
+                        //         // Rest of your code
+                        //     })
+                        //     .catch((error) => {
+                        //         console.error('Error:', error);
+                        //         // Rest of your error handling code
+                        //     });
+                    },
+                    submitForm(enquiry) {
+                        event.preventDefault();
+
+                        console.log('ADD QUERY :', enquiry);
+
+                        const params = { ...this.enquiry };
+                        //params.applicantEmail = localStorage.getItem('username');
+                        params.applicantEmail = 'Testing@gamil.com';
+                        params.queryId = 0;
+                        params.title = document.getElementById('title').value;
+                        params.question = document.getElementById('message').value;
+                        params.reply = 'null';
+                        params.queryStatus = 'pending';
+                        params.created = new Date();
+                        params.completed = 'null';
+
+                        addQuery(params).then((response) => {
+                            console.log('Response:', response);
+                            // Rest of your code
+                        })
+                            .catch((error) => {
+                                console.error('Error:', error);
+                                // Rest of your error handling code
+                            });
+
+                    }
+
+                },
+            });
+        });
+    </script>
+    <script type="text/javascript" src="js/headerAppend.js"></script>
+</body>
+
+</html>
