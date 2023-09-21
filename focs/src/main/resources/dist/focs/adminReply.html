@@ -1,369 +1,489 @@
 <!DOCTYPE html>
 <html lang="en-US">
+
 <head>
-    <link href="https://cdn.jsdelivr.net/npm/@coreui/coreui@4.3.0/dist/css/coreui.min.css" rel="stylesheet" integrity="sha384-2E9/b2fZ+VJoP6eRIpzzMFkuqbh0qDkIFVLzJJwkESsdKPEwzb0n6E55enZ+Ee8V" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" type="text/css" />
-<link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow" rel="stylesheet">
+    <script src="//code.tidio.co/m6kdihlblyie9jlb1otfxudgzisuz4fx.js" async></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Programme Detail</title>
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/icons.css">
+    <link rel="stylesheet" href="css/responsee.css">
+    <link rel="stylesheet" href="owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="owl-carousel/owl.theme.css">
+    <!-- CUSTOM STYLE -->
+    <link rel="stylesheet" href="css/template-style.css">
+    <link href="https://fonts.googleapis.com/css?family=Barlow:100,300,400,700,800&amp;subset=latin-ext"
+        rel="stylesheet">
+    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/userlog.js"></script>
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="../plugins/axios/axios.min.js"></script>
+    <script src="../plugins/vue/vue.js"></script>
+    <script src="../api/programme.js"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.css" rel="stylesheet" />
+    <!-- MDB -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <style>
+        /* Add your CSS styles here */
+        .center2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-<style>
-/* Component Needs */
+        .tab-content {
+            display: none;
+        }
 
-.pc-tab > input,
-.pc-tab section > div {
-  display: none;
-}
+        .tab-content.active {
+            display: block;
+        }
 
-#tab1:checked ~ section .tab1,
-#tab2:checked ~ section .tab2,
-#tab3:checked ~ section .tab3 {
-  display: block;
-}
-
-#tab1:checked ~ nav .tab1,
-#tab2:checked ~ nav .tab2,
-#tab3:checked ~ nav .tab3 {
-  color: red;
-}
-
-/* Visual Styles */
-
-:root {
-  --activeColor: #ffffff;
-  --inactiveColor: #eeeeee;
-  --inactiveHoverColor: #dddddd;
-}
-
-@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700);
-@import url(https://fonts.googleapis.com/css?family=Raleway:100,400,700);
-
-*, *:after, *:before {
-  box-sizing: border-box;
-}
-
-body {
-  -webkit-font-smoothing: antialiased;
-  background: white;
-  font-family: 'Raleway';
-}
-
-h1 {
-  text-align: center;
-  font-weight: bold;
-  font-size: 60px;
-  color: Black;
-}
-
-.pc-tab { 
-  width: 100%;
-  max-width: 1500px;
-  margin: 0 auto;
-}
-
-.pc-tab ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.pc-tab ul li label {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: x-large;
-  float: left;
-  padding: 15px 25px;
-  border: 1px solid white;
-  border-bottom: 0;
-  background: white;
-  color: black;
-
-}
-
-.pc-tab ul li label:hover {
-  background: #FFF5EE;
-}
-
-.pc-tab ul li label:active {
-  background: #FFF5EE;
-}
-body > div > nav > ul > li.tab2 > label:hover{
-    background: #ECFFDC;
-}
-
-body > div > section > div.tab1{
-    background: #FFF5EE;
-}
-
-body > div > section > div.tab2{
-    background: #ECFFDC;
-}
-
-.pc-tab ul li:not(:last-child) label {
-  border-right-width: 0; 
-}
-
-.pc-tab section {
-  font-family: "Droid Serif";
-  clear: both;
-}
-
-.pc-tab section div {
-  padding: 20px; 
-  width: 100%;
-  border: 1px solid #ddd;
-  background: #fff;
-  line-height: 1.5em;
-  letter-spacing: 0.3px;
-  color: #444;
-}
-
-.pc-tab section div h2 {
-  margin: 0;
-  font-family: "Raleway";
-  letter-spacing: 1px;
-  color: #34495e;
-}
-
-#tab1:checked ~ nav .tab1,
-#tab2:checked ~ nav .tab2,
-#tab3:checked ~ nav .tab3 label {
-  background: white;
-  color: #111;
-  position: relative;
-}
-
-#tab1:checked ~ nav .tab1 label:after,
-#tab2:checked ~ nav .tab2 label:after,
-#tab3:checked ~ nav .tab3 label:after {
-  content: '';
-  display: block;
-  position: absolute;
-  height: 2px;
-  width: 100%;
-  background: var(--activeColor);
-  left: 0;
-  bottom: -1px;
-}
-
-footer {
-  margin-top: 50px;
-  font-size: 14px;
-  color: #CCC;
-  text-align: center;
-}
-
-footer a {
-  color: #AAA;
-  text-decoration: none;
-}
-.btn-primary {
-  float: right; /* Float the button to the right */
-}
-/*dropdown*/
-a:hover, a:focus{
-    text-decoration: none !important;
-    outline: none !important;
-    
-}
-.panel-group .panel{
-    background-color: #fff;
-    border:none;
-    box-shadow:none;
-    border-radius: 10px;
-    margin-bottom:11px;
-}
-.panel .panel-heading{
-    padding: 0;
-    border-radius:10px;
-    border: none;
-}
-.panel-heading a{
-    color:black !important;
-    display: block;
-    border:5px solid black;
-    padding:20px 35px 20px;
-    font-size: 25px;
-    background-color:#fff;
-    font-weight:600;
-    position: relative;
-    color:#fff;
-    box-shadow:none;
-    transition:all 0.1s ease 0;
-}
-.panel-heading a:after, .panel-heading a.collapsed:after{
-    content: "\f068";
-    font-family: fontawesome;
-    text-align: center;
-    position: absolute;
-    left:-20px;
-    top: 10px;
-    color:black !important;
-    background-color:#fff;
-    border: 5px solid black;
-    font-size: 15px;
-    width: 40px;
-    height:40px;
-    line-height: 30px;
-    border-radius: 50%;
-    transition:all 0.3s ease 0s;
-}
-.panel-heading:hover a:after,
-.panel-heading:hover a.collapsed:after{
-    transform:rotate(360deg);
-}
-.panel-heading a.collapsed:after{
-    content: "\f067";
-}
-#accordion .panel-body{
-    background-color:#fbf8f8;
-    color:#8C8C8C;
-    line-height: 25px;
-    padding: 10px 25px 20px 35px ;
-    border-top:none;
-    font-size:20px;
-    position: relative;
-}
-#collapseOne{
-    border-left:5px solid black;
-    border-right:5px solid black;
-    border-bottom:5px solid black;
-    
-}
-
-#collapseTwo{
-    border-left:5px solid black;
-    border-right:5px solid black;
-    border-bottom:5px solid black;
-    
-}
-.loader {
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    position: relative;
-    border: 4px solid black;
-    top: 50%;
-    animation: loader 2s infinite ease;
-  }
-  
-  .loader-inner {
-    vertical-align: top;
-    display: inline-block;
-    width: 100%;
-    background-color: black;
-    animation: loader-inner 2s infinite ease-in;
-  }
-  
-  @keyframes loader {
-    0% {
-      transform: rotate(0deg);
-    }
-    
-    25% {
-      transform: rotate(180deg);
-    }
-    
-    50% {
-      transform: rotate(180deg);
-    }
-    
-    75% {
-      transform: rotate(360deg);
-    }
-    
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-  
-  @keyframes loader-inner {
-    0% {
-      height: 0%;
-    }
-    
-    25% {
-      height: 0%;
-    }
-    
-    50% {
-      height: 100%;
-    }
-    
-    75% {
-      height: 100%;
-    }
-    
-    100% {
-      height: 0%;
-    }
-  }
-</style>
+        .nav-link {
+            color: white;
+        }
+    </style>
 </head>
-<h1>Reply Enquiry</h1>
 
-<div class="pc-tab">
-<input checked="checked" id="tab1" type="radio" name="pct" />
-<input id="tab2" type="radio" name="pct" />
-  <nav>
-    <ul>
-      <li class="tab1">
-        <label for="tab1">Pending</label>
-      </li>
-      <li class="tab2">
-        <label for="tab2">Completed</label>
-      </li>
-      
-    </ul>
-  </nav>
-  <section>
-    <div class="tab1">
-        
-            <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingTwo">
-            <h4 class="panel-title">
-            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-            Title
-            <span> </span>
-            </a>
-            </h4>
-            </div>
-            <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                <h5 class="card-title"><strong>Question:</strong> <span>xxx</span></h5>
-                <h5 class="card-title"><strong>Applicant Email:</strong> <span>example@example.com</span></h5>
-                <h5 class="card-title"><strong>Date Submited:</strong> <span>11-12-2023</span></h5></br>
-                <h5 class="card-title"><strong>Reply:</strong></h5>
-                <textarea class="form-control" placeholder="Reply here..." id="floatingTextarea2" style="height: 100px"></textarea></br>
-                <a href="#" class="btn btn-primary ">Reply</a></br>
-            </div>
-            </div> 
-    </div>
+<body class="size-1520 primary-color-red background-dark">
+    <!-- HEADER -->
+    <header class="grid headerjs">
+    </header>
 
-    <div class="tab2">
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingTwo">
-            <h4 class="panel-title">
-            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-            Title
-            <span> </span>
-            </a>
-            </h4>
+    <!--Section: Contact v.2-->
+    <section class="mb-4 bg-light " style="margin: 10%;padding: 5%;border-radius: 20px;">
+
+        <ul class="nav nav-pills nav-justified">
+            <li class="nav-item">
+                <a class="nav-link active" id="tab1" aria-current="page" onclick="showTab(1)">Pending</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="tab2" onclick="showTab(2)">Completed</a>
+            </li>
+        </ul>
+
+
+        <div>
+            <div class="accordion" id="accordionExample">
+                <form id="submitReply" data-parsley-validate>
+                    <div id="tab1-content">
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#col1"
+                                    aria-expanded="true" aria-controls="collapseOne">
+                                    <h5 class="mb-0 text-dark">
+                                        Title
+                                    </h5>
+                                </button>
+                            </div>
+
+                            <div id="col1" class="collapse show" aria-labelledby="headingOne"
+                                data-parent="#accordionExample">
+                                <div class="card-body">
+
+                                    <input type="hidden" id="title" value="title">
+                                    <input type="hidden" id="message" value="title">
+                                    <input type="hidden" id="status" value="title">
+                                    <input type="hidden" id="cdate" value="title">
+                                    <input type="hidden" id="appId" value="title">
+                                    <input type="hidden" id="qryId" value="title">
+
+                                    <table class="table table-borderless">
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">Applicant Id</th>
+                                                <td style="width: 70%;">Mark</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Message</th>
+                                                <td>message</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Submitted on</th>
+                                                <td>date</td>
+                                            </tr>
+                                            <tr>
+
+                                            </tr>
+                                        </tbody>
+
+                                    </table>
+
+                                    <div class="form-group">
+                                        <label for="exampleFormControlTextarea1">Reply</label>
+                                        <textarea class="form-control" id="exampleFormControlTextarea1"
+                                            rows="3"></textarea>
+                                    </div>
+                                    <button class="btn btn-primary right" style="margin: 3%;"
+                                        @click="submitForm('enquiry', 1)">Submit</button>
+                                    <a class="btn btn-primary text-light" style="margin: 3%;"
+                                        @click="submitForm('enquiry, 1')">Reply</a>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#col1"
+                                    aria-expanded="true" aria-controls="collapseOne">
+                                    <h5 class="mb-0 text-dark">
+                                        Title
+                                    </h5>
+                                </button>
+                            </div>
+
+                            <div id="col1" class="collapse show" aria-labelledby="headingOne"
+                                data-parent="#accordionExample">
+                                <div class="card-body">
+
+                                    <input type="hidden" id="title" value="title">
+                                    <input type="hidden" id="message" value="title">
+                                    <input type="hidden" id="status" value="title">
+                                    <input type="hidden" id="cdate" value="title">
+                                    <input type="hidden" id="appId" value="title">
+                                    <input type="hidden" id="qryId" value="title">
+
+                                    <table class="table table-borderless">
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">Applicant Id</th>
+                                                <td style="width: 70%;">Mark</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Message</th>
+                                                <td>message</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Submitted on</th>
+                                                <td>date</td>
+                                            </tr>
+                                            <tr>
+
+                                            </tr>
+                                        </tbody>
+
+                                    </table>
+
+                                    <div class="form-group">
+                                        <label for="exampleFormControlTextarea1">Reply</label>
+                                        <textarea class="form-control" id="exampleFormControlTextarea1"
+                                            rows="3"></textarea>
+                                    </div>
+                                    <button class="btn btn-primary right" style="margin: 3%;"
+                                        @click="submitForm('enquiry', 1)">Submit</button>
+                                    <a class="btn btn-primary text-light" style="margin: 3%;"
+                                        @click="submitForm('enquiry, 1')">Reply</a>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary right" style="margin: 3%;"
+                        @click="submitForm('enquiry', 1)">Submit</button>
+
+                    </div>
+                </form>
             </div>
-            <div id="collapseTwo" class="panel-collapse collapse" role="tabpane2" aria-labelledby="headingTwo">
-                <h5 class="card-title"><strong>Question:</strong> <span>xxx</span></h5>
-              <h5 class="card-title"><strong>Applicant Email:</strong> <span>example@example.com</span></h5>
-              <h5 class="card-title"><strong>Date Submited:</strong> <span>11-12-2023</span></h5>
-              <h5 class="card-title"><strong>Date Replied:</strong> <span>11-12-2023</span></h5></br>
-            </div>
+        </div>
+
+        <div id="tab2-content" style="margin-top: 30px;">
+            <div class="card text-dark bg-light mb-3">
+                <div class="card-header">Header</div>
+                <div class="card-body">
+                    <h5 class="card-title">Light card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                        the card's content.</p>
+                </div>
             </div>
 
-    </div>
-  </section>
-  <span class="loader pull-right"><span class="loader-inner"></span></span>
-</div>
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="grid">
+        <!-- Footer - top -->
+        <!-- Image-->
+        <div class="s-12 l-3 m-row-3 margin-bottom background-image" style="background-image:url(img/img-04.jpg)"></div>
+
+        <div class="s-12 m-9 l-3 padding-2x margin-bottom background-dark">
+            <h2 class="text-strong text-uppercase">Who We Are?</h2>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                sed diam nonummy.</p>
+        </div>
+
+        <div class="s-12 m-9 l-3 padding-2x margin-bottom background-dark">
+            <h2 class="text-strong text-uppercase">Where We Are?</h2>
+            <img class="full-img" src="img/map.svg" alt="" />
+        </div>
+
+        <div class="s-12 m-9 l-3 padding-2x margin-bottom background-dark">
+            <h2 class="text-strong text-uppercase">Contact Us</h2>
+            <p><b class="text-primary margin-right-10">P</b> 0800 4521 800 50</p>
+            <p><b class="text-primary margin-right-10">M</b> <a class="text-primary-hover"
+                    href="mailto:contact@sampledomain.com">contact@sampledomain.com</a></p>
+            <p><b class="text-primary margin-right-10">M</b> <a class="text-primary-hover"
+                    href="mailto:office@sampledomain.com">office@sampledomain.com</a></p>
+        </div>
+
+        <!-- Footer - bottom -->
+        <div class="s-12 text-center margin-bottom">
+            <p class="text-size-12">Copyright 2019, Vision Design - graphic zoo</p>
+            <p class="text-size-12">All images have been purchased from Bigstock. Do not use the images in your website.
+            </p>
+            <p><a class="text-size-12 text-primary-hover" href="http://www.myresponsee.com"
+                    title="Responsee - lightweight responsive framework">Design and coding by Responsee Team</a></p>
+        </div>
+    </footer>
+    <script type="text/javascript" src="js/responsee.js"></script>
+    <script type="text/javascript" src="owl-carousel/owl.carousel.js"></script>
+    <script type="text/javascript" src="js/template-scripts.js"></script>
+    <script src="../plugins/axios/axios.min.js"></script>
+    <script src="../js/request.js"></script>
+    <script src="../plugins/vue/vue.js"></script>
+    <script src="../api/query.js"></script>
+
+    <script>
+        new Vue({
+            el: '#submitReply',
+            data() {
+                return {
+                    enquiry: {
+                        "queryId": "",
+                        "title": "",
+                        "question": "",
+                        "reply": "",
+                        "queryStatus": "",
+                        "created": "",
+                        "completed": "",
+                        "applicantId": ""
+                    },
+                }
+            },
+            mounted() {
+                // Data not available in localStorage, fetch it from the API
+                console.log('MOUNT QUERY :');
+                this.init();
+            },
+            created() {
+                // Call the init method when the component is created
+                this.init();
+            },
+            methods: {
+                init() {
+                    console.log('INIT QUERY :');
+                    getAllQueries()
+                        .then((response) => {
+                            console.log('Response:', response);
+                            // Rest of your code
+                            let enquiryList = response.data;
+
+                            console.log(enquiryList);
+
+                            //let html = document.getElementById('tab2-content').innerHTML;
+                            var userInfo = JSON.parse(localStorage.getItem('userInfo'));
+                            let applicantId = userInfo['applicantId'];
+
+                            let html = "";
+                            let html2 = "";
+                            for (let i = 0; i < enquiryList.length; i++) {
+                                let enquiry = enquiryList[i];
+                                console.log(i);
+
+                                let qryId = enquiry['queryId'];
+                                let appId = enquiry['applicantId'];
+                                let title = enquiry['title'];
+                                let ques = enquiry['question'];
+                                let reply = enquiry['reply'];
+                                let status = enquiry['queryStatus'];
+                                let cdate = enquiry['completed'];
+                                let rdate = enquiry['created'];
+
+                                let stats = 'border-danger';
+                                let statusText = 'Pending for reply...';
+
+
+
+                                if (reply != 'null') {
+                                    stats = 'border-success';
+                                    statusText = 'Replied !';
+                                }
+
+
+                                html += `         
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#col1"
+                            aria-expanded="true" aria-controls="collapseOne">
+                            <h5 class="mb-0 text-dark">
+                                ${title}
+                            </h5>
+                        </button>
+                    </div>
+
+                    <div id="col1" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body">
+
+                            <input type="hidden" id="title${qryId}" value="title">
+                            <input type="hidden" id="message${qryId}" value="title">
+                            <input type="hidden" id="status${qryId}" value="title">
+                            <input type="hidden" id="cdate${qryId}" value="title">
+                            <input type="hidden" id="appId${qryId}" value="title">
+                            <input type="hidden" id="qryId${qryId}" value="title">
+
+                            <table class="table table-borderless">
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">Applicant Id</th>
+                                        <td style="width: 70%;">${appId}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Message</th>
+                                        <td>${ques}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Submitted on</th>
+                                        <td>${cdate}</td>
+                                    </tr>
+                                    <tr>
+
+                                    </tr>
+                                </tbody>
+
+                            </table>
+                                <div class="form-group">
+                                    <label for="exampleFormControlTextarea1">Reply</label>
+                                    <textarea class="form-control" id="reply${qryId}" rows="3"></textarea>
+                                </div>
+                                <button class="btn btn-primary right" style="margin: 3%;"
+                                    @click="submitForm('enquiry', ${qryId})">Submit</button>
+
+                        </div>
+                    </div>
+                </div>`;
+
+                document.getElementById('tab1-content').innerHTML = html;
+
+                            }
+                            //document.getElementById('tab1-content').innerHTML = html;
+                        })
+                        .catch((error) => {
+                            console.error('Error:', error);
+                            // Rest of your error handling code
+                        });
+                },
+                submitForm(enquiry, id) {
+                    event.preventDefault();
+
+                    console.log('ADD QUERY :', enquiry);
+
+                    const params = { ...this.enquiry };
+                    //params.applicantId = document.getElementById('appId').value;
+                    // params.title = document.getElementById('title').value;
+                    // params.question = document.getElementById('message').value;
+                    // params.reply = document.getElementById('reply').value;
+                    // params.queryStatus = document.getElementById('status').value;
+                    // params.created = document.getElementById('cdate').value;
+                    // params.completed = new Date();
+                    //params.queryId = document.getElementById('qryId').value;
+
+                    console.log(id);
+                    params.queryId = id;
+                    params.applicantId = 1;
+                    params.title = "test";
+                    params.question = "test";
+                    params.reply = "test";
+                    params.queryStatus = "test";
+                    params.created = new Date();
+                    params.completed = new Date();
+
+                    console.log('PARAMS :', params);
+
+                    editQuery(params).then((response) => {
+                        console.log('Response:', response);
+                        // Rest of your code
+                    })
+                        .catch((error) => {
+                            console.error('Error:', error);
+                            // Rest of your error handling code
+                        });
+
+                }
+
+            },
+        });
+    </script>
+    <script>
+
+        onload = function () {
+            // if (localStorage.getItem('userInfo') == null) {
+            //     //navigate user to other page
+            //     localStorage.setItem('redirect', 'submitEnquiry.html');
+            //     window.location.href = "../page/login.html";
+            //     //
+            // } else {
+            //     //get user info
+            //     var userInfo = JSON.parse(localStorage.getItem('userInfo'));
+            //     console.log(userInfo);
+            //     let userEmail = userInfo['applicantEmail'];
+            //     document.getElementById('email').value = userEmail;
+            //     document.getElementById('name').value = userEmail.split('@')[0];
+
+            // }
+
+            document.getElementById('tab2-content').style.display = 'none';
+
+        }
+
+        function showTab(tabIndex) {
+            const tabContents = document.querySelectorAll('.nav-link');
+
+            // Hide all tab contents
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Show the selected tab content
+            const selectedTabContent = document.getElementById(`tab${tabIndex}`);
+            selectedTabContent.classList.add('active');
+
+            if (tabIndex == 1) {
+                document.getElementById('tab1-content').style.display = 'block';
+                document.getElementById('tab2-content').style.display = 'none';
+            } else if (tabIndex == 2) {
+                document.getElementById('tab2-content').style.display = 'block';
+                document.getElementById('tab1-content').style.display = 'none';
+            }
+
+        }
+    </script>
+    <script type="text/javascript" src="js/headerAppend.js"></script>
+</body>
+
 </html>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@coreui/coreui@4.3.0/dist/js/coreui.bundle.min.js" integrity="sha384-Iqk8EE7ao72xAVBuuQTEwrU5N2IdvpJER5ZzM6LxwcXHqj2WstttaOvopXziv0nU" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script src="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
