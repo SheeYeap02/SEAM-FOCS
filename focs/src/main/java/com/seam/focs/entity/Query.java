@@ -1,9 +1,12 @@
 package com.seam.focs.entity;
+import com.baomidou.mybatisplus.annotation.TableId;
+
 import java.util.Date;
 
 public class Query {
-    private String applicantId;
-    private long queryId;
+    private Long applicantId;
+    @TableId
+    private Long queryId;
     private String title;
     private String question;
     private String reply;
@@ -15,7 +18,7 @@ public class Query {
         // Default constructor
     }
 
-    public Query(String applicantId, long queryId, String title, String question, String reply, String queryStatus, Date created, Date completed) {
+    public Query(Long applicantId, Long queryId, String title, String question, String reply, String queryStatus, Date created, Date completed) {
         this.applicantId = applicantId;
         this.queryId = queryId;
         this.title = title;
@@ -25,4 +28,6 @@ public class Query {
         this.created = created;
         this.completed = completed;
     }
+
+
 }

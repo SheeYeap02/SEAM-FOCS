@@ -199,7 +199,7 @@ CREATE TABLE `enquiry`(
 
 -- Query Table
 CREATE TABLE `query`(
-	`applicant_id` varchar(50) NOT NULL,
+	`applicant_id` BIGINT(50) NOT NULL,
     `query_id` BIGINT(20) NOT NULL,
     `title` VARCHAR(50) NOT NULL,
     `question` VARCHAR(200)  NOT NULL,
@@ -207,7 +207,8 @@ CREATE TABLE `query`(
     `query_status` VARCHAR(25)  NOT NULL,
     `created` DATETIME NOT NULL,
     `completed` DATETIME,
-    primary key(`query_id`)
+    primary key(`query_id`),
+    FOREIGN KEY (`applicant_id`) REFERENCES `applicant`(`applicant_id`)
 );
 
 
