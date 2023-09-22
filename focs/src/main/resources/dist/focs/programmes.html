@@ -42,6 +42,40 @@
     </script>
     <style>
         /* Add your CSS styles here */
+        .titleimage {
+      position: relative;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      font-size: 5em;
+      text-transform: uppercase;
+      font-weight: bold;
+      background-image: url("img/recog.jpg");
+      background-size: cover;
+      background-position: center;
+      margin-top: 2%;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+      backdrop-filter: blur(10px); /* Adjust the blur amount as needed */
+      z-index: -1; /* Place the overlay and blur behind the text */
+    }
+
+    h4 {
+        font-size: 2em; /* Adjust the font size */
+        font-weight: bold; /* Make the text bold */
+        text-align: center; /* Center the text */
+        margin-top: 20px; /* Add some top margin */
+    }
         .center2 {
             display: flex;
             justify-content: center;
@@ -56,28 +90,63 @@
             display: block;
         }
 
-        .nav-link {
-            color: white;
+        body > div.input-group.bg-light > div{
+            border: 1px solid black;
         }
+        #nav-tab{
+            border-bottom: 1px solid black;
+        }
+        #nav-contact-tab{
+            background: white;
+            font-weight: bold;
+            color:black;
+            font-size: larger;
+            
+        }
+        #nav-contact-tab:hover{
+            background: black;
+            color:white;
+        }
+        .nav-link.active {
+        background: black;
+        color: white;
+        }
+        .list-group-item a{
+            color: black;
+            font-size: large;
+        }
+        .list-group-item a:hover{
+            color:blue;
+        }
+        .image-container {
+      display: flex; /* Use flexbox to arrange items in a row */
+      margin-left: 18%;
+      margin-bottom: 1%;
+    }
+
+    .image-container img {
+      width: 40%; /* Each image takes 50% of the container width */
+      height: auto; /* Maintain aspect ratio */
+    }
+        @media (max-width: 767px) {
+      .titleimage {
+    height: 100px;
+    font-size: 2em;
+  }
+
+  h4 {
+    font-size: 1.5em;
+    margin-top: 10px;
+  }
+        }
+        
     </style>
 </head>
 
-<body class="size-1520 primary-color-red background-dark">
+<body class="p-3 m-0 border-0 bd-example">
     <!-- HEADER -->
     <header class="grid headerjs">
     </header>
-
-    <!-- MAIN -->
-    <main role="main">
-        <!-- TOP SECTION -->
-        <header class="grid">
-            <div class="s-12 padding-2x">
-                <h1 class="text-strong text-white text-center center text-size-60 text-uppercase margin-bottom-20">
-                    FIND YOUR BEST</h1>
-                <p class="text-size-20 text-white text-center center text-uppercase">Look for different academic
-                    programs or courses to make informed decisions about your academic pursuits</p>
-            </div>
-        </header>
 
         <!-- Modal -->
         <div class="modal fade" id="programmeModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -104,14 +173,22 @@
 
         <div class="input-group bg-light" style="border-radius: 5px;">
             <div class="form-outline">
-                <input type="search" id="search-input" class="form-control" />
-                <label class="form-label" for="search-input">Search</label>
+                <input type="search" id="search-input" class="form-control" placeholder="Search Programme"/>
+                <!-- <label class="form-label" for="search-input">Search</label> -->
             </div>
             <button type="button" onclick="searchPrograms()" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#programmeModal">
                 <i class="fas fa-search"></i>
             </button>
         </div>
-
+        <div class="titleimage">
+            <div class="overlay"></div>
+            PROGRAMMES
+          </div>
+          <h4 class="shell text-center">Programme</h4>	
+          <div class="image-container">
+            <img src="https://www.tarc.edu.my/files/focs/slide/A2ABC8BD-5F55-4A18-945B-85CE0D036068.jpg" alt="Image 1">
+            <img src="https://www.tarc.edu.my/files/focs/78BD55AB-1C84-4D3B-A62E-B1F13CDB009C.JPG" alt="Image 2">
+          </div>
 
         <nav style="padding: 0px !important; margin-top: 30px;">
             <div class="nav nav-fill nav-tabs center2 background-dark" id="nav-tab" role="tablist">
@@ -140,45 +217,11 @@
         </div>
 
 
-    </main>
+    <!-- </main> -->
 
 
-    <!-- FOOTER -->
-    <footer class="grid">
-        <!-- Footer - top -->
-        <!-- Image-->
-        <div class="s-12 l-3 m-row-3 margin-bottom background-image" style="background-image:url(img/img-04.jpg)"></div>
-
-        <div class="s-12 m-9 l-3 padding-2x margin-bottom background-dark">
-            <h2 class="text-strong text-uppercase">Who We Are?</h2>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
-                laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                sed diam nonummy.</p>
-        </div>
-
-        <div class="s-12 m-9 l-3 padding-2x margin-bottom background-dark">
-            <h2 class="text-strong text-uppercase">Where We Are?</h2>
-            <img class="full-img" src="img/map.svg" alt="" />
-        </div>
-
-        <div class="s-12 m-9 l-3 padding-2x margin-bottom background-dark">
-            <h2 class="text-strong text-uppercase">Contact Us</h2>
-            <p><b class="text-primary margin-right-10">P</b> 0800 4521 800 50</p>
-            <p><b class="text-primary margin-right-10">M</b> <a class="text-primary-hover"
-                    href="mailto:contact@sampledomain.com">contact@sampledomain.com</a></p>
-            <p><b class="text-primary margin-right-10">M</b> <a class="text-primary-hover"
-                    href="mailto:office@sampledomain.com">office@sampledomain.com</a></p>
-        </div>
-
-        <!-- Footer - bottom -->
-        <div class="s-12 text-center margin-bottom">
-            <p class="text-size-12">Copyright 2019, Vision Design - graphic zoo</p>
-            <p class="text-size-12">All images have been purchased from Bigstock. Do not use the images in your website.
-            </p>
-            <p><a class="text-size-12 text-primary-hover" href="http://www.myresponsee.com"
-                    title="Responsee - lightweight responsive framework">Design and coding by Responsee Team</a></p>
-        </div>
-    </footer>
+    <footer class="grid footerjs"></footer>
+    <script type="text/javascript" src="js/headerAppend.js"></script>
     <script type="text/javascript" src="js/responsee.js"></script>
     <script type="text/javascript" src="owl-carousel/owl.carousel.js"></script>
     <script type="text/javascript" src="js/template-scripts.js"></script>
@@ -197,14 +240,24 @@
             for (const degreeTitle in data2) {
                 if (degreeTitle != "Description") {
                     //Degree ICON here
-                    html += `<h2 style="color: black;">${degreeTitle}</h2>`;
+                    html += `<h2 style="color: black; display: flex;"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#9FA8DA" class="bi bi-database-fill" viewBox="0 0 16 16">
+  <path d="M3.904 1.777C4.978 1.289 6.427 1 8 1s3.022.289 4.096.777C13.125 2.245 14 2.993 14 4s-.875 1.755-1.904 2.223C11.022 6.711 9.573 7 8 7s-3.022-.289-4.096-.777C2.875 5.755 2 5.007 2 4s.875-1.755 1.904-2.223Z"/>
+  <path d="M2 6.161V7c0 1.007.875 1.755 1.904 2.223C4.978 9.71 6.427 10 8 10s3.022-.289 4.096-.777C13.125 8.755 14 8.007 14 7v-.839c-.457.432-1.004.751-1.49.972C11.278 7.693 9.682 8 8 8s-3.278-.307-4.51-.867c-.486-.22-1.033-.54-1.49-.972Z"/>
+  <path d="M2 9.161V10c0 1.007.875 1.755 1.904 2.223C4.978 12.711 6.427 13 8 13s3.022-.289 4.096-.777C13.125 11.755 14 11.007 14 10v-.839c-.457.432-1.004.751-1.49.972-1.232.56-2.828.867-4.51.867s-3.278-.307-4.51-.867c-.486-.22-1.033-.54-1.49-.972Z"/>
+  <path d="M2 12.161V13c0 1.007.875 1.755 1.904 2.223C4.978 15.711 6.427 16 8 16s3.022-.289 4.096-.777C13.125 14.755 14 14.007 14 13v-.839c-.457.432-1.004.751-1.49.972-1.232.56-2.828.867-4.51.867s-3.278-.307-4.51-.867c-.486-.22-1.033-.54-1.49-.972Z"/>
+</svg>${degreeTitle}</h2>`;
                     const programs = data2[degreeTitle];
 
                     for (const programTitle in programs) {
                         // List program details inside the program title
-                        html += `<ul class="list-group list-group-flush" style="color: black;">`;
-                        html += `<li class="list-group-item"><a style="color: black;"
-                             href="/dist/focs/programme.html?level=Degree&cert=${degreeTitle}&programme=${programTitle}">${programTitle}</a></li>`;
+                        html += `<ul class="list-group list-group-flush" >`;
+                        html += `<li class="list-group-item"><a style="color:black; display: flex;"
+                             href="/dist/focs/programme.html?level=Degree&cert=${degreeTitle}&programme=${programTitle}"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-crosshair" viewBox="0 0 16 16">
+  <path d="M8.5.5a.5.5 0 0 0-1 0v.518A7.001 7.001 0 0 0 1.018 7.5H.5a.5.5 0 0 0 0 1h.518A7.001 7.001 0 0 0 7.5 14.982v.518a.5.5 0 0 0 1 0v-.518A7.001 7.001 0 0 0 14.982 8.5h.518a.5.5 0 0 0 0-1h-.518A7.001 7.001 0 0 0 8.5 1.018V.5Zm-6.48 7A6.001 6.001 0 0 1 7.5 2.02v.48a.5.5 0 0 0 1 0v-.48a6.001 6.001 0 0 1 5.48 5.48h-.48a.5.5 0 0 0 0 1h.48a6.002 6.002 0 0 1-5.48 5.48v-.48a.5.5 0 0 0-1 0v.48A6.001 6.001 0 0 1 2.02 8.5h.48a.5.5 0 0 0 0-1h-.48ZM8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" style="margin-top: 10%;"/>
+</svg> &nbsp;${programTitle}&nbsp; <svg xmlns="http://www.w3.org/2000/svg" display="flex" width="25" height="25" fill="#9FA8DA" class="bi bi-box-arrow-in-down-left" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M9.636 2.5a.5.5 0 0 0-.5-.5H2.5A1.5 1.5 0 0 0 1 3.5v10A1.5 1.5 0 0 0 2.5 15h10a1.5 1.5 0 0 0 1.5-1.5V6.864a.5.5 0 0 0-1 0V13.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+  <path fill-rule="evenodd" d="M5 10.5a.5.5 0 0 0 .5.5h5a.5.5 0 0 0 0-1H6.707l8.147-8.146a.5.5 0 0 0-.708-.708L6 9.293V5.5a.5.5 0 0 0-1 0v5z"/></svg></a>
+</li>`;
                         html += "</ul>";
 
                         //         <ul class="list-group list-group-flush" id="bachelorTab" style="color: black;">
@@ -230,14 +283,23 @@
             for (const degreeTitle in data2) {
                 if (degreeTitle != "Description") {
                     //Diploma ICON here
-                    html += `<h2 style="color: black;">${degreeTitle}</h2>`;
+                    html += `<h2 style="color: black; display: flex"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#9FA8DA" class="bi bi-database-fill" viewBox="0 0 16 16">
+  <path d="M3.904 1.777C4.978 1.289 6.427 1 8 1s3.022.289 4.096.777C13.125 2.245 14 2.993 14 4s-.875 1.755-1.904 2.223C11.022 6.711 9.573 7 8 7s-3.022-.289-4.096-.777C2.875 5.755 2 5.007 2 4s.875-1.755 1.904-2.223Z"/>
+  <path d="M2 6.161V7c0 1.007.875 1.755 1.904 2.223C4.978 9.71 6.427 10 8 10s3.022-.289 4.096-.777C13.125 8.755 14 8.007 14 7v-.839c-.457.432-1.004.751-1.49.972C11.278 7.693 9.682 8 8 8s-3.278-.307-4.51-.867c-.486-.22-1.033-.54-1.49-.972Z"/>
+  <path d="M2 9.161V10c0 1.007.875 1.755 1.904 2.223C4.978 12.711 6.427 13 8 13s3.022-.289 4.096-.777C13.125 11.755 14 11.007 14 10v-.839c-.457.432-1.004.751-1.49.972-1.232.56-2.828.867-4.51.867s-3.278-.307-4.51-.867c-.486-.22-1.033-.54-1.49-.972Z"/>
+  <path d="M2 12.161V13c0 1.007.875 1.755 1.904 2.223C4.978 15.711 6.427 16 8 16s3.022-.289 4.096-.777C13.125 14.755 14 14.007 14 13v-.839c-.457.432-1.004.751-1.49.972-1.232.56-2.828.867-4.51.867s-3.278-.307-4.51-.867c-.486-.22-1.033-.54-1.49-.972Z"/>
+</svg>${degreeTitle}</h2>`;
                     const programs = data2[degreeTitle];
 
                     for (const programTitle in programs) {
                         // List program details inside the program title
                         html += `<ul class="list-group list-group-flush" style="color: black;">`;
-                        html += `<li class="list-group-item"><a style="color: black;"
-                             href="/dist/focs/programme.html?level=Diploma&cert=${degreeTitle}&programme=${programTitle}">${programTitle}</a></li>`;
+                        html += `<li class="list-group-item"><a style="color: black; display: flex;"
+                             href="/dist/focs/programme.html?level=Diploma&cert=${degreeTitle}&programme=${programTitle}"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-crosshair" viewBox="0 0 16 16">
+  <path d="M8.5.5a.5.5 0 0 0-1 0v.518A7.001 7.001 0 0 0 1.018 7.5H.5a.5.5 0 0 0 0 1h.518A7.001 7.001 0 0 0 7.5 14.982v.518a.5.5 0 0 0 1 0v-.518A7.001 7.001 0 0 0 14.982 8.5h.518a.5.5 0 0 0 0-1h-.518A7.001 7.001 0 0 0 8.5 1.018V.5Zm-6.48 7A6.001 6.001 0 0 1 7.5 2.02v.48a.5.5 0 0 0 1 0v-.48a6.001 6.001 0 0 1 5.48 5.48h-.48a.5.5 0 0 0 0 1h.48a6.002 6.002 0 0 1-5.48 5.48v-.48a.5.5 0 0 0-1 0v.48A6.001 6.001 0 0 1 2.02 8.5h.48a.5.5 0 0 0 0-1h-.48ZM8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" style="margin-top: 10%;"/>
+</svg> &nbsp;${programTitle}&nbsp; <svg xmlns="http://www.w3.org/2000/svg" display="flex" width="25" height="25" fill="#9FA8DA" class="bi bi-box-arrow-in-down-left" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M9.636 2.5a.5.5 0 0 0-.5-.5H2.5A1.5 1.5 0 0 0 1 3.5v10A1.5 1.5 0 0 0 2.5 15h10a1.5 1.5 0 0 0 1.5-1.5V6.864a.5.5 0 0 0-1 0V13.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+  <path fill-rule="evenodd" d="M5 10.5a.5.5 0 0 0 .5.5h5a.5.5 0 0 0 0-1H6.707l8.147-8.146a.5.5 0 0 0-.708-.708L6 9.293V5.5a.5.5 0 0 0-1 0v5z"/></svg></a></li>`;
                         html += "</ul>";
 
                         //         <ul class="list-group list-group-flush" id="bachelorTab" style="color: black;">

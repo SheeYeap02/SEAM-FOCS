@@ -4,52 +4,57 @@
         {
             "name": "Ts. Lim Shen Huoy",
             "designation": "Dean",
+            "position": "Senior Lecturer",
             "qualification": "DipIT (PTPL), BSc (Hons) (Staffs), ExecDipMgt, MCompSc (Mal), P.Tech.",
             "email": "limsh@tarc.edu.my",
             "majorOfStudy": "Management Information Systems",
             "areaOfInterest": "Information Security, Networking",
-            "imageURL": "https://www.tarc.edu.my/getPhoto.jsp?fkey=5P3MLVXKil546W1C8dJb7w%3D%3D&fnicno=5P3MLVXKil48bq2GB22ULVX7Q8dRlbAM",
-            "biography": ""
+            "imageURL": "https://www.tarc.edu.my/getPhoto.jsp?fkey=5P3MLVXKil6BfZDMcgtR4A%3D%3D&fnicno=5P3MLVXKil4CxY87UPxPysVS%2FdfNLa61",
+            "biography": "Ts. Lim Shen Huoy is a respected academic professional currently serving as the Dean and Senior Lecturer at the Faculty of Computing And Information Technology. As a Senior Lecturer, she brings a wealth of knowledge and expertise to her role. Ts. Lim holds a Diploma in IT (PTPL), a BSc (Hons) from Staffs, an Executive Diploma in Management, and a Master's in Computer Science (Mal), showcasing her strong educational foundation. Her specialization lies in Management Information Systems, and she has a keen interest in Information Security and Networking, making notable contributions to these fields. In her capacity as the Dean, Ts. Lim is dedicated to fostering academic growth and guiding students towards successful careers in the ever-evolving field of computing and information technology."
         },
         {
             "name": "Dr Wong Thein Lai",
             "designation": "Deputy Dean (Research & Development)",
+            "position": "Assistant Professor",
             "qualification": "BAppSc (Hons) (USM), MInfScTech, PhD (Osaka)",
             "email": "wongtl@tarc.edu.my",
             "majorOfStudy": "Information Security",
             "areaOfInterest": "Blockchain, Networking, Data Sharing Framework for IR4.0",
-            "imageURL": "https://www.tarc.edu.my/getPhoto.jsp?fkey=5P3MLVXKil6BfZDMcgtR4A%3D%3D&fnicno=5P3MLVXKil4CxY87UPxPysVS%2FdfNLa61",
-            "biography": ""
+            "imageURL": "https://www.tarc.edu.my/getPhoto.jsp?fkey=5P3MLVXKil546W1C8dJb7w%3D%3D&fnicno=5P3MLVXKil48bq2GB22ULVX7Q8dRlbAM",
+            "biography": "Dr. Wong Thein Lai, an accomplished academician and expert in the field of computing and information technology, currently holds the esteemed position of Deputy Dean (Research & Development) and Assistant Professor at the Faculty of Computing And Information Technology. Dr. Wong earned his Bachelor of Applied Science (Hons) from the University Sains Malaysia (USM), showcasing a strong educational foundation. He further advanced his studies, achieving a Master's in Information Science and Technology, and attained a distinguished Doctorate (PhD) from Osaka University. Dr. Wong's area of specialization is Information Security, where he has made significant contributions, solidifying his reputation as a subject matter expert. He holds a keen interest in Blockchain technology, Networking, and the development of Data Sharing Frameworks for Industry 4.0, illustrating his commitment to pushing the boundaries of technological advancements. In his role as Deputy Dean and Assistant Professor, Dr. Wong is dedicated to driving research and development initiatives, nurturing the next generation of IT professionals, and contributing to the progressive evolution of the computing and information technology field."
         },
         {
             "name": "Ts. Chok Len Mooi",
             "designation": "Deputy Dean (Academic)",
             "qualification": "BEng (Hons), MInfTech (Mal), CCNA ITQ, P.Tech., CCNA certified",
+            "position": "Principal Lecturer",
             "email": "choklm@tarc.edu.my",
             "majorOfStudy": "Networking",
             "areaOfInterest": "Networking, Network Security",
             "imageURL": "https://www.tarc.edu.my/getPhoto.jsp?fkey=5P3MLVXKil67ZaNyWzSpuw%3D%3D&fnicno=5P3MLVXKil5GK%2BSWnNUNAs1J2xabORW2",
-            "biography": ""
+            "biography": "Dr. Ts. Chok Len Mooi, currently serving as Deputy Dean (Academic) and Principal Lecturer at the Faculty of Computing And Information Technology, is a distinguished academician with a solid academic foundation including a Bachelor's degree (BEng Hons) and a Master of Information Technology (MInfTech) from reputable Malaysian institutions. Holding certifications such as CCNA ITQ, P.Tech., and being CCNA certified, Dr. Chok Len Mooi exemplifies expertise in the realm of networking. Their major area of study and specialization is Networking, complemented by a deep interest in Networking and Network Security. This blend of academic rigor and practical experience positions Dr. Ts. Chok Len Mooi as a notable figure in the networking domain, dedicated to both advancing the field and nurturing aspiring professionals."
         },
         {
             "name": "Encik Ooi Chun Pew",
             "designation": "Deputy Dean (Academic)",
             "qualification": "AdvDipSc (TARC), BS (Campbell), MInfComnTechMgt (AeU)",
+            "position": "Senior Lecturer",
             "email": "cpooi@tarc.edu.my",
             "majorOfStudy": "Information and Communication Technology Management",
             "areaOfInterest": "Systems Analysis and Design, Management Information Systems, Enterprise Resource Planning",
             "imageURL": "https://www.tarc.edu.my/getPhoto.jsp?fkey=5P3MLVXKil5oujYYsV%2F7BQ%3D%3D&fnicno=5P3MLVXKil7PeUeEjbVwGMZlvn5iH1J7",
-            "biography": ""
+            "biography": "Mr. Encik Ooi Chun Pew, currently serving as Deputy Dean (Academic) and holding the position of Senior Lecturer at the esteemed Faculty of Computing And Information Technology, brings a wealth of knowledge and experience to the academic realm. With academic credentials including an Advanced Diploma in Science (AdvDipSc) from TARC, a Bachelor of Science (BS) from Campbell University, and a Master of Information Communication Technology Management (MInfComnTechMgt) from AeU, Mr. Ooi Chun Pew showcases a strong educational background. His expertise lies in Information and Communication Technology Management, a field he passionately explores and imparts knowledge about. Mr. Ooi Chun Pew's professional interests span Systems Analysis and Design, Management Information Systems, and Enterprise Resource Planning, reflecting a comprehensive understanding of crucial domains within the vast landscape of information technology and management."
         },
         {
             "name": "Puan Choy Lai Fun",
             "designation": "Associate Dean For Quality Assurance",
             "qualification": "AdvDipSc (TARC), BS (Campbell), MInfComnTechMgt (AeU)",
+            "position": "Senior Lecturer",
             "email": "choylf@tarc.edu.my",
             "majorOfStudy": "ICT management, e-commerce, Computer systems architecture",
             "areaOfInterest": "Big data, Web development, Mobile development",
             "imageURL": "https://www.tarc.edu.my/getPhoto.jsp?fkey=5P3MLVXKil49dspceGVBiQ%3D%3D&fnicno=5P3MLVXKil4juOnYIkq3Ck4aahy5VE3v",
-            "biography": ""
+            "biography": "Puan Choy Lai Fun, currently holding the esteemed position of Associate Dean for Quality Assurance and Senior Lecturer at the Faculty of Computing and Information Technology, embodies a remarkable blend of educational prowess and professional expertise. Armed with qualifications including an Advanced Diploma in Science (AdvDipSc) from TARC, a Bachelor of Science (BS) from Campbell University, and a Master of Information Communication Technology Management (MInfComnTechMgt) from AeU, Puan Choy Lai Fun has established a strong foundation for her academic journey. Her focus and specialization encompass ICT management, e-commerce, and Computer systems architecture, reflecting a keen understanding of vital domains in the realm of technology. Puan Choy Lai Fun's areas of interest are equally diverse, encompassing Big data, Web development, and Mobile development, highlighting her commitment to staying at the forefront of technological advancements and innovation in the digital landscape."
         }
     ]
 }

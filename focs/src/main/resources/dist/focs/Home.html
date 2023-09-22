@@ -31,90 +31,117 @@
     
     <style>
         .button-container {
-          display: flex;
-          gap: 20px;
-          height: 100%;
-          align-items: center;
-          justify-content: center;
-          margin-top: 1%;
-          margin-bottom: 5%;
-        }
-        
-        .button-57 {
-          position: relative;
-          overflow: hidden;
-          border: 5px solid #809fff;
-          color: #18181a;
-          display: inline-block;
-          font: small-caps bold 19px/2 sans-serif;
-          line-height: 22px;
-          padding: 18px 18px 17px;
-          width: 200px; /* Adjusted width to match the "Programmes" button */
-          height: 300px; /* Adjusted height to match the "Programmes" button */
-          text-decoration: none;
-          cursor: pointer;
-          background: white;
-          user-select: none;
-          -webkit-user-select: none;
-          touch-action: manipulation;
-        }
-        
-        .button-57 span:first-child {
-          position: relative;
-          transition: color 600ms cubic-bezier(0.48, 0, 0.12, 1);
-          z-index: 10;
-        }
-        
-        .button-57 span:last-child {
-          color: white;
-          font: small-caps bold 19px/2 sans-serif;
-          display: block;
-          position: absolute;
-          bottom: 0;
-          transition: all 500ms cubic-bezier(0.48, 0, 0.12, 1);
-          z-index: 100;
-          opacity: 0;
-          top: 50%;
-          left: 50%;
-          transform: translateY(225%) translateX(-50%);
-          height: 14px;
-          line-height: 22px;
-        }
-        
-        .button-57:after {
-          content: "";
-          position: absolute;
-          bottom: -50%;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background-color: #809fff;
-          transform-origin: bottom center;
-          transition: transform 600ms cubic-bezier(0.48, 0, 0.12, 1);
-          transform: skewY(9.3deg) scaleY(0);
-          z-index: 50;
-        }
-        
-        .button-57:hover:after {
-          transform-origin: bottom center;
-          transform: skewY(9.3deg) scaleY(2);
-        }
-        
-        .button-57:hover span:last-child {
-          transform: translateX(-50%) translateY(-100%);
-          opacity: 1;
-          transition: all 900ms cubic-bezier(0.48, 0, 0.12, 1);
-        }
-        
-        .text {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          text-align: center;
-          height: 100%;
-        }
-        </style>
+  display: flex;
+  gap: 20px;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1%;
+  margin-bottom: 5%;
+  flex-wrap: wrap; /* Allow buttons to wrap onto a new line */
+}
+
+.button-57 {
+  position: relative;
+  overflow: hidden;
+  border: 5px solid #809fff;
+  color: #18181a;
+  display: inline-block;
+  font: small-caps bold 19px/2 sans-serif;
+  line-height: 22px;
+  padding: 18px 18px 17px;
+  width: 200px; /* Adjusted width to match the "Programmes" button */
+  height: 300px; /* Adjusted height to match the "Programmes" button */
+  text-decoration: none;
+  cursor: pointer;
+  background: white;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-57 span:first-child {
+  position: relative;
+  transition: color 600ms cubic-bezier(0.48, 0, 0.12, 1);
+  z-index: 10;
+}
+
+.button-57 span:last-child {
+  color: white;
+  font: small-caps bold 19px/2 sans-serif;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  transition: all 500ms cubic-bezier(0.48, 0, 0.12, 1);
+  z-index: 100;
+  opacity: 0;
+  top: 50%;
+  left: 50%;
+  transform: translateY(225%) translateX(-50%);
+  height: 14px;
+  line-height: 22px;
+}
+
+.button-57:after {
+  content: "";
+  position: absolute;
+  bottom: -50%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #809fff;
+  transform-origin: bottom center;
+  transition: transform 600ms cubic-bezier(0.48, 0, 0.12, 1);
+  transform: skewY(9.3deg) scaleY(0);
+  z-index: 50;
+}
+
+.button-57:hover:after {
+  transform-origin: bottom center;
+  transform: skewY(9.3deg) scaleY(2);
+}
+
+.button-57:hover span:last-child {
+  transform: translateX(-50%) translateY(-100%);
+  opacity: 1;
+  transition: all 900ms cubic-bezier(0.48, 0, 0.12, 1);
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+}
+
+.button-wrapper {
+  margin-bottom: 20px; /* Adds some space between buttons */
+}
+
+@media (max-width: 767px) {
+    .carousel-item img {
+      width: 100%; /* Adjust image width to fill the carousel item */
+      height: auto; /* Maintain aspect ratio */
+    }
+    
+  .button-container {
+    display: flex;
+    align-items: center;
+    
+  }
+
+  .button-57 {
+    width: 130px; /* Make buttons fill the width */
+    height: 220px; /* Adjust height to fit content */
+    margin-bottom: 10px; /* Adds space between buttons */
+  }
+  .button-57 span{
+    font-size: small;
+  }
+}
+</style>
         
   </head>
   <body class="p-3 m-0 border-0 bd-example">
@@ -205,6 +232,7 @@
     </div>
     <!-- HTML !-->
 <div class="button-container">
+    <div class="button-wrapper">
   <a href="whychooseus.html">
     <button class="button-57" role="button">
       <span class="text">Why Choose Us
@@ -214,7 +242,8 @@
       <span>Alternate text</span>
     </button>
   </a>
- 
+</div>
+<div class="button-wrapper">
     <button class="button-57 buttonsize2" role="button">
       <span class="text">Programmes
         <br/><br/>
@@ -222,7 +251,9 @@
       </span>
       <span>Alternate text</span>
     </button>
+</div>
 
+<div class="button-wrapper">
   <a href="partners.html">
     <button class="button-57 buttonsize3" role="button">
         <span class="text">Collaboration Partners
@@ -231,6 +262,9 @@
         <span>Alternate text</span>
       </button>
       </a>
+    </div>
+
+    <div class="button-wrapper">
       <button class="button-57 " role="button">
         <span class="text">Highlights
           <br/><br/><br/>
@@ -238,6 +272,9 @@
         </span>
         <span>Alternate text</span>
       </button>
+    </div>
+
+    <div class="button-wrapper">
       <button class="button-57 buttonsize2" role="button">
         <span class="text">Recognition
           <br/><br/>
@@ -245,12 +282,15 @@
         </span>
         <span>Alternate text</span>
       </button>
+    </div>
+    <div class="button-wrapper">
       <button class="button-57 buttonsize2" role="button">
         <span class="text">Testimonials
           <br/><br/>
           <img width="60" height="60" src="https://img.icons8.com/external-flaticons-flat-flat-icons/64/external-professionals-nursing-flaticons-flat-flat-icons.png" alt="external-professionals-nursing-flaticons-flat-flat-icons"/>        </span>
         <span>Alternate text</span>
       </button>
+    </div>
   </div>
     <script type="text/javascript" src="js/headerAppend.js"></script>
     <!-- End Example Code -->

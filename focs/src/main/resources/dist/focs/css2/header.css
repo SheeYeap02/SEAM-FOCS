@@ -1,0 +1,27 @@
+
+  .site-navbar {
+    position: fixed;
+  }
+  
+  /* Adjust the size and styles for the logo */
+  .logo-image {
+    max-width: 20%;
+    height: auto;
+    display: block;
+  }
+
+  /* Align the logo to the left */
+  .site-logo1 {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  .site-logo1 a {
+    text-decoration: none;
+    color: black;
+  }
+
+  .col-12 {
+    margin-top: -7%;
+  }

@@ -28,6 +28,63 @@
         crossorigin="anonymous"></script>
     <style>
         /* Add your CSS styles here */
+        .titleimage {
+      position: relative;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      font-size: 5em;
+      text-transform: uppercase;
+      font-weight: bold;
+      background-image: url("img/recog.jpg");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+      backdrop-filter: blur(10px); /* Adjust the blur amount as needed */
+      z-index: -1; /* Place the overlay and blur behind the text */
+    }
+
+    h4 {
+        font-size: 2em; /* Adjust the font size */
+        font-weight: bold; /* Make the text bold */
+        text-align: center; /* Center the text */
+        margin-top: 20px; /* Add some top margin */
+    }
+
+    .bottompicture{
+        background-image: url("https://www.tarc.edu.my/files/focs/background/C8D273C9-6BB6-4977-953F-44EEBFDEB2C5.jpg");
+        width: 1870px;
+        height: 200px;
+        margin-top: 1%;
+        margin-bottom: 1%;
+       
+    }
+    body > div.bottompicture > button{
+        margin-left: 45%;
+        margin-top: 4%;
+        width: 150px;
+        height: 60px;
+        background: black;
+        border:none;
+        font-weight: bold;
+        font-size: larger;
+
+    }
+    body > div.bottompicture > button:hover{
+        background: white;
+        color: black;
+    }
         .center2 {
             display: flex;
             justify-content: center;
@@ -71,36 +128,84 @@
             left: 50%;
             transform: translate(-50%, -50%);
         }
+        .image-container {
+      display: flex; /* Use flexbox to arrange items in a row */
+      margin-left: 18%;
+      margin-bottom: 1%;
+    }
+
+    .image-container img {
+      width: 40%; /* Each image takes 50% of the container width */
+      height: auto; /* Maintain aspect ratio */
+    }
+        @media (max-width: 767px) {
+      .titleimage {
+    height: 100px;
+    font-size: 2em;
+  }
+
+  h4 {
+    font-size: 1.5em;
+    margin-top: 10px;
+  }
+  .bottompicture{
+        background-image: url("https://www.tarc.edu.my/files/focs/background/C8D273C9-6BB6-4977-953F-44EEBFDEB2C5.jpg");
+        width: 365px;
+        height: 150px;
+        margin-top: 1%;
+        margin-bottom: 1%;
+       
+    }
+    body > div.bottompicture > button{
+        margin-left: 35%;
+        margin-top: 12%;
+        width: 100px;
+        height: 40px;
+        background: black;
+        border:none;
+        font-weight: bold;
+        font-size: larger;
+
+    }
+        }
     </style>
 </head>
 
-<body class="size-1520 primary-color-red background-dark">
+<body class="p-3 m-0 border-0 bd-example">
     <!-- HEADER -->
     <header class="grid headerjs">
     </header>
 
     <!-- MAIN -->
-    <main role="main">
         <!-- TOP SECTION -->
-        <header class="grid">
+        <!-- <header class="grid">
             <div class="s-12 padding-2x">
                 <h1 class="text-strong text-white text-center center text-size-60 text-uppercase margin-bottom-20">
                     FIND YOUR BEST</h1>
                 <p class="text-size-20 text-white text-center center text-uppercase">Compare different academic programs or courses to make informed decisions about your academic pursuits</p>
             </div>
-        </header>
+        </header> -->
 
         <!-- Enlarged image container -->
+        <div class="titleimage">
+            <div class="overlay"></div>
+            PROGRAMMES
+          </div>
+          <h4 class="shell text-center">Compare Programme</h4>	
+          <div class="image-container">
+            <img src="https://www.tarc.edu.my/files/focs/slide/A2ABC8BD-5F55-4A18-945B-85CE0D036068.jpg" alt="Image 1">
+            <img src="https://www.tarc.edu.my/files/focs/78BD55AB-1C84-4D3B-A62E-B1F13CDB009C.JPG" alt="Image 2">
+          </div>
         <div id="enlarged-image-container" class="enlarged-image-container">
             <img id="enlarged-image" class="enlarged-image" src="" alt="Enlarged Image">
         </div>
 
-        <div class="table-responsive">
+        <div class="table-responsive" style="border: 2px solid darkblue">
             <table class="table  text-successtable-border">
-                <thead class="border-light">
+                <thead class="border-light" style="background-color: white;">
                     <tr>
-                        <th scope="col"></th>
-                        <th scope="col">
+                        <th scope="col" style="border-right: 2px solid darkblue;"></th>
+                        <th scope="col" style="border-right: 2px solid darkblue;" >
                             <select class="form-select" id="progSelect" aria-label="Default select example">
                                 <option value="0" selected>Select Programme</option>
                             </select>
@@ -113,14 +218,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">Duration</th>
-                        <td id="prog1Duration"></td>
+                    <tr style="background-color: #E5FFFA	;">
+                        <th scope="row" style="border-right: 2px solid darkblue;">Duration</th>
+                        <td id="prog1Duration" style="border-right: 2px solid darkblue;"></td>
                         <td id="prog2Duration"></td>
                     </tr>
-                    <tr>
-                        <th scope="row">Campuses</th>
-                        <td>
+                    <tr style="background-color: white	;">
+                        <th scope="row" style="border-right: 2px solid darkblue;" >Campuses</th>
+                        <td style="border-right: 2px solid darkblue;">
                             <ul class="list-group list-group-flush" id="prog1Campuses" style="color: black;">
 
                             </ul>
@@ -131,14 +236,14 @@
                             </ul>
                         </td>
                     </tr>
-                    <tr>
-                        <th scope="row">Intake</th>
-                        <td id="prog1Intake"></td>
+                    <tr style="background-color: #E5FFFA	;">
+                        <th scope="row" style="border-right: 2px solid darkblue;">Intake</th>
+                        <td id="prog1Intake" style="border-right: 2px solid darkblue;"></td>
                         <td id="prog2Intake"></td>
                     </tr>
-                    <tr>
-                        <th scope="row">Career Prospects</th>
-                        <td id="prog1Career">
+                    <tr style="background-color: white	;">
+                        <th scope="row" style="border-right: 2px solid darkblue;">Career Prospects</th>
+                        <td id="prog1Career" style="border-right: 2px solid darkblue;">
                             <ul class="list-group list-group-flush" id="prog1Career" style="color: black;">
 
                             </ul>
@@ -149,39 +254,34 @@
                             </ul>
                         </td>
                     </tr>
-                    <tr>
-                        <th scope="row">Academic Progression</th>
-                        <td id="prog1Progession"></td>
+                    <tr style="background-color: #E5FFFA	;">
+                        <th scope="row" style="border-right: 2px solid darkblue;">Academic Progression</th>
+                        <td id="prog1Progession" style="border-right: 2px solid darkblue;"></td>
                         <td id="prog2Progession"></td>
                     </tr>
-                    <tr>
-                        <th scope="row">Entry Requirements</th>
-                        <td id="prog1Entry"></td>
+                    <tr style="background-color: white;">
+                        <th scope="row" style="border-right: 2px solid darkblue;">Entry Requirements</th>
+                        <td id="prog1Entry" style="border-right: 2px solid darkblue;"></td>
                         <td id="prog2Entry"></td>
                     </tr>
-                    <tr>
-                        <th scope="row">Estimated Fees</th>
-                        <td id="prog1Fee" class="fw-bold"></td>
+                    <tr style="background-color: #E5FFFA	;">
+                        <th scope="row" style="border-right: 2px solid darkblue;">Estimated Fees</th>
+                        <td id="prog1Fee" class="fw-bold" style="border-right: 2px solid darkblue;"></td>
                         <td id="prog2Fee" class="fw-bold"></td>
                     </tr>
-                    <tr>
+                    <!-- <tr>
                         <th class=""></th>
                         <th class=""><button class="btn btn-primary">Sign-up</button></th>
                         <th class=""><button class="btn btn-primary">Sign-up</button></th>
-                    </tr>
+                    </tr> -->
                 </tbody>
             </table>
         </div>
+        <div class="bottompicture"><button class="btn btn-primary">Enroll</button>
+        </div>
 
         <!-- Footer - bottom -->
-        <div class="s-12 text-center margin-bottom">
-            <p class="text-size-12">Copyright 2019, Vision Design - graphic zoo</p>
-            <p class="text-size-12">All images have been purchased from Bigstock. Do not use the images in your website.
-            </p>
-            <p><a class="text-size-12 text-primary-hover" href="http://www.myresponsee.com"
-                    title="Responsee - lightweight responsive framework">Design and coding by Responsee Team</a></p>
-        </div>
-        </footer>
+        <footer class="grid footerjs"></footer>
         <script type="text/javascript" src="js/responsee.js"></script>
         <script type="text/javascript" src="owl-carousel/owl.carousel.js"></script>
         <script type="text/javascript" src="js/template-scripts.js"></script>
