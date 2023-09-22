@@ -43,39 +43,47 @@
     <style>
         /* Add your CSS styles here */
         .titleimage {
-      position: relative;
-      height: 200px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: white;
-      font-size: 5em;
-      text-transform: uppercase;
-      font-weight: bold;
-      background-image: url("img/recog.jpg");
-      background-size: cover;
-      background-position: center;
-      margin-top: 2%;
-    }
+            position: relative;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            font-size: 5em;
+            text-transform: uppercase;
+            font-weight: bold;
+            background-image: url("img/recog.jpg");
+            background-size: cover;
+            background-position: center;
+            margin-top: 2%;
+        }
 
-    .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
-      backdrop-filter: blur(10px); /* Adjust the blur amount as needed */
-      z-index: -1; /* Place the overlay and blur behind the text */
-    }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Semi-transparent overlay */
+            backdrop-filter: blur(10px);
+            /* Adjust the blur amount as needed */
+            z-index: -1;
+            /* Place the overlay and blur behind the text */
+        }
 
-    h4 {
-        font-size: 2em; /* Adjust the font size */
-        font-weight: bold; /* Make the text bold */
-        text-align: center; /* Center the text */
-        margin-top: 20px; /* Add some top margin */
-    }
+        h4 {
+            font-size: 2em;
+            /* Adjust the font size */
+            font-weight: bold;
+            /* Make the text bold */
+            text-align: center;
+            /* Center the text */
+            margin-top: 20px;
+            /* Add some top margin */
+        }
+
         .center2 {
             display: flex;
             justify-content: center;
@@ -90,56 +98,66 @@
             display: block;
         }
 
-        body > div.input-group.bg-light > div{
+        body>div.input-group.bg-light>div {
             border: 1px solid black;
         }
-        #nav-tab{
+
+        #nav-tab {
             border-bottom: 1px solid black;
         }
-        #nav-contact-tab{
+
+        #nav-contact-tab {
             background: white;
             font-weight: bold;
-            color:black;
+            color: black;
             font-size: larger;
-            
+
         }
-        #nav-contact-tab:hover{
+
+        #nav-contact-tab:hover {
             background: black;
-            color:white;
+            color: white;
         }
+
         .nav-link.active {
-        background: black;
-        color: white;
+            background: black;
+            color: white;
         }
-        .list-group-item a{
+
+        .list-group-item a {
             color: black;
             font-size: large;
         }
-        .list-group-item a:hover{
-            color:blue;
+
+        .list-group-item a:hover {
+            color: blue;
         }
+
         .image-container {
-      display: flex; /* Use flexbox to arrange items in a row */
-      margin-left: 18%;
-      margin-bottom: 1%;
-    }
-
-    .image-container img {
-      width: 40%; /* Each image takes 50% of the container width */
-      height: auto; /* Maintain aspect ratio */
-    }
-        @media (max-width: 767px) {
-      .titleimage {
-    height: 100px;
-    font-size: 2em;
-  }
-
-  h4 {
-    font-size: 1.5em;
-    margin-top: 10px;
-  }
+            display: flex;
+            /* Use flexbox to arrange items in a row */
+            margin-left: 18%;
+            margin-bottom: 1%;
         }
-        
+
+        .image-container img {
+            width: 40%;
+            /* Each image takes 50% of the container width */
+            height: auto;
+            /* Maintain aspect ratio */
+        }
+
+        @media (max-width: 767px) {
+            .titleimage {
+                height: 100px;
+                font-size: 2em;
+            }
+
+            h4 {
+                font-size: 1.5em;
+                margin-top: 10px;
+            }
+        }
     </style>
 </head>
 
@@ -148,73 +166,74 @@
     <header class="grid headerjs">
     </header>
 
-        <!-- Modal -->
-        <div class="modal fade" id="programmeModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="card" id="searchResult">
-                            <div class="card-body">
-                                This is some text within a card body.
-                            </div>
+    <!-- Modal -->
+    <div class="modal fade" id="programmeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="card" id="searchResult">
+                        <div class="card-body">
+                            This is some text within a card body.
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="input-group bg-light" style="border-radius: 5px;">
-            <div class="form-outline">
-                <input type="search" id="search-input" class="form-control" placeholder="Search Programme"/>
-                <!-- <label class="form-label" for="search-input">Search</label> -->
-            </div>
-            <button type="button" onclick="searchPrograms()" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#programmeModal">
-                <i class="fas fa-search"></i>
-            </button>
+    <div class="titleimage"  style="margin-top: 10% !important;">
+        <div class="overlay"></div>
+        PROGRAMMES
+    </div>
+    <h4 class="shell text-center">Programme</h4>
+    <div class="image-container">
+        <img src="https://www.tarc.edu.my/files/focs/slide/A2ABC8BD-5F55-4A18-945B-85CE0D036068.jpg" alt="Image 1">
+        <img src="https://www.tarc.edu.my/files/focs/78BD55AB-1C84-4D3B-A62E-B1F13CDB009C.JPG" alt="Image 2">
+    </div>
+
+    <div class="input-group bg-light" style="border-radius: 5px; padding-right: 10%;padding-left: 10%;">
+        <div class="form-outline">
+            <input type="search" id="search-input" class="form-control" placeholder="Search Programme" />
+            <!-- <label class="form-label" for="search-input">Search</label> -->
         </div>
-        <div class="titleimage">
-            <div class="overlay"></div>
-            PROGRAMMES
-          </div>
-          <h4 class="shell text-center">Programme</h4>	
-          <div class="image-container">
-            <img src="https://www.tarc.edu.my/files/focs/slide/A2ABC8BD-5F55-4A18-945B-85CE0D036068.jpg" alt="Image 1">
-            <img src="https://www.tarc.edu.my/files/focs/78BD55AB-1C84-4D3B-A62E-B1F13CDB009C.JPG" alt="Image 2">
-          </div>
+        <button type="button" onclick="searchPrograms()" class="btn btn-primary" data-bs-toggle="modal"
+            data-bs-target="#programmeModal">
+            <i class="fas fa-search"></i>
+        </button>
+    </div>
 
-        <nav style="padding: 0px !important; margin-top: 30px;">
-            <div class="nav nav-fill nav-tabs center2 background-dark" id="nav-tab" role="tablist">
-                <button class="nav-link  active" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact"
-                    type="button" role="tab" aria-controls="nav-contact" onclick="showTab(1)"
-                    aria-selected="false">Bachelor</button>
-                <button class="nav-link " id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact"
-                    type="button" role="tab" aria-controls="nav-contact" onclick="showTab(2)"
-                    aria-selected="false">Diploma</button>
-            </div>
-        </nav>
+    <nav style="padding: 0px !important; margin-top: 30px;">
+        <div class="nav nav-fill nav-tabs center2" id="nav-tab" role="tablist">
+            <button class="nav-link  active" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact"
+                type="button" role="tab" aria-controls="nav-contact" onclick="showTab(1)"
+                aria-selected="false">Bachelor</button>
+            <button class="nav-link " id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact"
+                type="button" role="tab" aria-controls="nav-contact" onclick="showTab(2)"
+                aria-selected="false">Diploma</button>
+        </div>
+    </nav>
 
 
-        <div id="tabcontent center2" style="width: 100%;" class="m-12 l-6 padding-2x background-white center2">
-            <div class="tab-content active" id="tab1-content">
-                <div id="bachelorTab">
-                    Bachelor Information
-                </div>
-            </div>
-
-            <div class="tab-content" id="tab2-content">
-                <div id="diplomaTab">
-                    Diploma Information
-                </div>
+    <div id="tabcontent center2" style="width: 100%;" class="m-12 l-6 padding-2x background-white center2">
+        <div class="tab-content active" id="tab1-content">
+            <div id="bachelorTab">
+                Bachelor Information
             </div>
         </div>
+
+        <div class="tab-content" id="tab2-content">
+            <div id="diplomaTab">
+                Diploma Information
+            </div>
+        </div>
+    </div>
 
 
     <!-- </main> -->
@@ -328,7 +347,7 @@
                         for (const c in data[a][b]) {
                             console.log(c);
                             if (c.toLowerCase().includes(searchInput)) {
-                                
+
                                 document.getElementById('searchResult').innerHTML += `<div class="card-body"><a style="color: black;"
                     href="/dist/focs/programme.html?level=${a}&cert=${b}&programme=${c}">
                                     ${c}
