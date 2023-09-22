@@ -1,70 +1,89 @@
-
 <style>
   /* Add styles for mobile menu */
-.menu-toggle {
-  display: none;
-}
-
-/* Adjust styles for mobile view */
-@media screen and (max-width: 768px) {
   .menu-toggle {
-    display: block;
-    cursor: pointer;
-  }
-
-  .top-nav {
     display: none;
   }
 
-  .top-nav.active {
-    display: block;
-  }
+  /* Adjust styles for mobile view */
+  @media screen and (max-width: 768px) {
+    .menu-toggle {
+      display: block;
+      cursor: pointer;
+    }
 
-  .top-nav ul {
-    flex-direction: column;
-    padding: 0;
-  }
+    .top-nav {
+      display: none;
+    }
 
-  .top-nav li {
-    margin: 0;
-    padding: 10px 20px;
-    border-bottom: 1px solid #ccc;
+    .top-nav.active {
+      display: block;
+    }
+
+    .top-nav ul {
+      flex-direction: column;
+      padding: 0;
+    }
+
+    .top-nav li {
+      margin: 0;
+      padding: 10px 20px;
+      border-bottom: 1px solid #ccc;
+    }
   }
-}
 </style>
 <!-- Top Navigation -->
-<nav class="s-12 grid background-none background-primary-hightlight background-white"
-style="background-color: white;">
-<div class="menu-toggle" onclick="toggleMenu()">
-  <span></span>
-  <span></span>
-  <span></span>
-</div>
+<!-- <nav class="s-12 grid background-none background-primary-hightlight background-white" style="background-color: white;">
+  <div class="menu-toggle" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 
-<!-- logo -->
-<a href="index.html" class="m-12 l-3 logo">
-  <img src="img/newLogo.png"
-    style="max-height: 100%; max-width: 100%; position: relative; top: 25px;">
-</a>
+  <a href="index.html" class="m-12 l-3 logo">
+    <img src="img/newLogo.png" style="max-height: 100%; max-width: 100%; position: relative; top: 25px;">
+  </a>
 
-<div class="top-nav s-12 l-9" id="topNav">
-  <ul class="top-ul right chevron">
-    <li><a href="index.html">HOME</a></li>
-    <li><a href="about-us.html">ABOUT US</a></li>
-    <li><a href="services.html">FACILITIES</a></li>
-    <li><a href="gallery.html">RESEARCH</a></li>
-    <li><a href="contact.html">EXTERNAL ADVISORS</a></li>
-    <li><a href="programmes.html">OUR TEAM</a></li>
-  </ul>
-</div>
+  <div class="top-nav s-12 l-9" id="topNav">
+    <ul class="top-ul right chevron">
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="about-us.html">ABOUT US</a></li>
+      <li><a href="services.html">FACILITIES</a></li>
+      <li><a href="gallery.html">RESEARCH</a></li>
+      <li><a href="contact.html">EXTERNAL ADVISORS</a></li>
+      <li><a href="programmes.html">OUR TEAM</a></li>
+    </ul>
+  </div>
+</nav> -->
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <div class="container">
+    <!-- logo -->
+    <a class="navbar-brand" style="max-width: 20%;" href="/" aria-label="Bootstrap">
+      <img src="img/newLogo.png" width="36" height="36" class="d-block" viewBox="0 0 612 612" role="img"
+        focusable="false">
+      <title>Bootstrap</title>
+      </svg>
+    </a>
+    <a href="index.html" style="background-image: url(img/newLogo.png);" class="m-12 l-3 logo navbar-brand">
+      <!-- <img src="img/newLogo.png" class="navbar-brand" style="max-height: 100%; max-width: 100%; position: relative;"> -->
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+      aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ms-auto bg-light" style="padding:3%;border-radius: 10px;">
+        <li class="nav-item"><a class="nav-link" href="index.html">HOME</a></li>
+        <li class="nav-item"><a class="nav-link" href="about-us.html">ABOUT US</a></li>
+        <li class="nav-item"><a class="nav-link" href="services.html">FACILITIES</a></li>
+        <li class="nav-item"><a class="nav-link" href="gallery.html">RESEARCH</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">EXTERNAL ADVISORS</a></li>
+        <li class="nav-item"><a class="nav-link" href="programmes.html">OUR TEAM</a></li>
+      </ul>
+    </div>
+  </div>
 </nav>
-<script src="script.js"></script>
-<script>function toggleMenu() {
-  var topNav = document.getElementById("topNav");
-  topNav.classList.toggle("active");
-}
-</script>
-
 
 <div class="alert alert-danger" style="display: none;" id="logoutalert" role="alert">
   <h4 class="alert-heading">Well done!</h4>
