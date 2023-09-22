@@ -158,16 +158,39 @@
       <div class="col-12">
         <div class="card">
           <div class="card-header" style="">
-            <h4 class="card-title"><i class="bi bi-person-fill" style="padding-right: 20px;"></i>Qualification</h4>
+            <h4 class="card-title"><i class="bi bi-person-fill" style="padding-right: 20px;"></i>Academic Qualification</h4>
           </div>
           <div class="card-content">
             <div class="card-body">
               <p class="card-text">
+                <h5 class="card-title">SPM/O LEVEL/EQUIVALENT:</h5>
+                Ex-TARCians and applicants from other institution of higher learning with SPM/O Level/equivalent results are also required to complete this section.<br>
                 Please note that maximum <code>12 subjects </code> will be allowed for spm results.
               </p>
               <form class="form" data-parsley-validate id="profile-app">
                 <div class="row">
-                  <div class="col-6">
+                  <div class="row" style="margin-bottom: 20px;">
+                      <div class="col-md-4 col-12">
+                        <div class="form-group">
+                          <label for="qualificationType">Qualification Type:</label>
+                          <select v-model="formData.qualification1.type" class="form-select" id="qualificationType" :disabled="!isEditing">
+                            <option value="Please select">Please select</option>
+                            <option v-for="option in SPMtypes" :value="option">{{ option }}</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-2 col-12" v-if="formData.qualification1.type === 'SPM'">
+                        <div class="form-group" >
+                          <label for="qualificationType">Year</label>
+                          <input type="number" class="form-control" step="1" :disabled="!isEditing" v-model="formData.qualification1.year">
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-12" v-if="formData.qualification1.type === 'SPM'">
+                        <label for="formFile" class="">Relevent Documents</label>
+                        <input class="form-control" type="file" id="formFile" :disabled="!isEditing">
+                    </div>
+                  </div>
+                  <div class="col-6" v-if="formData.qualification1.type === 'SPM'">
                     <div class="row">
                       <div class="col-md-8 col-12">
                         <label for="subject-column" class="form-label">Subject</label><br>
@@ -176,12 +199,12 @@
                           <label for="grade-column" class="form-label">Grade</label><br>
                       </div>
                     </div>
-                    <div class="col-12" v-for="(subject, index) in leftSubjects" :key="index">
+                    <div class="col-12" v-for="(s, index) in leftSubjects" :key="index">
                       <div class="row">
                         <div class="col-md-8 col-12">
                           <div class="form-group mandatory">
                             <div class="col-md-12 mb-12">
-                              <select v-model="subject.selectedSubject" class="form-select" id="subjectSelect">
+                              <select v-model="s.subject" class="form-select" id="subjectSelect" :disabled="!isEditing">
                                 <option v-for="subjectOption in subjectOptions" :value="subjectOption.name">{{ subjectOption.name }}</option>
                               </select>
                             </div>
@@ -190,7 +213,7 @@
                         <div class="col-md-4 col-12">
                           <div class="form-group mandatory">
                             <div class="col-md-12 mb-12">
-                              <select v-model="subject.selectedGrade" class="form-select" id="gradeSelect">
+                              <select v-model="s.grade" class="form-select" id="gradeSelect" :disabled="!isEditing">
                                 <option v-for="gradeOption in grades" :value="gradeOption">{{ gradeOption }}</option>
                               </select>
                             </div>
@@ -199,45 +222,48 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-6">
+                  <div class="col-6" v-if="formData.qualification1.type === 'SPM'">
+                    <div class="row">
+                    <div class="col-md-8 col-12">
+                      <label for="subject-column" class="form-label">Subject</label><br>
+                    </div>
+                    <div class="col-md-4 col-12">
+                        <label for="grade-column" class="form-label">Grade</label><br>
+                    </div>
+                    </div>
+                    <div class="col-12" v-for="(s, index) in rightSubjects" :key="index">
                     <div class="row">
                       <div class="col-md-8 col-12">
-                        <label for="subject-column" class="form-label">Subject</label><br>
+                        <div class="form-group mandatory">
+                          <div class="col-md-12 mb-12">
+                            <select v-model="s.subject" class="form-select" id="subjectSelect" :disabled="!isEditing">
+                              <option v-for="subjectOption in subjectOptions" :value="subjectOption.name">{{ subjectOption.name }}</option>
+                            </select>
+                          </div>
+                        </div>
                       </div>
                       <div class="col-md-4 col-12">
-                          <label for="grade-column" class="form-label">Grade</label><br>
+                        <div class="form-group mandatory">
+                          <div class="col-md-12 mb-12">
+                            <select v-model="s.grade" class="form-select" id="gradeSelect" :disabled="!isEditing">
+                              <option v-for="gradeOption in grades" :value="gradeOption">{{ gradeOption }}</option>
+                            </select>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                    <div class="col-12" v-for="(subject, index) in rightSubjects" :key="index">
-                      <div class="row">
-                        <div class="col-md-8 col-12">
-                          <div class="form-group mandatory">
-                            <div class="col-md-12 mb-12">
-                              <select v-model="subject.selectedSubject" class="form-select" id="subjectSelect">
-                                <option v-for="subjectOption in subjectOptions" :value="subjectOption.name">{{ subjectOption.name }}</option>
-                              </select>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-4 col-12">
-                          <div class="form-group mandatory">
-                            <div class="col-md-12 mb-12">
-                              <select v-model="subject.selectedGrade" class="form-select" id="gradeSelect">
-                                <option v-for="gradeOption in grades" :value="gradeOption">{{ gradeOption }}</option>
-                              </select>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
                     </div>
                   </div>
                 </div>
    
+                <div class="" style="text-align: center; margin-top: 15px;">
+                  <button @click="addSubject" type="button" :disabled="!isEditing" class="btn icon icon-left btn-primary me-1 mb-1"
+                    data-bs-toggle="tooltip" data-bs-placement="top" title="Add to last subject"><i class="bi bi-node-plus-fill" style="padding-right: 10px"></i>Add Subject</button>
+                  <button @click="removeSubject(index)" type="button" :disabled="!isEditing" class="btn icon icon-left btn-primary me-1 mb-1"
+                    data-bs-toggle="tooltip" data-bs-placement="top" title="Remove from first subject"><i class="bi bi-node-minus-fill" style="padding-right: 10px"></i>Remove Subject</button>
+                </div>
 
-                <button @click="addSubject" type="button">Add Subject</button>
-                <button @click="removeSubject(index)" type="button">Remove Subject</button>
-
-                <div class="row">
+                <div class="row" style="margin-top:30px">
                   <div class="col-md-12 col-12 d-flex justify-content-end align-items-end" style="padding-top: 20px; ">
                     <div class="col-md-4">
                       <button @click="toggleEditing" type="button" class="btn btn-warning me-1 mb-1" style="float:left ">
@@ -286,12 +312,11 @@
 <script src="../assets/extensions/jquery/jquery.min.js"></script>
 <script src="../assets/extensions/parsleyjs/parsley.min.js"></script>
 <script src="../assets/static/js/pages/parsley.js"></script>
-<script src="assets/extensions/sweetalert2/sweetalert2.min.js"></script>
 
 <script src="../plugins/axios/axios.min.js"></script>
 <script src="../plugins/element-ui/index.js"></script>
 <script src="../plugins/vue/vue.js"></script>
-<script src="../api/profile.js"></script>
+<script src="../api/qualification.js"></script>
 <script src="../js/request.js"></script>
 <script src="../js/index.js"></script>
 <script src="https://unpkg.com/element-ui@2.15.6/lib/index.js"></script>
@@ -302,21 +327,45 @@
             return {
                 id: '',
                 formData : {        // Default value, or load from the server
+                    qualification1: {
+                      "qualificationId": "",
+                      "category": "SPM/O LEVEL/EQUIVALENT",
+                      "year": "",
+                      "type": "",
+                      "academicProve": "",
+                      preuResultList: []
+                    },
+                    qualification2: {
+                      "qualificationId": "",
+                      "category": "STPM/A LEVEL/UEC/EQUIVALENT (IF APPLICABLE)",
+                      "year": "",
+                      "type": "",
+                      "academicProve": "",
+                      preuResultList: []
+                    },
                 },
                 gotData: true,
                 isEditing: true,
                 userInfo: {},
                 // subjects: Array(12).fill({ selectedSubject: '', selectedGrade: '' }),
-                subjects: [
-                  { selectedSubject: '', selectedGrade: '' },
-                  { selectedSubject: '', selectedGrade: '' },
-                  { selectedSubject: '', selectedGrade: '' },
-                  { selectedSubject: '', selectedGrade: '' },
-                  { selectedSubject: '', selectedGrade: '' },
-                  { selectedSubject: '', selectedGrade: '' },
-                  { selectedSubject: '', selectedGrade: '' },
-                  { selectedSubject: '', selectedGrade: '' },
+                preuResultList: [
+                  { subject: 'BAHASA MELAYU', grade: '' },
+                  { subject: 'BAHASA INGERRIES', grade: '' },
+                  { subject: 'BAHASA CINA', grade: '' },
+                  { subject: 'SEJARAH', grade: '' },
+                  { subject: 'MATHEMATICS', grade: '' },
+                  { subject: 'PHYSICS', grade: '' },
+                  { subject: 'CHEMISTRY', grade: '' },
+                  { subject: 'BIOLOGY', grade: '' },
+                  { subject: 'ADDITIONAL MATHEMATICS', grade: '' },
+                  { subject: 'PRINSIP PERAKAUNAN', grade: '' },
+                  { subject: '', grade: '' },
+                  { subject: '', grade: '' },
                 ],
+                categories: 
+                  ["SPM/O LEVEL/EQUIVALENT", "STPM/A LEVEL/ UEC/EQUIVALENT (IF APPLICABLE)"],
+                SPMtypes: 
+                  ["SPM", "O Level", "Others"],
                 grades: 
                   ['A+', 'A', 'A-', 'B+', 'B', 'C+', 'C', 'D', 'E', "G"],
                 subjectOptions: [
@@ -406,11 +455,11 @@
         computed: {
             leftSubjects() {
                // Return the first 6 subjects
-               return this.subjects.slice(0, 6);
+               return this.preuResultList.slice(0, 6);
              },
              rightSubjects() {
                // Return the remaining subjects
-               return this.subjects.slice(6);
+               return this.preuResultList.slice(6);
              },
         },
         created() {
@@ -433,23 +482,28 @@
                 } 
                 console.log("init id here: " + this.id )
                 
-                 getProfile(this.id).then(res => {
+                 getQualification(this.id).then(res => {
                     console.log(res)
                     if (String(res.code) === '1') {
-                        console.log(res.data)
-                        this.gotData = true;
-                        this.isEditing = false;
-                        this.formData = res.data
-                        if(res.data.profileInfo) {
-                          // Extract the date part from the dateOfBirth string
-                          const dateOfBirthParts = res.data.profileInfo.dateOfBirth.split(" ");
-                          this.formData.profileInfo.dateOfBirth = dateOfBirthParts[0];
+                        if(res.data.preuResultList) {
+                          console.log(res.data)
+                          this.gotData = true;
+                          this.isEditing = false;
+                          this.formData.qualification1 = res.data
+                          this.preuResultList = res.data.preuResultList;
                         } else {
-                          this.$message.error('Haven\' Fill Up This Form!')
+                          this.$message.warning('Haven\' Fill Up This Form!')
                           this.gotData = false;
                           this.isEditing = true;
-                          // alert('No Result')
-                          this.formData = {}
+                          this.formData = {
+                            qualification1: {
+                              "category": "SPM/O LEVEL/EQUIVALENT",
+                              "year": "",
+                              "type": "",
+                              "academicProve": "",
+                              preuResultList: []
+                            },
+                          }
                         }
                     } else {
                         this.$message.error(res.msg || 'Fail to handle')
@@ -458,63 +512,84 @@
               },
             submitForm (formName) {
                 event.preventDefault(); 
-                // alert('Halo Man')
-                // window.location.href= '/dist/index.html'
-                console.log(this.formData.profileInfo)
+                console.log(this.preuResultList);
 
-                const params = {...this.formData}
-                // params.profileInfo.applicantId = JSON.parse(window.localStorage.getItem('userInfo')).applicantId;
+                this.formData.qualification1.preuResultList = this.filteredSubjects();
+                console.log(this.formData);
+                const params = {...this.formData.qualification1}
+                console.log(params.qualificationId)
+                params.applicantId = JSON.parse(window.localStorage.getItem('userInfo')).applicantId;
                 // alert(params.profileInfo.fullName + "\n" + params.profileInfo.mykadNo + "\n" + params.emergencyInfo.email)
   
-                // if(!this.gotData) {
-                //     addProfile(params).then(res => {
-                //       if (String(res.code) === '1') {
-                //         console.log('Successfully added new profile details！')
-                //         this.$message.success('Successfully added new profile details！')
-                //         setTimeout(() => {
-                //           location.reload();;
-                //         }, 500); // 0.5secs
-                //       } else {
-                //         this.$message.error(res.msg || 'Fail to handle')
-                //       }
-                //       window.location.href= '/dist/index.html'
-                //     }).catch(err => {
-                //       // alert('Fail to add new profile details！: ' + err)
-                //       console.log('Fail to add new profile details！: ' + err)
-                //       this.$message.error('Request error：' + err)
-                //       }) 
-                // } else {
-                //     editProfile(params).then(res => {
-                //         if (String(res.code) === '1') {
-                //             console.log('Successfully edited profile details！')
-                //             this.$message.success('Successfully edited profile details！')
-                //             setTimeout(() => {
-                //               location.reload();;
-                //             }, 500); // 0.5secs
-                //         } else {
-                //             this.$message.error(res.msg || 'Fail to handle')
-                //         }
-                //     }).catch(err => {
-                //         this.$message.error('Request error：' + err)
-                //     })
-                // }
+                if(!this.gotData) {
+                    addQualification(params).then(res => {
+                      if (String(res.code) === '1') {
+                        console.log('Successfully added new qualification details！')
+                        this.$message.success('Successfully added new qualification details！')
+                        setTimeout(() => {
+                          location.reload();
+                        }, 500); // 0.5secs
+                      } else {
+                        this.$message.error(res.msg || 'Fail to handle')
+                      }
+                    }).catch(err => {
+                      // alert('Fail to add new qualification details！: ' + err)
+                      console.log('Fail to add new qualification details！: ' + err)
+                      this.$message.error('Request error：' + err)
+                    }) 
+                } else {
+                    editQualification(params).then(res => {
+                        if (String(res.code) === '1') {
+                            console.log('Successfully edited qualification details！')
+                            this.$message.success('Successfully edited qualification details！')
+                            setTimeout(() => {
+                              location.reload();
+                            }, 500); // 0.5secs
+                        } else {
+                            this.$message.error(res.msg || 'Fail to handle')
+                        }
+                    }).catch(err => {
+                        this.$message.error('Request error：' + err)
+                    })
+                }
                 // location.reload();
             },
             addSubject() {
-              if (this.subjects.length < 12) {    //Maximum 12 Subjects
-                this.subjects.push({
-                  selectedSubject: '', 
-                  selectedGrade: '',   
+              if (this.preuResultList.length < 12) {    //Maximum 12 Subjects
+                this.preuResultList.push({
+                  subject: '', 
+                  grade: '',   
                 });
-                console.log(this.subjects);
+                console.log(this.preuResultList);
               }
             },
             removeSubject(index) {
-              if (this.subjects.length > 4) {
-                  this.subjects.splice(index, 1);
+              if (this.preuResultList.length > 4) {
+                  this.preuResultList.splice(index, 1);
               }
             },
-            toggleEditing() {
+            filteredSubjects() {
+                const filteredSubjects = [];
+                console.log("Filtering: " + this.preuResultList)
+                this.preuResultList.forEach(row => {
+                  if (row.subject !== '' && row.grade !== '') {
+                    // Check if the selected subject is not already in filteredSubjects
+                    const isDuplicate = filteredSubjects.some(item => item.subject === row.subject);
+                    
+                    if(isDuplicate) {
+                      alert(`You have already selected ${row.subject}. Please choose a different subject.`);
+                      row.subject = '';
+                      row.grade = '';
+                    }
+
+                    if (!isDuplicate) {
+                      filteredSubjects.push(row);
+                    }
+                  }
+                });
+                return filteredSubjects;
+            },
+            toggleEditing() { 
                // Toggle the isEditing variable to enable/disable form fields
                this.isEditing = !this.isEditing;
             },
@@ -524,6 +599,14 @@
           
 </script>
 
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+      var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+          return new bootstrap.Tooltip(tooltipTriggerEl)
+      })
+  }, false);
+</script>
 
 </body>
 
