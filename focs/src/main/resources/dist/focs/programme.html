@@ -39,65 +39,73 @@
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
     <style>
-    
         .titleimage {
-      position: relative;
-      height: 200px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: white;
-      font-size: 5em;
-      text-transform: uppercase;
-      font-weight: bold;
-      background-image: url("img/recog.jpg");
-      background-size: cover;
-      background-position: center;
-    }
+            position: relative;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            font-size: 5em;
+            text-transform: uppercase;
+            font-weight: bold;
+            background-image: url("img/recog.jpg");
+            background-size: cover;
+            background-position: center;
+        }
 
-    .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
-      backdrop-filter: blur(10px); /* Adjust the blur amount as needed */
-      z-index: -1; /* Place the overlay and blur behind the text */
-    }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Semi-transparent overlay */
+            backdrop-filter: blur(10px);
+            /* Adjust the blur amount as needed */
+            z-index: -1;
+            /* Place the overlay and blur behind the text */
+        }
 
-    .text-center {
-        font-size: 2em; /* Adjust the font size */
-        font-weight: bold; /* Make the text bold */
-        text-align: center; /* Center the text */
-        margin-top: 20px; /* Add some top margin */
-    }
+        .text-center {
+            font-size: 2em;
+            /* Adjust the font size */
+            font-weight: bold;
+            /* Make the text bold */
+            text-align: center;
+            /* Center the text */
+            margin-top: 20px;
+            /* Add some top margin */
+        }
 
-    .bottompicture{
-        background-image: url("https://www.tarc.edu.my/files/focs/background/C8D273C9-6BB6-4977-953F-44EEBFDEB2C5.jpg");
-        width: 1870px;
-        height: 200px;
-        margin-top: 1%;
-        margin-bottom: 1%;
-       
-    }
-    body > div.bottompicture > button{
-        margin-left: 45%;
-        margin-top: 4%;
-        width: 150px;
-        height: 60px;
-        background: black;
-        border:none;
-        font-weight: bold;
-        font-size: larger;
+        .bottompicture {
+            background-image: url("https://www.tarc.edu.my/files/focs/background/C8D273C9-6BB6-4977-953F-44EEBFDEB2C5.jpg");
+            width: 1870px;
+            height: 200px;
+            margin-top: 1%;
+            margin-bottom: 1%;
 
-    }
-    body > div.bottompicture > button:hover{
-        background: white;
-        color: black;
-    }
-    
+        }
+
+        body>div.bottompicture>button {
+            margin-left: 45%;
+            margin-top: 4%;
+            width: 150px;
+            height: 60px;
+            background: black;
+            border: none;
+            font-weight: bold;
+            font-size: larger;
+
+        }
+
+        body>div.bottompicture>button:hover {
+            background: white;
+            color: black;
+        }
+
         .center2 {
             display: flex;
             justify-content: center;
@@ -119,47 +127,55 @@
             width: 70%;
             background-image: "img/img-04.jpg";
         }
-        body > nav{
+
+        body>nav {
             background: black;
         }
+
         .image-container {
-      display: flex; /* Use flexbox to arrange items in a row */
-      margin-left: 18%;
-      margin-bottom: 1%;
-    }
+            display: flex;
+            /* Use flexbox to arrange items in a row */
+            margin-left: 18%;
+            margin-bottom: 1%;
+        }
 
-    .image-container img {
-      width: 40%; /* Each image takes 50% of the container width */
-      height: auto; /* Maintain aspect ratio */
-    }
+        .image-container img {
+            width: 40%;
+            /* Each image takes 50% of the container width */
+            height: auto;
+            /* Maintain aspect ratio */
+        }
+
         @media (max-width: 767px) {
-      .titleimage {
-    height: 100px;
-    font-size: 2em;
-  }
+            .titleimage {
+                height: 100px;
+                font-size: 2em;
+            }
 
-  h4 {
-    font-size: 1.5em;
-    margin-top: 10px;
-  }
-  .bottompicture{
-        background-image: url("https://www.tarc.edu.my/files/focs/background/C8D273C9-6BB6-4977-953F-44EEBFDEB2C5.jpg");
-        width: 365px;
-        height: 150px;
-        margin-top: 1%;
-        margin-bottom: 1%;
-       
-    }
-    body > div.bottompicture > button{
-        margin-left: 35%;
-        margin-top: 12%;
-        width: 100px;
-        height: 40px;
-        background: black;
-        border:none;
-        font-weight: bold;
-        font-size: larger;
-    }
+            h4 {
+                font-size: 1.5em;
+                margin-top: 10px;
+            }
+
+            .bottompicture {
+                background-image: url("https://www.tarc.edu.my/files/focs/background/C8D273C9-6BB6-4977-953F-44EEBFDEB2C5.jpg");
+                width: 365px;
+                height: 150px;
+                margin-top: 1%;
+                margin-bottom: 1%;
+
+            }
+
+            body>div.bottompicture>button {
+                margin-left: 35%;
+                margin-top: 12%;
+                width: 100px;
+                height: 40px;
+                background: black;
+                border: none;
+                font-weight: bold;
+                font-size: larger;
+            }
         }
     </style>
 </head>
@@ -172,118 +188,120 @@
     <div class="titleimage" style="margin-top: 10% !important;">
         <div class="overlay"></div>
         PROGRAMMES
-      </div>
-      <h4 class="shell text-center">Programme Detail</h4>
-      <div class="image-container">
+    </div>
+    <h4 class="shell text-center">Programme Detail</h4>
+    <div class="image-container">
         <img src="https://www.tarc.edu.my/files/focs/slide/D56CA81A-6316-4E80-92F6-FB8718DC6C05.jpg" alt="Image 1">
         <img src="https://www.tarc.edu.my/files/focs/D898CE15-18AF-4DBA-B0CC-C322E090D513.JPG" alt="Image 2">
-      </div>
+    </div>
 
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light" >
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+    <nav class="navbar navbar-expand-lg navbar-light text-grey text-center bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent" role="tablist">
-                <ul class="nav-fill navbar-nav mr-auto" style="width: 100%;">
-                    <li style="width: 20%; padding-left: 10%; padding-right: 10%; ">
-                        <button class="nav-item nav-link active" style="text-align: center !important;"
-                            id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab"
-                            aria-controls="nav-home" onclick="showTab(1)" aria-selected="true">Programme Overview
-                        </button>
-                    </li>
-                    <li style="width: 20%; padding-left: 10%; padding-right: 10%;">
-                        <button class="nav-item nav-link" id="nav-profile-tab" data-bs-toggle="tab"
-                            data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile"
-                            onclick="showTab(2)" aria-selected="false">Minimum Entry Requirement</button>
-                    </li>
-                    <li style="width: 20%; padding-left: 10%; padding-right: 10%;">
-                        <button class="nav-item nav-link" id="nav-contact-tab" data-bs-toggle="tab"
-                            data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact"
-                            onclick="showTab(3)" aria-selected="false">Programme Outline</button>
-                    </li>
-                    <li style="width: 20%; padding-left: 10%; padding-right: 10%;">
-                        <button class="nav-item nav-link" id="nav-contact-tab" data-bs-toggle="tab"
-                            data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact"
-                            onclick="showTab(4)" aria-selected="false">Career Prospects</button>
-                    </li>
-                    <li style="width: 20%; padding-left: 10%; padding-right: 10%;">
-                        <button class="nav-item nav-link" id="nav-contact-tab" data-bs-toggle="tab"
-                            data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact"
-                            onclick="showTab(5)" aria-selected="false">Fee
-                            & Financial Aids</button>
-                    </li>
+
+        <div class="collapse navbar-collapse bg-light right" style="border-radius: 10px;" id="navbarSupportedContent"
+            role="tablist">
+            <ul class="nav-fill navbar-nav mr-auto" style="width: 100%;">
+                <li style="width: 20%;">
+                    <button class="nav-item nav-link center" style="text-align: center !important;" id="nav-home-tab"
+                        data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab"
+                        aria-controls="nav-home" onclick="showTab(1)" aria-selected="true">Programme Overview
+                    </button>
+                </li>
+                <li style="width: 20%;">
+                    <button class="nav-item nav-link center" id="nav-profile-tab" data-bs-toggle="tab"
+                        data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile"
+                        onclick="showTab(2)" aria-selected="false">Minimum Entry Requirement</button>
+                </li>
+                <li style="width: 20%;">
+                    <button class="nav-item nav-link center" id="nav-contact-tab" data-bs-toggle="tab"
+                        data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact"
+                        onclick="showTab(3)" aria-selected="false">Programme Outline</button>
+                </li>
+                <li style="width: 20%;">
+                    <button class="nav-item nav-link center" id="nav-contact-tab" data-bs-toggle="tab"
+                        data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact"
+                        onclick="showTab(4)" aria-selected="false">Career Prospects</button>
+                </li>
+                <li style="width: 20%;">
+                    <button class="nav-item nav-link center" id="nav-contact-tab" data-bs-toggle="tab"
+                        data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact"
+                        onclick="showTab(5)" aria-selected="false">Fee
+                        & Financial Aids</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div id="tabcontent" style="width: 100%;" class="m-12 l-6 padding-2x background-white center2">
+        <div class="tab-content active" style="width: 100%;" id="tab1-content">
+            <!-- Content for Tab 1 -->
+            <div class="container">
+                <h4 style="color:black;">
+                    <i style="color:#9FA8DA" class="bi bi-journals"></i>
+                    Programme Overview:
+                </h4>
+                <p id="progOverview" style="color:black;">Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry.
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
+                    printer took a galley of type and scrambled it to make a type specimen book.</p>
+            </div>
+            <div class="container">
+                <h4 style="color:black;">
+                    <i class="bi bi-clock-history" style="color:#9FA8DA; "></i>
+                    Duration:
+                </h4>
+                <p id="progDuration" style="color:black;"> 2 year</p>
+            </div>
+            <div class="container">
+                <h4 style="color:black;">
+                    <i class="bi bi-buildings" style="color:#9FA8DA; "></i>
+                    Campuses:
+                </h4>
+                <ul class="list-group list-group-flush" id="progCampus" style="color: black;">
+                    <!-- <li class="list-group-item">A second item</li>
+                        <li class="list-group-item">A third item</li>
+                        <li class="list-group-item">A fourth item</li>
+                        <li class="list-group-item">And a fifth one</li> -->
                 </ul>
             </div>
-        </nav>
-
-
-        <div id="tabcontent" style="width: 100%;" class="m-12 l-6 padding-2x background-white center2">
-            <div class="tab-content active" style="width: 100%;" id="tab1-content">
-                <!-- Content for Tab 1 -->
-                <div class="container">
-                    <h4 style="color:black;">
-                        <i style="color:#9FA8DA" class="bi bi-journals"></i>
-                        Programme Overview:
-                    </h4>
-                    <p id="progOverview" style="color:black;">Lorem Ipsum is simply dummy text of the printing and
-                        typesetting industry.
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
-                        printer took a galley of type and scrambled it to make a type specimen book.</p>
-                </div>
-                <div class="container">
-                    <h4 style="color:black;">
-                        <i class="bi bi-clock-history" style="color:#9FA8DA; "></i>
-                        Duration:
-                    </h4>
-                    <p id="progDuration" style="color:black;"> 2 year</p>
-                </div>
-                <div class="container">
-                    <h4 style="color:black;">
-                        <i class="bi bi-buildings" style="color:#9FA8DA; "></i>
-                        Campuses:
-                    </h4>
-                    <ul class="list-group list-group-flush" id="progCampus" style="color: black;">
-                        <!-- <li class="list-group-item">A second item</li>
+            <div class="container">
+                <h4 style="color:black;">
+                    <i class="bi bi-calendar-check" style="color:#9FA8DA; "></i>
+                    Intake:
+                </h4>
+                <ul class="list-group list-group-flush" id="progIntake" style="color: black;">
+                    <!-- <li class="list-group-item">A second item</li>
                         <li class="list-group-item">A third item</li>
                         <li class="list-group-item">A fourth item</li>
                         <li class="list-group-item">And a fifth one</li> -->
-                    </ul>
-                </div>
-                <div class="container">
-                    <h4 style="color:black;">
-                        <i class="bi bi-calendar-check" style="color:#9FA8DA; "></i>
-                        Intake:
-                    </h4>
-                    <ul class="list-group list-group-flush" id="progIntake" style="color: black;">
-                        <!-- <li class="list-group-item">A second item</li>
-                        <li class="list-group-item">A third item</li>
-                        <li class="list-group-item">A fourth item</li>
-                        <li class="list-group-item">And a fifth one</li> -->
-                    </ul>
-                </div>
-                <div class="container">
-                    <h4 style="color:black;" >
-                        <i class="bi bi-radar" style="color:#9FA8DA; "></i>
-                        Academic Progression:
-                    </h4>
-                    <div id="progProgression">
+                </ul>
+            </div>
+            <div class="container">
+                <h4 style="color:black;">
+                    <i class="bi bi-radar" style="color:#9FA8DA; "></i>
+                    Academic Progression:
+                </h4>
+                <div id="progProgression">
 
-                    </div>
                 </div>
             </div>
+        </div>
 
 
-            <div class="tab-content" style="width: 100%;" id="tab2-content">
-                <!-- Content for Tab 2 -->
-                <div class="container">
-                    <h4 style="color:black;">
-                        <i class="bi bi-card-checklist" style="color:#9FA8DA; "></i>
-                        Entry Requirements:
-                    </h4>
-                    <!-- <ul class="list-group list-group-flush" style="color: black;">
+        <div class="tab-content" style="width: 100%;" id="tab2-content">
+            <!-- Content for Tab 2 -->
+            <div class="container">
+                <h4 style="color:black;">
+                    <i class="bi bi-card-checklist" style="color:#9FA8DA; "></i>
+                    Entry Requirements:
+                </h4>
+                <!-- <ul class="list-group list-group-flush" style="color: black;">
                         <li class="list-group-item"><a style="color: black;"
                                 href="/programme/programme.html?level=${level}&cert=${cert}&programme=${programme}">Programme
                                 1</a></li>
@@ -292,86 +310,86 @@
                         <li class="list-group-item">A fourth item</li>
                         <li class="list-group-item">And a fifth one</li>
                     </ul> -->
-                    <div id="progEntry">
+                <div id="progEntry">
 
-                    </div>
                 </div>
             </div>
+        </div>
 
-            <div class="tab-content" style="width: 100%;" id="tab3-content">
-                <!-- Content for Tab 3 -->
-                <div class="container">
-                    <h4 style="color:black;">
-                        <i class="bi bi-card-list" style="color:#9FA8DA; "></i>
-                        Programme Outline:
-                    </h4>
+        <div class="tab-content" style="width: 100%;" id="tab3-content">
+            <!-- Content for Tab 3 -->
+            <div class="container">
+                <h4 style="color:black;">
+                    <i class="bi bi-card-list" style="color:#9FA8DA; "></i>
+                    Programme Outline:
+                </h4>
                 <div id="progOutline">
 
                 </div>
             </div>
         </div>
 
-            <div class="tab-content" style="width: 100%;" id="tab4-content">
-                <!-- Content for Tab 4 -->
-                <div class="container">
-                    <h4 style="color:black;">
-                        <i class="bi bi-duffle-fill" style="color:#9FA8DA; "></i>
-                        Career Prospects:
-                    </h4>
-                    <ul class="list-group list-group-flush" id="progCareer" style="color: black;">
-                        <!-- <li class="list-group-item">A second item</li>
+        <div class="tab-content" style="width: 100%;" id="tab4-content">
+            <!-- Content for Tab 4 -->
+            <div class="container">
+                <h4 style="color:black;">
+                    <i class="bi bi-duffle-fill" style="color:#9FA8DA; "></i>
+                    Career Prospects:
+                </h4>
+                <ul class="list-group list-group-flush" id="progCareer" style="color: black;">
+                    <!-- <li class="list-group-item">A second item</li>
                         <li class="list-group-item">A third item</li>
                         <li class="list-group-item">A fourth item</li>
                         <li class="list-group-item">And a fifth one</li> -->
-                    </ul>
-                </div>
-            </div>
-
-            <div class="tab-content" style="width: 100%;" id="tab5-content">
-                <!-- Content for Tab 5 -->
-                <div class="container">
-                    <h4 style="color:black;">
-                        <i class="bi bi-coin" style="color:#9FA8DA; "></i>
-                        Fees & Financial Aid:
-                    </h4>
-                    <p style="color:black;" id="progEtf"></p>
-                    <p style="color:black;">To find out more, <a
-                            href="https://www.tarc.edu.my/bursary/content.jsp?cat_id=5AA0377F-4E7F-494A-8EB4-CEF5CE4DD7AE">click
-                            here.</a></p>
-                </div>
-                <div class="container">
-                    <h4 style="color:black;">
-                        Merit Scholarship:
-                    </h4>
-                    <p style="color:black;">To find out more, <a
-                            href="https://www.tarc.edu.my/admissions/contentsub.jsp?cat_id=58F1E9DB-53BF-4657-8DD6-80056FEAF89F&fmenuid=">click
-                            here.</a></p>
-                </div>
-                <div class="container">
-                    <h4 style="color:black;">
-                        Other Scholarship:
-                    </h4>
-                    <p style="color:black;">To find out more, <a
-                            href="https://www.tarc.edu.my/dsa/financial-aid/scholarships-grants/">click here.</a></p>
-                </div>
-                <div class="container">
-                    <h4 style="color:black;">
-                        Financial Aid
-                    </h4>
-                    <p style="color:black;">For PTPTN <a href="https://www.tarc.edu.my/dsa/financial-aid/ptptn/">click
-                            here.</a></p>
-                    <p style="color:black;">For Study Loan, <a
-                            href="https://www.tarc.edu.my/dsa/financial-aid/study-loans/">click here.</a></p>
-                    <p style="color:black;">For more information on Financial Aid, <a
-                            href="https://www.tarc.edu.my/dsa/financial-aid/financial-aid/">click here.</a></p>
-                </div>
+                </ul>
             </div>
         </div>
+
+        <div class="tab-content" style="width: 100%;" id="tab5-content">
+            <!-- Content for Tab 5 -->
+            <div class="container">
+                <h4 style="color:black;">
+                    <i class="bi bi-coin" style="color:#9FA8DA; "></i>
+                    Fees & Financial Aid:
+                </h4>
+                <p style="color:black;" id="progEtf"></p>
+                <p style="color:black;">To find out more, <a
+                        href="https://www.tarc.edu.my/bursary/content.jsp?cat_id=5AA0377F-4E7F-494A-8EB4-CEF5CE4DD7AE">click
+                        here.</a></p>
+            </div>
+            <div class="container">
+                <h4 style="color:black;">
+                    Merit Scholarship:
+                </h4>
+                <p style="color:black;">To find out more, <a
+                        href="https://www.tarc.edu.my/admissions/contentsub.jsp?cat_id=58F1E9DB-53BF-4657-8DD6-80056FEAF89F&fmenuid=">click
+                        here.</a></p>
+            </div>
+            <div class="container">
+                <h4 style="color:black;">
+                    Other Scholarship:
+                </h4>
+                <p style="color:black;">To find out more, <a
+                        href="https://www.tarc.edu.my/dsa/financial-aid/scholarships-grants/">click here.</a></p>
+            </div>
+            <div class="container">
+                <h4 style="color:black;">
+                    Financial Aid
+                </h4>
+                <p style="color:black;">For PTPTN <a href="https://www.tarc.edu.my/dsa/financial-aid/ptptn/">click
+                        here.</a></p>
+                <p style="color:black;">For Study Loan, <a
+                        href="https://www.tarc.edu.my/dsa/financial-aid/study-loans/">click here.</a></p>
+                <p style="color:black;">For more information on Financial Aid, <a
+                        href="https://www.tarc.edu.my/dsa/financial-aid/financial-aid/">click here.</a></p>
+            </div>
+        </div>
+    </div>
     </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
     <div class="bottompicture"><button class="btn btn-primary">Enroll</button>
     </div>
-    
-    
+
+
 
 
     <!-- FOOTER -->
