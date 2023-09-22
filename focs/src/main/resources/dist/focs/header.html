@@ -1,23 +1,70 @@
+
+<style>
+  /* Add styles for mobile menu */
+.menu-toggle {
+  display: none;
+}
+
+/* Adjust styles for mobile view */
+@media screen and (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    cursor: pointer;
+  }
+
+  .top-nav {
+    display: none;
+  }
+
+  .top-nav.active {
+    display: block;
+  }
+
+  .top-nav ul {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .top-nav li {
+    margin: 0;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ccc;
+  }
+}
+</style>
 <!-- Top Navigation -->
-<nav class="s-12 grid background-none background-primary-hightlight background-white" style="background-color: white;">
-  <!-- logo -->
-  <a href="index.html" class="m-12 l-3 logo">
-    <img src="img/newLogo.png" style="max-height: 100%; max-width: 100%; position: relative; top: 25px;">
-  </a>
+<nav class="s-12 grid background-none background-primary-hightlight background-white"
+style="background-color: white;">
+<div class="menu-toggle" onclick="toggleMenu()">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
 
+<!-- logo -->
+<a href="index.html" class="m-12 l-3 logo">
+  <img src="img/newLogo.png"
+    style="max-height: 100%; max-width: 100%; position: relative; top: 25px;">
+</a>
 
-
-  <div class="top-nav s-12 l-9">
-    <ul class="top-ul right chevron">
-      <li><a href="index.html">HOME</a></li>
-      <li><a href="about-us.html">ABOUT US</a></li>
-      <li><a href="services.html">FACILITIES</a></li>
-      <li><a href="gallery.html">RESEARCH</a></li>
-      <li><a href="contact.html">EXTERNAL ADVISORS</a></li>
-      <li><a href="programmes.html">OUR TEAM</a></li>
-    </ul>
-  </div>
+<div class="top-nav s-12 l-9" id="topNav">
+  <ul class="top-ul right chevron">
+    <li><a href="index.html">HOME</a></li>
+    <li><a href="about-us.html">ABOUT US</a></li>
+    <li><a href="services.html">FACILITIES</a></li>
+    <li><a href="gallery.html">RESEARCH</a></li>
+    <li><a href="contact.html">EXTERNAL ADVISORS</a></li>
+    <li><a href="programmes.html">OUR TEAM</a></li>
+  </ul>
+</div>
 </nav>
+<script src="script.js"></script>
+<script>function toggleMenu() {
+  var topNav = document.getElementById("topNav");
+  topNav.classList.toggle("active");
+}
+</script>
+
 
 <div class="alert alert-danger" style="display: none;" id="logoutalert" role="alert">
   <h4 class="alert-heading">Well done!</h4>
