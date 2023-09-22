@@ -72,7 +72,5 @@ public class ProfileInfoController {
             }
         }
         return Result.success(profileEmergencyDTO);
-//        log.info("No Results...");
-//        return Result.error("No Results...");
     }
 }

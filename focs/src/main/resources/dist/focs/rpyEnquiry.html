@@ -37,9 +37,15 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.css" rel="stylesheet" />
     <!-- MDB -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.js"></script>
-    <script>
-
-    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
     <style>
         /* Add your CSS styles here */
         .center2 {
@@ -66,6 +72,95 @@
     <!-- HEADER -->
     <header class="grid headerjs">
     </header>
+
+    <!--Section: Contact v.2-->
+    <section class="mb-4 bg-light " style="margin: 10%;padding: 5%;border-radius: 20px;">
+
+        <ul class="nav nav-pills nav-justified">
+            <li class="nav-item">
+                <a class="nav-link active" id="tab1" aria-current="page" onclick="showTab(1)">Pending</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="tab2" onclick="showTab(2)">Completed</a>
+            </li>
+        </ul>
+
+
+        <div>
+            <div class="accordion" id="accordionExample">
+                <form id="submitReply" data-parsley-validate>
+                    <div id="tab1-content">
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#col1"
+                                    aria-expanded="true" aria-controls="collapseOne">
+                                    <h5 class="mb-0 text-dark" id="title">
+                                        Title
+                                    </h5>
+                                </button>
+                            </div>
+
+                            <div id="col1" class="collapse show" aria-labelledby="headingOne"
+                                data-parent="#accordionExample">
+                                <div class="card-body">
+
+                                    <!-- <input type="hidden" id="title" value="title">
+                                    <input type="hidden" id="message" value="title">
+                                    <input type="hidden" id="status" value="title">
+                                    <input type="hidden" id="cdate" value="title">
+                                    <input type="hidden" id="appId" value="title">-->
+                                    <input type="hidden" id="qryId" value="">
+
+                                    <table class="table table-borderless">
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">Applicant Id</th>
+                                                <td style="width: 70%;" id="appId">Mark</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Message</th>
+                                                <td id="message">message</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Submitted on</th>
+                                                <td id="cdate">date</td>
+                                            </tr>
+                                            <tr>
+
+                                            </tr>
+                                        </tbody>
+
+                                    </table>
+
+                                    <div class="form-group">
+                                        <label for="exampleFormControlTextarea1">Reply</label>
+                                        <textarea class="form-control" id="exampleFormControlTextarea1"
+                                            rows="3"></textarea>
+                                    </div>
+                                    <button class="btn btn-primary right" style="margin: 3%;"
+                                        @click="submitForm('enquiry', 1)">Submit</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="tab2-content" style="margin-top: 30px;">
+            <div class="card text-dark bg-light mb-3">
+                <div class="card-header">Header</div>
+                <div class="card-body">
+                    <h5 class="card-title">Light card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                        the card's content.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
 
 
     <!-- FOOTER -->
@@ -108,48 +203,228 @@
     <script type="text/javascript" src="owl-carousel/owl.carousel.js"></script>
     <script type="text/javascript" src="js/template-scripts.js"></script>
     <script src="../plugins/axios/axios.min.js"></script>
+    <script src="../js/request.js"></script>
     <script src="../plugins/vue/vue.js"></script>
     <script src="../api/query.js"></script>
-    <script>
-        const $axios = axios.create({
-            baseURL: 'http://localhost:8081/', // Replace with your API base URL
-            timeout: 5000, // Adjust the timeout as needed
-        });
-        console.log('PROGRAMMES :', localStorage.getItem('programmes'));
-        document.addEventListener('DOMContentLoaded', function () {
-            new Vue({
-                data: {
-                    programmes: [],
-                },
-                mounted() {
-                    // Data not available in localStorage, fetch it from the API
-                    console.log('MOUNT QUERY :');
-                    this.init();
-                },
-                created() {
-                    // Call the init method when the component is created
-                    this.init();
-                },
-                methods: {
-                    init() {
-                        console.log('INIT QUERY :');
-                        getAllQueries()
-                            .then((response) => {
-                                console.log('Response:', response);
-                                this.programmes = response.data.data;
-                                console.log('PROGRAMMES :', this.programmes);
-                                console.log('Programme1 :', this.programmes[0].programmeName);
-                                // Rest of your code
-                            })
-                            .catch((error) => {
-                                console.error('Error:', error);
-                                // Rest of your error handling code
-                            });
 
-                    }
+    <script>
+        new Vue({
+            el: '#submitReply',
+            data() {
+                return {
+                    enquiry: {
+                        "queryId": "",
+                        "title": "",
+                        "question": "",
+                        "reply": "",
+                        "queryStatus": "",
+                        "created": "",
+                        "completed": "",
+                        "applicantId": ""
+                    },
+                }
+            },
+            mounted() {
+                // Data not available in localStorage, fetch it from the API
+                console.log('MOUNT QUERY :');
+                this.init();
+            },
+            created() {
+                // Call the init method when the component is created
+                this.init();
+            },
+            methods: {
+                init() {
+                    console.log('INIT QUERY :');
+                    getAllQueries()
+                        .then((response) => {
+                            console.log('Response:', response);
+                            // Rest of your code
+                            let enquiryList = response.data;
+
+                            console.log(enquiryList);
+
+                            //let html = document.getElementById('tab2-content').innerHTML;
+                            var userInfo = JSON.parse(localStorage.getItem('userInfo'));
+                            let applicantId = userInfo['applicantId'];
+
+                            let pending = false;
+
+                            let html = "";
+                            let html2 = "";
+                            for (let i = 0; i < enquiryList.length && pending == false; i++) {
+                                let enquiry = enquiryList[i];
+                                console.log(i);
+
+                                let status = enquiry['queryStatus'];
+                                let qryId = enquiry['queryId'];
+                                let appId = enquiry['applicantId'];
+                                let title = enquiry['title'];
+                                let ques = enquiry['question'];
+                                let reply = enquiry['reply'];
+                                let cdate = enquiry['completed'];
+                                let rdate = enquiry['created'];
+
+                                if (status == 'pending') {
+
+                                    document.getElementById('qryId').value = qryId;
+                                    document.getElementById('appId').textContent = appId;
+                                    document.getElementById('title').textContent = title;
+                                    document.getElementById('message').textContent = ques;
+                                    document.getElementById('cdate').textContent = cdate;
+
+                                    pending = true;
+                                } else if (status == 'completed') {
+                                    html2 += `
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#col${qryId}"
+                                    aria-expanded="false" aria-controls="collapseOne">
+                                    <h5 class="mb-0 text-dark" id="title">
+                                        ${title}
+                                    </h5>
+                                </button>
+                            </div>
+
+                            <div id="col${qryId}" class="collapse" aria-labelledby="headingOne"
+                                data-parent="#accordionExample">
+                                <div class="card-body">
+
+                                    <!-- <input type="hidden" id="title" value="title">
+                                    <input type="hidden" id="message" value="title">
+                                    <input type="hidden" id="status" value="title">
+                                    <input type="hidden" id="cdate" value="title">
+                                    <input type="hidden" id="appId" value="title">-->
+                                    <input type="hidden" id="qryId" value="">
+
+                                    <table class="table table-borderless">
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">Applicant Id</th>
+                                                <td style="width: 70%;" id="appId">${appId}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Submitted on</th>
+                                                <td id="cdate">${cdate}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Message</th>
+                                                <td id="message">${ques}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Replied on</th>
+                                                <td id="cdate">${rdate}</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Reply</th>
+                                                <td id="cdate">${reply}</td>
+                                            </tr>
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                            </div>
+                        </div>  
+                                    `;
+                                }
+                            }
+
+                            if (pending == false) {
+                                document.getElementById('tab1-content').innerHTML = `<h3 class="text-dark">No Pending Queries</h3>`;
+                            }
+                            document.getElementById('tab2-content').innerHTML = html2;
+                        })
+                        .catch((error) => {
+                            console.error('Error:', error);
+                            // Rest of your error handling code
+                        });
                 },
-            });
+                submitForm(enquiry, id) {
+                    event.preventDefault();
+
+                    console.log('ADD QUERY :', enquiry);
+
+                    const params = { ...this.enquiry };
+                    //params.applicantId = document.getElementById('appId').value;
+                    // params.title = document.getElementById('title').value;
+                    // params.question = document.getElementById('message').value;
+                    // params.reply = document.getElementById('reply').value;
+                    // params.queryStatus = document.getElementById('status').value;
+                    // params.created = document.getElementById('cdate').value;
+                    // params.completed = new Date();
+                    //params.queryId = document.getElementById('qryId').value;
+
+                    console.log(id);
+                    params.queryId = document.getElementById('qryId').value;
+                    params.applicantId = document.getElementById('appId').textContent;
+                    params.title = document.getElementById('title').textContent;
+                    params.question = document.getElementById('message').value;
+                    params.reply = document.getElementById('exampleFormControlTextarea1').value;
+                    params.queryStatus = "completed";
+                    params.created = new Date(document.getElementById('cdate').textContent);
+                    params.completed = new Date();
+
+                    console.log('PARAMS :', params);
+
+                    editQuery(params).then((response) => {
+                        console.log('Response:', response);
+                        alert('Replied Successfully');
+                        // Rest of your code
+                        window.onload();
+                    })
+                        .catch((error) => {
+                            console.error('Error:', error);
+                            // Rest of your error handling code
+                        });
+
+                }
+
+            },
         });
+    </script>
+    <script>
+
+        onload = function () {
+            // if (localStorage.getItem('userInfo') == null) {
+            //     //navigate user to other page
+            //     localStorage.setItem('redirect', 'submitEnquiry.html');
+            //     window.location.href = "../page/login.html";
+            //     //
+            // } else {
+            //     //get user info
+            //     var userInfo = JSON.parse(localStorage.getItem('userInfo'));
+            //     console.log(userInfo);
+            //     let userEmail = userInfo['applicantEmail'];
+            //     document.getElementById('email').value = userEmail;
+            //     document.getElementById('name').value = userEmail.split('@')[0];
+
+            // }
+
+            document.getElementById('tab2-content').style.display = 'none';
+
+        }
+
+        function showTab(tabIndex) {
+            const tabContents = document.querySelectorAll('.nav-link');
+
+            // Hide all tab contents
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Show the selected tab content
+            const selectedTabContent = document.getElementById(`tab${tabIndex}`);
+            selectedTabContent.classList.add('active');
+
+            if (tabIndex == 1) {
+                document.getElementById('tab1-content').style.display = 'block';
+                document.getElementById('tab2-content').style.display = 'none';
+            } else if (tabIndex == 2) {
+                document.getElementById('tab2-content').style.display = 'block';
+                document.getElementById('tab1-content').style.display = 'none';
+            }
+
+        }
     </script>
     <script type="text/javascript" src="js/headerAppend.js"></script>
 </body>

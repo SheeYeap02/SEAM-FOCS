@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS `query`;
 DROP TABLE IF EXISTS `enquiry`;
 DROP TABLE IF EXISTS `enquirer`;
 DROP TABLE IF EXISTS `application`;
@@ -5,16 +6,13 @@ DROP TABLE IF EXISTS `preu_result`;
 DROP TABLE IF EXISTS `qualification`;
 DROP TABLE IF EXISTS `detailed_info`;
 DROP TABLE IF EXISTS `emergency_info`;
-DROP TABLE IF EXISTS `outline_assign`;
-DROP TABLE IF EXISTS `progession_assign`;
-DROP TABLE IF EXISTS `career_assign`;
-DROP TABLE IF EXISTS `campus_assign`;
 DROP TABLE IF EXISTS `intake`;
 DROP TABLE IF EXISTS `programme`;
 DROP TABLE IF EXISTS `profile_info`;
 DROP TABLE IF EXISTS `staff`;
-DROP TABLE IF EXISTS `applicant`;
 DROP TABLE IF EXISTS `query`;
+DROP TABLE IF EXISTS `applicant`;
+
 
 ------------------------------------------------------------------------------------------------------------------------------------
 -- Create Statements
@@ -126,16 +124,10 @@ CREATE TABLE `detailed_info` (
 -- Qualification table
 CREATE TABLE `qualification` (
     `qualification_id` BIGINT(20) NOT NULL AUTO_INCREMENT,
-    `start_date` DATETIME  NOT NULL,
-    `end_date` DATETIME  NOT NULL,
-    `mode_of_study` VARCHAR(20)  NOT NULL,
-    `institution_name` VARCHAR(60)  NOT NULL,
-    `institution_location` VARCHAR(50)  NOT NULL,
-    `qualification_type` VARCHAR(25)  NOT NULL,
-    `cgpa` DECIMAL(5, 4)  NOT NULL,
-    `language_of_instruction` VARCHAR(20)  NOT NULL,
-    `academic_certificate` BLOB  NOT NULL,
-    `academic_transcript` BLOB  NOT NULL,
+    `year` INT(4) NOT NULL,
+    `category` VARCHAR(150) NOT NULL,
+    `type` VARCHAR(35) ,
+    `academic_prove` longblob  ,
     `applicant_id` BIGINT(20) NOT NULL,
     PRIMARY KEY (`qualification_id`),
     FOREIGN KEY (`applicant_id`) REFERENCES `applicant`(`applicant_id`)
@@ -143,11 +135,12 @@ CREATE TABLE `qualification` (
 
 -- PreUResult table
 CREATE TABLE `preu_result` (
+	`result_id` BIGINT(20) NOT NULL AUTO_INCREMENT,
     `subject` VARCHAR(25) NOT NULL,
-    `applicant_id` BIGINT(20) NOT NULL,
+    `qualification_id` BIGINT(20) NOT NULL,
     `grade` VARCHAR(3)  NOT NULL,
-    PRIMARY KEY (`subject`, `applicant_id`),
-    FOREIGN KEY (`applicant_id`) REFERENCES `applicant`(`applicant_id`)
+    PRIMARY KEY (`result_id`),
+    FOREIGN KEY (`qualification_id`) REFERENCES `qualification`(`qualification_id`)
 );
 
 -- Application table
@@ -252,15 +245,15 @@ INSERT INTO `detailed_info` VALUES (1, '123456789012.jpg', 'T20 (RM9001 and abov
 INSERT INTO `detailed_info` VALUES (2, '456789012345.jpg', 'M40 (RM5001 to RM9000)', 'No', 2);
 
 -- Qualification table
--- (QualificationId, StartDate, EndDate, ModeOfStudy, InstitutionName, InstitutionLocation, QualificationType, CGPA, LanguageOfInstruction, AcademicCertificate, AcademicTranscript, ApplicantId)
-INSERT INTO `qualification` VALUES (1, '2019-01-01', '2022-12-31', 'Full-time', 'University of Malaya', 'Kuala Lumpur', 'Degree', 3.8, 'English', 'certificate.pdf', 'transcript.pdf', 1);
-INSERT INTO `qualification` VALUES (2, '2017-01-01', '2019-12-31', 'Part-time', 'Tunku Abdul Rahman University College', 'Penang', 'Diploma', 3.5, 'Malay', 'certificate.pdf', 'transcript.pdf', 2);
+-- (QualificationId, Year, QualificationType, CGPA, LanguageOfInstruction, AcademicCertificate, AcademicTranscript, ApplicantId)
+INSERT INTO `qualification` VALUES (1, '2019', 'SPM/O LEVEL/EQUIVALENT', 'SPM', 'certificate.pdf', 1);
+INSERT INTO `qualification` VALUES (2, '2020', 'STPM/A LEVEL/ UEC/EQUIVALENT (IF APPLICABLE)', 'STPM', 'transcript.pdf', 2);
 
 -- PreUResult table
 -- (Subject, ApplicantId, Grade)
-INSERT INTO `preu_result` VALUES ('Mathematics', 1, 'A');
-INSERT INTO `preu_result` VALUES ('Physics', 1, 'B');
-INSERT INTO `preu_result` VALUES ('Chemistry', 1, 'A');
+INSERT INTO `preu_result` VALUES (1, 'Mathematics', 1, 'A');
+INSERT INTO `preu_result` VALUES (2, 'Physics', 1, 'B');
+INSERT INTO `preu_result` VALUES (3, 'Chemistry', 1, 'A');
 
 -- Application table
 -- (ApplicationId, Intake, ApplicationStatus, StudyMode, StartYear, CampusId, ProgrammeId, ProfileInfoId, DetailedInfoId, QualificationId, ApplicantId, StaffId)
@@ -271,9 +264,14 @@ INSERT INTO `application` VALUES (2, '2023/2024', 'Pending', 'Part-time', '2023'
 -- (EnquirerEmail, Contact, Name, Nationality)
 INSERT INTO `enquirer` VALUES ('enquiry@gmail.com', '0123456789', 'John Doe', 'Malaysian');
 
+-- Query table
+-- (applicantId, queryId, question, message, queryStatus, created, completed)
+INSERT INTO `query` VALUES(1, 1, 'title', 'question', 'message', 'pending', '2023-01-01', '2023-01-01');
+
 -- Enquiry table
 -- (EnquiryId, HighestLvlEduc, ProgrammeLvlInterest, ProgrammeInterest, Question, Reply, EnquiryStatus, EnquirerEmail, StaffId)
 INSERT INTO `enquiry` VALUES (1, 'STPM', 'Undergraduate', 'Bachelor of Computer Science', 'What are the admission requirements for the Bachelor of Computer Science programme?', 'The admission requirements for the Bachelor of Computer Science programme are:
+
 
 * SPM with a minimum of 5 credits in Mathematics, Physics, and Chemistry.
 * A Diploma in Computer Science or a related field.
