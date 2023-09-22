@@ -255,7 +255,6 @@
     <script src="../api/query.js"></script>
 
     <script>
-
         onload = function () {
             // if (localStorage.getItem('userInfo') == null) {
             //     //navigate user to other page
@@ -404,13 +403,13 @@
             data() {
                 return {
                     enquiry: {
-                        "title": "asd",
-                        "question": "asd",
-                        "reply": "asd",
-                        "queryStatus": "asd",
+                        "title": "",
+                        "question": "",
+                        "reply": "",
+                        "queryStatus": "",
                         "created": new Date().toISOString(),
                         "completed": new Date().toISOString(),
-                        "applicantId": "1"
+                        "applicantId": ""
                     },
                 }
             },
@@ -497,14 +496,14 @@
                     console.log('ADD QUERY :', enquiry);
 
                     const params = { ...this.enquiry };
-                    //params.applicantEmail = localStorage.getItem('username');
-                    // params.applicantId =  1;
-                    // params.title = document.getElementById('title').value;
-                    // params.question = document.getElementById('message').value;
-                    // params.reply = 'abc';
-                    // params.queryStatus = 'pending';
-                    // params.created = new Date();
-                    // params.completed = new Date();
+                    params.applicantEmail = localStorage.getItem('username');
+                    params.applicantId =  1;
+                    params.title = document.getElementById('title').value;
+                    params.question = document.getElementById('message').value;
+                    params.reply = 'null';
+                    params.queryStatus = 'pending';
+                    params.created = new Date().toISOString();
+                    params.completed = new Date().toISOString();
 
                     console.log('PARAMS :', params);
 

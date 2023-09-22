@@ -10,7 +10,9 @@ DROP TABLE IF EXISTS `intake`;
 DROP TABLE IF EXISTS `programme`;
 DROP TABLE IF EXISTS `profile_info`;
 DROP TABLE IF EXISTS `staff`;
+DROP TABLE IF EXISTS `query`;
 DROP TABLE IF EXISTS `applicant`;
+
 
 ------------------------------------------------------------------------------------------------------------------------------------
 -- Create Statements
@@ -262,9 +264,14 @@ INSERT INTO `application` VALUES (2, '2023/2024', 'Pending', 'Part-time', '2023'
 -- (EnquirerEmail, Contact, Name, Nationality)
 INSERT INTO `enquirer` VALUES ('enquiry@gmail.com', '0123456789', 'John Doe', 'Malaysian');
 
+-- Query table
+-- (applicantId, queryId, question, message, queryStatus, created, completed)
+INSERT INTO `query` VALUES(1, 1, 'title', 'question', 'message', 'pending', '2023-01-01', '2023-01-01');
+
 -- Enquiry table
 -- (EnquiryId, HighestLvlEduc, ProgrammeLvlInterest, ProgrammeInterest, Question, Reply, EnquiryStatus, EnquirerEmail, StaffId)
 INSERT INTO `enquiry` VALUES (1, 'STPM', 'Undergraduate', 'Bachelor of Computer Science', 'What are the admission requirements for the Bachelor of Computer Science programme?', 'The admission requirements for the Bachelor of Computer Science programme are:
+
 
 * SPM with a minimum of 5 credits in Mathematics, Physics, and Chemistry.
 * A Diploma in Computer Science or a related field.
