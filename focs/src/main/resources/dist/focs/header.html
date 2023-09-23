@@ -1,49 +1,121 @@
-<!-- Load jQuery (compatible version) from a CDN -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<!-- USER LOGIN CHECK-->
-<script type="text/javascript" src="js/userlog.js"></script>
-<!-- BOOTSTRAP -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-  integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"
-  integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+<!DOCTYPE html>
+<html>
 
-<!-- GET VISITOR IP ON TERMINAL -->
-<script type="text/javascript" src="js/devicedetect.js"></script>
-<style>
-  /* Add styles for mobile menu */
-  .menu-toggle {
-    display: none;
-  }
+<head>
+  <!-- Load jQuery (compatible version) from a CDN -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- USER LOGIN CHECK-->
+  <script type="text/javascript" src="js/userlog.js"></script>
+  <!-- BOOTSTRAP -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"
+    integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+    crossorigin="anonymous"></script>
 
-  /* Adjust styles for mobile view */
-  @media screen and (max-width: 768px) {
-    .menu-toggle {
-      display: block;
-      cursor: pointer;
+  <script>
+    function detector() {
+      const parts = navigator.userAgent.split('/');
+      console.log(parts[0]);
+      console.log(parts[1]);
+      console.log(parts);
+      fetch('https://api.ipify.org/?format=json').then(results => results.json()).then(data => document.getElementById('ipAdd').innerText = data.ip);
+
     }
 
-    .top-nav {
+    detector();
+  </script>
+
+  <style>
+    /* Add styles for mobile menu */
+    .menu-toggle {
       display: none;
     }
 
-    .top-nav.active {
-      display: block;
-    }
+    /* Adjust styles for mobile view */
+    @media screen and (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+        cursor: pointer;
+      }
 
-    .top-nav ul {
-      flex-direction: column;
-      padding: 0;
-    }
+      .top-nav {
+        display: none;
+      }
 
-    .top-nav li {
-      margin: 0;
-      padding: 10px 20px;
-      border-bottom: 1px solid #ccc;
+      .top-nav.active {
+        display: block;
+      }
+
+      .top-nav ul {
+        flex-direction: column;
+        padding: 0;
+      }
+
+      .top-nav li {
+        margin: 0;
+        padding: 10px 20px;
+        border-bottom: 1px solid #ccc;
+      }
     }
-  }
-</style>
+  </style>
+</head>
+
+<body>
+  <header>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <div class="container">
+        <!-- logo -->
+        <a class="navbar-brand" style="max-width: 20%;" href="/" aria-label="Bootstrap">
+          <img src="img/newLogo.png" width="36" height="36" class="d-block" viewBox="0 0 612 612" role="img"
+            focusable="false">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+          aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ms-auto bg-light" style="padding:3%;border-radius: 10px;">
+            <li class="nav-item"><a class="nav-link" href="index.html">HOME</a></li>
+            <li class="nav-item"><a class="nav-link" href="about-us.html">ABOUT US</a></li>
+            <li class="nav-item"><a class="nav-link" href="services.html">FACILITIES</a></li>
+            <li class="nav-item"><a class="nav-link" href="staffDirectory.html">OUR TEAM</a></li>
+            <li>
+              <div class="card" id="ipAdd" style="padding: 2%;min-width: 80px;">
+                127.0.0.1
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <footer>
+
+    <!-- GET VISITOR IP ON TERMINAL -->
+    <script type="text/javascript" src="js/devicedetect.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const parts = navigator.userAgent.split('/');
+        console.log(parts[0]);
+        console.log(parts[1]);
+        fetch('https://api.ipify.org/?format=json').then(results => results.json()).then(data, function(){
+          document.getElementById('ipAdd').innerText = data;
+        });
+      });
+    </script>
+  </footer>
+</body>
+
+</html>
+
+
+
+
+
 <!-- Top Navigation -->
 <!-- <nav class="s-12 grid background-none background-primary-hightlight background-white" style="background-color: white;">
   <div class="menu-toggle" onclick="toggleMenu()">
@@ -68,28 +140,7 @@
   </div>
 </nav> -->
 
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-  <div class="container">
-    <!-- logo -->
-    <a class="navbar-brand" style="max-width: 20%;" href="/" aria-label="Bootstrap">
-      <img src="img/newLogo.png" width="36" height="36" class="d-block" viewBox="0 0 612 612" role="img"
-        focusable="false">
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
-      aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav ms-auto bg-light" style="padding:3%;border-radius: 10px;">
-        <li class="nav-item"><a class="nav-link" href="index.html">HOME</a></li>
-        <li class="nav-item"><a class="nav-link" href="about-us.html">ABOUT US</a></li>
-        <li class="nav-item"><a class="nav-link" href="services.html">FACILITIES</a></li>
-        <li class="nav-item"><a class="nav-link" href="staffDirectory.html">OUR TEAM</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+
 
 <div class="alert alert-danger" style="display: none;" id="logoutalert" role="alert">
   <h4 class="alert-heading">Well done!</h4>

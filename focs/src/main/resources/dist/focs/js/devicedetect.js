@@ -5,6 +5,7 @@ function detector() {
     console.log(parts[1]);
     console.log(parts);
     fetch('https://api.ipify.org/?format=json').then(results => results.json()).then(data => console.log(data.ip));
+    
 }
 
 detector();
