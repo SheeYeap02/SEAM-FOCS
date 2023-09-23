@@ -2,39 +2,38 @@
 <html lang="en-US">
 
 <head>
-    <script src="//code.tidio.co/m6kdihlblyie9jlb1otfxudgzisuz4fx.js" async></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Staff Directory</title>
-    <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/icons.css">
-    <link rel="stylesheet" href="css/responsee.css">
-    <link rel="stylesheet" href="owl-carousel/owl.carousel.css">
-    <link rel="stylesheet" href="owl-carousel/owl.theme.css">
-    <!-- CUSTOM STYLE -->
-    <link rel="stylesheet" href="css/template-style.css">
-    <link href="https://fonts.googleapis.com/css?family=Barlow:100,300,400,700,800&amp;subset=latin-ext"
-        rel="stylesheet">
-    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
-    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="js/userlog.js"></script>
-    <!-- BOOTSTRAP -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-    <script src="../plugins/axios/axios.min.js"></script>
-    <script src="../plugins/vue/vue.js"></script>
-    <script src="../api/programme.js"></script>
-    <script>
+  <script src="//code.tidio.co/m6kdihlblyie9jlb1otfxudgzisuz4fx.js" async></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Staff Directory</title>
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/icons.css">
+  <link rel="stylesheet" href="css/responsee.css">
+  <link rel="stylesheet" href="owl-carousel/owl.carousel.css">
+  <link rel="stylesheet" href="owl-carousel/owl.theme.css">
+  <!-- CUSTOM STYLE -->
+  <link rel="stylesheet" href="css/template-style.css">
+  <link href="https://fonts.googleapis.com/css?family=Barlow:100,300,400,700,800&amp;subset=latin-ext" rel="stylesheet">
+  <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+  <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="js/userlog.js"></script>
+  <!-- BOOTSTRAP -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="../plugins/axios/axios.min.js"></script>
+  <script src="../plugins/vue/vue.js"></script>
+  <script src="../api/programme.js"></script>
+  <script>
 
-    </script>
-    <style>
-        .titleimage {
+  </script>
+  <style>
+    .titleimage {
       position: relative;
       height: 200px;
       display: flex;
@@ -56,62 +55,77 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
-      backdrop-filter: blur(10px); /* Adjust the blur amount as needed */
-      z-index: -1; /* Place the overlay and blur behind the text */
+      background-color: rgba(0, 0, 0, 0.5);
+      /* Semi-transparent overlay */
+      backdrop-filter: blur(10px);
+      /* Adjust the blur amount as needed */
+      z-index: -1;
+      /* Place the overlay and blur behind the text */
     }
-    img{
-        position: relative;
-        display: flex;
+
+    img {
+      position: relative;
+      display: flex;
       align-items: center;
       justify-content: center;
-        width: 90%;
-        left:5%;
-        bottom: 10%;
+      width: 90%;
+      left: 5%;
+      bottom: 10%;
     }
 
     .titlestaff {
-        font-size: 2em; /* Adjust the font size */
-        font-weight: bold; /* Make the text bold */
-        text-align: center; /* Center the text */
-        margin-top: 20px; /* Add some top margin */
+      font-size: 2em;
+      /* Adjust the font size */
+      font-weight: bold;
+      /* Make the text bold */
+      text-align: center;
+      /* Center the text */
+      margin-top: 20px;
+      /* Add some top margin */
     }
-    
-    
+
+
     .col-md-6,
     .col-sm-6 {
       display: block;
-      border: 1px solid #ccc; 
-      padding: 15px; /* Add some padding for spacing */
-      margin-bottom: 20px; /* Add some margin between the columns */
+      border: 1px solid #ccc;
+      padding: 15px;
+      /* Add some padding for spacing */
+      margin-bottom: 20px;
+      /* Add some margin between the columns */
       margin-left: 23%;
       height: 310px;
     }
 
     .col-md-6:last-child,
     .col-sm-6:last-child {
-      margin-bottom: 20px; /* Remove margin for the last column */
+      margin-bottom: 20px;
+      /* Remove margin for the last column */
     }
 
     .col-md-3 {
-        border-radius: 10px; /* Adjust the value to change the border radius */
-        border: 4px solid #ccc; /* Optional: Add a border for visual effect */
-        padding: 20px; /* Optional: Add padding for spacing */
-        float: right;
-        margin-top: -85%;
-}
+      border-radius: 10px;
+      /* Adjust the value to change the border radius */
+      border: 4px solid #ccc;
+      /* Optional: Add a border for visual effect */
+      padding: 20px;
+      /* Optional: Add padding for spacing */
+      float: right;
+      margin-top: -85%;
+    }
 
 
     @media (max-width: 767px) {
-  .titleimage {
-    height: 100px;
-    font-size: 2em;
-  }
+      .titleimage {
+        height: 100px;
+        font-size: 2em;
+      }
 
-  img {
-    width: 100%;
-    margin-bottom: 20px; /* Adjust bottom margin for mobile */
-  }
+      img {
+        width: 100%;
+        margin-bottom: 20px;
+        /* Adjust bottom margin for mobile */
+      }
 
   .titlestaff {
     font-size: 1.5em; /* Adjust font size for smaller screens */
@@ -166,26 +180,17 @@
 </head>
 
 <body class="p-3 m-0 border-0 bd-example">
-    
-        <header class="grid"  style="padding-top: 10% !important;">
-            
-        </header>
-    <div class="titleimage">
-    <div class="overlay"></div>OUR Team</div>
+
+  <header class="grid" style="padding-top: 10% !important;">
+
+  </header>
+  <div class="titleimage">
+    <div class="overlay"></div>OUR Team
+  </div>
   <h4 class="titlestaff">STAFF DIRECTORY</h4>
   <div class="directory-info-row" id="book">
     <div class="row">
-       
-    </div>      
-</div>
-<!-- Filters Section -->
-<div class="col-md-3">
-    <h2 class="grid-title" style="font-weight: bolder;"><i class="fa fa-filter"></i> Filters</h2>
-    <hr>
-  
-    <h4 style="font-weight: bolder;">By Position:</h4>
-    <div class="checkbox">
-      <label><input type="checkbox" class="icheck" name="position"> Senior Lecturer</label>
+
     </div>
     <div class="checkbox">
       <label><input type="checkbox" class="icheck" name="position"> Assistant Professor</label>
@@ -222,155 +227,163 @@
         </div></br>
   
   </div>
-  <!-- End of Filters Section -->
+
+  <div class="row">
+    <div class="col-md-3">
+      <h2 class="grid-title" style="font-weight: bolder;"><i class="fa fa-filter"></i> Filters</h2>
+      <hr>
   
+      <h4 style="font-weight: bolder;">By Position:</h4>
+      <div class="checkbox">
+        <label><input type="checkbox" class="icheck" value="Senior Lecturer" name="position"> Senior Lecturer</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" class="icheck" value="Assistant Professor" name="position"> Assistant Professor</label>
+      </div>
+      <!-- Add more position options as needed -->
+  
+      <div class="padding"></div>
+  
+      <h4 style="font-weight: bolder;">By Gender:</h4>
+      <div class="checkbox">
+        <label><input type="checkbox" class="icheck" value="Male" name="gender"> Male</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" class="icheck" value="Female" name="gender"> Female</label>
+      </div>
+      <!-- Add more gender options as needed -->
+  
+      <div class="padding"></div>
+  
+      <h4 style="font-weight: bolder;">By Designation:</h4>
+      <div class="checkbox">
+        <label><input type="checkbox" class="icheck" value="Dean" name="designation"> Dean</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" class="icheck" value="Deputy Dean" name="designation"> Deputy Dean</label>
+      </div>
+      <!-- Add more designation options as needed -->
+  
+    </div>
+    <!-- End of Filters Section -->
+
+  </div>
+  <!-- Filters Section -->
+
+
 </body>
 
-    <!-- FOOTER -->
-    <footer class="grid footerjs"></footer>
-    <script type="text/javascript" src="js/responsee.js"></script>
-    <script type="text/javascript" src="owl-carousel/owl.carousel.js"></script>
-    <script type="text/javascript" src="js/template-scripts.js"></script>
-    <script src="../plugins/axios/axios.min.js"></script>
-    <script src="../plugins/vue/vue.js"></script>
-    <script src="../api/programme.js"></script>
-    <script>
-        displayStaff();
-        async function displayStaff() {
-            const response = await fetch('./js/json/staff.json');
-            const data = await response.json();
-            const staff = data['staff'];
-            console.log(staff);
+<!-- FOOTER -->
+<footer class="grid footerjs"></footer>
+<script type="text/javascript" src="js/responsee.js"></script>
+<script type="text/javascript" src="owl-carousel/owl.carousel.js"></script>
+<script type="text/javascript" src="js/template-scripts.js"></script>
+<script src="../plugins/axios/axios.min.js"></script>
+<script src="../plugins/vue/vue.js"></script>
+<script src="../api/programme.js"></script>
+<script>
+  const staffList = document.getElementById('book'); // Assuming 'book' is the ID of the container where staff data is displayed
 
-            //each row two staff, max 6 staff
-            let html = "";
-            for (let i = 0; i < staff.length; i++) {
-                if (i == 0 || i == 2 || i == 4) {
-                    html += `<div class="row">`;
-                }
+  const filters = {
+    gender: null,
+    position: [],
+    designation: []
+  };
 
-                html += `<div class="col-md-6 col-sm-6">
+  // Function to filter and display staff based on selected filters
+  async function filterAndDisplayStaff() {
+    // Fetch staff data from staff.json
+    try {
+      const response = await fetch('./js/json/staff.json');
+      if (!response.ok) {
+        throw new Error('Network response was not ok.');
+      }
+      const data = await response.json();
+      const staff = data.staff;
+
+      // Clear previous staff data
+      staffList.innerHTML = '';
+
+      // Filter staff based on selected filters
+      const filteredStaff = staff.filter(item => {
+        const genderMatch = !filters.gender || item.Gender === filters.gender;
+        const positionMatch = filters.position.length === 0 || filters.position.includes(item.position);
+        const designationMatch = filters.designation.length === 0 || filters.designation.includes(item.designation);
+        return genderMatch && positionMatch && designationMatch;
+      });
+
+      // Display the filtered staff
+      if (filteredStaff.length === 0) {
+        staffList.innerHTML = 'No matching staff found.';
+      } else {
+
+
+        let i = 0;
+        filteredStaff.forEach(item => {
+          const staffItem = document.createElement('div');
+          staffItem.classList.add('col-md-6', 'col-sm-6');
+          // Add staff details here
+          staffItem.innerHTML = `
                     <div class="panel">
                         <div class="panel-body">
                             <div class="media">
                                 <a class="pull-left" href="/dist/focs/staffDetail.html?idx=${i}">
                                     <img class="thumb media-object"
-                                        src="${staff[i]['imageURL']}" alt="" />
+                                        src="${item['imageURL']}" alt="" />
                                 </a>
                                 <div class="media-body">
-                                    <h4>${staff[i]['name']} <span class="text-muted small"> - ${staff[i]['position']}</span></h4>
+                                    <h4>${item['name']} <span class="text-muted small"> - ${item['position']}</span></h4>
                                     <address>
-                                        <strong>${staff[i]['designation']}</strong></br>
+                                        <strong>${staff['designation']}</strong></br>
                                         <span style="color: #0000ff;">Faculty of Computing And Information Technology</span></br>
-                                        ${staff[i]['qualification']}</br>
-                                        <i class="fa fa-envelope">&nbsp;</i>${staff[i]['email']}</br>
+                                        ${item['qualification']}</br>
+                                        <i class="fa fa-envelope">&nbsp;</i>${item['email']}</br>
                                     </address>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>`;
+                    </div>`;
+          i++;
+          staffList.appendChild(staffItem);
 
-                document.getElementById("book").innerHTML = html;
-            }
+        });
+      }
+    } catch (error) {
+      console.error('Error fetching or displaying staff data:', error);
+    }
+  }
 
-            
+  // Add event listeners to checkboxes
+  const checkboxes = document.querySelectorAll('input.icheck[type="checkbox"]');
+  checkboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', function () {
+      const groupName = this.name;
+      if (this.checked) {
+        // Clear the staff list
+        staffList.innerHTML = '';
+        // Add the selected filter to the appropriate filter array
+        if (groupName === 'gender') {
+          filters.gender = this.value;
+        } else {
+          filters[groupName].push(this.value);
         }
-// Initialize staffData with all staff initially
-let staffData;
+      } else {
+        // Remove the deselected filter from the appropriate filter array
+        const index = filters[groupName].indexOf(this.value);
+        if (index !== -1) {
+          filters[groupName].splice(index, 1);
+        }
+      }
+      filterAndDisplayStaff();
+    });
 
-// Fetch staff data and display initially
-fetchStaffData();
-
-async function fetchStaffData() {
-  const response = await fetch('./js/json/staff.json');
-  const data = await response.json();
-  staffData = data.staff;
-  displayFilteredStaff(staffData);
-}
-
-function filterStaff() {
-  const positionFilters = getCheckedValues('position');
-  const genderFilters = getCheckedValues('gender');
-  const designationFilters = getCheckedValues('designation');
-
-  const filteredStaff = staffData.filter(staff => {
-    return (
-      (positionFilters.length === 0 || positionFilters.includes(staff.position)) &&
-      (genderFilters.length === 0 || genderFilters.includes(staff.Gender)) &&
-      (designationFilters.length === 0 || designationFilters.includes(staff.designation))
-    );
   });
 
-  displayFilteredStaff(filteredStaff);
-}
+  // Initially, display all staff
+  filterAndDisplayStaff();
 
-function displayFilteredStaff(staff) {
-  let html = '';
-
-  // Display filtered staff data
-  staff.forEach((staffMember, index) => {
-    if (index % 2 === 0) {
-      html += '<div class="row">';
-    }
-
-    html += `
-      <div class="col-md-6 col-sm-6">
-        <div class="panel">
-          <div class="panel-body">
-            <div class="media">
-              <a class="pull-left" href="/dist/focs/staffDetail.html?idx=${index}">
-                <img class="thumb media-object" src="${staffMember.imageURL}" alt="" />
-              </a>
-              <div class="media-body">
-                <h4>${staffMember.name} <span class="text-muted small"> - ${staffMember.position}</span></h4>
-                <address>
-                  <strong>${staffMember.designation}</strong><br>
-                  <span style="color: #0000ff;">Faculty of Computing And Information Technology</span><br>
-                  ${staffMember.qualification}<br>
-                  <i class="fa fa-envelope">&nbsp;</i>${staffMember.email}<br>
-                </address>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>`;
-
-    if (index % 2 !== 0 || index === staff.length - 1) {
-      html += '</div>';
-    }
-  });
-
-  document.getElementById('book').innerHTML = html;
-}
-
-function getCheckedValues(filterType) {
-  const checkboxes = document.querySelectorAll(`input[name="${filterType}"]:checked`);
-  return Array.from(checkboxes).map(checkbox => checkbox.value);
-}
-
-// Event listener for checkboxes to trigger filtering
-const checkboxes = document.querySelectorAll('.icheck');
-checkboxes.forEach(checkbox => {
-  checkbox.addEventListener('change', filterStaff);
-});
-
-
-        function showTab(tabIndex) {
-            const tabContents = document.querySelectorAll('.tab-content');
-
-            // Hide all tab contents
-            tabContents.forEach(content => {
-                content.classList.remove('active');
-            });
-
-            // Show the selected tab content
-            const selectedTabContent = document.getElementById(`tab${tabIndex}-content`);
-            selectedTabContent.classList.add('active');
-        }
-
-    </script>
-    <script type="text/javascript" src="js/headerAppend.js"></script>
+</script>
+<script type="text/javascript" src="js/headerAppend.js"></script>
 </body>
 
 </html>
