@@ -136,9 +136,10 @@ CREATE TABLE `qualification` (
 -- PreUResult table
 CREATE TABLE `preu_result` (
 	`result_id` BIGINT(20) NOT NULL AUTO_INCREMENT,
-    `subject` VARCHAR(25) NOT NULL,
+    `subject` VARCHAR(80) NOT NULL,
     `qualification_id` BIGINT(20) NOT NULL,
     `grade` VARCHAR(3)  NOT NULL,
+	`result_type` VARCHAR(35) ,
     PRIMARY KEY (`result_id`),
     FOREIGN KEY (`qualification_id`) REFERENCES `qualification`(`qualification_id`)
 );
@@ -230,7 +231,7 @@ INSERT INTO `programme` VALUES (2, 'Diploma in Information Systems', 'This progr
 
 -- Intake table
 INSERT INTO `intake`  VALUES ('1', 'Oct/Nov 2023','KUALA LUMPUR CAMPUS','DIPLOMA','SPM/O LEVEL/UEC/EQUIVALENT','DIPLOMA IN ACCOUNTING','Year 1 Sem 1', 1, 1);
-INSERT INTO `intake`  VALUES ('2', 'Oct/Nov 2023','KUALA LUMPUR CAMPUS','DIPLOMA','TAR UMT Certificate','DIPLOMA IN ACCOUNTING','Year 1 Sem 1', 2, 1);
+INSERT INTO `intake`  VALUES ('2', 'Oct/Nov 2023','KUALA LUMPUR CAMPUS','DIPLOMA','TAR UMT CERTIFICATE','DIPLOMA IN ACCOUNTING','Year 1 Sem 1', 2, 1);
 INSERT INTO `intake`  VALUES ('3', 'Oct/Nov 2023','KUALA LUMPUR CAMPUS','DIPLOMA','OTHER INSTITUTION OF HIGHER LEARNING CERTIFICATE/EQUIVALENT','DIPLOMA IN ACCOUNTING','Year 1 Sem 1', 3, 1);
 
 
@@ -251,9 +252,9 @@ INSERT INTO `qualification` VALUES (2, '2020', 'STPM/A LEVEL/ UEC/EQUIVALENT (IF
 
 -- PreUResult table
 -- (Subject, ApplicantId, Grade)
-INSERT INTO `preu_result` VALUES (1, 'Mathematics', 1, 'A');
-INSERT INTO `preu_result` VALUES (2, 'Physics', 1, 'B');
-INSERT INTO `preu_result` VALUES (3, 'Chemistry', 1, 'A');
+-- INSERT INTO `preu_result` VALUES (1, 'MATHEMATICS', 1, 'A');
+-- INSERT INTO `preu_result` VALUES (2, 'PHYSICS', 1, 'B');
+-- INSERT INTO `preu_result` VALUES (3, 'CHEMISTRY', 1, 'A');
 
 -- Application table
 -- (ApplicationId, Intake, ApplicationStatus, StudyMode, StartYear, CampusId, ProgrammeId, ProfileInfoId, DetailedInfoId, QualificationId, ApplicantId, StaffId)

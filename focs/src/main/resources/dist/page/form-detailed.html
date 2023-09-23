@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TAR UMT - Application for Admission Postgraduate Programme</title>
+  <title>TAR UMT - Application for Admission Undergraduate Programme</title>
   <link rel="shortcut icon" href="https://web.tarc.edu.my/portal/images/tarucLogo.png" type="image/x-icon">
   <link rel="stylesheet" href="../assets/compiled/css/app.css">
   <link rel="stylesheet" href="../assets/compiled/css/app-dark.css">
@@ -176,7 +176,7 @@
             <div class="col-12 col-md-6 order-md-1 order-last">
               <h3>Detailed Information/Details</h3>
               <p class="text-subtitle text-muted">
-                Complete the application for admission postgraduate programme.
+                Complete the application for admission undergraduate programme.
               </p>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
@@ -206,7 +206,7 @@
                       Please note that maximum for each attached file size is
                       <code>5MB. </code><br>
                       The only accepted formats are
-                      <code>pdf, doc, docx, bmp, png, jpg or gif.</code><br>
+                      <code>png, jpg</code><br>
                       Only two maximum files can be uploaded
                     </p>
                     <input type="file" class="multiple-files-filepond" multiple required>
@@ -304,7 +304,7 @@
                                       Please note that maximum for each attached file size is
                                       <code>5MB. </code><br>
                                       The only accepted formats are
-                                      <code>png, jpg or jpeg.</code><br>
+                                      <code>.png, .jpg or .jpeg.</code><br>
                                       Only <code>one file with IC Front & Back</code> can be uploaded.
                                     </p>
 
@@ -346,9 +346,12 @@
                                         <img src="" alt="Preview Image" id="previewImage"
                                           class="drop-zoon__preview-image" draggable="false">
 
-                                        <input type="file" id="fileInput" class="drop-zoon__file-input"
+                                        <input v-if="gotData" type="file" id="fileInput" class="drop-zoon__file-input"
                                           accept="image/jpeg、image/png、image/jpg" ref="uploadImage"
                                           @change="handleFileChange" required style="opacity: 1; display: block">
+                                        <input v-else type="file" id="fileInput" class="drop-zoon__file-input"
+                                          accept="image/jpeg、image/png、image/jpg" ref="uploadImage"
+                                          @change="handleFileChange" required>
                                       </div>
                                       <!-- End Drop Zoon -->
 
@@ -557,7 +560,6 @@
                 this.$message.success('Added new profile details！')
                 setTimeout(() => {
                   location.reload();
-                  alert('Halo Add')
                 }, 500); // 0.5secs
               } else {
                 this.$message.error(res.msg || 'Fail to handle')
