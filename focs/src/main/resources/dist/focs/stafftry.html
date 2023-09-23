@@ -127,54 +127,56 @@
         /* Adjust bottom margin for mobile */
       }
 
-      .titlestaff {
-        font-size: 1.5em;
-        /* Adjust font size for smaller screens */
-        margin-top: 10px;
-        /* Adjust top margin for mobile */
-      }
-
-      .col-md-6,
-      .col-sm-6 {
-        width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-      }
-
-      #book>div:nth-child(1)>div>div>div>div>a>img {
-        height: 60%;
-        width: 40%;
-      }
-
-      #book>div:nth-child(2)>div>div>div>div>a>img {
-        height: 60%;
-        width: 40%;
-      }
-
-      #book>div:nth-child(3)>div>div>div>div>a>img {
-        height: 60%;
-        width: 40%;
-      }
-
-      #book>div>div.row>div:nth-child(1)>div>div>div>a>img {
-        height: 60%;
-        width: 40%;
-      }
-
-      #book>div>div.row>div:nth-child(2)>div>div>div>a>img {
-        height: 60%;
-        width: 40%;
-      }
-
-      #book>div>div.row>div.row>div>div>div>div>a>img {
-        height: 60%;
-        width: 40%;
-      }
-
-    }
-  </style>
-  <header class="grid headerjs">
-  </header>
+  .titlestaff {
+    font-size: 1.5em; /* Adjust font size for smaller screens */
+    margin-top: 10px; /* Adjust top margin for mobile */
+  }
+  .col-md-6, .col-sm-6 {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  #book > div:nth-child(1) > div > div > div > div > a > img{
+    height: 60%;
+    width: 40%;
+  }
+  #book > div:nth-child(2) > div > div > div > div > a > img{
+    height: 60%;
+    width: 40%;
+  }
+  #book > div:nth-child(3) > div > div > div > div > a > img{
+    height: 60%;
+    width: 40%;
+  }
+  #book > div > div.row > div:nth-child(1) > div > div > div > a > img{
+    height: 60%;
+    width: 40%;
+  }
+  #book > div > div.row > div:nth-child(2) > div > div > div > a > img{
+    height: 60%;
+    width: 40%;
+  }
+ 
+  #book > div > div.row > div.row > div > div > div > div > a > img{
+    height: 60%;
+    width: 40%;
+  }
+  
+  
+}
+@media (max-width: 767px) {
+  .col-md-3 {
+    width: 100%; /* Set width to 100% for smaller screens */
+    float: none; /* Remove float for better layout */
+    margin: 0 auto; /* Center the div */
+    margin-top: 10px; /* Adjust top margin as needed */
+    border: none; /* Remove border */
+    padding: 10px; /* Add padding for spacing */
+    border-radius: 0; /* Remove border radius */
+  }}
+    </style>
+    <header class="grid headerjs">
+    </header>
 </head>
 
 <body class="p-3 m-0 border-0 bd-example">
@@ -190,6 +192,40 @@
     <div class="row">
 
     </div>
+    <div class="checkbox">
+      <label><input type="checkbox" class="icheck" name="position"> Assistant Professor</label>
+    </div>
+    <div class="checkbox">
+        <label><input type="checkbox" class="icheck"> Principal Lecturer</label>
+        </div>
+        <div class="checkbox">
+        <label><input type="checkbox" class="icheck"> Senior Lecturer</label>
+        </div></br>
+  
+    <div class="padding"></div>
+  
+    <h4 style="font-weight: bolder;">By Gender:</h4>
+    <div class="checkbox">
+      <label><input type="checkbox" class="icheck" name="gender"> Male</label>
+    </div>
+    <div class="checkbox">
+      <label><input type="checkbox" class="icheck" name="gender"> Female</label>
+    </div>
+    <!-- Add more gender options as needed -->
+  
+    <div class="padding"></div>
+  
+    <h4 style="font-weight: bolder;">By Designation:</h4>
+    <div class="checkbox">
+      <label><input type="checkbox" class="icheck" name="designation"> Dean</label>
+    </div>
+    <div class="checkbox">
+      <label><input type="checkbox" class="icheck" name="designation"> Deputy Dean</label>
+    </div>
+    <div class="checkbox">
+        <label><input type="checkbox" class="icheck"> Associate Dean</label>
+        </div></br>
+  
   </div>
 
   <div class="row">
