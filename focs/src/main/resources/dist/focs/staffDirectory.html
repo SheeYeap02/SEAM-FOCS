@@ -34,262 +34,189 @@
 
     </script>
     <style>
-        body {
-            margin-top: 20px;
-            background: #f1f2f7;
-        }
+        .titleimage {
+      position: relative;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      font-size: 5em;
+      text-transform: uppercase;
+      font-weight: bold;
+      background-image: url("img/recog.jpg");
+      background-size: cover;
+      background-position: center;
+    }
 
-        .directory-list,
-        .directory-info-row .social-links {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+      backdrop-filter: blur(10px); /* Adjust the blur amount as needed */
+      z-index: -1; /* Place the overlay and blur behind the text */
+    }
+    img{
+        position: relative;
+        display: flex;
+      align-items: center;
+      justify-content: center;
+        width: 90%;
+        left:5%;
+        bottom: 10%;
+    }
 
-        .directory-list li {
-            border-left: 3px solid #f1f2f7;
-            display: table-cell;
-            width: 1%;
-        }
+    .titlestaff {
+        font-size: 2em; /* Adjust the font size */
+        font-weight: bold; /* Make the text bold */
+        text-align: center; /* Center the text */
+        margin-top: 20px; /* Add some top margin */
+    }
+    
+    
+    .col-md-6,
+    .col-sm-6 {
+      display: block;
+      border: 1px solid #ccc; /* Add the border style you want */
+      padding: 15px; /* Add some padding for spacing */
+      margin-bottom: 20px; /* Add some margin between the columns */
+      margin-left: 25%;
+      height: 310px;
+    }
 
-        .directory-list li a {
-            display: block;
-            padding: 8px 0;
-            text-align: center;
-            text-transform: uppercase;
-            background: #fff;
-            color: #7A7676;
-            -moz-transition: all 0.2s ease-out 0s;
-            -webkit-transition: all 0.2s ease-out 0s;
-            transition: all 0.2s ease-out 0s;
-            text-decoration: none;
-            border-radius: 5px;
-            -webkit-border-radius: 5px;
-        }
+    .col-md-6:last-child,
+    .col-sm-6:last-child {
+      margin-bottom: 20px; /* Remove margin for the last column */
+    }
 
-        .directory-info-row .thumb {
-            border-radius: 10px;
-            -webkit-border-radius: 10px;
-            height: auto;
-            width: 130px;
-            margin-right: 10px;
-        }
+    @media (max-width: 767px) {
+  .titleimage {
+    height: 100px;
+    font-size: 2em;
+  }
 
-        .directory-list li a:hover,
-        .directory-info-row .social-links li a:hover {
-            background: #ff6c60;
-            color: #fff;
-        }
+  img {
+    width: 100%;
+    margin-bottom: 20px; /* Adjust bottom margin for mobile */
+  }
 
-        .directory-info-row {
-            display: inline-block;
-            width: 100%;
-            margin-top: 20px;
-        }
-
-        .directory-info-row h4,
-        .directory-info-row a {
-            color: #424F63;
-        }
-
-        .h4,
-        h4 {
-            font-size: 18px;
-        }
-
-        .directory-info-row .social-links {
-            display: inline-block;
-            margin-bottom: 10px;
-        }
-
-        .directory-info-row .social-links li {
-            display: inline-block;
-        }
-
-        ul li {
-            list-style: none;
-        }
-
-        .directory-info-row .social-links li a {
-            background: #EFF0F4;
-            width: 30px;
-            height: 30px;
-            line-height: 30px;
-            text-align: center;
-            display: inline-block;
-            border-radius: 5px;
-            -webkit-border-radius: 5px;
-            color: #7A7676;
-        }
-
-        .media {
-            padding: 10px;
-            margin: 10px;
-            border-radius: 20px;
-            background-color: #f1f2f7;
-        }
-
-        .media-body {
-            min-height: 170px;
-        }
+  .titlestaff {
+    font-size: 1.5em; /* Adjust font size for smaller screens */
+    margin-top: 10px; /* Adjust top margin for mobile */
+  }
+  .col-md-6, .col-sm-6 {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  #book > div:nth-child(1) > div > div > div > div > a > img{
+    height: 60%;
+    width: 40%;
+  }
+  #book > div:nth-child(2) > div > div > div > div > a > img{
+    height: 60%;
+    width: 40%;
+  }
+  #book > div:nth-child(3) > div > div > div > div > a > img{
+    height: 60%;
+    width: 40%;
+  }
+  #book > div > div.row > div:nth-child(1) > div > div > div > a > img{
+    height: 60%;
+    width: 40%;
+  }
+  #book > div > div.row > div:nth-child(2) > div > div > div > a > img{
+    height: 60%;
+    width: 40%;
+  }
+ 
+  #book > div > div.row > div.row > div > div > div > div > a > img{
+    height: 60%;
+    width: 40%;
+  }
+  /* #book > div:nth-child(5) > div > div > div > a > img{
+    height: 60%;
+    width: 40%;
+  }
+  #book > div:nth-child(6) > div > div > div > a > img{
+    height: 60%;
+    width: 40%;
+  }
+  #book > div:nth-child(1) > div > div > div{
+    font-size: smaller;
+  }
+  #book > div:nth-child(1) > div > div > div > a{
+    width: 50%;
+  }
+  #book > div:nth-child(2) > div > div > div > a{
+    width: 50%;
+  }
+  #book > div:nth-child(3) > div > div > div > a{
+    width: 50%;
+  }
+  #book > div:nth-child(4) > div > div > div > a{
+    width: 50%;
+  }
+  #book > div:nth-child(5) > div > div > div > a{
+    width: 50%;
+  }
+  #book > div:nth-child(6) > div > div > div > a{
+    width: 50%;
+  }
+  #book > div:nth-child(2) > div > div > div{
+    font-size: smaller;
+  }
+  #book > div:nth-child(3) > div > div > div{
+    font-size: smaller;
+  }
+  #book > div:nth-child(4) > div > div > div{
+    font-size: smaller;
+  }
+  #book > div:nth-child(5) > div > div > div{
+    font-size: smaller;
+  }
+  #book > div:nth-child(6) > div > div > div{
+    font-size: smaller;
+  } */
+  
+}
     </style>
     <header class="grid headerjs">
     </header>
 </head>
 
-<body class="size-1520 primary-color-red background-dark">
+<body class="p-3 m-0 border-0 bd-example">
     <!-- HEADER -->
 
     <!-- MAIN -->
-    <main role="main">
+    <!-- <main role="main"> -->
         <!-- TOP SECTION -->
         <header class="grid"  style="padding-top: 10% !important;">
-            <div class="s-12 padding-2x">
+            <!-- <div class="s-12 padding-2x">
                 <h1 class="text-strong text-white text-center center text-size-60 text-uppercase margin-bottom-20">
                     FIND YOUR BEST</h1>
                 <p class="text-size-20 text-white text-center center text-uppercase">Look for different academic
                     programs or courses to make informed decisions about your academic pursuits</p>
-            </div>
+            </div> -->
         </header>
+    <div class="titleimage">
+    <div class="overlay"></div>OUR Team</div>
+  <h4 class="titlestaff">STAFF DIRECTORY</h4>
+  <div class="directory-info-row" id="book">
+    <div class="row">
+       
+    </div>
 
-
-        <div class="directory-info-row" id="book">
-            <div class="row">
-                <div class="col-md-6 col-sm-6">
-                    <div class="panel">
-                        <div class="panel-body">
-                            <div class="media">
-                                <a class="pull-left" href="#">
-                                    <img class="thumb media-object"
-                                        src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" />
-                                </a>
-                                <div class="media-body">
-                                    <h4>John Doe <span class="text-muted small"> - UI Engineer</span></h4>
-                                    <address>
-                                        <strong>Bootdey, Inc.</strong><br />
-                                        Vamoil Ave, Suite 23<br />
-                                        Dream land, Australia <br />
-                                        <abbr title="Phone">P:</abbr> (142) 454-7890
-                                    </address>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-sm-6">
-                    <div class="panel">
-                        <div class="panel-body">
-                            <div class="media">
-                                <a class="pull-left" href="#">
-                                    <img class="thumb media-object"
-                                        src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="" />
-                                </a>
-                                <div class="media-body">
-                                    <h4>John Doe <span class="text-muted small"> - UI Engineer</span></h4>
-
-                                    <address>
-                                        <strong>Bootdey, Inc.</strong><br />
-                                        Vamoil Ave, Suite 23<br />
-                                        Dream land, Australia <br />
-                                        <abbr title="Phone">P:</abbr> (142) 454-7890
-                                    </address>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-6 col-sm-6">
-                    <div class="panel">
-                        <div class="panel-body">
-                            <div class="media">
-                                <a class="pull-left" href="#">
-                                    <img class="thumb media-object"
-                                        src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="" />
-                                </a>
-                                <div class="media-body">
-                                    <h4>John Doe <span class="text-muted small"> - UI Engineer</span></h4>
-
-                                    <address>
-                                        <strong>Bootdey, Inc.</strong><br />
-                                        Vamoil Ave, Suite 23<br />
-                                        Dream land, Australia <br />
-                                        <abbr title="Phone">P:</abbr> (142) 454-7890
-                                    </address>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-sm-6">
-                    <div class="panel">
-                        <div class="panel-body">
-                            <div class="media">
-                                <a class="pull-left" href="#">
-                                    <img class="thumb media-object"
-                                        src="https://bootdey.com/img/Content/avatar/avatar4.png" alt="" />
-                                </a>
-                                <div class="media-body">
-                                    <h4>John Doe <span class="text-muted small"> - UI Engineer</span></h4>
-
-                                    <address>
-                                        <strong>Bootdey, Inc.</strong><br />
-                                        Vamoil Ave, Suite 23<br />
-                                        Dream land, Australia <br />
-                                        <abbr title="Phone">P:</abbr> (142) 454-7890
-                                    </address>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-
-    </main>
-
+        
+</div>
+</body>
 
     <!-- FOOTER -->
-    <footer class="grid">
-        <!-- Footer - top -->
-        <!-- Image-->
-        <div class="s-12 l-3 m-row-3 margin-bottom background-image" style="background-image:url(img/img-04.jpg)"></div>
-
-        <div class="s-12 m-9 l-3 padding-2x margin-bottom background-dark">
-            <h2 class="text-strong text-uppercase">Who We Are?</h2>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
-                laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                sed diam nonummy.</p>
-        </div>
-
-        <div class="s-12 m-9 l-3 padding-2x margin-bottom background-dark">
-            <h2 class="text-strong text-uppercase">Where We Are?</h2>
-            <img class="full-img" src="img/map.svg" alt="" />
-        </div>
-
-        <div class="s-12 m-9 l-3 padding-2x margin-bottom background-dark">
-            <h2 class="text-strong text-uppercase">Contact Us</h2>
-            <p><b class="text-primary margin-right-10">P</b> 0800 4521 800 50</p>
-            <p><b class="text-primary margin-right-10">M</b> <a class="text-primary-hover"
-                    href="mailto:contact@sampledomain.com">contact@sampledomain.com</a></p>
-            <p><b class="text-primary margin-right-10">M</b> <a class="text-primary-hover"
-                    href="mailto:office@sampledomain.com">office@sampledomain.com</a></p>
-        </div>
-
-        <!-- Footer - bottom -->
-        <div class="s-12 text-center margin-bottom">
-            <p class="text-size-12">Copyright 2019, Vision Design - graphic zoo</p>
-            <p class="text-size-12">All images have been purchased from Bigstock. Do not use the images in your website.
-            </p>
-            <p><a class="text-size-12 text-primary-hover" href="http://www.myresponsee.com"
-                    title="Responsee - lightweight responsive framework">Design and coding by Responsee Team</a></p>
-        </div>
-    </footer>
+    <footer class="grid footerjs"></footer>
     <script type="text/javascript" src="js/responsee.js"></script>
     <script type="text/javascript" src="owl-carousel/owl.carousel.js"></script>
     <script type="text/javascript" src="js/template-scripts.js"></script>
@@ -322,7 +249,10 @@
                                 <div class="media-body">
                                     <h4>${staff[i]['name']} <span class="text-muted small"> - UI Engineer</span></h4>
                                     <address>
-                                        <strong>${staff[i]['designation']}</strong>
+                                        <strong>${staff[i]['designation']}</strong></br>
+                                        <span style="color: #0000ff;">Faculty of Computing And Information Technology</span></br>
+                                        ${staff[i]['qualification']}</br>
+                                        <i class="fa fa-envelope">&nbsp;</i>${staff[i]['email']}</br>
                                     </address>
                                 </div>
                             </div>
@@ -333,31 +263,7 @@
                 document.getElementById("book").innerHTML = html;
             }
 
-            // let html = "";
-            // let tab = document.getElementById("bachelorTab");
-            // let data2 = data['Degree'];
-
-            // for (const degreeTitle in data2) {
-            //     if (degreeTitle != "Description") {
-            //         html += `<h2 style="color: black;">${degreeTitle}</h2>`;
-            //         const programs = data2[degreeTitle];
-
-            //         for (const programTitle in programs) {
-            //             // List program details inside the program title
-            //             html += `<ul class="list-group list-group-flush" style="color: black;">`;
-            //             html += `<li class="list-group-item"><a style="color: black;"
-            //                  href="/dist/focs/programme.html?level=Degree&cert=${degreeTitle}&programme=${programTitle}">${programTitle}</a></li>`;
-            //             html += "</ul>";
-
-            //             //         <ul class="list-group list-group-flush" id="bachelorTab" style="color: black;">
-            //             //     <li class="list-group-item"><a style="color: black;"
-            //             //             href="/programme/programme.html?level=${level}&cert=${cert}&programme=${programme}">Programme
-            //             //             1</a></li>
-            //             // </ul>
-            //         }
-            //     }
-            // }
-            // tab.innerHTML = html;
+            
         }
 
 
