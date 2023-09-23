@@ -14,19 +14,6 @@
     integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
     crossorigin="anonymous"></script>
 
-  <script>
-    function detector() {
-      const parts = navigator.userAgent.split('/');
-      console.log(parts[0]);
-      console.log(parts[1]);
-      console.log(parts);
-      fetch('https://api.ipify.org/?format=json').then(results => results.json()).then(data => document.getElementById('ipAdd').innerText = data.ip);
-
-    }
-
-    detector();
-  </script>
-
   <style>
     /* Add styles for mobile menu */
     .menu-toggle {
@@ -82,11 +69,6 @@
             <li class="nav-item"><a class="nav-link" href="about-us.html">ABOUT US</a></li>
             <li class="nav-item"><a class="nav-link" href="services.html">FACILITIES</a></li>
             <li class="nav-item"><a class="nav-link" href="staffDirectory.html">OUR TEAM</a></li>
-            <li>
-              <div class="card" id="ipAdd" style="padding: 2%;min-width: 80px;">
-                127.0.0.1
-              </div>
-            </li>
           </ul>
         </div>
       </div>
@@ -94,19 +76,6 @@
   </header>
 
   <footer>
-
-    <!-- GET VISITOR IP ON TERMINAL -->
-    <script type="text/javascript" src="js/devicedetect.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const parts = navigator.userAgent.split('/');
-        console.log(parts[0]);
-        console.log(parts[1]);
-        fetch('https://api.ipify.org/?format=json').then(results => results.json()).then(data, function(){
-          document.getElementById('ipAdd').innerText = data;
-        });
-      });
-    </script>
   </footer>
 </body>
 
