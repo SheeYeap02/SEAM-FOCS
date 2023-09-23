@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     console.log(data.ip + '\n' + parts[0] + '\n' + parts[1]);
 
                     const ipinfo = "abc";
-                    headerHTML = headerHTML.replace(/127\.0\.0\.1/g, parts[0] + ': ' + data.ip );
+                    headerHTML = headerHTML.replace(/127\.0\.0\.1/g, parts[0] + ': ' + data.ip);
 
                     // Now you can use `replacedUserAgent` as needed
                     //console.log(replacedUserAgent);
@@ -80,16 +80,21 @@ document.addEventListener("DOMContentLoaded", function () {
                     //document.getElementById('ipAdd').innerText = replacedUserAgent;
 
                     // Replace its innerHTML with the fetched headerHTML
+                    // Replace its innerHTML with the fetched headerHTML
                     if (headerElement) {
                         headerElement.innerHTML = headerHTML;
                     }
-                })
-                .catch(error => console.error('Error fetching IP address:', error));
 
-            // Replace its innerHTML with the fetched headerHTML
-            // if (headerElement) {
-            //     headerElement.innerHTML = headerHTML;
-            // }
+                })
+                .catch(error => {
+                    // Replace its innerHTML with the fetched headerHTML
+                    if (headerElement) {
+                        headerElement.innerHTML = headerHTML;
+                    }
+                    console.error('Error fetching IP address:', error);
+                });
+
+
         })
         .catch(error => console.error('Error fetching footer.html:', error));
 });
