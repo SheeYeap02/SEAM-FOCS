@@ -136,9 +136,10 @@ CREATE TABLE `qualification` (
 -- PreUResult table
 CREATE TABLE `preu_result` (
 	`result_id` BIGINT(20) NOT NULL AUTO_INCREMENT,
-    `subject` VARCHAR(25) NOT NULL,
+    `subject` VARCHAR(80) NOT NULL,
     `qualification_id` BIGINT(20) NOT NULL,
     `grade` VARCHAR(3)  NOT NULL,
+	`result_type` VARCHAR(35) ,
     PRIMARY KEY (`result_id`),
     FOREIGN KEY (`qualification_id`) REFERENCES `qualification`(`qualification_id`)
 );
@@ -251,9 +252,9 @@ INSERT INTO `qualification` VALUES (2, '2020', 'STPM/A LEVEL/ UEC/EQUIVALENT (IF
 
 -- PreUResult table
 -- (Subject, ApplicantId, Grade)
-INSERT INTO `preu_result` VALUES (1, 'Mathematics', 1, 'A');
-INSERT INTO `preu_result` VALUES (2, 'Physics', 1, 'B');
-INSERT INTO `preu_result` VALUES (3, 'Chemistry', 1, 'A');
+-- INSERT INTO `preu_result` VALUES (1, 'MATHEMATICS', 1, 'A');
+-- INSERT INTO `preu_result` VALUES (2, 'PHYSICS', 1, 'B');
+-- INSERT INTO `preu_result` VALUES (3, 'CHEMISTRY', 1, 'A');
 
 -- Application table
 -- (ApplicationId, Intake, ApplicationStatus, StudyMode, StartYear, CampusId, ProgrammeId, ProfileInfoId, DetailedInfoId, QualificationId, ApplicantId, StaffId)

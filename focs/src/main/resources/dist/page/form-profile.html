@@ -182,7 +182,8 @@
                       <div class="col-md-12 mb-12">
                         <fieldset class="form-group">
                           <select v-model="formData.profileInfo.nationality" :disabled="!isEditing" class="form-select" id="basicSelect">
-                              <option v-for="national in nationalities" :value="national">{{ national }}</option>
+                            <option value="Please select" disabled selected>Please select</option>  
+                            <option v-for="national in nationalities" :value="national">{{ national }}</option>
                           </select>
                       </fieldset>
                     </div>
@@ -192,6 +193,57 @@
                     <div class="form-group mandatory">
                       <label for="city-column" class="form-label">Date Of Birth</label>
                       <input type="date" class="form-control mb-3 flatpickr-no-config" placeholder="Select date.." :disabled="!isEditing" v-model="formData.profileInfo.dateOfBirth">
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-8 col-12">
+                    <div class="form-group mandatory">
+                      <label for="marital-floating" class="form-label">Marital Status</label>
+                      <div class="col-12">
+                        <div class="form-group mandatory">
+                          <fieldset style="display: flex;">
+                             <!-- Marital Status Radio Buttons -->
+                            <div v-for="(option, index) in maritalStatusOptions" :key="index" class="form-check" style="margin-left: 1rem;">
+                                <input
+                                  class="form-check-input"
+                                  type="radio"
+                                  :name="'flexRadioDefault2'"
+                                  :id="'flexRadioDefault' + (index + 3)"
+                                  :value="option.value"
+                                  :checked="option.value === formData.profileInfo.maritalStatus || (index === 0 && !formData.profileInfo.maritalStatus)"
+                                  @change="updateMaritalStatus(option.value)" :disabled="!isEditing"
+                                />
+                                <label class="form-check-label form-label" :for="'flexRadioDefault' + (index + 3)">{{ option.value }}</label>
+                            </div>
+                          </fieldset>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-12">
+                    <div class="form-group mandatory">
+                      <label for="race-column" class="form-label">Race</label><br>
+                      <div class="col-md-12 mb-12">
+                        <fieldset class="form-group">
+                            <select v-model="formData.profileInfo.race" :disabled="!isEditing" class="form-select" id="basicSelect">
+                              <option value="Please select" disabled selected>Please select</option>  
+                              <option v-for="race in races" :value="race">{{ race }}</option>
+                            </select>
+                        </fieldset>
+                    </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-12">
+                    <div class="form-group mandatory">
+                      <label for="religion-column" class="form-label">Religion</label><br>
+                      <div class="col-md-12 mb-12">
+                        <fieldset class="form-group">
+                            <select v-model="formData.profileInfo.religion" :disabled="!isEditing" class="form-select" id="basicSelect">
+                              <option value="Please select" disabled selected>Please select</option>  
+                              <option v-for="religion in religions" :value="religion">{{ religion }}</option>
+                            </select>
+                        </fieldset>
+                    </div>
                     </div>
                   </div>
                   <div class="col-md-2 col-12">
@@ -218,54 +270,6 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-4 col-12">
-                    <div class="form-group mandatory">
-                      <label for="marital-floating" class="form-label">Marital Status</label>
-                      <div class="col-12">
-                        <div class="form-group mandatory">
-                          <fieldset style="display: flex;">
-                             <!-- Marital Status Radio Buttons -->
-                            <div v-for="(option, index) in maritalStatusOptions" :key="index" class="form-check" style="margin-left: 1rem;">
-                                <input
-                                  class="form-check-input"
-                                  type="radio"
-                                  :name="'flexRadioDefault2'"
-                                  :id="'flexRadioDefault' + (index + 3)"
-                                  :value="option.value"
-                                  :checked="option.value === formData.profileInfo.maritalStatus"
-                                  @change="updateMaritalStatus(option.value)" :disabled="!isEditing"
-                                />
-                                <label class="form-check-label form-label" :for="'flexRadioDefault' + (index + 3)">{{ option.value }}</label>
-                            </div>
-                          </fieldset>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-4 col-12">
-                    <div class="form-group mandatory">
-                      <label for="race-column" class="form-label">Race</label><br>
-                      <div class="col-md-12 mb-12">
-                        <fieldset class="form-group">
-                            <select v-model="formData.profileInfo.race" :disabled="!isEditing" class="form-select" id="basicSelect">
-                                <option v-for="race in races" :value="race">{{ race }}</option>
-                            </select>
-                        </fieldset>
-                    </div>
-                    </div>
-                  </div>
-                  <div class="col-md-4 col-12">
-                    <div class="form-group mandatory">
-                      <label for="religion-column" class="form-label">Religion</label><br>
-                      <div class="col-md-12 mb-12">
-                        <fieldset class="form-group">
-                            <select v-model="formData.profileInfo.religion" :disabled="!isEditing" class="form-select" id="basicSelect">
-                                <option v-for="religion in religions" :value="religion">{{ religion }}</option>
-                            </select>
-                        </fieldset>
-                    </div>
-                    </div>
-                  </div>
                   <div class="card-header">
                     <h4 class="card-title"><i class="bi bi-house-fill" style="padding-right: 20px;"></i>Correspondence Address</h4>
                   </div>
@@ -288,7 +292,8 @@
                       <div class="col-md-12 mb-12">
                         <fieldset class="form-group">
                             <select v-model="formData.profileInfo.state" class="form-select" :disabled="!isEditing" id="basicSelect">
-                                <option v-for="state in states" :value="state">{{ state }}</option>
+                              <option value="Please select" disabled selected>Please select</option>  
+                              <option v-for="state in states" :value="state">{{ state }}</option>
                             </select>
                         </fieldset>
                     </div>
@@ -300,7 +305,8 @@
                       <div class="col-md-12 mb-12">
                         <fieldset class="form-group">
                             <select v-model="formData.profileInfo.country" :disabled="!isEditing" class="form-select" id="basicSelect" >
-                                <option v-for="country in countries" :value="country">{{ country }}</option>
+                              <option value="Please select" disabled selected>Please select</option>  
+                              <option v-for="country in countries" :value="country">{{ country }}</option>
                             </select>
                         </fieldset>
                     </div>
@@ -376,7 +382,8 @@
                       <div class="col-md-12 mb-12">
                         <fieldset class="form-group">
                             <select v-model="formData.emergencyInfo.state" :disabled="!isEditing" class="form-select" id="basicSelect">
-                                <option v-for="state in states" :value="state">{{ state }}</option>
+                              <option value="Please select" disabled selected>Please select</option>  
+                              <option v-for="state in states" :value="state">{{ state }}</option>
                             </select>
                         </fieldset>
                     </div>
@@ -388,7 +395,8 @@
                       <div class="col-md-12 mb-12">
                         <fieldset class="form-group">
                             <select v-model="formData.emergencyInfo.country" :disabled="!isEditing" class="form-select" id="basicSelect">
-                                <option v-for="country in countries" :value="country">{{ country }}</option>
+                              <option value="Please select" disabled selected>Please select</option>  
+                              <option v-for="country in countries" :value="country">{{ country }}</option>
                             </select>
                         </fieldset>
                     </div>
@@ -484,7 +492,7 @@
                     profileInfo: {
                       'fullName': '',
                       'mykadNo': '',
-                      'nationality': '',
+                      'nationality': 'Please select',
                       'dateOfBirth': '',
                       'gender': '', 
                       'maritalStatus': '', 
@@ -512,13 +520,13 @@
                 isEditing: true,
                 userInfo: {},
                 races: 
-                    [  "Please select", "Malay",  "Chinese",  "Indian",  "Malayali",  "Punjabi (except Sikh)",  "Sikh",  "Sinhala",  "Tamil India",  "Tamil Sri Lanka",  "India Muslim/Malabari",  "Indonesian",  "Bumiputera Sabah",  "Bajau",  "Dusun",  "Kadazan",  "Murut",  "Sino-Native",  "Suluk",  "Binadan",  "Bisaya",  "Kedayan",  "Melanau",  "Rungus",  "Bumiputera Sarawak",  "Melayu Sarawak",  "Iban/Sea Dayak",  "Kayan",  "Kenyah",  "Murut/Lun Bawang",  "Kelabit",  "Balau",  "Bintulu",  "Sabah",  "Orang Asli (Semenanjung)",  "Orang Asli (Others)",  "Pakistan",  "Philipina",  "Siamese (Thailand)",  "Japanese",  "American",  "European",  "Australian",  "Serani",  "Others"],
+                    [  "Malay",  "Chinese",  "Indian",  "Malayali",  "Punjabi (except Sikh)",  "Sikh",  "Sinhala",  "Tamil India",  "Tamil Sri Lanka",  "India Muslim/Malabari",  "Indonesian",  "Bumiputera Sabah",  "Bajau",  "Dusun",  "Kadazan",  "Murut",  "Sino-Native",  "Suluk",  "Binadan",  "Bisaya",  "Kedayan",  "Melanau",  "Rungus",  "Bumiputera Sarawak",  "Melayu Sarawak",  "Iban/Sea Dayak",  "Kayan",  "Kenyah",  "Murut/Lun Bawang",  "Kelabit",  "Balau",  "Bintulu",  "Sabah",  "Orang Asli (Semenanjung)",  "Orang Asli (Others)",  "Pakistan",  "Philipina",  "Siamese (Thailand)",  "Japanese",  "American",  "European",  "Australian",  "Serani",  "Others"],
                 religions: 
-                    [  "Please select",  "Bahai",  "Buddhist",  "Christian",  "Confucianism",  "Hindu",  "Islam",  "No religion",  "Sikhism",  "Taoism",  "Others"],
+                    [  "Bahai",  "Buddhist",  "Christian",  "Confucianism",  "Hindu",  "Islam",  "No religion",  "Sikhism",  "Taoism",  "Others"],
                 countries: 
-                    [ "Please select", "Canada", "Afghanistan", "Albania", "Algeria", "American Samoa", "Andorra", "Angola", "Anguilla", "Antarctica", "Antigua and/or Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Bouvet Island", "Brazil", "British Indian Ocean Territory", "Brunei Darussalam", "Bulgaria", "Burkina Faso", "Burundi", "Cambodia", "Cameroon", "Cape Verde", "Cayman Islands", "Central African Republic", "Chad", "Chile", "China", "Christmas Island", "Cocos (Keeling) Islands", "Colombia", "Comoros", "Congo", "Cook Islands", "Costa Rica", "Croatia (Hrvatska)", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "East Timor", "Ecudaor", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Falkland Islands (Malvinas)", "Faroe Islands", "Fiji", "Finland", "France", "France, Metropolitan", "French Guiana", "French Polynesia", "French Southern Territories", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Gibraltar", "Greece", "Greenland", "Grenada", "Guadeloupe", "Guam", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Heard and Mc Donald Islands", "Honduras", "Hong Kong", "Hungary", "Iceland", "India", "Indonesia", "Iran (Islamic Republic of)", "Iraq", "Ireland", "Israel", "Italy", "Ivory Coast", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Korea, Democratic People's Republic of", "Korea, Republic of", "Kosovo", "Kuwait", "Kyrgyzstan", "Lao People's Democratic Republic", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libyan Arab Jamahiriya", "Liechtenstein", "Lithuania", "Luxembourg", "Macau", "Macedonia", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Martinique", "Mauritania", "Mauritius", "Mayotte", "Mexico", "Micronesia, Federated States of", "Moldova, Republic of", "Monaco", "Mongolia", "Montserrat", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "Netherlands Antilles", "New Caledonia", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Niue", "Norfork Island", "Northern Mariana Islands", "Norway", "Oman", "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Pitcairn", "Poland", "Portugal", "Puerto Rico", "Qatar", "Reunion", "Romania", "Russian Federation", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Georgia South Sandwich Islands", "South Sudan", "Spain", "Sri Lanka", "St. Helena", "St. Pierre and Miquelon", "Sudan", "Suriname", "Svalbarn and Jan Mayen Islands", "Swaziland", "Sweden", "Switzerland", "Syrian Arab Republic", "Taiwan", "Tajikistan", "Tanzania, United Republic of", "Thailand", "Togo", "Tokelau", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Turks and Caicos Islands", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States minor outlying islands", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican City State", "Venezuela", "Vietnam", "Virigan Islands (British)", "Virgin Islands (U.S.)", "Wallis and Futuna Islands", "Western Sahara", "Yemen", "Yugoslavia", "Zaire", "Zambia", "Zimbabwe"],
+                    [ "Canada", "Afghanistan", "Albania", "Algeria", "American Samoa", "Andorra", "Angola", "Anguilla", "Antarctica", "Antigua and/or Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Bouvet Island", "Brazil", "British Indian Ocean Territory", "Brunei Darussalam", "Bulgaria", "Burkina Faso", "Burundi", "Cambodia", "Cameroon", "Cape Verde", "Cayman Islands", "Central African Republic", "Chad", "Chile", "China", "Christmas Island", "Cocos (Keeling) Islands", "Colombia", "Comoros", "Congo", "Cook Islands", "Costa Rica", "Croatia (Hrvatska)", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "East Timor", "Ecudaor", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Falkland Islands (Malvinas)", "Faroe Islands", "Fiji", "Finland", "France", "France, Metropolitan", "French Guiana", "French Polynesia", "French Southern Territories", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Gibraltar", "Greece", "Greenland", "Grenada", "Guadeloupe", "Guam", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Heard and Mc Donald Islands", "Honduras", "Hong Kong", "Hungary", "Iceland", "India", "Indonesia", "Iran (Islamic Republic of)", "Iraq", "Ireland", "Israel", "Italy", "Ivory Coast", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Korea, Democratic People's Republic of", "Korea, Republic of", "Kosovo", "Kuwait", "Kyrgyzstan", "Lao People's Democratic Republic", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libyan Arab Jamahiriya", "Liechtenstein", "Lithuania", "Luxembourg", "Macau", "Macedonia", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Martinique", "Mauritania", "Mauritius", "Mayotte", "Mexico", "Micronesia, Federated States of", "Moldova, Republic of", "Monaco", "Mongolia", "Montserrat", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "Netherlands Antilles", "New Caledonia", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Niue", "Norfork Island", "Northern Mariana Islands", "Norway", "Oman", "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Pitcairn", "Poland", "Portugal", "Puerto Rico", "Qatar", "Reunion", "Romania", "Russian Federation", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Georgia South Sandwich Islands", "South Sudan", "Spain", "Sri Lanka", "St. Helena", "St. Pierre and Miquelon", "Sudan", "Suriname", "Svalbarn and Jan Mayen Islands", "Swaziland", "Sweden", "Switzerland", "Syrian Arab Republic", "Taiwan", "Tajikistan", "Tanzania, United Republic of", "Thailand", "Togo", "Tokelau", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Turks and Caicos Islands", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States minor outlying islands", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican City State", "Venezuela", "Vietnam", "Virigan Islands (British)", "Virgin Islands (U.S.)", "Wallis and Futuna Islands", "Western Sahara", "Yemen", "Yugoslavia", "Zaire", "Zambia", "Zimbabwe"],
                 states: 
-                    [ "Please select","JOHOR","KEDAH","KELANTAN","MELAKA","NEGERI SEMBILAN","PAHANG","PERAK","PERLIS","PULAU PINANG","SABAH","SARAWAK","SELANGOR","TERENGGANU","WILAYAH PERSEKUTUAN KUALA LUMPUR","WILAYAH PERSEKUTUAN LABUAN","WILAYAH PERSEKUTUAN PUTRAJAYA","OTHERS"],
+                    [ "JOHOR","KEDAH","KELANTAN","MELAKA","NEGERI SEMBILAN","PAHANG","PERAK","PERLIS","PULAU PINANG","SABAH","SARAWAK","SELANGOR","TERENGGANU","WILAYAH PERSEKUTUAN KUALA LUMPUR","WILAYAH PERSEKUTUAN LABUAN","WILAYAH PERSEKUTUAN PUTRAJAYA","OTHERS"],
                 nationalities:
                     ["Afghan","Albanian","Algerian","American","Andorran","Angolan","Antiguans","Argentinean","Armenian","Australian","Austrian","Azerbaijani","Bahamian","Bahraini","Bangladeshi","Barbadian","Barbudans","Batswana","Belarusian","Belgian","Belizean","Beninese","Bhutanese","Bolivian","Bosnian","Brazilian","British","Bruneian","Bulgarian","Burkinabe","Burmese","Burundian","Cambodian","Cameroonian","Canadian","Cape Verdean","Central African","Chadian","Chilean","Chinese","Colombian","Comoran","Congolese","Costa Rican","Croatian","Cuban","Cypriot","Czech","Danish","Djibouti","Dominican","Dutch","East Timorese","Ecuadorean","Egyptian","Emirian","Equatorial Guinean","Eritrean","Estonian","Ethiopian","Fijian","Filipino","Finnish","French","Gabonese","Gambian","Georgian","German","Ghanaian","Greek","Grenadian","Guatemalan","Guinea-Bissauan","Guinean","Guyanese","Haitian","Herzegovinian","Honduran","Hungarian","I-Kiribati","Icelander","Indian","Indonesian","Iranian","Iraqi","Irish","Israeli","Italian","Ivorian","Jamaican","Japanese","Jordanian","Kazakhstani","Kenyan","Kittian and Nevisian","Kuwaiti","Kyrgyz","Laotian","Latvian","Lebanese","Liberian","Libyan","Liechtensteiner","Lithuanian","Luxembourger","Macedonian","Malagasy","Malawian","Malaysian","Maldivan","Malian","Maltese","Marshallese","Mauritanian","Mauritian","Mexican","Micronesian","Moldovan","Monacan","Mongolian","Moroccan","Mosotho","Motswana","Mozambican","Namibian","Nauruan","Nepalese","New Zealander","Nicaraguan","Nigerian","Nigerien","North Korean","Northern Irish","Norwegian","Omani","Pakistani","Palauan","Panamanian","Papua New Guinean","Paraguayan","Peruvian","Polish","Portuguese","Qatari","Romanian","Russian","Rwandan","Saint Lucian","Salvadoran","Samoan","San Marinese","Sao Tomean","Saudi","Scottish","Senegalese","Serbian","Seychellois","Sierra Leonean","Singaporean","Slovakian","Slovenian","Solomon Islander","Somali","South African","South Korean","Spanish","Sri Lankan","Sudanese","Surinamer","Swazi","Swedish","Swiss","Syrian","Taiwanese","Tajik","Tanzanian","Thai","Togolese","Tongan","Trinidadian or Tobagonian","Tunisian","Turkish","Tuvaluan","Ugandan","Ukrainian","Uruguayan","Uzbekistani","Venezuelan","Vietnamese","Welsh","Yemenite","Zambian","Zimbabwean"],
                 maritalStatusOptions: [

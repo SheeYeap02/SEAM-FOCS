@@ -10,14 +10,17 @@ public class PreuResult {
     private Long qualificationId;
     private String grade;
 
+    private String resultType;
+
     public PreuResult() {
     }
 
-    public PreuResult(Long resultId, String subject, Long qualificationId, String grade) {
+    public PreuResult(Long resultId, String subject, Long qualificationId, String grade, String resultType) {
         this.resultId = resultId;
         this.subject = subject;
         this.qualificationId = qualificationId;
         this.grade = grade;
+        this.resultType = resultType;
     }
 
     public Long getResultId() {
@@ -50,5 +53,13 @@ public class PreuResult {
 
     public void setGrade(String grade) {
         this.grade = grade;
+    }
+
+    public String getResultType() {
+        return resultType;
+    }
+
+    public void setResultType(String resultType) {
+        this.resultType = resultType;
     }
 }

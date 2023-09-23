@@ -206,7 +206,7 @@
                       Please note that maximum for each attached file size is
                       <code>5MB. </code><br>
                       The only accepted formats are
-                      <code>pdf, doc, docx, bmp, png, jpg or gif.</code><br>
+                      <code>png, jpg</code><br>
                       Only two maximum files can be uploaded
                     </p>
                     <input type="file" class="multiple-files-filepond" multiple required>
@@ -304,7 +304,7 @@
                                       Please note that maximum for each attached file size is
                                       <code>5MB. </code><br>
                                       The only accepted formats are
-                                      <code>png, jpg or jpeg.</code><br>
+                                      <code>.png, .jpg or .jpeg.</code><br>
                                       Only <code>one file with IC Front & Back</code> can be uploaded.
                                     </p>
 
@@ -346,9 +346,12 @@
                                         <img src="" alt="Preview Image" id="previewImage"
                                           class="drop-zoon__preview-image" draggable="false">
 
-                                        <input type="file" id="fileInput" class="drop-zoon__file-input"
+                                        <input v-if="gotData" type="file" id="fileInput" class="drop-zoon__file-input"
                                           accept="image/jpeg、image/png、image/jpg" ref="uploadImage"
                                           @change="handleFileChange" required style="opacity: 1; display: block">
+                                        <input v-else type="file" id="fileInput" class="drop-zoon__file-input"
+                                          accept="image/jpeg、image/png、image/jpg" ref="uploadImage"
+                                          @change="handleFileChange" required>
                                       </div>
                                       <!-- End Drop Zoon -->
 
@@ -557,7 +560,6 @@
                 this.$message.success('Added new profile details！')
                 setTimeout(() => {
                   location.reload();
-                  alert('Halo Add')
                 }, 500); // 0.5secs
               } else {
                 this.$message.error(res.msg || 'Fail to handle')

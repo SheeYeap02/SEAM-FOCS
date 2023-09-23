@@ -1,11 +1,3 @@
-// get record with SPM/O LEVEL/EQUIVALENT
-function getQualification(id) {
-    return $axios({
-      url: `/qualification/${id}`,
-      method: 'get'
-    })
-}
-
 // get record with STPM/A LEVEL/ UEC/EQUIVALENT (IF APPLICABLE)
 function getQualificationSTPM(id) {
   return $axios({
@@ -15,18 +7,18 @@ function getQualificationSTPM(id) {
 }
 
 // add new profile
-function addQualification(params) {
+function addQualificationSTPM(params) {
   return $axios({
-    url: '/qualification/add',
+    url: '/qualification/stpm/add',
     method: 'post',
     data: { ...params }
   })
 }
 
 // modify profile
-function editQualification(params) {
+function editQualificationSTPM(params) {
   return $axios({
-    url: '/qualification/update',
+    url: '/qualification/stpm/update',
     method: 'put',
     data: { ...params }
   })

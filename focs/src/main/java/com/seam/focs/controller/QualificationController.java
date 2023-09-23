@@ -81,8 +81,12 @@ public class QualificationController {
     public Result<QualificationPreuResultDTO> getQualificationPreuResult(@PathVariable Long id) {
         log.info("Initialize qualification details");
         log.info("Applicant id = {}", id);
+        String desiredCategory = "SPM/O LEVEL/EQUIVALENT";
         QualificationPreuResultDTO qualificationPreuResultDTO = new QualificationPreuResultDTO();
-        Qualification qualification = qualificationService.getOne(new QueryWrapper<Qualification>().eq("applicant_id", id));
+        Qualification qualification = qualificationService.getOne(new QueryWrapper<Qualification>()
+                .eq("applicant_id", id)
+                .eq("category", desiredCategory)
+        );
 
         if(qualification != null) {
             qualificationPreuResultDTO.setYear(qualification.getYear());
@@ -92,6 +96,37 @@ public class QualificationController {
 
             LambdaQueryWrapper<PreuResult> queryWrapper = new LambdaQueryWrapper<>();
             queryWrapper.eq(PreuResult::getQualificationId, qualification.getQualificationId());
+            queryWrapper.and(wrapper -> wrapper.eq(PreuResult::getResultType, qualification.getType()));
+            
+            List<PreuResult> preuResultList = preuResultService.list(queryWrapper);
+            if(preuResultList != null) {
+                qualificationPreuResultDTO.setPreuResultList(preuResultList);
+            }
+        }
+        return Result.success(qualificationPreuResultDTO);
+    }
+
+    @GetMapping("/stpm/{id}")
+    public Result<QualificationPreuResultDTO> getQualificationPreuResultSTPM(@PathVariable Long id) {
+        log.info("Initialize qualification details");
+        log.info("Applicant id = {}", id);
+        String desiredCategory = "STPM/A LEVEL/ UEC/EQUIVALENT (IF APPLICABLE)";
+        QualificationPreuResultDTO qualificationPreuResultDTO = new QualificationPreuResultDTO();
+        Qualification qualification = qualificationService.getOne(new QueryWrapper<Qualification>()
+                .eq("applicant_id", id)
+                .eq("category", desiredCategory)
+        );
+
+        if(qualification != null) {
+            qualificationPreuResultDTO.setYear(qualification.getYear());
+            qualificationPreuResultDTO.setCategory(qualification.getCategory());
+            qualificationPreuResultDTO.setType(qualification.getType());
+            qualificationPreuResultDTO.setQualificationId(qualification.getQualificationId());
+
+            LambdaQueryWrapper<PreuResult> queryWrapper = new LambdaQueryWrapper<>();
+            queryWrapper.eq(PreuResult::getQualificationId, qualification.getQualificationId());
+            queryWrapper.and(wrapper -> wrapper.eq(PreuResult::getResultType, qualification.getType()));
+
             List<PreuResult> preuResultList = preuResultService.list(queryWrapper);
             if(preuResultList != null) {
                 qualificationPreuResultDTO.setPreuResultList(preuResultList);

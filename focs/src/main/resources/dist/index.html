@@ -18,7 +18,7 @@
 
   <body>
     <script src="assets/static/js/initTheme.js"></script>
-    <div id="">
+    <div id="app">
       <div id="sidebar">
         <div class="sidebar-wrapper active">
           <div class="sidebar-header position-relative">
@@ -116,7 +116,7 @@
                 </a>
 
                 <ul class="submenu">
-                    <li class="submenu-item ">
+                    <li class="submenu-item active">
                         <a href="./page/form-intake.html" class="submenu-link">Intake & Programme</a>                  
                       </li> 
                       <li class="submenu-item ">
@@ -125,7 +125,7 @@
                       <li class="submenu-item  ">
                           <a href="./page/form-detailed.html" class="submenu-link">Detailed Info</a>                  
                       </li> 
-                      <li class="submenu-item  active">
+                      <li class="submenu-item ">
                           <a href="./page/form-qualification.html" class="submenu-link">Qualifications</a>                  
                       </li>                            
                       <li class="submenu-item  ">
@@ -165,7 +165,8 @@
           </a>
         </header>
 
-        <div class="page-heading" id="logout-app">
+      <div id="logout-app">
+        <div class="page-heading" id="">
           <h3>Profile Statistics</h3>
           <div class="right-menu" style="float: right; margin-top: -65px">
             <div class="avatar-wrapper"></div>
@@ -272,7 +273,7 @@
                     <div class="ms-3 name">
                       <h5 class="font-bold"></h5>
                       <h6 class="text-muted mb-0">
-                        {{userInfo.applicantEmail}}
+                        {{ userInfo.applicantEmail.split('@')[0] }}
                       </h6>
                     </div>
                   </div>
@@ -351,6 +352,7 @@
             </div>
           </div>
         </footer>
+      </div>
       </div>
     </div>
 
