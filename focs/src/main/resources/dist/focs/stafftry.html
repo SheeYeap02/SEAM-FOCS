@@ -148,7 +148,18 @@
     width: 40%;
   }
   
+  
 }
+@media (max-width: 767px) {
+  .col-md-3 {
+    width: 100%; /* Set width to 100% for smaller screens */
+    float: none; /* Remove float for better layout */
+    margin: 0 auto; /* Center the div */
+    margin-top: 10px; /* Adjust top margin as needed */
+    border: none; /* Remove border */
+    padding: 10px; /* Add padding for spacing */
+    border-radius: 0; /* Remove border radius */
+  }}
     </style>
     <header class="grid headerjs">
     </header>
@@ -179,7 +190,12 @@
     <div class="checkbox">
       <label><input type="checkbox" class="icheck" name="position"> Assistant Professor</label>
     </div>
-    <!-- Add more position options as needed -->
+    <div class="checkbox">
+        <label><input type="checkbox" class="icheck"> Principal Lecturer</label>
+        </div>
+        <div class="checkbox">
+        <label><input type="checkbox" class="icheck"> Senior Lecturer</label>
+        </div></br>
   
     <div class="padding"></div>
   
@@ -201,7 +217,9 @@
     <div class="checkbox">
       <label><input type="checkbox" class="icheck" name="designation"> Deputy Dean</label>
     </div>
-    <!-- Add more designation options as needed -->
+    <div class="checkbox">
+        <label><input type="checkbox" class="icheck"> Associate Dean</label>
+        </div></br>
   
   </div>
   <!-- End of Filters Section -->
@@ -258,67 +276,84 @@
 
             
         }
-        let staffData; // Variable to store the staff data
+// Initialize staffData with all staff initially
+let staffData;
+
+// Fetch staff data and display initially
+fetchStaffData();
 
 async function fetchStaffData() {
   const response = await fetch('./js/json/staff.json');
   const data = await response.json();
   staffData = data.staff;
-  displayStaff(staffData); // Display initial staff data
+  displayFilteredStaff(staffData);
 }
 
-fetchStaffData(); // Fetch staff data on page load
+function filterStaff() {
+  const positionFilters = getCheckedValues('position');
+  const genderFilters = getCheckedValues('gender');
+  const designationFilters = getCheckedValues('designation');
 
-async function filterStaff() {
-  const positionFilters = document.querySelectorAll('input[name="position"]:checked');
-  const genderFilters = document.querySelectorAll('input[name="gender"]:checked');
-  const designationFilters = document.querySelectorAll('input[name="designation"]:checked');
-
-  // Filter staff based on the selected filters
   const filteredStaff = staffData.filter(staff => {
     return (
-      (positionFilters.length === 0 || positionFilters.some(filter => staff.position === filter.value)) &&
-      (genderFilters.length === 0 || genderFilters.some(filter => staff.Gender === filter.value)) &&
-      (designationFilters.length === 0 || designationFilters.some(filter => staff.designation === filter.value))
+      (positionFilters.length === 0 || positionFilters.includes(staff.position)) &&
+      (genderFilters.length === 0 || genderFilters.includes(staff.Gender)) &&
+      (designationFilters.length === 0 || designationFilters.includes(staff.designation))
     );
   });
 
-  // Update the UI to display the filtered staff
   displayFilteredStaff(filteredStaff);
 }
 
 function displayFilteredStaff(staff) {
-  const html = staff.map(staffMember => `
-    <div class="col-md-6 col-sm-6">
-      <div class="panel">
-        <div class="panel-body">
-          <div class="media">
-            <a class="pull-left" href="/dist/focs/staffDetail.html?idx=${staffMember.index}">
-              <img class="thumb media-object" src="${staffMember.imageURL}" alt="" />
-            </a>
-            <div class="media-body">
-              <h4>${staffMember.name} <span class="text-muted small"> - UI Engineer</span></h4>
-              <address>
-                <strong>${staffMember.designation}</strong><br>
-                <span style="color: #0000ff;">Faculty of Computing And Information Technology</span><br>
-                ${staffMember.qualification}<br>
-                <i class="fa fa-envelope">&nbsp;</i>${staffMember.email}<br>
-              </address>
+  let html = '';
+
+  // Display filtered staff data
+  staff.forEach((staffMember, index) => {
+    if (index % 2 === 0) {
+      html += '<div class="row">';
+    }
+
+    html += `
+      <div class="col-md-6 col-sm-6">
+        <div class="panel">
+          <div class="panel-body">
+            <div class="media">
+              <a class="pull-left" href="/dist/focs/staffDetail.html?idx=${index}">
+                <img class="thumb media-object" src="${staffMember.imageURL}" alt="" />
+              </a>
+              <div class="media-body">
+                <h4>${staffMember.name} <span class="text-muted small"> - ${staffMember.position}</span></h4>
+                <address>
+                  <strong>${staffMember.designation}</strong><br>
+                  <span style="color: #0000ff;">Faculty of Computing And Information Technology</span><br>
+                  ${staffMember.qualification}<br>
+                  <i class="fa fa-envelope">&nbsp;</i>${staffMember.email}<br>
+                </address>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  `).join('');
+      </div>`;
 
-  document.getElementById("book").innerHTML = html;
+    if (index % 2 !== 0 || index === staff.length - 1) {
+      html += '</div>';
+    }
+  });
+
+  document.getElementById('book').innerHTML = html;
 }
 
+function getCheckedValues(filterType) {
+  const checkboxes = document.querySelectorAll(`input[name="${filterType}"]:checked`);
+  return Array.from(checkboxes).map(checkbox => checkbox.value);
+}
+
+// Event listener for checkboxes to trigger filtering
 const checkboxes = document.querySelectorAll('.icheck');
 checkboxes.forEach(checkbox => {
   checkbox.addEventListener('change', filterStaff);
 });
-
 
 
         function showTab(tabIndex) {
