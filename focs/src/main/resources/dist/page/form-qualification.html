@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TAR UMT - Application for Admission Postgraduate Programme</title>
+    <title>TAR UMT - Application for Admission Undergraduate Programme</title>
     <link rel="shortcut icon" href="https://web.tarc.edu.my/portal/images/tarucLogo.png" type="image/x-icon">
     <link rel="stylesheet" href="../assets/compiled/css/app.css">
     <link rel="stylesheet" href="../assets/compiled/css/app-dark.css">
@@ -161,7 +161,7 @@
       <div class="col-12 col-md-6 order-md-1 order-last">
         <h3>Qualification</h3>
         <p class="text-subtitle text-muted">
-          Complete the application for admission postgraduate programme.
+          Complete the application for admission undergraduate programme.
         </p>
       </div>
       <div class="col-12 col-md-6 order-md-2 order-first">
@@ -429,7 +429,7 @@
                           </div>
     
                           <!-- Vertically Centered modal Modal -->
-                          <!-- <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                          <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog"
                               aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                               <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
                                   role="document">
@@ -450,26 +450,11 @@
                                         </div>
     
                                           <br>
-                                          With Brackets:
+                                          Accepted Format
                                           <ul>
-                                            <li>SEJARAH A- (CEMERLANG)</li>
-                                            <li>MATHEMATICS A+ (CEMERLANG TERTINGGI)</li>
+                                            <li>PENGAJIAN AM B 3.00 (LULUS PENUH)</li>
+                                            <li>LITERATURE IN ENGLISH A 4.00 (LULUS PENUH)</li>
                                           </ul>
-    
-                                          Without Brackets:
-                                          <ul>
-                                             <li>SEJARAH A- CEMERLANG</li>
-                                             <li>MATHEMATICS A+ CEMERLANG TERTINGGI</li>
-                                         </ul>
-    
-                                         <label for="fileFormat" class="" style="padding-top: 10px">Result Format</label>
-                                         <fieldset class="form-group">
-                                            <select v-model="resultFormat" class="form-select" :disabled="!isEditing" id="basicSelect" data-parsley-required="true">
-                                              <option value="Please select" disabled selected>Please select</option>
-                                              <option value="With Brackets">With Brackets</option>
-                                              <option value="Without Brackets">Without Brackets</option>
-                                            </select>
-                                        </fieldset> 
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
@@ -484,7 +469,7 @@
                                   </div>
                               </div>
                           </div>
-                      </div> -->
+                      </div>
     
                       <!-- The modal dialog -->
                       <div id="loading-modal2" class="load-modal" style="display: none">
@@ -1044,7 +1029,8 @@
 
                       subjectsAndGrades.push({
                           subject: standardSubject, 
-                          grade: getGrade   
+                          grade: getGrade,
+                          resultType: this.formData.qualification1.type   
                       });
                   }
                   console.log('Subjects and Grades:')
@@ -1376,7 +1362,7 @@
           handleFileChange(event) {
               this.$message.success("You've uploaded a file.");
               this.fileUploaded = event.target.files[0];
-              $('#exampleModalCenter').modal('show');
+              $('#exampleModalCenter2').modal('show');
 
           },
           viewUploadedFile() {
@@ -1386,7 +1372,9 @@
                   fileReader.readAsDataURL(this.fileUploaded);
                   fileReader.onload = () => {
                       const base64Image = fileReader.result;
-                      this.openImageInNewTab(base64Image);
+                      if(base64Image) {
+                        this.openImageInNewTab(base64Image);
+                      }
                   };
               } else {
                   console.error("File URL is not available.");
@@ -1413,11 +1401,6 @@
               newWindow.document.close();
           },
           checkResultFormat() {                    
-              if (this.resultFormat === 'With Brackets') {
-                  this.patternChoice = 1;
-              } else if (this.resultFormat === 'Without Brackets') {
-                  this.patternChoice = 2;
-              }
               this.$message.success(`
               You've selected the subject result format: " ${this.resultFormat}". 
               Please wait for the results list to be updated...`);
@@ -1429,13 +1412,13 @@
               this.recognizeText(file);
           },
           recognizeText(file) {
-              document.getElementById('loading-modal').style.display = 'flex';
+              document.getElementById('loading-modal2').style.display = 'flex';
 
               Tesseract.recognize(file,'eng',{ logger: m => console.log(m) }).then(({ data: { text } }) => {
                 console.log(text);
 
                 // Hide the modal when processing is done
-                document.getElementById('loading-modal').style.display = 'none';
+                document.getElementById('loading-modal2').style.display = 'none';
 
                 // Create a mapping from English to Bahasa Malaysia subject names
                 const subjectNameMapping = {
@@ -1451,28 +1434,22 @@
                 };
 
                 // Regular expression for extracting the year
-                const yearPattern = /TAHUN (\d+)/; 
+                const yearPattern = /Tahun Peperiksaan: (\d+)/; 
                 const yearMatch = text.match(yearPattern);
                 if (yearMatch && yearMatch[1]) {
                     console.log("Tahun: " + yearMatch[1])
-                    this.formData.qualification1.year = yearMatch[1];
+                    this.formData.qualification2.year = yearMatch[1];
                 }
 
                 // Regular expression for detecting qualification type
-                const typePattern = /SIJIL PELAJARAN MALAYSIA/; 
+                const typePattern = /TINGGI PERSEKOLAHAN MALAYSIA/; 
                 if (text.match(typePattern)) {
-                  this.formData.qualification1.type = 'SPM';
+                  this.formData.qualification2.type = 'STPM';
                 }
 
                 // Regular expression for extracting the subjects and grades
-                let pattern = '';
-                if(this.patternChoice === 1) {
-                    // First Format With Bracket ON GRADE DESCRIPTION 
-                    pattern = /([A-Z\s-'’]+?)\s+([A-D]\+?|\w-\+?)\s?\(([^)]+)\)/g;
-                } else if(this.patternChoice === 2) {
-                    // Second Format Without Bracket ON GRADE DESCRIPTION 
-                    pattern = /([A-Z\s-'’]+?)\s+([A-D]\+?)(?:\s+([A-Z\s-'’]+))?/g;
-                }
+                // let pattern = /([A-Z\s-'’]+?)\s+([A-D][\+–]?|[F])\s?(?=\d+\.\d+\s?\(([^)]+)\))/g;
+                const pattern = /([A-Z\s-'’]+?)\s+([A-D][\+-]?|F)\s+\d+\.\d+\s+\(([^)]+)\)/g;
                 const subjectsAndGrades = [];
 
                 // Iterate through each match in the recognized text
@@ -1482,12 +1459,13 @@
                     const getGrade = match[2].trim();
 
                     // Check if the subject name is in Bahasa Malaysia and map it to English
-                    const standardizedSubjectName = subjectNameMapping[getSubject];
-                    const standardSubject = standardizedSubjectName || getSubject;
+                    // const standardizedSubjectName = subjectNameMapping[getSubject];
+                    // const standardSubject = standardizedSubjectName || getSubject;
 
                     subjectsAndGrades.push({
-                        subject: standardSubject, 
-                        grade: getGrade   
+                        subject: getSubject, 
+                        grade: getGrade,
+                        resultType: this.formData.qualification2.type,   
                     });
                 }
                 console.log('Subjects and Grades:')

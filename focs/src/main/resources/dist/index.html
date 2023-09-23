@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TAR UMT - Application for Admission Postgraduate Programme</title>
+    <title>TAR UMT - Application for Admission Undergraduate Programme</title>
 
     <link
       rel="shortcut icon"
@@ -13,7 +13,13 @@
     <link rel="stylesheet" href="./assets/compiled/css/app.css" />
     <link rel="stylesheet" href="./assets/compiled/css/app-dark.css" />
     <link rel="stylesheet" href="./assets/compiled/css/iconly.css" />
-    <link rel="stylesheet" href="./assets/compiled/css/login.css" />
+    <!-- <link rel="stylesheet" href="./assets/compiled/css/login.css" /> -->
+
+    <style>
+      .drop-user {
+        margin-top: -30px !important;
+      }
+    </style>
   </head>
 
   <body>
@@ -166,121 +172,61 @@
         </header>
 
       <div id="logout-app">
-        <div class="page-heading" id="">
-          <h3>Profile Statistics</h3>
-          <div class="right-menu" style="float: right; margin-top: -65px">
-            <div class="avatar-wrapper"></div>
-            <img
-              src="./assets/compiled/png/btn_close@2x.png"
-              class="outLogin"
-              alt="Logout"
-              @click="logout"
-              style="cursor: pointer"
-            />
+        <div class="page-heading" style="display:flex; justify-content: space-between;">
+          <h3>Online Application for Admission</h3>
+          <!-- <div class="right-menu" style="float: right; margin-top: -65px"> -->
+          <div class="right-menu" style="margin-top: -20px;">
+
+            <!-- <div class="avatar-wrapper"></div>
+            <img src="./assets/compiled/png/btn_close@2x.png" class="outLogin" alt="Logout" @click="logout" style="cursor: pointer"/> -->
+               <header class='mb-3'>
+                <nav class="navbar-expand" >
+                  <div class="container-fluid">   
+                      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                          aria-expanded="false" aria-label="Toggle navigation">
+                          <span class="navbar-toggler-icon"></span>
+                      </button>
+                      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                          <ul class="navbar-nav ms-auto mb-lg-0">
+                              
+                          </ul>
+                          <div class="dropdown">
+                              <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                  <div class="user-menu d-flex">
+                                      <div class="user-name text-end me-3 d-flex flex-column justify-content-center " style="line-height: 2.2rem; height: 100px; ">
+                                          <h6 class="mb-0 text-gray-600">{{ userInfo.applicantEmail.split('@')[0] }}</h6>
+                                          <p class="mb-0 text-sm text-gray-600">Applicant</p>
+                                      </div>
+                                      <div class="user-img d-flex align-items-center justify-content-center">
+                                          <div class="avatar avatar-md d-flex flex-column justify-content-center">
+                                              <img src="./assets/compiled/jpg/1.jpg" alt="Face 1" style="width: 60px; height:60px;"/>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </a>
+                              <ul class="dropdown-menu dropdown-menu-end drop-user" aria-labelledby="dropdownMenuButton"
+                                  style="min-width: 11rem; line-height: 1.2rem; ">
+                                  <li>
+                                      <h6 class="dropdown-header">Email: {{ userInfo.applicantEmail }}</h6>
+                                  </li>
+                                  <li><a class="dropdown-item" href="./page/form-intake.html"><i class="icon-mid bi bi-person me-2"></i> My
+                                          New Form</a></li>
+                                  <li>
+                                      <hr class="dropdown-divider">
+                                  </li>
+                                  <li><button type="button" class="dropdown-item" @click="logout">
+                                    <i class="icon-mid bi bi-box-arrow-left me-2"></i> Logout</button></li>           
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+              </nav>
+          </header>
+
           </div>
         </div>
         <div class="page-content">
-          <section class="row">
-            <div class="col-12 col-lg-9">
-              <div class="row">
-                <div class="col-6 col-lg-3 col-md-6">
-                  <div class="card">
-                    <div class="card-body px-4 py-4-5">
-                      <div class="row">
-                        <div
-                          class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start"
-                        >
-                          <div class="stats-icon purple mb-2">
-                            <i class="iconly-boldShow"></i>
-                          </div>
-                        </div>
-                        <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                          <h6 class="text-muted font-semibold">
-                            Profile Views
-                          </h6>
-                          <h6 class="font-extrabold mb-0">112.000</h6>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-6 col-lg-3 col-md-6">
-                  <div class="card">
-                    <div class="card-body px-4 py-4-5">
-                      <div class="row">
-                        <div
-                          class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start"
-                        >
-                          <div class="stats-icon blue mb-2">
-                            <i class="iconly-boldProfile"></i>
-                          </div>
-                        </div>
-                        <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                          <h6 class="text-muted font-semibold">Followers</h6>
-                          <h6 class="font-extrabold mb-0">183.000</h6>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-6 col-lg-3 col-md-6">
-                  <div class="card">
-                    <div class="card-body px-4 py-4-5">
-                      <div class="row">
-                        <div
-                          class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start"
-                        >
-                          <div class="stats-icon green mb-2">
-                            <i class="iconly-boldAdd-User"></i>
-                          </div>
-                        </div>
-                        <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                          <h6 class="text-muted font-semibold">Following</h6>
-                          <h6 class="font-extrabold mb-0">80.000</h6>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-6 col-lg-3 col-md-6">
-                  <div class="card">
-                    <div class="card-body px-4 py-4-5">
-                      <div class="row">
-                        <div
-                          class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start"
-                        >
-                          <div class="stats-icon red mb-2">
-                            <i class="iconly-boldBookmark"></i>
-                          </div>
-                        </div>
-                        <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                          <h6 class="text-muted font-semibold">Saved Post</h6>
-                          <h6 class="font-extrabold mb-0">112</h6>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-lg-3">
-              <div class="card">
-                <div class="card-body py-4 px-4">
-                  <div class="d-flex align-items-center profile-head">
-                    <div class="avatar avatar-xl">
-                      <img src="assets/compiled/jpg/1.jpg" alt="Face 1" />
-                    </div>
-                    <div class="ms-3 name">
-                      <h5 class="font-bold"></h5>
-                      <h6 class="text-muted mb-0">
-                        {{ userInfo.applicantEmail.split('@')[0] }}
-                      </h6>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
           <section class="section">
             <div class="card">
               <div class="card-header">

@@ -97,7 +97,7 @@ public class QualificationController {
             LambdaQueryWrapper<PreuResult> queryWrapper = new LambdaQueryWrapper<>();
             queryWrapper.eq(PreuResult::getQualificationId, qualification.getQualificationId());
             queryWrapper.and(wrapper -> wrapper.eq(PreuResult::getResultType, qualification.getType()));
-            
+
             List<PreuResult> preuResultList = preuResultService.list(queryWrapper);
             if(preuResultList != null) {
                 qualificationPreuResultDTO.setPreuResultList(preuResultList);
