@@ -103,16 +103,29 @@
       /* Remove margin for the last column */
     }
 
-    .col-md-3 {
+    /* body > div.row {
       border-radius: 10px;
-      /* Adjust the value to change the border radius */
       border: 4px solid #ccc;
-      /* Optional: Add a border for visual effect */
-      padding: 20px;
-      /* Optional: Add padding for spacing */
-      float: right;
-      margin-top: -85%;
+      width: 20%;
     }
+    
+    body > div.row > div{
+        width:65%;
+    } */
+    
+    body > div.row > div{
+        
+        border-radius: 10px;
+      border: 4px solid #ccc;
+      top:-100%;
+    }
+    
+    .row {
+  position: absolute; /* Fixed position */
+  top: 65%; /* Position at the top */
+  width: 80%; /* Full width */
+  z-index: 999; /* Set a high z-index to ensure it's on top of other content */
+}
 
 
     @media (max-width: 767px) {
@@ -161,8 +174,30 @@
     height: 60%;
     width: 40%;
   }
-  
-  
+  #book > div:nth-child(1) > div > div > div > a > img{
+    height: 60%;
+    width: 40%;
+  }
+  #book > div:nth-child(2) > div > div > div > a > img{
+    height: 60%;
+    width: 40%;
+  }
+  #book > div:nth-child(3) > div > div > div > a > img{
+    height: 60%;
+    width: 40%;
+  }
+  #book > div:nth-child(4) > div > div > div > a > img{
+    height: 60%;
+    width: 40%;
+  }
+  #book > div:nth-child(5) > div > div > div > a > img{
+    height: 60%;
+    width: 40%;
+  }
+  #book > div:nth-child(6) > div > div > div > a > img{
+    height: 60%;
+    width: 40%;
+  }
 }
 @media (max-width: 767px) {
   .col-md-3 {
@@ -173,7 +208,15 @@
     border: none; /* Remove border */
     padding: 10px; /* Add padding for spacing */
     border-radius: 0; /* Remove border radius */
-  }}
+  }
+  .row {
+    position: initial; /* Reset the position property to its default value */
+    top: initial; /* Reset the top property to its default value */
+    width: initial; /* Reset the width property to its default value */
+    z-index: initial; /* Reset the z-index property to its default value */
+    border-radius: initial; /* Reset the border-radius property to its default value */
+  }
+}
     </style>
     <header class="grid headerjs">
     </header>
@@ -189,9 +232,9 @@
   </div>
   <h4 class="titlestaff">STAFF DIRECTORY</h4>
   <div class="directory-info-row" id="book">
-    <div class="row">
+    <!-- <div class="row">
 
-    </div>
+    </div> -->
     <div class="checkbox">
       <label><input type="checkbox" class="icheck" name="position"> Assistant Professor</label>
     </div>
@@ -211,7 +254,6 @@
     <div class="checkbox">
       <label><input type="checkbox" class="icheck" name="gender"> Female</label>
     </div>
-    <!-- Add more gender options as needed -->
   
     <div class="padding"></div>
   
@@ -240,7 +282,9 @@
       <div class="checkbox">
         <label><input type="checkbox" class="icheck" value="Assistant Professor" name="position"> Assistant Professor</label>
       </div>
-      <!-- Add more position options as needed -->
+      <div class="checkbox">
+        <label><input type="checkbox" class="icheck" value="Principal Lecturer" name="position"> Principal Lecturer</label>
+        </div></br>
   
       <div class="padding"></div>
   
@@ -262,7 +306,9 @@
       <div class="checkbox">
         <label><input type="checkbox" class="icheck" value="Deputy Dean" name="designation"> Deputy Dean</label>
       </div>
-      <!-- Add more designation options as needed -->
+      <div class="checkbox">
+        <label><input type="checkbox" class="icheck" value="Associate Dean" name="designation"> Associate Dean</label>
+        </div></br>
   
     </div>
     <!-- End of Filters Section -->
@@ -334,7 +380,7 @@
                                 <div class="media-body">
                                     <h4>${item['name']} <span class="text-muted small"> - ${item['position']}</span></h4>
                                     <address>
-                                        <strong>${staff['designation']}</strong></br>
+                                        <strong>${item['designation']}</strong></br>
                                         <span style="color: #0000ff;">Faculty of Computing And Information Technology</span></br>
                                         ${item['qualification']}</br>
                                         <i class="fa fa-envelope">&nbsp;</i>${item['email']}</br>
