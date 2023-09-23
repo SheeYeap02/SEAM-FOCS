@@ -258,18 +258,60 @@
 
             
         }
-        function filterStaff() {
+        let staffData; // Variable to store the staff data
+
+async function fetchStaffData() {
+  const response = await fetch('./js/json/staff.json');
+  const data = await response.json();
+  staffData = data.staff;
+  displayStaff(staffData); // Display initial staff data
+}
+
+fetchStaffData(); // Fetch staff data on page load
+
+async function filterStaff() {
   const positionFilters = document.querySelectorAll('input[name="position"]:checked');
   const genderFilters = document.querySelectorAll('input[name="gender"]:checked');
   const designationFilters = document.querySelectorAll('input[name="designation"]:checked');
 
-  // Here, you'll implement the logic to filter staff based on the selected filters
-  // For simplicity, let's just console log the selected filters
-  console.log('Selected Position Filters:', positionFilters);
-  console.log('Selected Gender Filters:', genderFilters);
-  console.log('Selected Designation Filters:', designationFilters);
+  // Filter staff based on the selected filters
+  const filteredStaff = staffData.filter(staff => {
+    return (
+      (positionFilters.length === 0 || positionFilters.some(filter => staff.position === filter.value)) &&
+      (genderFilters.length === 0 || genderFilters.some(filter => staff.Gender === filter.value)) &&
+      (designationFilters.length === 0 || designationFilters.some(filter => staff.designation === filter.value))
+    );
+  });
 
-  // You can update the UI to display the filtered results based on these filters
+  // Update the UI to display the filtered staff
+  displayFilteredStaff(filteredStaff);
+}
+
+function displayFilteredStaff(staff) {
+  const html = staff.map(staffMember => `
+    <div class="col-md-6 col-sm-6">
+      <div class="panel">
+        <div class="panel-body">
+          <div class="media">
+            <a class="pull-left" href="/dist/focs/staffDetail.html?idx=${staffMember.index}">
+              <img class="thumb media-object" src="${staffMember.imageURL}" alt="" />
+            </a>
+            <div class="media-body">
+              <h4>${staffMember.name} <span class="text-muted small"> - UI Engineer</span></h4>
+              <address>
+                <strong>${staffMember.designation}</strong><br>
+                <span style="color: #0000ff;">Faculty of Computing And Information Technology</span><br>
+                ${staffMember.qualification}<br>
+                <i class="fa fa-envelope">&nbsp;</i>${staffMember.email}<br>
+              </address>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+
+  document.getElementById("book").innerHTML = html;
 }
 
 const checkboxes = document.querySelectorAll('.icheck');
