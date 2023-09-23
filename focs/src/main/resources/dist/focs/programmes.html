@@ -178,7 +178,13 @@
                 <div class="modal-body">
                     <div class="card" id="searchResult">
                         <div class="card-body">
-                            This is some text within a card body.
+                            <ul class="list-group">
+                                <li class="list-group-item">Cras justo odio</li>
+                                <li class="list-group-item">Dapibus ac facilisis in</li>
+                                <li class="list-group-item">Morbi leo risus</li>
+                                <li class="list-group-item">Porta ac consectetur ac</li>
+                                <li class="list-group-item">Vestibulum at eros</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -199,7 +205,8 @@
         <img src="https://www.tarc.edu.my/files/focs/78BD55AB-1C84-4D3B-A62E-B1F13CDB009C.JPG" alt="Image 2">
     </div>
 
-    <div class="input-group bg-light" style="border-radius: 20px; padding-right: 10%;padding-left: 10%; flex-wrap: nowrap;">
+    <div class="input-group bg-light"
+        style="border-radius: 20px; padding-right: 10%;padding-left: 10%; flex-wrap: nowrap;">
         <div class="form-outline">
             <input type="search" id="search-input" class="form-control" placeholder="Search Programme" />
             <!-- <label class="form-label" for="search-input">Search</label> -->
@@ -336,6 +343,7 @@
 
             const response = await fetch('./js/json/programme.json');
             const data = await response.json();
+            let found = false;
 
             document.getElementById('searchResult').innerHTML = "";
             for (const a in data) {
@@ -344,15 +352,21 @@
                         for (const c in data[a][b]) {
                             console.log(c);
                             if (c.toLowerCase().includes(searchInput)) {
-
-                                document.getElementById('searchResult').innerHTML += `<div class="card-body"><a style="color: black;"
+                                //<li class="list-group-item">Cras justo odio</li>
+                                document.getElementById('searchResult').innerHTML += `<li class="list-group-item"><div class="card-body"><a style="color: black;"
                     href="/dist/focs/programme.html?level=${a}&cert=${b}&programme=${c}">
                                     ${c}
-                                </a></div>`;
+                                </a></div></li>`;
+                                found = true;
                             }
                         }
                     }
                 }
+            }
+            if (!found) {
+                document.getElementById('searchResult').innerHTML += `<li class="list-group-item"><div class="card-body text-dark">
+                                    No results found
+                                </div></li>`;
             }
         }
 
