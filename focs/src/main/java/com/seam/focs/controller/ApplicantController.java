@@ -3,7 +3,9 @@ package com.seam.focs.controller;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.seam.focs.common.Result;
 import com.seam.focs.entity.Applicant;
+import com.seam.focs.entity.Application;
 import com.seam.focs.service.ApplicantService;
+import com.seam.focs.service.ApplicationService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.DigestUtils;
@@ -21,6 +23,9 @@ import java.time.LocalDateTime;
 public class ApplicantController {
     @Autowired
     private ApplicantService applicantService;
+
+    @Autowired
+    private ApplicationService applicationService;
 
     /**
      *
@@ -82,6 +87,18 @@ public class ApplicantController {
         applicant.setPassword(DigestUtils.md5DigestAsHex(applicant.getPassword().getBytes()));
         applicant.setRegisteredDate(LocalDateTime.now());
         applicantService.save(applicant);
+
+
+        LambdaQueryWrapper<Applicant> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(Applicant::getApplicantEmail, applicant.getApplicantEmail());
+        Applicant apc = applicantService.getOne(queryWrapper);
+
+        Application application = new Application();
+        application.setStatus("Pending");
+        application.setCreatedDate(LocalDateTime.now());
+        application.setSubmittedDate(LocalDateTime.now());
+        application.setApplicantId(apc.getApplicantId());
+        applicationService.save(application);
 
         return Result.success("Successfully Added New Applicant");
     }

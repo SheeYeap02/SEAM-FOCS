@@ -147,23 +147,20 @@ CREATE TABLE `preu_result` (
 -- Application table
 CREATE TABLE `application` (
     `application_id` BIGINT(20) NOT NULL AUTO_INCREMENT,
-    `intake` VARCHAR(12) NOT NULL,
-    `application_status` VARCHAR(15) NOT NULL,
-    `study_mode` VARCHAR(20) NOT NULL,
-    `start_year` INT(4) NOT NULL,
-    `programme_id` BIGINT(20) NOT NULL,
-    `profile_info_id` BIGINT(20) NOT NULL,
-    `detailed_info_id` BIGINT(20) NOT NULL,
-    `qualification_id` BIGINT(20) NOT NULL,
+    `status` VARCHAR(15) NOT NULL,
+    `created_date` DATETIME NOT NULL,
+    `submitted_date` DATETIME,
+    `intake_id` BIGINT(20),
+    `profile_info_id` BIGINT(20) ,
+    `detailed_info_id` BIGINT(20) ,
+    `qualification_id` BIGINT(20) ,
     `applicant_id` BIGINT(20) NOT NULL,
-    `staff_id` BIGINT(20),
     PRIMARY KEY (`application_id`),
-    FOREIGN KEY (`programme_id`) REFERENCES `programme`(`programme_id`),
+    FOREIGN KEY (`intake_id`) REFERENCES `intake`(`intake_id`),
     FOREIGN KEY (`profile_info_id`) REFERENCES `profile_info`(`profile_info_id`),
     FOREIGN KEY (`detailed_info_id`) REFERENCES `detailed_info`(`detailed_info_id`),
     FOREIGN KEY (`qualification_id`) REFERENCES `qualification`(`qualification_id`),
-    FOREIGN KEY (`applicant_id`) REFERENCES `applicant`(`applicant_id`),
-    FOREIGN KEY (`staff_id`) REFERENCES `staff`(`staff_id`)
+    FOREIGN KEY (`applicant_id`) REFERENCES `applicant`(`applicant_id`)
 );
 
 
@@ -252,14 +249,19 @@ INSERT INTO `qualification` VALUES (2, '2020', 'STPM/A LEVEL/ UEC/EQUIVALENT (IF
 
 -- PreUResult table
 -- (Subject, ApplicantId, Grade)
--- INSERT INTO `preu_result` VALUES (1, 'MATHEMATICS', 1, 'A');
--- INSERT INTO `preu_result` VALUES (2, 'PHYSICS', 1, 'B');
--- INSERT INTO `preu_result` VALUES (3, 'CHEMISTRY', 1, 'A');
+INSERT INTO `preu_result` VALUES (1, 'MATHEMATICS', 1, 'A', 'SPM');
+INSERT INTO `preu_result` VALUES (2, 'PHYSICS', 1, 'B', 'SPM');
+INSERT INTO `preu_result` VALUES (3, 'CHEMISTRY', 1, 'A', 'SPM');
+INSERT INTO `preu_result` VALUES (4, 'BIOLOGY', 1, 'A', 'SPM');
+INSERT INTO `preu_result` VALUES (5, 'ADDITIONAL MATHEMATICS', 1, 'B', 'SPM');
+INSERT INTO `preu_result` VALUES (6, 'BAHASA CINA', 1, 'A', 'SPM');
+INSERT INTO `preu_result` VALUES (7, 'BAHASA MELAYU', 1, 'A', 'SPM');
+INSERT INTO `preu_result` VALUES (8, 'BAHASA INGGERIS', 1, 'A', 'SPM');
+INSERT INTO `preu_result` VALUES (9, 'PENDIDIKAN MORAL', 1, 'B', 'SPM');
+INSERT INTO `preu_result` VALUES (10, 'SEJARAH', 1, 'A', 'SPM');
 
--- Application table
--- (ApplicationId, Intake, ApplicationStatus, StudyMode, StartYear, CampusId, ProgrammeId, ProfileInfoId, DetailedInfoId, QualificationId, ApplicantId, StaffId)
-INSERT INTO `application` VALUES (1, '2023/2024', 'Pending', 'Full-time', '2023', 1, 1, 1, 1, 1, 2);
-INSERT INTO `application` VALUES (2, '2023/2024', 'Pending', 'Part-time', '2023', 2, 2, 2, 2, 2, 1);
+-- Intake table
+INSERT INTO `application`  VALUES ('1', 'Pending','2023-01-01','2023-01-01', 1, 1, 1, 1, 1);
 
 -- Enquirer table
 -- (EnquirerEmail, Contact, Name, Nationality)

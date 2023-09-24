@@ -236,44 +236,26 @@
                 <table class="table table-striped" id="table1">
                   <thead>
                     <tr>
-                      <th>Admission Intake</th>
-                      <th>Programme</th>
                       <th>Application No.</th>
-                      <th>Application Bill</th>
+                      <th>Admission Intake</th>
+                      <th>Programme Applied (1st Choice)</th>
+                      <th>Submitted Date</th>
                       <th>Status</th>
                       <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>October 2023</td>
-                      <td>POSTGRADUATE DIPLOMA IN EDUCATION</td>
-                      <td>LEU202309000015</td>
-                      <td>-</td>
+                    <tr v-for="(application, index) in applications" :key="index">
+                      <td>{{ application.applicationId }}</td>
+                      <td>{{ application.intakes.programmeChoice1.session }}</td>
+                      <td>{{ application.intakes.programmeChoice1.programme }}</td>
+                      <td>{{ application.submittedDate }}</td>
                       <td>
-                        <span class="badge bg-success">Pending</span>
+                        <span v-if="application.status === 'Pending'" class="badge bg-danger">{{ application.status }}</span>
+                        <span v-if="application.status === 'Success'" class="badge bg-success">{{ application.status }}</span>
+
                       </td>
-                      <td><a href="#">Edit</a> | <a href="#">Cancel</a></td>
-                    </tr>
-                    <tr>
-                      <td>October 2023</td>
-                      <td>POSTGRADUATE DIPLOMA IN EDUCATION</td>
-                      <td>LEU202309000015</td>
-                      <td>-</td>
-                      <td>
-                        <span class="badge bg-success">Pending</span>
-                      </td>
-                      <td><a href="#">Edit</a> | <a href="#">Cancel</a></td>
-                    </tr>
-                    <tr>
-                      <td>October 2023</td>
-                      <td>POSTGRADUATE DIPLOMA IN EDUCATION</td>
-                      <td>LEU202309000015</td>
-                      <td>-</td>
-                      <td>
-                        <span class="badge bg-danger">Pending</span>
-                      </td>
-                      <td><a href="#">Edit</a> | <a href="#">Cancel</a></td>
+                      <td><a href="./page/form-intake.html">Edit</a> | <a href="#">Cancel</a></td>
                     </tr>
                   </tbody>
                 </table>
@@ -303,13 +285,14 @@
     </div>
 
     <script src="assets/static/js/components/dark.js"></script>
-    <!-- <script src="assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js"></script> -->
     <script src="assets/compiled/js/app.js"></script>
 
     <script src="plugins/axios/axios.min.js"></script>
     <script src="plugins/element-ui/index.js"></script>
     <script src="plugins/vue/vue.js"></script>
     <script src="api/login.js"></script>
+    <script src="api/application.js"></script>
+    <script src="api/intake.js"></script>
     <script src="js/request.js"></script>
     <script src="js/index.js"></script>
 
@@ -318,38 +301,75 @@
               el: "#logout-app",
               data() {
                 return {
-                  id: "1",
-                  lastActivityTime: "",
+                  id: "",
+                  userInfo: {},
                   logoutTimer: '',
                   warningTimerID: '',
                   idleTimeOut: 600000, //10minutes
+                  applications: [
+                      {
+                        "applicationId": "",
+                        "status": "",
+                        "createdDate": "",
+                        "submittedDate": "",
+                        "intakeId": "",
+                        "profileInfoId": "",
+                        "detailedInfoId": "",
+                        "qualificationId": "",
+                        "applicantId": "",
+                        intakes: {        // Default value, or load from the server
+                            programmeChoice1: {
+                      "session": "",
+                      "campus": "", 
+                      "levelOfStudy": "",
+                      "entryQualification": "",
+                      "programme": "",
+                      "firstSem": "",
+                      "priority": "1",
+                      "applicantId": "",
+                    },
+                            programmeChoice2: {
+                      "session": "",
+                      "campus": "", 
+                      "levelOfStudy": "",
+                      "entryQualification": "",
+                      "programme": "",
+                      "firstSem": "",
+                      "priority": "2",
+                      "applicantId": "",
+                    },
+                            programmeChoice3: {
+                      "session": "",
+                      "campus": "", 
+                      "levelOfStudy": "",
+                      "entryQualification": "",
+                      "programme": "",
+                      "firstSem": "",
+                      "priority": "3",
+                      "applicantId": "",
+                    },
+                            "applicantId": "",
+                            "session": "",
+                        },
+                    }
+                  ]
                 };
               },
               computed: {},
               created() {
                 const userInfo = window.localStorage.getItem("userInfo");
                 if (userInfo) {
-                  console.log(userInfo);
-                  this.userInfo = JSON.parse(userInfo);
-                }
-                console.log(
-                  typeof JSON.parse(window.localStorage.getItem("userInfo"))
-                );
-                console.log("Halo index");
-
-                const checkActivityTime = sessionStorage.getItem("lastActivityTime");
-                if (checkActivityTime) {
-                  this.lastActivityTime = checkActivityTime;
-                  console.log(this.lastActivityTime);
-                }
+                  console.log(userInfo)
+                  this.userInfo = JSON.parse(userInfo)
+                } 
+                if (this.userInfo.applicantId) {
+                   this.init()
+                 } else {
+                  // this.$message.warning('Haven\' Login Account')
+                  window.location.href = "./page/login.html";
+                 }
               },
               mounted() {
-                // document.addEventListener("keydown", this.checkIdleTimeout);
-                // document.addEventListener("mousedown", this.checkIdleTimeout);
-                // document.addEventListener("touchstart", this.checkIdleTimeout);
-                // document.addEventListener("touchmove", this.checkIdleTimeout);
-                // document.addEventListener("keypress", this.checkIdleTimeout);
-                // document.addEventListener("scroll", this.checkIdleTimeout);
                 document.body.addEventListener("mousemove", this.resetTimer);
                 document.body.addEventListener("mousedown", this.resetTimer);
                 document.body.addEventListener("keypress", this.resetTimer);
@@ -368,20 +388,107 @@
                     }
                   });
                 },
-                // checkIdleTimeout() {
-                //     const currentTime = Date.now();
-                //     const idleTime = currentTime - this.lastActivityTime;
+                init() {
+                    const userInfo = JSON.parse(window.localStorage.getItem('userInfo'))
+                    if(userInfo) {
+                        this.id = userInfo.applicantId;
+                    } 
+                    console.log("init id here: " + this.id )
+                    
+                     getApplication(this.id).then(res => {
+                      console.log(res)  
+                        if (String(res.code) === '1') {
+                            const newData = res.data;
+                            if(newData.length > 0) {
+                              // this.applications = newData;
+                              this.applications = newData.map(item => ({
+                                ...item,
+                                intakes: {
+                                  ...this.applications.intakes,
+                                  ...item.intakes
+                                }
+                              }));
+                              console.log(this.applications) 
+                              this.findIntake()
+                            } else {
+                              this.$message.warning('Pending submission of application!')
+                            }
+                        } else {
+                            // this.$message.error(res.msg || 'Fail to handle')
+                            this.$message.error('Pending submission of application!')
+                           
+                        }
+                    })
+                },
+                findIntake() {
+                  getIntake(this.id).then(res => {
+                      console.log(res)
+                      if (String(res.code) === '1') {
+                          const newData = res.data;
+                          if(newData[0] != null) {
+                                const programmeChoices = {
+                                  programmeChoice1: null,
+                                  programmeChoice2: null,
+                                  programmeChoice3: null,
+                                };
 
-                //     if (window.localStorage.getItem("userInfo") != null) {
-                //         if (idleTime >= this.idleTimeOut) {
-                //             this.logout();
-                //         } else {
-                //             const remainingTime = this.idleTimeOut - idleTime;
-                //             console.log(`You idled ${remainingTime / 1000} seconds!`);
-                //             this.lastActivityTime = Date.now();
-                //         }
-                //     }
-                // },
+                                newData.forEach((intake) => {
+                                  switch (intake.priority) {
+                                    case 1:
+                                      programmeChoices.programmeChoice1 = intake;
+                                      break;
+                                    case 2:
+                                      programmeChoices.programmeChoice2 = intake;
+                                      break;
+                                    case 3:
+                                      programmeChoices.programmeChoice3 = intake;
+                                      break;
+                                    default:
+                                      break;
+                                  }
+                              });
+                              console.log(programmeChoices)
+                              this.applications[0].intakes = programmeChoices;
+                              this.applications[0].intakes.session = programmeChoices.programmeChoice1.session;
+                          } else {
+                            this.applications.intakes = {
+                                programmeChoice1: {
+                                  "session": "",
+                                  "campus": "",
+                                  "levelOfStudy": "",
+                                  "entryQualification": "",
+                                  "programme": "",
+                                  "firstSem": "",
+                                  "priority": "1",
+                                  "applicantId": "",
+                              },
+                                programmeChoice2: {
+                                  "session": "",
+                                  "campus": "",
+                                  "levelOfStudy": "",
+                                  "entryQualification": "",
+                                  "programme": "",
+                                  "firstSem": "",
+                                  "priority": "2",
+                                  "applicantId": "",
+                              },
+                                programmeChoice3: {
+                                  "session": "",
+                                  "campus": "",
+                                  "levelOfStudy": "",
+                                  "entryQualification": "",
+                                  "programme": "",
+                                  "firstSem": "",
+                                  "priority": "3",
+                                  "applicantId": "",
+                              },
+                                "applicantId": "",
+                                "session": "",
+                            };
+                          }
+                      } 
+                    })
+                },
                 startTimer() {
                   this.warningTimerID = window.setTimeout(this.idleLogout, this.idleTimeOut);
                   this.animate(5, 0, this.idleTimeOut);

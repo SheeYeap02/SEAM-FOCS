@@ -216,16 +216,14 @@
             if (localStorage.getItem('userInfo') == null) {
                 //navigate user to other page
                 await new Promise(resolve => {
-                    localStorage.setItem('redirect', 'submitEnquiry2.html');
+                    localStorage.setItem('redirect', '../focs/submitEnquiry2.html');
+                    sessionStorage.setItem('redirect', '../focs/submitEnquiry2.html');
                     resolve();
                 });
-                console.log(localStorage.getItem('redirect'));
-                if (localStorage.getItem('redirect') == 'submitEnquiry2.html') {
-                    //window.location.href = "/dist/page/login.html?redirect=submitEnquiry2.html";
-                    //window.location.href = "http://localhost:8081/dist/page/login.html?redirect=submitEnquiry2.html";
-                    console.log('redirect to login');
-                    window.location.href = "http://localhost:8081/dist/focs/programmes2.html";
-                }
+                localStorage.setItem('redirect', '../focs/submitEnquiry2.html');
+                sessionStorage.setItem('redirect', '../focs/submitEnquiry2.html');
+                //window.location.href = "../page/login.html?redirect=submitEnquiry2.html";
+                window.location.href = '/dist/page/login.html?redirect="../focs/submitEnquiry2.html"';
                 //
             } else {
                 //get user info

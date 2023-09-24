@@ -10,12 +10,6 @@
 
   // request handler
   service.interceptors.request.use((config) => {
-      // Whether you need to set a token
-      // const isToken = (config.headers || {}).isToken === false
-      // if (getToken() && !isToken) {
-      //   //Make each request carry a customized token. Modify it as you see fit
-      //   config.headers['Authorization'] = 'Bearer ' + getToken()
-      // }
       // Get request mapping params parameter
       if (config.method === "get" && config.params) {
         let url = config.url + "?";
@@ -50,11 +44,9 @@
   service.interceptors.response.use((res) => {
       console.log("---- ../page/login.html ----");
       if (res.data.code === 0 || res.data.msg === "NOTLOGIN") {
-        // back to login page
-        //  alert('Request.js : NOT LOGIN')
-         console.log("---- ../page/login.html ----");
+         console.log("---- /dist/page/login.html ----");
          localStorage.removeItem("userInfo");
-         window.top.location.href = "../page/login.html";
+         window.location.href = "../page/login.html";
       } else {
         return res.data;
       }
@@ -69,11 +61,6 @@
       } else if (message.includes("Request failed with status code")) {
         message = "System Interface" + message.substr(message.length - 3) + "Exception";
       }
-      // window.ELEMENT.Message({
-      //   message: message,
-      //   type: "error",
-      //   duration: 5 * 1000,
-      // });
       return Promise.reject(error);
     }
   );
