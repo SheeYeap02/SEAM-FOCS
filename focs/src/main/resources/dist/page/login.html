@@ -128,6 +128,10 @@
         }
       },
       created() {
+        console.log(localStorage.getItem('redirect'));
+        let urlParams = new URLSearchParams(window.location.search);
+        let redirectParam = urlParams.get('redirect');
+        console.log(redirectParam);
       },
       methods: {
         async handleLogin() {
@@ -139,8 +143,13 @@
                 localStorage.setItem('userInfo', JSON.stringify(res.data))
                 sessionStorage.setItem('lastActivityTime', Date.now())
                 this.$message.success('Successfully Login Your Account！')
+
+                //REDIRECT TO ENQUIRY PAGE
                 console.log(localStorage.getItem('redirect'));
-                if (localStorage.getItem('redirect') == 'submitEnquiry2.html') {
+                let urlParams = new URLSearchParams(window.location.search);
+                let redirectParam = urlParams.get('redirect');
+                console.log(redirectParam);
+                if (localStorage.getItem('redirect') == 'submitEnquiry2.html' || redirectParam == 'submitEnquiry2.html') {
                   this.$message.success('Going back to Enquiry！')
                   localStorage.removeItem('redirect');
                   window.location.href = '../focs/submitEnquiry2.html';
@@ -150,9 +159,10 @@
                     this.$message.success('Going back to Enquiry！')
                     localStorage.removeItem('redirect');
                     window.location.href = '../focs/submitEnquiry2.html';
+                  } else {
+                    window.location.href = '/dist/index.html';
                   }
-                  window.location.href = '/dist/index.html';
-                }, 500); // 0.5secs
+                }, 1500); // 0.5secs
               } else {
                 this.$message.error(res.msg)
                 this.loading = false
