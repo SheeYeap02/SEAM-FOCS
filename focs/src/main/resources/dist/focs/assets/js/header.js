@@ -20,9 +20,9 @@ header.innerHTML = ` <header id="header" class="fixed-top d-flex align-items-cen
           <li><a class="nav-link scrollto" href="programmes2.html#searchProgramme">Bachelor Programme</a></li>
         </ul>
       </li>
-      <li><a class="nav-link scrollto" href="aboutus2.html">About Us</a></li>
+      <li><a class="nav-link scrollto" href="aboutus.html">About Us</a></li>
       <li><a class="nav-link scrollto" href="stafftry2.html">Our Team</a></li>
-      <li><a class="nav-link scrollto" href="facili2.html">Facilities</a></li>
+      <li><a class="nav-link scrollto" href="facili.html">Facilities</a></li>
       <li><a class="nav-link scrollto" href="submitEnquiry2.html">Contact</a></li>
     </ul>
     <i class="bi bi-list mobile-nav-toggle"></i>

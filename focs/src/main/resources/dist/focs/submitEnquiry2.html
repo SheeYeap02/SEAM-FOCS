@@ -73,7 +73,7 @@
 
             </div>
         </section><!-- End Cta Section -->
-        
+
         <!--Section: Contact v.2-->
         <section class="m-5 bg-light shadow" style="padding: 5%;border-radius: 20px;">
 
@@ -212,12 +212,17 @@
     <script src="../api/query.js"></script>
 
     <script>
-        onload = function () {
+        onload = async function () {
             if (localStorage.getItem('userInfo') == null) {
                 //navigate user to other page
-                localStorage.setItem('redirect', 'submitEnquiry2.html');
-                console.log('redirect to login page');
-                window.location.href = "../page/login.html";
+                await new Promise(resolve => {
+                    localStorage.setItem('redirect', 'submitEnquiry2.html');
+                    resolve();
+                });
+                console.log(localStorage.getItem('redirect'));
+                if (localStorage.getItem('redirect') == 'submitEnquiry2.html') {
+                    window.location.href = "../page/login.html?redirect=submitEnquiry2.html";
+                }
                 //
             } else {
                 //get user info
@@ -228,9 +233,7 @@
                 document.getElementById('name').value = userEmail.split('@')[0];
 
             }
-
             document.getElementById('tab2-content').style.display = 'none';
-
         }
 
         //onProgress();
