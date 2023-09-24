@@ -150,7 +150,7 @@
                 console.log(sessionStorage.getItem('redirect'));
                 let urlParams = new URLSearchParams(window.location.search);
                 let redirectParam = urlParams.get('redirect');
-
+                
                 if (sessionStorage.getItem('redirect') != null) {
                   redirectParam = sessionStorage.getItem('redirect');
                   window.location.href = redirectParam;
@@ -162,7 +162,6 @@
                 } else if (redirectParam != null) {
                   window.location.href = redirectParam;
                 }
-
                 setTimeout(() => {
                   window.location.href = '/dist/index.html';
 
