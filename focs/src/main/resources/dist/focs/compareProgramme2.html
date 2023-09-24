@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <script src="//code.tidio.co/m6kdihlblyie9jlb1otfxudgzisuz4fx.js" async></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Compare Programme</title>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
+
+    <!-- GET VISITOR IP ON TERMINAL -->
+    <script type="text/javascript" src="js/devicedetect.js"></script>
+
+    <!-- CUSTOM STYLE -->
+    <link href="https://fonts.googleapis.com/css?family=Barlow:100,300,400,700,800&amp;subset=latin-ext"
+        rel="stylesheet">
+    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/userlog.js"></script>
+    <style>
+        /* Add your CSS styles here */
+        .titleimage {
+            position: relative;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            font-size: 5em;
+            text-transform: uppercase;
+            font-weight: bold;
+            background-image: url("img/recog.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Semi-transparent overlay */
+            backdrop-filter: blur(10px);
+            /* Adjust the blur amount as needed */
+            z-index: -1;
+            /* Place the overlay and blur behind the text */
+        }
+
+        h4 {
+            font-size: 2em;
+            /* Adjust the font size */
+            font-weight: bold;
+            /* Make the text bold */
+            text-align: center;
+            /* Center the text */
+            margin-top: 20px;
+            /* Add some top margin */
+        }
+
+        .bottompicture {
+            background-image: url("https://www.tarc.edu.my/files/focs/background/C8D273C9-6BB6-4977-953F-44EEBFDEB2C5.jpg");
+            width: 100%;
+            height: 200px;
+            margin-top: 1%;
+            margin-bottom: 1%;
+
+        }
+
+        body>div.bottompicture>button {
+            margin-left: 45%;
+            margin-top: 4%;
+            width: 150px;
+            height: 60px;
+            background: black;
+            border: none;
+            font-weight: bold;
+            font-size: larger;
+
+        }
+
+        body>div.bottompicture>button:hover {
+            background: white;
+            color: black;
+        }
+
+        .center2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .enrollBtn {
+            color: black;
+            width: 70%;
+            background-image: "img/img-04.jpg";
+        }
+
+        /* Styles for the enlarged image container */
+        .enlarged-image-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            text-align: center;
+            z-index: 999;
+        }
+
+        /* Style for the enlarged image */
+        .enlarged-image {
+            max-width: 80%;
+            max-height: 80%;
+            margin: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .image-container {
+            display: flex;
+            /* Use flexbox to arrange items in a row */
+            margin-left: 18%;
+            margin-bottom: 1%;
+        }
+
+        .image-container img {
+            width: 40%;
+            /* Each image takes 50% of the container width */
+            height: auto;
+            /* Maintain aspect ratio */
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        @media (max-width: 767px) {
+            .titleimage {
+                height: 100px;
+                font-size: 2em;
+            }
+
+            h4 {
+                font-size: 1.5em;
+                margin-top: 10px;
+            }
+
+            .bottompicture {
+                background-image: url("https://www.tarc.edu.my/files/focs/background/C8D273C9-6BB6-4977-953F-44EEBFDEB2C5.jpg");
+                width: 365px;
+                height: 150px;
+                margin-top: 1%;
+                margin-bottom: 1%;
+
+            }
+
+            body>div.bottompicture>button {
+                margin-left: 35%;
+                margin-top: 12%;
+                width: 100px;
+                height: 40px;
+                background: black;
+                border: none;
+                font-weight: bold;
+                font-size: larger;
+
+            }
+        }
+    </style>
+</head>
+
+<body class="p-3 m-0 border-0 bd-example">
+
+    <!-- ======= Cta Section ======= -->
+    <section id="cta" class="cta mt-5 pd-5">
+        <div class="container pt-5">
+
+            <div class="row">
+                <div class="col text-center text-lg-start d-flex justify-content-center">
+                    <h3>Compare Programme</h3>
+                </div>
+            </div>
+
+        </div>
+    </section><!-- End Cta Section -->
+
+    <div id="enlarged-image-container" class="enlarged-image-container">
+        <img id="enlarged-image" class="enlarged-image" src="" alt="Enlarged Image">
+    </div>
+
+    <div class="container p-2 m-5">
+        <div class="table-responsive ">
+            <table class="table  text-successtable-border">
+                <thead class="border-light" style="background-color: white;">
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">
+                            <select class="form-select" id="progSelect" aria-label="Default select example">
+                                <option value="0" selected>Select Programme</option>
+                            </select>
+                        </th>
+                        <th scope="col" style="width: 40%;">
+                            <select class="form-select" id="progSelect2" aria-label="Default select example">
+                                <option value="0" selected>Select Programme</option>
+                            </select>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background-color: #E5FFFA	;">
+                        <th scope="row" style="border-right: 1px solid #4a5b62;">Duration</th>
+                        <td id="prog1Duration" style="border-right: 1px solid #4a5b62;"></td>
+                        <td id="prog2Duration"></td>
+                    </tr>
+                    <tr style="background-color: white	;">
+                        <th scope="row" style="border-right: 1px solid #4a5b62;">Campuses</th>
+                        <td style="border-right: 1px solid #4a5b62;">
+                            <ul class="list-group list-group-flush" id="prog1Campuses" style="color: black;">
+
+                            </ul>
+                        </td>
+                        <td id="prog2Campuses">
+                            <ul class="list-group list-group-flush" id="prog2Campuses" style="color: black;">
+
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr style="background-color: #E5FFFA	;">
+                        <th scope="row" style="border-right: 1px solid #4a5b62;">Intake</th>
+                        <td id="prog1Intake" style="border-right: 1px solid #4a5b62;"></td>
+                        <td id="prog2Intake"></td>
+                    </tr>
+                    <tr style="background-color: white	;">
+                        <th scope="row" style="border-right: 1px solid #4a5b62;">Career Prospects</th>
+                        <td id="prog1Career" style="border-right: 1px solid #4a5b62;">
+                            <ul class="list-group list-group-flush" id="prog1Career" style="color: black;">
+
+                            </ul>
+                        </td>
+                        <td id="prog2Career">
+                            <ul class="list-group list-group-flush" id="prog2Career" style="color: black;">
+
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr style="background-color: #E5FFFA	;">
+                        <th scope="row" style="border-right: 1px solid #4a5b62;">Academic Progression</th>
+                        <td id="prog1Progession" style="border-right: 1px solid #4a5b62; width: 40%;"></td>
+                        <td id="prog2Progession"></td>
+                    </tr>
+                    <tr style="background-color: white;">
+                        <th scope="row" style="border-right: 1px solid #4a5b62;">Entry Requirements</th>
+                        <td id="prog1Entry" style="border-right: 1px solid #4a5b62; width: 40%;"></td>
+                        <td id="prog2Entry"></td>
+                    </tr>
+                    <tr style="background-color: #E5FFFA	;">
+                        <th scope="row" style="border-right: 1px solid #4a5b62;">Estimated Fees</th>
+                        <td id="prog1Fee" class="fw-bold" style="border-right: 1px solid #4a5b62; "></td>
+                        <td id="prog2Fee" class="fw-bold"></td>
+                    </tr>
+                    <!-- <tr>
+                        <th class=""></th>
+                        <th class=""><button class="btn btn-primary">Sign-up</button></th>
+                        <th class=""><button class="btn btn-primary">Sign-up</button></th>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="bottompicture pt-3" style="margin-top: 10%;"><button class="btn btn-primary" onclick="navLogin()">Enroll</button>
+    </div>
+
+    <script>
+
+        function navLogin(){
+            sessionStorage.setItem("redirect", "form-intake.html");
+            localStorage.setItem("redirect", "form-intake.html");
+            window.location.href = "/dist/page/login.html?redirect=form-intake.html";
+        }
+
+        // Function to display the enlarged image
+        function enlargeImage(imageSrc) {
+            const enlargedImageContainer = document.getElementById("enlarged-image-container");
+            const enlargedImage = document.getElementById("enlarged-image");
+
+            // Set the source of the enlarged image
+            enlargedImage.src = imageSrc;
+
+            // Display the enlarged image container
+            enlargedImageContainer.style.display = "block";
+        }
+
+        // Function to close the enlarged image when clicking on the container
+        document.getElementById("enlarged-image-container").addEventListener("click", function () {
+            this.style.display = "none";
+        });
+
+
+        const progSelect = document.getElementById("progSelect");
+        const progSelect2 = document.getElementById("progSelect2");
+
+        // Function to populate a select element with options from a given data object
+        async function populateSelect(selectElement) {
+            const response = await fetch('./js/json/programme.json');
+            const data = await response.json();
+
+            selectElement.innerHTML = `<option value="0">Select Programme</option>`;
+            for (const level in data) {
+                for (const cert in data[level]) {
+                    if (cert !== "Description") {
+                        for (const prog in data[level][cert]) {
+                            selectElement.innerHTML += `<option value="${prog}">${prog}</option>`;
+                        }
+                    }
+                }
+            }
+        }
+
+
+        // Function to disable selected option in the other select element
+        function disableSelectedOption(selectElement, selectedValue) {
+            const options = selectElement.options;
+            for (let i = 0; i < options.length; i++) {
+                if (options[i].value === selectedValue) {
+                    options[i].disabled = true;
+                } else {
+                    options[i].disabled = false; // Enable other options
+                }
+            }
+        }
+
+        // Event listener for progSelect
+        progSelect.addEventListener("change", function () {
+            const selectedValue = this.value;
+            disableSelectedOption(progSelect2, selectedValue);
+            setProgrammeDetails(1, selectedValue);
+        });
+
+        // Event listener for p rogSelect2
+        progSelect2.addEventListener("change", function () {
+            const selectedValue = this.value;
+            disableSelectedOption(progSelect, selectedValue);
+            setProgrammeDetails(2, selectedValue);
+        });
+
+        // Populate both select elements
+        populateSelect(progSelect);
+        populateSelect(progSelect2);
+
+        async function setProgrammeDetails(prog, progName) {
+            const response = await fetch('./js/json/programme.json');
+            const data = await response.json();
+            if (prog == 1) {
+                for (const level in data) {
+                    for (const cert in data[level]) {
+                        for (const prog in data[level][cert]) {
+                            if (prog !== "Description" && prog == progName) {
+                                document.getElementById('prog1Duration').innerText = data[level][cert][progName]['Programme Overview']['Duration'];
+                                document.getElementById('prog1Campuses').innerHTML = "";
+                                for (const cmp in data[level][cert][progName]['Programme Overview']['Campuses']) {
+                                    document.getElementById('prog1Campuses').innerHTML += `<li class="list-group-item">${cmp}</li>`;
+                                }
+                                document.getElementById('prog1Intake').innerText = data[level][cert][progName]['Programme Overview']['Intake'];
+                                document.getElementById('prog1Career').innerHTML = "";
+                                for (let i = 0; i < data[level][cert][progName]['Career Prospects']['Career Prospects'].length; i++) {
+                                    document.getElementById('prog1Career').innerHTML += `<li class="list-group-item">${data[level][cert][progName]['Career Prospects']['Career Prospects'][i]}</li>`;
+                                }
+                                document.getElementById('prog1Fee').innerText = data[level][cert][progName]['Fees & Financial Aid']['Fees & Financial Aid'][0];
+                                //add break line in prog1Fee
+                                document.getElementById('prog1Fee').innerHTML += `<br>`;
+                                document.getElementById('prog1Fee').innerText += data[level][cert][progName]['Fees & Financial Aid']['Fees & Financial Aid'][1];
+
+                                document.getElementById('prog1Progession').innerHTML = `<img onclick="enlargeImage('${data[level][cert][progName]['Programme Overview']['Academic Progression']['ImageURL']}')" src="${data[level][cert][progName]['Programme Overview']['Academic Progression']['ImageURL']}">`;
+                                console.log(data[level][cert][progName]['Programme Overview']['Academic Progression']['ImageURL']);
+                                document.getElementById('prog1Progession').innerHTML += `<span>Click to enlarge image</span>`;
+
+                                document.getElementById('prog1Entry').innerHTML = `<img onclick="enlargeImage('${data[level][cert][progName]['Entry Requirements']['Entry Requirements']}')" src="${data[level][cert][progName]['Entry Requirements']['Entry Requirements']}">`;;
+                                document.getElementById('prog1Entry').innerHTML += `<span>Click to enlarge image</span>`;
+                            }
+                        }
+                    }
+                }
+            } else if (prog == 2) {
+                for (const level in data) {
+                    for (const cert in data[level]) {
+                        for (const prog in data[level][cert]) {
+                            if (prog !== "Description" && prog == progName) {
+                                console.log(data[level][cert][progName]['Career Prospects']);
+                                document.getElementById('prog2Duration').innerText = data[level][cert][progName]['Programme Overview']['Duration'];
+                                document.getElementById('prog2Campuses').innerHTML = "";
+                                for (const cmp in data[level][cert][progName]['Programme Overview']['Campuses']) {
+                                    document.getElementById('prog2Campuses').innerHTML += `<li class="list-group-item">${cmp}</li>`;
+                                }
+                                document.getElementById('prog2Intake').innerText = data[level][cert][progName]['Programme Overview']['Intake'];
+                                document.getElementById('prog2Career').innerHTML = "";
+                                for (let i = 0; i < data[level][cert][progName]['Career Prospects']['Career Prospects'].length; i++) {
+                                    document.getElementById('prog2Career').innerHTML += `<li class="list-group-item">${data[level][cert][progName]['Career Prospects']['Career Prospects'][i]}</li>`;
+                                }
+                                document.getElementById('prog2Fee').innerText = data[level][cert][progName]['Fees & Financial Aid']['Fees & Financial Aid'][0];
+                                //add break line in prog1Fee
+                                document.getElementById('prog2Fee').innerHTML += `<br>`;
+                                document.getElementById('prog2Fee').innerText += data[level][cert][progName]['Fees & Financial Aid']['Fees & Financial Aid'][1];
+
+                                document.getElementById('prog2Progession').innerHTML = `<img onclick="enlargeImage('${data[level][cert][progName]['Programme Overview']['Academic Progression']['ImageURL']}')" src="${data[level][cert][progName]['Programme Overview']['Academic Progression']['ImageURL']}">`;
+                                document.getElementById('prog2Progession').innerHTML += `<span>Click to enlarge image</span>`;
+
+                                document.getElementById('prog2Entry').innerHTML = `<img onclick="enlargeImage('${data[level][cert][progName]['Entry Requirements']['Entry Requirements']}')" src="${data[level][cert][progName]['Entry Requirements']['Entry Requirements']}">`;;
+                                document.getElementById('prog2Entry').innerHTML += `<span>Click to enlarge image</span>`;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    </script>
+    <script type="text/javascript" src="assets/js/header.js"></script>
+    <script type="text/javascript" src="assets/js/footer.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

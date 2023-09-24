@@ -94,7 +94,6 @@
   <script src="../js/index.js"></script>
 
   <script>
-
     new Vue({
       el: '#login-app',
       data() {
@@ -129,6 +128,11 @@
         }
       },
       created() {
+        console.log("local:" + localStorage.getItem('redirect'));
+        console.log("session:" + sessionStorage.getItem('redirect'));
+        let urlParams = new URLSearchParams(window.location.search);
+        let redirectParam = urlParams.get('redirect');
+        console.log("url：" + redirectParam);
       },
       methods: {
         async handleLogin() {
@@ -139,13 +143,28 @@
               if (String(res.code) === '1') {
                 localStorage.setItem('userInfo', JSON.stringify(res.data))
                 this.$message.success('Successfully Login Your Account！')
-                if(localStorage.getItem('redirect') == 'submitEnquiry.html'){
+
+                //REDIRECT TO ENQUIRY PAGE
+                console.log(localStorage.getItem('redirect'));
+                console.log(sessionStorage.getItem('redirect'));
+                let urlParams = new URLSearchParams(window.location.search);
+                let redirectParam = urlParams.get('redirect');
+
+                if (sessionStorage.getItem('redirect') != null) {
+                  redirectParam = sessionStorage.getItem('redirect');
+                  sessionStorage.removeItem('redirect');
+                  window.location.href = redirectParam;
+                } else if (localStorage.getItem('redirect') != undefined) {
+                  redirectParam = localStorage.getItem('redirect');
                   localStorage.removeItem('redirect');
-                  window.location.href = '../focs/submitEnquiry.html';
+                  window.location.href = redirectParam;
+                } else if (redirectParam != null) {
+                  window.location.href = redirectParam;
                 }
                 setTimeout(() => {
                   window.location.href = '/dist/index.html';
-                }, 500); // 0.5secs
+
+                }, 1500); // 0.5secs
               } else {
                 this.$message.error('Account not found')
                 this.loading = false

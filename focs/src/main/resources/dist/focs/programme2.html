@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <script src="//code.tidio.co/m6kdihlblyie9jlb1otfxudgzisuz4fx.js" async></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="img/newLogo.png">
+    <title>Programme</title>
+
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
+
+    <!-- GET VISITOR IP ON TERMINAL -->
+    <script type="text/javascript" src="js/devicedetect.js"></script>
+
+    <!-- =======================================================
+  * Template Name: Scaffold
+  * Updated: Sep 18 2023 with Bootstrap v5.3.2
+  * Template URL: https://bootstrapmade.com/scaffold-bootstrap-metro-style-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+
+    <!-- CUSTOM STYLE -->
+    <link href="https://fonts.googleapis.com/css?family=Barlow:100,300,400,700,800&amp;subset=latin-ext"
+        rel="stylesheet">
+    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/userlog.js"></script>
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        .titleimage {
+            position: relative;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            font-size: 5em;
+            text-transform: uppercase;
+            font-weight: bold;
+            background-image: url("img/recog.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Semi-transparent overlay */
+            backdrop-filter: blur(10px);
+            /* Adjust the blur amount as needed */
+            z-index: -1;
+            /* Place the overlay and blur behind the text */
+        }
+
+        .text-center {
+            /* Adjust the font size */
+            font-weight: bold;
+            /* Make the text bold */
+            text-align: center;
+            /* Center the text */
+            margin-top: 20px;
+            /* Add some top margin */
+        }
+
+        .bottompicture {
+            background-image: url("https://www.tarc.edu.my/files/focs/background/C8D273C9-6BB6-4977-953F-44EEBFDEB2C5.jpg");
+            width: 100%;
+            height: 200px;
+            margin-top: 1%;
+            margin-bottom: 10%;
+
+        }
+
+        body>div.bottompicture>button {
+            margin-left: 45%;
+            margin-top: 4%;
+            width: 150px;
+            height: 60px;
+            background: black;
+            border: none;
+            font-weight: bold;
+            font-size: larger;
+
+        }
+
+        body>div.bottompicture>button:hover {
+            background: white;
+            color: black;
+        }
+
+        .center2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+        }
+
+        .tab-content {
+            display: none;
+            background-color: white;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+
+        body>nav {
+            background: black;
+        }
+
+        .image-container {
+            display: flex;
+            /* Use flexbox to arrange items in a row */
+            margin-left: 18%;
+            margin-bottom: 1%;
+        }
+
+        .image-container img {
+            width: 40%;
+            /* Each image takes 50% of the container width */
+            height: auto;
+            /* Maintain aspect ratio */
+        }
+
+        @media (max-width: 767px) {
+            .titleimage {
+                height: 100px;
+                font-size: 2em;
+            }
+
+            h4 {
+                font-size: 1.5em;
+                margin-top: 10px;
+            }
+
+            .bottompicture {
+                background-image: url("https://www.tarc.edu.my/files/focs/background/C8D273C9-6BB6-4977-953F-44EEBFDEB2C5.jpg");
+                width: 405px;
+                height: 150px;
+                margin-top: 1%;
+                margin-bottom: 1%;
+
+            }
+
+            body>div.bottompicture>button {
+                margin-left: 35%;
+                margin-top: 12%;
+                width: 100px;
+                height: 40px;
+                background: black;
+                border: none;
+                font-weight: bold;
+                font-size: larger;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ======= Cta Section ======= -->
+    <section id="cta" class="cta mt-5 pd-2">
+        <div class="container pt-5">
+
+            <div class="row">
+                <div class="col text-center text-lg-start d-flex justify-content-center">
+                    <h3 id="programmeTitle"></h3>
+
+                    <a style="color:rgb(0, 0, 0); display: flex;" onclick="navLogin()" target="_blank">
+                        <p> Enrol Now</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" display="flex" width="15" height="15" fill="#9FA8DA"
+                            class="bi bi-box-arrow-in-down-left" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M9.636 2.5a.5.5 0 0 0-.5-.5H2.5A1.5 1.5 0 0 0 1 3.5v10A1.5 1.5 0 0 0 2.5 15h10a1.5 1.5 0 0 0 1.5-1.5V6.864a.5.5 0 0 0-1 0V13.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
+                            <path fill-rule="evenodd"
+                                d="M5 10.5a.5.5 0 0 0 .5.5h5a.5.5 0 0 0 0-1H6.707l8.147-8.146a.5.5 0 0 0-.708-.708L6 9.293V5.5a.5.5 0 0 0-1 0v5z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section><!-- End Cta Section -->
+    <div class="image-container">
+        <img src="https://www.tarc.edu.my/files/focs/slide/D56CA81A-6316-4E80-92F6-FB8718DC6C05.jpg" alt="Image 1">
+        <img src="https://www.tarc.edu.my/files/focs/D898CE15-18AF-4DBA-B0CC-C322E090D513.JPG" alt="Image 2">
+    </div>
+
+    <div class="container p-5">
+
+        <nav class="navbar navbar-expand-lg navbar-light text-grey text-center bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+
+            <div class="collapse navbar-collapse bg-light right" style="border-radius: 10px;"
+                id="navbarSupportedContent" role="tablist">
+                <ul class="nav-fill navbar-nav mr-auto" style="width: 100%;">
+                    <li style="width: 20%;">
+                        <button class="nav-item nav-link center" style="text-align: center !important;"
+                            id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab"
+                            aria-controls="nav-home" onclick="showTab(1)" aria-selected="true">Programme Overview
+                        </button>
+                    </li>
+                    <li style="width: 20%;">
+                        <button class="nav-item nav-link center" id="nav-profile-tab" data-bs-toggle="tab"
+                            data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile"
+                            onclick="showTab(2)" aria-selected="false">Minimum Entry Requirement</button>
+                    </li>
+                    <li style="width: 20%;">
+                        <button class="nav-item nav-link center" id="nav-contact-tab" data-bs-toggle="tab"
+                            data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact"
+                            onclick="showTab(3)" aria-selected="false">Programme Outline</button>
+                    </li>
+                    <li style="width: 20%;">
+                        <button class="nav-item nav-link center" id="nav-contact-tab" data-bs-toggle="tab"
+                            data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact"
+                            onclick="showTab(4)" aria-selected="false">Career Prospects</button>
+                    </li>
+                    <li style="width: 20%;">
+                        <button class="nav-item nav-link center" id="nav-contact-tab" data-bs-toggle="tab"
+                            data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact"
+                            onclick="showTab(5)" aria-selected="false">Fee
+                            & Financial Aids</button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+
+        <div class="container p-5">
+            <div id="tabcontent" style="width: 100%;" class="m-12 l-6 padding-2x background-white center2">
+                <div class="tab-content active" style="width: 100%;" id="tab1-content">
+                    <!-- Content for Tab 1 -->
+                    <div class="container">
+                        <h4 style="color:black;">
+                            <i style="color:#9FA8DA" class="bi bi-journals"></i>
+                            Programme Overview:
+                        </h4>
+                        <p id="progOverview" style="color:black;">Lorem Ipsum is simply dummy text of the printing and
+                            typesetting industry.
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                            unknown
+                            printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    </div>
+                    <div class="container">
+                        <h4 style="color:black;">
+                            <i class="bi bi-clock-history" style="color:#9FA8DA; "></i>
+                            Duration:
+                        </h4>
+                        <p id="progDuration" style="color:black;"> 2 year</p>
+                    </div>
+                    <div class="container">
+                        <h4 style="color:black;">
+                            <i class="bi bi-buildings" style="color:#9FA8DA; "></i>
+                            Campuses:
+                        </h4>
+                        <ul class="list-group list-group-flush" id="progCampus" style="color: black;">
+                            <!-- <li class="list-group-item">A second item</li>
+                        <li class="list-group-item">A third item</li>
+                        <li class="list-group-item">A fourth item</li>
+                        <li class="list-group-item">And a fifth one</li> -->
+                        </ul>
+                    </div>
+                    <div class="container">
+                        <h4 style="color:black;">
+                            <i class="bi bi-calendar-check" style="color:#9FA8DA; "></i>
+                            Intake:
+                        </h4>
+                        <ul class="list-group list-group-flush" id="progIntake" style="color: black;">
+                            <!-- <li class="list-group-item">A second item</li>
+                        <li class="list-group-item">A third item</li>
+                        <li class="list-group-item">A fourth item</li>
+                        <li class="list-group-item">And a fifth one</li> -->
+                        </ul>
+                    </div>
+                    <div class="container">
+                        <h4 style="color:black;">
+                            <i class="bi bi-radar" style="color:#9FA8DA; "></i>
+                            Academic Progression:
+                        </h4>
+                        <div id="progProgression">
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="tab-content" style="width: 100%;" id="tab2-content">
+                    <!-- Content for Tab 2 -->
+                    <div class="container">
+                        <h4 style="color:black;">
+                            <i class="bi bi-card-checklist" style="color:#9FA8DA; "></i>
+                            Entry Requirements:
+                        </h4>
+                        <!-- <ul class="list-group list-group-flush" style="color: black;">
+                        <li class="list-group-item"><a style="color: black;"
+                                href="/programme/programme.html?level=${level}&cert=${cert}&programme=${programme}">Programme
+                                1</a></li>
+                        <li class="list-group-item">A second item</li>
+                        <li class="list-group-item">A third item</li>
+                        <li class="list-group-item">A fourth item</li>
+                        <li class="list-group-item">And a fifth one</li>
+                    </ul> -->
+                        <div id="progEntry">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" style="width: 100%;" id="tab3-content">
+                    <!-- Content for Tab 3 -->
+                    <!-- <div class="container">
+                <h4 style="color:black;">
+                    <i class="bi bi-card-list" style="color:#9FA8DA; "></i>
+                    Programme Outline:
+                </h4> -->
+                    <div id="progOutline">
+
+                        <!-- </div> -->
+
+                    </div>
+                </div>
+
+                <div class="tab-content" style="width: 100%;" id="tab4-content">
+                    <!-- Content for Tab 4 -->
+                    <div class="container">
+                        <h4 style="color:black;">
+                            <i class="bi bi-duffle-fill" style="color:#9FA8DA; "></i>
+                            Career Prospects:
+                        </h4>
+                        <ul class="list-group list-group-flush" id="progCareer" style="color: black;">
+                            <!-- <li class="list-group-item">A second item</li>
+                        <li class="list-group-item">A third item</li>
+                        <li class="list-group-item">A fourth item</li>
+                        <li class="list-group-item">And a fifth one</li> -->
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tab-content" style="width: 100%;" id="tab5-content">
+                    <!-- Content for Tab 5 -->
+                    <div class="container">
+                        <h4 style="color:black;">
+                            <i class="bi bi-coin" style="color:#9FA8DA; "></i>
+                            Fees & Financial Aid:
+                        </h4>
+                        <p style="color:black;" id="progEtf"></p>
+                        <p style="color:black;">To find out more, <a
+                                href="https://www.tarc.edu.my/bursary/content.jsp?cat_id=5AA0377F-4E7F-494A-8EB4-CEF5CE4DD7AE">click
+                                here.</a></p>
+                    </div>
+                    <div class="container">
+                        <h4 style="color:black;">
+                            Merit Scholarship:
+                        </h4>
+                        <p style="color:black;">To find out more, <a
+                                href="https://www.tarc.edu.my/admissions/contentsub.jsp?cat_id=58F1E9DB-53BF-4657-8DD6-80056FEAF89F&fmenuid=">click
+                                here.</a></p>
+                    </div>
+                    <div class="container">
+                        <h4 style="color:black;">
+                            Other Scholarship:
+                        </h4>
+                        <p style="color:black;">To find out more, <a
+                                href="https://www.tarc.edu.my/dsa/financial-aid/scholarships-grants/">click here.</a>
+                        </p>
+                    </div>
+                    <div class="container">
+                        <h4 style="color:black;">
+                            Financial Aid
+                        </h4>
+                        <p style="color:black;">For PTPTN <a
+                                href="https://www.tarc.edu.my/dsa/financial-aid/ptptn/">click
+                                here.</a></p>
+                        <p style="color:black;">For Study Loan, <a
+                                href="https://www.tarc.edu.my/dsa/financial-aid/study-loans/">click here.</a></p>
+                        <p style="color:black;">For more information on Financial Aid, <a
+                                href="https://www.tarc.edu.my/dsa/financial-aid/financial-aid/">click here.</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script>
+        // script.js
+        //displayList();
+        function navLogin(){
+            sessionStorage.setItem("redirect", "form-intake.html");
+            localStorage.setItem("redirect", "form-intake.html");
+            window.location.href = "/dist/page/login.html?redirect=form-intake.html";
+        }
+
+        // Function to get URL parameter by name
+        async function getUrlParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        displayOverview();
+
+        async function displayOverview() {
+            document.getElementById("programmeTitle").innerHTML = await getUrlParameter('programme');
+            document.getElementById("programmeTitle").innerHTML += " (" + await getUrlParameter('cert') + ")";
+            const level = await getUrlParameter('level');
+            const cert = await getUrlParameter('cert');
+            const prog = await getUrlParameter('programme');
+
+            const response = await fetch('./js/json/programme.json');
+            let data = await response.json();
+            data = data[level][cert][prog];
+
+            console.log("Programme Detail:", data);
+
+            document.getElementById("progOverview").innerHTML = data['Programme Overview']['Programme Overview'];
+            document.getElementById("progDuration").innerHTML = data['Programme Overview']['Duration'];
+
+            for (const campus in data['Programme Overview']['Campuses']) {
+                document.getElementById("progCampus").innerHTML += `<li class="list-group-item">${campus}</li>`;
+            }
+
+            for (let i = 0; i < data['Programme Overview']['Intake'].length; i++) {
+                document.getElementById("progIntake").innerHTML += `<li class="list-group-item">${data['Programme Overview']['Intake'][i]}</li>`;
+            }
+
+            document.getElementById("progProgression").innerHTML = `<img src="${data['Programme Overview']['Academic Progression']['ImageURL']}">`;
+
+            document.getElementById('progEntry').innerHTML = `<img src="${data['Entry Requirements']['Entry Requirements']}">`;
+
+            let html = "";
+            for (const title in data['Programme Outline']) {
+
+                html += `
+                <div class="container">
+                    <h4 style="color:black;">
+                        <i class="bi bi-card-list" style="color:#9FA8DA; "></i>
+                        ${title}:
+                    </h4>
+                    <ul class="list-group list-group-flush" style="color: black;">
+                `;
+
+                for (let i = 0; i < data['Programme Outline'][title].length; i++) {
+                    html += `<li class="list-group-item">${data['Programme Outline'][title][i]}</li>`;
+                }
+
+                html += `</div>`;
+            }
+            document.getElementById('progOutline').innerHTML = html;
+
+            for (let i = 0; i < data['Career Prospects']['Career Prospects'].length; i++) {
+                document.getElementById('progCareer').innerHTML += `<li class="list-group-item">${data['Career Prospects']['Career Prospects'][i]}</li>`;
+            }
+
+            document.getElementById('progEtf').innerHTML = data['Fees & Financial Aid']['Fees & Financial Aid'][0] + "<br>";
+            document.getElementById('progEtf').innerHTML += data['Fees & Financial Aid']['Fees & Financial Aid'][1];
+        }
+
+
+        function showTab(tabIndex) {
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            // Hide all tab contents
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Show the selected tab content
+            const selectedTabContent = document.getElementById(`tab${tabIndex}-content`);
+            selectedTabContent.classList.add('active');
+        }
+    </script>
+    <script type="text/javascript" src="assets/js/header.js"></script>
+    <script type="text/javascript" src="assets/js/footer.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

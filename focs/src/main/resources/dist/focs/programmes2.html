@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>TARUMT FOCS</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
+
+    <!-- GET VISITOR IP ON TERMINAL -->
+    <script type="text/javascript" src="js/devicedetect.js"></script>
+
+    <!-- =======================================================
+  * Template Name: Scaffold
+  * Updated: Sep 18 2023 with Bootstrap v5.3.2
+  * Template URL: https://bootstrapmade.com/scaffold-bootstrap-metro-style-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+
+</head>
+
+<body>
+    <main id="main">
+
+        <!-- ======= Cta Section ======= -->
+        <section id="cta" class="cta mt-5 pd-5">
+            <div class="container pt-5">
+
+                <div class="row">
+                    <div class="col text-center text-lg-start d-flex justify-content-center">
+                        <h3>FOCS Programme</h3>
+                    </div>
+                </div>
+
+            </div>
+        </section><!-- End Cta Section -->
+
+        <!-- ======= Portfolio Section ======= -->
+        <section id="portfolio" class="portfolio">
+            <div class="container">
+
+                <div class="section-title" data-aos="fade-up">
+                    <h2>Programme Overview</h2>
+                    <p>
+                        The Faculty of Computing and Information Technology (FOCS) offers a wide range of programmes in
+                        the areas of Information Technology, Software Engineering, Computer Science, Information
+                        Systems, Multimedia, Computer Engineering, and Computer Networking.
+                    </p>
+                </div>
+
+                <div class="row p-2" data-aos="fade-up">
+                    <div class="col-6">
+                        <img class="img-fluid"
+                            src="https://www.tarc.edu.my/files/focs/slide/D56CA81A-6316-4E80-92F6-FB8718DC6C05.jpg"
+                            alt="Image 1">
+                    </div>
+                    <div class="col-6">
+                        <img class="img-fluid"
+                            src="https://www.tarc.edu.my/files/focs/D898CE15-18AF-4DBA-B0CC-C322E090D513.JPG"
+                            alt="Image 2">
+                    </div>
+                </div>
+            </div>
+
+        </section><!-- End Portfolio Section -->
+
+        <!-- ======= Services Section ======= -->
+        <section id="services" class="services section-bg">
+            <div class="container">
+
+                <div class="section-title" data-aos="fade-up">
+                    <h2>Explore Programme</h2>
+                    <p>Struggling to choose between multiple programs? Explore and Compare FOCS IT Courses to Discover
+                        Your Best Fit!</p>
+                </div>
+
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-4 col-lg-2 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in">
+                        <div class="icon-box icon-box-pink">
+                            <div class="icon"><i class="bx bx-tachometer"></i></div>
+                            <h4 class="title"><a href="compareProgramme2.html" target="_blank">Compare Programme</a>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section><!-- End Services Section -->
+
+        <section id="searchProgramme">
+            <div class="section-title mt-5" data-aos="fade-up">
+                <h2>Search Programme</h2>
+                <p>
+                    Search for your desired programme here by entering the programme name or programme code. Find
+                    out more about the programme by clicking on the programme name.
+                </p>
+            </div>
+
+            <div class="container">
+                <div data-aos="fade-up" class="input-group bg-light">
+                    <div class="form-control">
+                        <input type="search" id="search-input" class="form-control" placeholder="Search Programme" />
+                    </div>
+                    <button type="button" onclick="searchPrograms()" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#programmeModal">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="programmeModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Programme Search Result</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="card" id="searchResult">
+                                    <div class="card-body">
+                                        <ul class="list-group">
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <nav data-aos="fade-up" style="padding: 0px !important; margin-top: 30px;">
+                    <div class="nav nav-fill nav-tabs center2" id="nav-tab" role="tablist">
+                        <button class="nav-link  active" id="nav-contact-tab-b" data-bs-toggle="tab"
+                            data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact"
+                            onclick="showTab(1)" aria-selected="false">Bachelor</button>
+                        <button class="nav-link " id="nav-contact-tab-d" data-bs-toggle="tab"
+                            data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact"
+                            onclick="showTab(2)" aria-selected="false">Diploma</button>
+                    </div>
+                </nav>
+
+
+                <div data-aos="fade-up" id="tabcontent center2" style="width: 100%;"
+                    class="m-12 l-6 padding-2x background-white center2">
+                    <div class="tab-content active p-5" id="tab1-content">
+                        <div id="bachelorTab">
+                            Bachelor Information
+                        </div>
+                    </div>
+
+                    <div class="tab-content p-5" id="tab2-content">
+                        <div id="diplomaTab">
+                            Diploma Information
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+
+
+    </main><!-- End #main -->
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/header.js"></script>
+    <script src="assets/js/footer.js"></script>
+
+    <script type="text/javascript" src="js/responsee.js"></script>
+    <script type="text/javascript" src="owl-carousel/owl.carousel.js"></script>
+    <script type="text/javascript" src="js/template-scripts.js"></script>
+    <script type="text/javascript" src="js/headerAppend.js"></script>
+    <script type="text/javascript" src="js/imgTotxt.js"></script>
+    <script src="//code.tidio.co/m6kdihlblyie9jlb1otfxudgzisuz4fx.js" async></script>
+
+    <!-- BOOTSTRAP POPUP -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../plugins/axios/axios.min.js"></script>
+    <script src="../plugins/vue/vue.js"></script>
+    <script src="../api/programme.js"></script>
+
+    <script>
+        displayDegree();
+
+        async function displayDegree() {
+            const response = await fetch('./js/json/programme.json');
+            const data = await response.json();
+            let html = "";
+            let tab = document.getElementById("bachelorTab");
+            let data2 = data['Degree'];
+
+            for (const degreeTitle in data2) {
+                if (degreeTitle != "Description") {
+                    //Degree ICON here
+                    html += `<h2 style="color: black; display: flex;"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#9FA8DA" class="bi bi-database-fill" viewBox="0 0 16 16">
+  <path d="M3.904 1.777C4.978 1.289 6.427 1 8 1s3.022.289 4.096.777C13.125 2.245 14 2.993 14 4s-.875 1.755-1.904 2.223C11.022 6.711 9.573 7 8 7s-3.022-.289-4.096-.777C2.875 5.755 2 5.007 2 4s.875-1.755 1.904-2.223Z"/>
+  <path d="M2 6.161V7c0 1.007.875 1.755 1.904 2.223C4.978 9.71 6.427 10 8 10s3.022-.289 4.096-.777C13.125 8.755 14 8.007 14 7v-.839c-.457.432-1.004.751-1.49.972C11.278 7.693 9.682 8 8 8s-3.278-.307-4.51-.867c-.486-.22-1.033-.54-1.49-.972Z"/>
+  <path d="M2 9.161V10c0 1.007.875 1.755 1.904 2.223C4.978 12.711 6.427 13 8 13s3.022-.289 4.096-.777C13.125 11.755 14 11.007 14 10v-.839c-.457.432-1.004.751-1.49.972-1.232.56-2.828.867-4.51.867s-3.278-.307-4.51-.867c-.486-.22-1.033-.54-1.49-.972Z"/>
+  <path d="M2 12.161V13c0 1.007.875 1.755 1.904 2.223C4.978 15.711 6.427 16 8 16s3.022-.289 4.096-.777C13.125 14.755 14 14.007 14 13v-.839c-.457.432-1.004.751-1.49.972-1.232.56-2.828.867-4.51.867s-3.278-.307-4.51-.867c-.486-.22-1.033-.54-1.49-.972Z"/>
+</svg>${degreeTitle}</h2>`;
+                    const programs = data2[degreeTitle];
+
+                    for (const programTitle in programs) {
+                        // List program details inside the program title
+                        html += `<ul class="list-group list-group-flush" >`;
+                        html += `<li class="list-group-item"><a style="color:black; display: flex;" target="_blank"
+                             href="/dist/focs/programme2.html?level=Degree&cert=${degreeTitle}&programme=${programTitle}">&nbsp;${programTitle}&nbsp; <svg xmlns="http://www.w3.org/2000/svg" display="flex" width="15" height="15" fill="#9FA8DA" class="bi bi-box-arrow-in-down-left" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M9.636 2.5a.5.5 0 0 0-.5-.5H2.5A1.5 1.5 0 0 0 1 3.5v10A1.5 1.5 0 0 0 2.5 15h10a1.5 1.5 0 0 0 1.5-1.5V6.864a.5.5 0 0 0-1 0V13.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+  <path fill-rule="evenodd" d="M5 10.5a.5.5 0 0 0 .5.5h5a.5.5 0 0 0 0-1H6.707l8.147-8.146a.5.5 0 0 0-.708-.708L6 9.293V5.5a.5.5 0 0 0-1 0v5z"/></svg></a>
+</li>`;
+                        html += "</ul>";
+
+                        //         <ul class="list-group list-group-flush" id="bachelorTab" style="color: black;">
+                        //     <li class="list-group-item"><a style="color: black;"
+                        //             href="/programme/programme.html?level=${level}&cert=${cert}&programme=${programme}">Programme
+                        //             1</a></li>
+                        // </ul>
+                    }
+                }
+            }
+            tab.innerHTML = html;
+        }
+
+        displayDiploma();
+
+        async function displayDiploma() {
+            const response = await fetch('./js/json/programme.json');
+            const data = await response.json();
+            let html = "";
+            let tab = document.getElementById("diplomaTab");
+            let data2 = data['Diploma'];
+
+            for (const degreeTitle in data2) {
+                if (degreeTitle != "Description") {
+                    //Diploma ICON here
+                    html += `<h2 style="color: black; display: flex"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#9FA8DA" class="bi bi-database-fill" viewBox="0 0 16 16">
+  <path d="M3.904 1.777C4.978 1.289 6.427 1 8 1s3.022.289 4.096.777C13.125 2.245 14 2.993 14 4s-.875 1.755-1.904 2.223C11.022 6.711 9.573 7 8 7s-3.022-.289-4.096-.777C2.875 5.755 2 5.007 2 4s.875-1.755 1.904-2.223Z"/>
+  <path d="M2 6.161V7c0 1.007.875 1.755 1.904 2.223C4.978 9.71 6.427 10 8 10s3.022-.289 4.096-.777C13.125 8.755 14 8.007 14 7v-.839c-.457.432-1.004.751-1.49.972C11.278 7.693 9.682 8 8 8s-3.278-.307-4.51-.867c-.486-.22-1.033-.54-1.49-.972Z"/>
+  <path d="M2 9.161V10c0 1.007.875 1.755 1.904 2.223C4.978 12.711 6.427 13 8 13s3.022-.289 4.096-.777C13.125 11.755 14 11.007 14 10v-.839c-.457.432-1.004.751-1.49.972-1.232.56-2.828.867-4.51.867s-3.278-.307-4.51-.867c-.486-.22-1.033-.54-1.49-.972Z"/>
+  <path d="M2 12.161V13c0 1.007.875 1.755 1.904 2.223C4.978 15.711 6.427 16 8 16s3.022-.289 4.096-.777C13.125 14.755 14 14.007 14 13v-.839c-.457.432-1.004.751-1.49.972-1.232.56-2.828.867-4.51.867s-3.278-.307-4.51-.867c-.486-.22-1.033-.54-1.49-.972Z"/>
+</svg>${degreeTitle}</h2>`;
+                    const programs = data2[degreeTitle];
+
+                    for (const programTitle in programs) {
+                        // List program details inside the program title
+                        html += `<ul class="list-group list-group-flush" style="color: black;">`;
+                        html += `<li class="list-group-item"><a style="color: black; display: flex;" target="_blank"
+                             href="/dist/focs/programme2.html?level=Diploma&cert=${degreeTitle}&programme=${programTitle}">&nbsp;${programTitle}&nbsp; <svg xmlns="http://www.w3.org/2000/svg" display="flex" width="18" height="18" fill="#9FA8DA" class="bi bi-box-arrow-in-down-left" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M9.636 2.5a.5.5 0 0 0-.5-.5H2.5A1.5 1.5 0 0 0 1 3.5v10A1.5 1.5 0 0 0 2.5 15h10a1.5 1.5 0 0 0 1.5-1.5V6.864a.5.5 0 0 0-1 0V13.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+  <path fill-rule="evenodd" d="M5 10.5a.5.5 0 0 0 .5.5h5a.5.5 0 0 0 0-1H6.707l8.147-8.146a.5.5 0 0 0-.708-.708L6 9.293V5.5a.5.5 0 0 0-1 0v5z"/></svg></a></li>`;
+                        html += "</ul>";
+
+                        //         <ul class="list-group list-group-flush" id="bachelorTab" style="color: black;">
+                        //     <li class="list-group-item"><a style="color: black;"
+                        //             href="/programme/programme.html?level=${level}&cert=${cert}&programme=${programme}">Programme
+                        //             1</a></li>
+                        // </ul>
+                    }
+                }
+            }
+            tab.innerHTML = html;
+        }
+
+        function showTab(tabIndex) {
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            // Hide all tab contents
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Show the selected tab content
+            const selectedTabContent = document.getElementById(`tab${tabIndex}-content`);
+            selectedTabContent.classList.add('active');
+        }
+
+        async function searchPrograms() {
+            const searchInput = document.getElementById("search-input").value.toLowerCase();
+
+            let searchResults = [];
+
+            const response = await fetch('./js/json/programme.json');
+            const data = await response.json();
+            let found = false;
+
+            document.getElementById('searchResult').innerHTML = "";
+            for (const a in data) {
+                for (const b in data[a]) {
+                    if (b != "Description") {
+                        for (const c in data[a][b]) {
+                            console.log(c);
+                            if (c.toLowerCase().includes(searchInput)) {
+                                //<li class="list-group-item">Cras justo odio</li>
+                                document.getElementById('searchResult').innerHTML += `<li class="list-group-item"><div class="card-body"><a style="color: black;" target="_blank" 
+                    href="/dist/focs/programme2.html?level=${a}&cert=${b}&programme=${c}">
+                                    ${c}
+                                </a></div></li>`;
+                                found = true;
+                            }
+                        }
+                    }
+                }
+            }
+            if (!found) {
+                document.getElementById('searchResult').innerHTML += `<li class="list-group-item"><div class="card-body text-dark">
+                                    No results found
+                                </div></li>`;
+            }
+        }
+
+        //only show bachelor tab when page is loaded
+        document.getElementById("tab2-content").style.display = "none";
+        document.getElementById("nav-contact-tab-b").style.backgroundColor = "#007dfc47";
+
+        //if bachelor tab is clicked, show bachelor tab and hide diploma tab, if diploma tab is clicked, show diploma tab and hide bachelor tab
+        function showTab(tabIndex) {
+            if (tabIndex == 1) {
+                document.getElementById("tab1-content").style.display = "block";
+                document.getElementById("tab2-content").style.display = "none";
+                document.getElementById("nav-contact-tab-b").style.backgroundColor = "#007dfc47";
+                //get diploma tab and set background color to white
+                document.getElementById("nav-contact-tab-d").style.backgroundColor = "white";
+            } else {
+                document.getElementById("tab1-content").style.display = "none";
+                document.getElementById("tab2-content").style.display = "block";
+                //get bachelor tab and set background color to blue
+                document.getElementById("nav-contact-tab-d").style.backgroundColor = "#007dfc47";
+                //get diploma tab and set background color to white
+                document.getElementById("nav-contact-tab-b").style.backgroundColor = "white";
+            }
+        }
+    </script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
