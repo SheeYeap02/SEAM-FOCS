@@ -150,15 +150,15 @@
                 console.log(sessionStorage.getItem('redirect'));
                 let urlParams = new URLSearchParams(window.location.search);
                 let redirectParam = urlParams.get('redirect');
-                
+
                 if (sessionStorage.getItem('redirect') != null) {
                   redirectParam = sessionStorage.getItem('redirect');
-                  window.location.href = redirectParam;
                   sessionStorage.removeItem('redirect');
+                  window.location.href = redirectParam;
                 } else if (localStorage.getItem('redirect') != undefined) {
                   redirectParam = localStorage.getItem('redirect');
-                  window.location.href = redirectParam;
                   localStorage.removeItem('redirect');
+                  window.location.href = redirectParam;
                 } else if (redirectParam != null) {
                   window.location.href = redirectParam;
                 }
