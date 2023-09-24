@@ -128,10 +128,11 @@
         }
       },
       created() {
-        console.log(localStorage.getItem('redirect'));
+        console.log("local:" + localStorage.getItem('redirect'));
+        console.log("session:" + sessionStorage.getItem('redirect'));
         let urlParams = new URLSearchParams(window.location.search);
         let redirectParam = urlParams.get('redirect');
-        console.log(redirectParam);
+        console.log("url：" + redirectParam);
       },
       methods: {
         async handleLogin() {
@@ -146,27 +147,25 @@
 
                 //REDIRECT TO ENQUIRY PAGE
                 console.log(localStorage.getItem('redirect'));
+                console.log(sessionStorage.getItem('redirect'));
                 let urlParams = new URLSearchParams(window.location.search);
                 let redirectParam = urlParams.get('redirect');
-                console.log(redirectParam);
-                if (localStorage.getItem('redirect') == 'submitEnquiry2.html' || redirectParam == 'submitEnquiry2.html') {
-                  this.$message.success('Going back to Enquiry！')
+
+                if (sessionStorage.getItem('redirect') != null) {
+                  redirectParam = sessionStorage.getItem('redirect');
+                  window.location.href = redirectParam;
+                  sessionStorage.removeItem('redirect');
+                } else if (localStorage.getItem('redirect') != undefined) {
+                  redirectParam = localStorage.getItem('redirect');
+                  window.location.href = redirectParam;
                   localStorage.removeItem('redirect');
-                  window.location.href = '../focs/submitEnquiry2.html';
+                } else if (redirectParam != null) {
+                  window.location.href = redirectParam;
                 }
+
                 setTimeout(() => {
-                  //REDIRECT TO ENQUIRY PAGE
-                  console.log(localStorage.getItem('redirect'));
-                  let urlParams = new URLSearchParams(window.location.search);
-                  let redirectParam = urlParams.get('redirect');
-                  console.log(redirectParam);
-                  if (localStorage.getItem('redirect') == 'submitEnquiry2.html' || redirectParam == 'submitEnquiry2.html') {
-                    this.$message.success('Going back to Enquiry！')
-                    localStorage.removeItem('redirect');
-                    window.location.href = '../focs/submitEnquiry2.html';
-                  } else {
-                    window.location.href = '/dist/index.html';
-                  }
+                  window.location.href = '/dist/index.html';
+
                 }, 1500); // 0.5secs
               } else {
                 this.$message.error(res.msg)

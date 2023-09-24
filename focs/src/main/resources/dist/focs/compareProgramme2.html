@@ -296,10 +296,16 @@
             </table>
         </div>
     </div>
-    <div class="bottompicture pt-3" style="margin-top: 10%;"><button class="btn btn-primary">Enroll</button>
+    <div class="bottompicture pt-3" style="margin-top: 10%;"><button class="btn btn-primary" onclick="navLogin()">Enroll</button>
     </div>
 
     <script>
+
+        function navLogin(){
+            sessionStorage.setItem("redirect", "form-intake.html");
+            localStorage.setItem("redirect", "form-intake.html");
+            window.location.href = "/dist/page/login.html?redirect=form-intake.html";
+        }
 
         // Function to display the enlarged image
         function enlargeImage(imageSrc) {
