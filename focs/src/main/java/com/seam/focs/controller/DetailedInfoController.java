@@ -1,8 +1,11 @@
 package com.seam.focs.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.seam.focs.common.Result;
+import com.seam.focs.entity.Application;
 import com.seam.focs.entity.DetailedInfo;
+import com.seam.focs.service.ApplicationService;
 import com.seam.focs.service.DetailedInfoService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +21,9 @@ import java.util.Arrays;
 public class DetailedInfoController {
     @Autowired
     private DetailedInfoService detailedInfoService;
+
+    @Autowired
+    private ApplicationService applicationService;
 
     /**
      *
@@ -48,6 +54,18 @@ public class DetailedInfoController {
                 detailedInfo.setApplicantId(applicantId);
 
                 detailedInfoService.save(detailedInfo);
+
+                //To get back the detailedInfo
+                LambdaQueryWrapper<DetailedInfo> queryWrapper = new LambdaQueryWrapper<>();
+                queryWrapper.eq(DetailedInfo::getApplicantId, applicantId);
+                DetailedInfo di = detailedInfoService.getOne(queryWrapper);
+
+                //After completed automatically set into the application
+                LambdaQueryWrapper<Application> queryWrapper2 = new LambdaQueryWrapper<>();
+                queryWrapper2.eq(Application::getApplicantId, applicantId);
+                Application application = applicationService.getOne(queryWrapper2);
+                application.setDetailedInfoId(di.getDetailedInfoId());
+                applicationService.save(application);
             } catch (IOException e) {
                 // Handle the exception (e.g., log an error)
                 e.printStackTrace();

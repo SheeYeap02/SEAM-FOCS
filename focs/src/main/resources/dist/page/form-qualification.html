@@ -778,7 +778,10 @@
             }
             if(this.userInfo.applicantId) {
               this.init()
-            }
+            } else {
+                  // this.$message.warning('Haven\' Login Account')
+                  window.location.href = "./page/login.html";
+                 }
         },
         mounted() {},
         methods: {

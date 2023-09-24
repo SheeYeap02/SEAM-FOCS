@@ -5,10 +5,8 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.seam.focs.DTO.ProfileEmergencyDTO;
 import com.seam.focs.DTO.QualificationPreuResultDTO;
 import com.seam.focs.common.Result;
-import com.seam.focs.entity.EmergencyInfo;
-import com.seam.focs.entity.PreuResult;
-import com.seam.focs.entity.ProfileInfo;
-import com.seam.focs.entity.Qualification;
+import com.seam.focs.entity.*;
+import com.seam.focs.service.ApplicationService;
 import com.seam.focs.service.PreuResultService;
 import com.seam.focs.service.QualificationService;
 import lombok.extern.slf4j.Slf4j;
@@ -29,6 +27,9 @@ public class QualificationController {
     @Autowired
     private PreuResultService preuResultService;
 
+    @Autowired
+    private ApplicationService applicationService;
+
     /**
      *
      * @param qualificationPreuResultDTO
@@ -46,6 +47,18 @@ public class QualificationController {
         qualificationService.save(qualification);
 
         qualificationService.saveWithPreuResult(qualificationPreuResultDTO, qualification);
+
+        //To get back the qualification
+        LambdaQueryWrapper<Qualification> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(Qualification::getApplicantId, qualificationPreuResultDTO.getApplicantId());
+        Qualification qua = qualificationService.getOne(queryWrapper);
+
+        //After completed automatically set into the application
+        LambdaQueryWrapper<Application> queryWrapper2 = new LambdaQueryWrapper<>();
+        queryWrapper2.eq(Application::getApplicantId, qualificationPreuResultDTO.getApplicantId());
+        Application application = applicationService.getOne(queryWrapper2);
+        application.setQualificationId(qua.getQualificationId());
+        applicationService.save(application);
         return Result.success("New Qualification and PreuResult Details Added Successfully");
     }
 

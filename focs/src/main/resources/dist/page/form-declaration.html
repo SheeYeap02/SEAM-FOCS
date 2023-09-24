@@ -152,12 +152,109 @@
     </div>
   </div>
 
-  <!-- // Basic multiple Column Form section start -->
+ <div id="declaration-app">
+  <section id="list-group-icons">
+    <div class="row match-height">
+        <div class="col-lg-6 col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Application for admission checklist </h4>
+                </div>
+                <div class="card-content">
+                    <div class="card-body" style="padding-top: 0;">
+                        <p>
+                          You can check any completed or missing forms as shown below: 
+                        </p>
+                        <ul class="list-group">
+                            <li class="list-group-item checkbox">
+                                <input id="checkbox-1" class="form-check-input me-1" type="checkbox" disabled :checked="gotIntakeData" value="" aria-label="...">
+                                <label for="checkbox-1">Intake & Programme Form</label>
+                            </li>
+                            <li class="list-group-item">
+                                <input id="checkbox-2" class="form-check-input me-1" type="checkbox" disabled :checked="gotProfileData" value="" aria-label="...">
+                                <label for="checkbox-2">Profile & Emergency Form</label>
+                            </li>
+                            <li class="list-group-item">
+                                <input id="checkbox-3" class="form-check-input me-1" type="checkbox" disabled :checked="gotDetailedInfoData" value="" aria-label="...">
+                                <label for="checkbox-3">Detailed Info Form</label>
+                            </li>
+                            <li class="list-group-item">
+                                <input id="checkbox-4" class="form-check-input me-1" type="checkbox" disabled :checked="gotQualificationData" value="" aria-label="...">
+                                <label for="checkbox-4">Qualifications Form</label>
+                            </li>
+                        </ul>
+
+                        <div>
+                          <p v-if="checkAllFormCompletion" style="padding-top: 30px;">
+                            All forms have been completed. Please proceed to the qualification verification on the left and/or submit application for admission.
+                         </p>
+                         <p v-else style="color: rgb(208, 32, 32); padding-top: 30px;">
+                            Please check out the four required forms on the top to figure out the missing one.
+                        </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-12">
+          <div class="card">
+              <div class="card-header">
+                  <h4 class="card-title">Qualification Verification</h4>
+              </div>
+              <div class="card-content">
+                  <div class="card-body" style="padding-top: 0;">  
+                    <div>
+                      <h6 class="card-title">SPM/O LEVEL/EQUIVALENT</h6>
+                      <div v-for="choice in [applications[0].intakes.programmeChoice1, applications[0].intakes.programmeChoice2, applications[0].intakes.programmeChoice3]">
+                        <p :key="choice.programme">
+                          <span v-if="meetsDiplomaCriteria(choice)">
+                            You've met the minimum entry requirements for the following programme:
+                          </span>
+                          <span v-else style="color: rgb(208, 32, 32)">
+                            You've not met the minimum entry requirements for the following programme:
+                          </span>
+                          <br>
+                          {{ choice.programme }}
+                        </p>
+                      </div>
+                      <div >
+                        <p>Minimum Subject Requirements:</p>
+                        <ul>
+                          <li>
+                            MATHEMATICS: {{ getGrade('MATHEMATICS') }}
+                          </li>
+                          <li>
+                            BAHASA INGGERIS: {{ getGrade('BAHASA INGGERIS') }}
+                          </li>
+                          <li v-if="isAdditionalMathRequired()">
+                            ADDITIONAL MATHEMATICS: {{ getGrade('ADDITIONAL MATHEMATICS') }}
+                          </li>
+                        </ul>
+                      </div>
+                      <!-- For Degree -->
+                      <div>
+                        <hr>
+                        <h6 class="card-title" v-if="hasDegreeProgramme">STPM/A LEVEL/UEC/EQUIVALENT (IF APPLICABLE)</h6>
+                        <p v-if="hasDegreeProgramme && meetsDegreeCriteria()">
+                          You've met the minimum entry requirements for the degree programme.
+                        </p>
+                        <p v-if="hasDegreeProgramme && !meetsDegreeCriteria()" style="color: rgb(208, 32, 32)">
+                          You've not met the minimum entry requirements (2 Credits) for the degree programme.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+  </section>
+
   <section id="multiple-column-form">
     <div class="row match-height">
       <div class="col-12">
         <div class="card">
-          <div class="card-header" style="">
+          <div class="card-header">
             <h4 class="card-title"><i class="bi bi-file-earmark-text-fill" style="padding-right: 20px;"></i>Declaration</h4>
             <p>
                 I declare that all information and documents given and submitted are true and complete. I understand that Tunku Abdul Rahman University of Management and Technology (TAR UMT) has the right to reject this application or to terminate my student status with immediate effect and my application for admission into TAR UMT programmes in future will not be considered if in my application or at any time during my studies, I am found to have provided false or incomplete information, certificates or supporting documents.
@@ -168,37 +265,28 @@
                 <br><br>    
                 I hereby declare that I have read and understood and agree to comply with TAR UMT policy on <a href="https://www.tarc.edu.my/files/bursary/C09C5D57-AADF-45E9-915A-3E656D321922.pdf" target="_blank">refund of fees.</a>
             </p>
-
-            <div class="col-12">
+          </div>
+          <div class="card-content">
+            <div class="card-body" >
+              <form class="form" data-parsley-validate id="">
                 <div class="form-group">
                   <div class="form-check mandatory">
-                    <input type="checkbox" id="checkbox5" class="form-check-input" :disabled="!isEditing" data-parsley-required="true" data-parsley-error-message="You have to accept our terms and conditions to proceed."/>
-                    <label for="checkbox5" class="form-check-label form-label" >AGREE</label>
+                    <input type="checkbox" id="checkbox5" class="form-check-input" data-parsley-required="true" :disabled="!isAllFormCompleted || !diplomaMeet" 
+                        data-parsley-required="true" data-parsley-error-message="You have to accept our terms and conditions to proceed."/>
+                    <label for="checkbox5" class="form-check-label form-label" data-bs-toggle="tooltip" data-bs-placement="top"  title="You must complete all the forms and meet minimum entry requirements in order to submit application for admission." >AGREE</label>
                   </div>
                 </div>
-              </div>
-            </div>
-
-
-          <div class="card-content">
-            <div class="card-body">
-              <form class="form" data-parsley-validate id="profile-app">
-                <div class="row">
-                  <div class="card-header">
-                    <h4 class="card-title"><i class="bi bi-house-fill" style="padding-right: 20px;"></i>Correspondence Address</h4>
-                  </div>
                 <div class="row">
                   <div class="col-md-12 col-12 d-flex justify-content-end align-items-end" style="padding-top: 20px; ">
                     <div class="col-md-8 d-flex justify-content-end">
-                      <button type="submit" class="btn btn-primary me-1 mb-1" @click="submitForm('formData')">
-                        Save
-                      </button>
-                      <button type="reset" class="btn btn-light-secondary me-1 mb-1" style="border: none !important;">
-                        Reset
+                      <button type="submit" class="btn btn-primary me-1 mb-1" @click="submitForm('formData')" :disabled="!isAllFormCompleted || !diplomaMeet" 
+                           data-bs-toggle="tooltip" data-bs-placement="top" title="You must complete all the forms and meet minimum entry requirements in order to submit application for admission." >
+                        Submit
                       </button>
                     </div>
                   </div>
                 </div>
+
               </form>
             </div>
           </div>
@@ -206,6 +294,7 @@
       </div>
     </div>
   </section>
+</div> 
   <!-- // Basic multiple Column Form section end -->
 </div>
 
@@ -222,38 +311,163 @@
     </div>
     <script src="../assets/static/js/components/dark.js"></script>
     <script src="../assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-    
-    
     <script src="../assets/compiled/js/app.js"></script>
-    
+      
+      <script src="../assets/extensions/jquery/jquery.min.js"></script>
+      <script src="../assets/extensions/parsleyjs/parsley.min.js"></script>
+      <script src="../assets/static/js/pages/parsley.js"></script>
 
-    
-<script src="../assets/extensions/jquery/jquery.min.js"></script>
-<script src="../assets/extensions/parsleyjs/parsley.min.js"></script>
-<script src="../assets/static/js/pages/parsley.js"></script>
+      <script src="../plugins/axios/axios.min.js"></script>
+      <script src="../plugins/element-ui/index.js"></script>
+      <script src="../plugins/vue/vue.js"></script>
+      <script src="../api/profile.js"></script>
+      <script src="../api/application.js"></script>
+      <script src="../api/intake.js"></script>
+      <script src="../api/qualification.js"></script>
+      <script src="../api/qualification2.js"></script>
+      <script src="../api/detailedInfo.js"></script>
+      <script src="../api/intake.js"></script>
+      <script src="../js/request.js"></script>
+      <script src="../js/index.js"></script>
+      <script src="https://unpkg.com/element-ui@2.15.6/lib/index.js"></script>
 
-<script src="../plugins/axios/axios.min.js"></script>
-<script src="../plugins/element-ui/index.js"></script>
-<script src="../plugins/vue/vue.js"></script>
-<script src="../api/profile.js"></script>
-<script src="../js/request.js"></script>
-<script src="../js/index.js"></script>
-<script src="https://unpkg.com/element-ui@2.15.6/lib/index.js"></script>
+
 <script>
     new Vue({
-      el: '#profile-app',
+      el: '#declaration-app',
         data() {
             return {
                 id: '',
-                formData : {        // Default value, or load from the server
-                    profileInfo: {},
-                    emergencyInfo: {}
-                },
-                gotData: true,
+                isEditing: true,
+                hasDegreeProgramme: false,
+                gotProfileData: false,
+                gotQualificationData: false,
+                gotDetailedInfoData: false,
+                gotIntakeData: false,
+                isAllFormCompleted: false,
+                diplomaMeet: false,
                 userInfo: {},
+                applications: [
+                    {
+                      "applicationId": "",
+                      "status": "",
+                      "createdDate": "",
+                      "submittedDate": "",
+                      "intakeId": "",
+                      "profileInfoId": "",
+                      "detailedInfoId": "",
+                      "qualificationId": "",
+                      "applicantId": "",
+                      intakes: {        // Default value, or load from the server
+                          programmeChoice1: {
+                              "session": "",
+                              "campus": "", 
+                              "levelOfStudy": "",
+                              "entryQualification": "",
+                              "programme": "",
+                              "firstSem": "",
+                              "priority": "1",
+                              "applicantId": "",
+                            },
+                          programmeChoice2: {
+                              "session": "",
+                              "campus": "", 
+                              "levelOfStudy": "",
+                              "entryQualification": "",
+                              "programme": "",
+                              "firstSem": "",
+                              "priority": "2",
+                              "applicantId": "",
+                            },
+                          programmeChoice3: {
+                              "session": "",
+                              "campus": "", 
+                              "levelOfStudy": "",
+                              "entryQualification": "",
+                              "programme": "",
+                              "firstSem": "",
+                              "priority": "3",
+                              "applicantId": "",
+                            },
+                          "applicantId": "",
+                          "session": "",
+                      },
+                      profileInfo: {
+                           'fullName': '',
+                           'mykadNo': '',
+                           'nationality': 'Please select',
+                           'dateOfBirth': '',
+                           'gender': '', 
+                           'maritalStatus': '', 
+                           'race': 'Please select',
+                           'religion': 'Please select',
+                           'address': '',
+                           'postcode': '',
+                           'state': 'Please select',
+                           'country': 'Please select',
+                           'homeTelNo': '',
+                           'mobileNo': ''
+                        },
+                      emergencyInfo: {
+                         'fullName': '',
+                         'relationship': '',
+                         'address': '',
+                         'postcode': '',
+                         'state': 'Please select',
+                         'country': 'Please select',
+                         'contactNo': '',
+                         'email': ''
+                      },
+                      detailedInfo: {
+                        'icImage': '',
+                        'householdIncome': '',
+                        'medicalCondition': '',
+                      },
+                      qualification1: {
+                        "qualificationId": "",
+                        "category": "SPM/O LEVEL/EQUIVALENT",
+                        "year": "",
+                        "type": "",
+                        "academicProve": "",
+                        preuResultList: []
+                      },
+                      qualification2: {
+                        "qualificationId": "",
+                        "category": "STPM/A LEVEL/UEC/EQUIVALENT (IF APPLICABLE)",
+                        "year": "",
+                        "type": "",
+                        "academicProve": "",
+                        preuResultList: []
+                      },
+                    }
+                ],
+                programRequirements: {
+                      "DIPLOMA IN INFORMATION SYSTEMS": {mathRequirement: true,addMathRequirement: false,},
+                      "DIPLOMA IN INFORMATION TECHNOLOGY": {mathRequirement: true,addMathRequirement: false,},
+                      "DIPLOMA IN SOFTWARE ENGINEERING": {mathRequirement: true,addMathRequirement: false,},
+                      "BACHELOR OF SOFTWARE ENGINEERING (HONOURS)": {mathRequirement: true,addMathRequirement: false,},
+                      "BACHELOR OF INFORMATION TECHNOLOGY (HONOURS) IN SOFTWARE SYSTEMS DEVELOPMENT": {mathRequirement: true,addMathRequirement: false,},
+                      "BACHELOR OF INFORMATION TECHNOLOGY (HONOURS) IN INTERNET TECHNOLOGY": {mathRequirement: true,addMathRequirement: false,},
+                      "BACHELOR OF INFORMATION TECHNOLOGY (HONOURS) IN INFORMATION SECURITY": {mathRequirement: true,addMathRequirement: false,},
+                      "BACHELOR OF COMPUTER SCIENCE (HONOURS) IN DATA SCIENCE": {mathRequirement: true,addMathRequirement: false,},
+                      "BACHELOR OF SCIENCE (HONOURS) IN MANAGEMENT MATHEMATICS WITH COMPUTING": {mathRequirement: true,addMathRequirement: false,},
+                      "DIPLOMA IN COMPUTER SCIENCE": {mathRequirement: false,addMathRequirement: true,},
+                      "BACHELOR OF COMPUTER SCIENCE (HONOURS) IN DATA SCIENCE": {mathRequirement: false,addMathRequirement: true,},
+                      "BACHELOR OF SOFTWARE ENGINEERING (HONOURS)": {mathRequirement: true,addMathRequirement: true,},
+                }
             }
         },
-        computed: {},
+        computed: {
+          checkAllFormCompletion() {
+              if(this.gotProfileData && this.gotIntakeData && this.gotDetailedInfoData && this.gotQualificationData) {
+                  this.isAllFormCompleted = true;
+                  console.log("All forms completed")
+                  return true
+              } else {
+                this.isAllFormCompleted = false;
+              }
+          },
+        },
         created() {
             // this.init()
             const userInfo = window.localStorage.getItem('userInfo')
@@ -263,9 +477,14 @@
             }
             if(this.userInfo.applicantId) {
               this.init()
+            } else {
+                  // this.$message.warning('Haven\' Login Account')
+                  window.location.href = "./page/login.html";
             }
         },
-        mounted() {},
+        mounted() {
+          // this.checkForDegreePrograms();
+        },
         methods: {
             init() {
                 const userInfo = JSON.parse(window.localStorage.getItem('userInfo'))
@@ -274,34 +493,253 @@
                 } 
                 console.log("init id here: " + this.id )
                 
-                 getProfile(this.id).then(res => {
+                getApplication(this.id).then(res => {
+                  console.log(res)  
+                    if (String(res.code) === '1') {
+                        const newData = res.data;
+                        if(newData.length > 0) {
+                          // this.applications = newData;
+                          this.applications = newData.map(item => ({
+                            ...item,
+                            intakes: {
+                              ...this.applications.intakes,
+                              ...item.intakes
+                            }
+                          }));
+                          console.log(this.applications) 
+                          this.findIntake()
+                          this.findProfile()
+                          this.findDetailedInfo()
+                          this.findQualificationSPM()
+                          this.findQualificationSTPM()
+                        } else {
+                          this.$message.warning('Pending submission of application!')
+                        }
+                    } else {
+                        // this.$message.error(res.msg || 'Fail to handle')
+                        this.$message.error('Pending submission of application!')
+                       
+                    }
+                })
+            },
+            findIntake() {
+                  getIntake(this.id).then(res => {
+                      console.log(res)
+                      if (String(res.code) === '1') {
+                          const newData = res.data;
+                          if(newData[0] != null) {
+                                const programmeChoices = {
+                                  programmeChoice1: null,
+                                  programmeChoice2: null,
+                                  programmeChoice3: null,
+                                };
+
+                              newData.forEach((intake) => {
+                                  switch (intake.priority) {
+                                    case 1:
+                                      programmeChoices.programmeChoice1 = intake;
+                                      break;
+                                    case 2:
+                                      programmeChoices.programmeChoice2 = intake;
+                                      break;
+                                    case 3:
+                                      programmeChoices.programmeChoice3 = intake;
+                                      break;
+                                    default:
+                                      break;
+                                  }
+                              });
+                              console.log(programmeChoices)
+                              this.applications[0].intakes = programmeChoices;
+                              this.applications[0].intakes.session = programmeChoices.programmeChoice1.session;
+                              this.gotIntakeData = true
+                          } else {
+                            this.$message.warning('Haven\' Fill Up Intake & Programme Form!')
+                          }
+                      } 
+                    })
+              },
+            findProfile() {
+                getProfile(this.id).then(res => {
                     console.log(res)
                     if (String(res.code) === '1') {
                         console.log(res.data)
-                        this.gotData = true;
-                        this.formData = res.data
                         if(res.data.profileInfo) {
-                          // Extract the date part from the dateOfBirth string
-                          const dateOfBirthParts = res.data.profileInfo.dateOfBirth.split(" ");
-                          this.formData.profileInfo.dateOfBirth = dateOfBirthParts[0];
+                          this.applications[0].profileInfo = res.data.profileInfo
+                          this.applications[0].emergencyInfo = res.data.emergencyInfo
+                          console.log(this.applications)
+                          this.gotProfileData = true
                         } else {
-                          this.$message.warning('Haven\' Fill Up This Form!')
-                          this.gotData = false;
-                        }
-                    } else {
-                        this.$message.error(res.msg || 'Fail to handle')
-                    }
+                        this.$message.warning('Haven\' Fill Up Profile Info Form!')
+                      }
+                    } 
                 })
-              },
-            submitForm (formName) {
-                event.preventDefault(); 
+            },
+            findDetailedInfo() {
+              getDetailedInfo(this.id).then(res => {
+                   console.log(res)
+                   if (String(res.code) === '1') {
+                     console.log(res.data)
+                     if (res.data != null) {
+                        this.applications[0].detailedInfo = res.data
+                        this.gotDetailedInfoData = true
+                     } else {
+                        this.$message.warning('Haven\' Fill Up DetailedInfo Form!')
+                      }
+                   } 
+                })
+            },
+            findQualificationSPM() {
+              getQualification(this.id).then(res => {
+                    console.log(res)
+                    if (String(res.code) === '1') {
+                        if(res.data.qualificationId) {
+                          console.log(res.data)
+                          this.applications[0].qualification1 = res.data
+                          this.applications[0].qualification1.preuResultList = res.data.preuResultList;
+                          console.log(this.applications)
+                          this.gotQualificationData = true
+                        } else {
+                          this.$message.warning('Haven\' Fill Up Qualification Form!')
+                      }
+                    } 
+                })
+            },
+            findQualificationSTPM() {
+              getQualificationSTPM(this.id).then(res => {
+                  console.log(res)
+                  if (String(res.code) === '1') {
+                      if(res.data.qualificationId) {
+                          console.log(res.data)
+                          this.applications[0].qualification2 = res.data
+                          this.applications[0].qualification2.preuResultList = res.data.preuResultList;
+                          console.log(this.applications)
+                      } 
+                  } 
+              })
+            },
+            meetsDiplomaCriteria(choice) {
+              if (this.isAllFormCompleted) {
+                  const spmResults = this.applications[0].qualification1.preuResultList.filter(result => result.resultType === 'SPM');
+                  const bahasaInggerisResult = spmResults.find(result => result.subject === 'BAHASA INGGERIS');
+                  const mathematicsResult = spmResults.find(result => result.subject === 'MATHEMATICS');
+                  const selectedPrograms = [choice.programme];
 
-                const params = {...this.formData}
+                  let meetsRequirements = true;
+
+                  for (const program of selectedPrograms) {
+                    const requirements = this.programRequirements[program];
+                    const creditAndAboveSubjects = spmResults.filter(result => ['A+', 'A', 'A-', 'B+', 'B', 'C+', 'C', 'D', 'E'].includes(result.grade));
+                    const meetsMathRequirement = requirements.mathRequirement ? mathematicsResult && ['A+', 'A', 'A-', 'B+', 'B', 'C+', 'C'].includes(mathematicsResult.grade) : true;
+                    const meetsAddMathRequirement = requirements.addMathRequirement ?
+                      creditAndAboveSubjects.some(result => result.subject === 'ADDITIONAL MATHEMATICS' && ['A+', 'A', 'A-', 'B+', 'B', 'C+', 'C'].includes(result.grade)) : true;
+                  
+                    // Check if the program's requirements are met
+                    // At least 3 Credits, Inggeris E and above, Mathematics C and above, and some programmes may need "Additional Mathematics"
+                    if (!(creditAndAboveSubjects.length >= 3 &&
+                        bahasaInggerisResult && ['A+', 'A', 'A-', 'B+', 'B', 'C+', 'C', 'D', 'E'].includes(bahasaInggerisResult.grade) &&
+                        meetsMathRequirement && meetsAddMathRequirement)) {
+                      meetsRequirements = false;
+                      break;
+                    } 
+                  }
+                  this.diplomaMeet = meetsRequirements;     
+                  return meetsRequirements;
+                }
+            },
+            meetsDegreeCriteria() {
+                if (this.isAllFormCompleted) {
+                  const stpmResults = this.applications[0].qualification2.preuResultList.filter(result => result.resultType === 'STPM');
+                  const creditAndAboveSubjects = stpmResults.filter(result => ['A', 'A-', 'B+', 'B', 'B-', 'C+', 'C'].includes(result.grade));
                 
-  
+                  // Check if there are at least 2 subjects with Credit and above in STPM
+                  return creditAndAboveSubjects.length >= 2;
+                }
+            },
+            checkForDegreePrograms() {
+              const choices = [
+                this.applications[0].intakes.programmeChoice1,
+                this.applications[0].intakes.programmeChoice2,
+                this.applications[0].intakes.programmeChoice3,
+              ];
+              
+              for (const choice of choices) {
+                if (choice.levelOfStudy.includes('DEGREE')) {
+                  this.hasDegreeProgramme = true;
+                  break;
+                }
+              }
+            },
+            // isDegreeProgram(choice) {
+            //   alert(choice.levelOfStudy === "DEGREE")
+            //   return choice.levelOfStudy === "DEGREE";
+            // },
+            isAdditionalMathRequired() {
+                const selectedPrograms = [
+                  this.applications[0].intakes.programmeChoice1.programme,
+                  this.applications[0].intakes.programmeChoice2.programme,
+                  this.applications[0].intakes.programmeChoice3.programme
+                ];
+                return selectedPrograms.some(program => {
+                  const requirements = this.programRequirements[program];
+                  return requirements && requirements.addMathRequirement;
+                });
+            },
+            getGrade(subject) {
+                const resultList = this.applications[0].qualification1.preuResultList;
+                const subjectResult = resultList.find((result) => result.subject === subject);
+
+                if (subjectResult) {
+                  const grade = subjectResult.grade;
+
+                  const gradeScale = {
+                    'A+': 10,
+                    'A': 9,
+                    'A-': 8,
+                    'B+': 7,
+                    'B': 6,
+                    'B-': 5,
+                    'C+': 4,
+                    'C': 3,
+                    'C-': 2,
+                    'D': 1,
+                    'E': 0,
+                  };
                 
+                  if (
+                    (subject === 'MATHEMATICS' && gradeScale[grade] >= gradeScale['C']) ||
+                    (subject === 'BAHASA INGGERIS' && gradeScale[grade] >= gradeScale['E']) ||
+                    (subject === 'ADDITIONAL MATHEMATICS' && gradeScale[grade] >= gradeScale['C'])
+                  ) {
+                    return grade + ' met';
+                  }
+                
+                  return grade + ' not met';
+                }
+            },
+            submitForm (formName) {
+                  event.preventDefault(); 
+
+                  const params = {...this.applications}
+                  updateApplication (this.id).then(res => {
+                    console.log(res)
+                    if (String(res.code) === '1') {
+                        if(res.data) {
+                          console.log('Successfully submitted and updated intake details！')
+                          this.$message.success('Successfully submitted and updated intake details！')
+                            setTimeout(() => {
+                              window.location.href = ('./../index.html')
+                            }, 1500)
+                        } else {
+                          this.$message.warning('Haven\' Submit This Declaration!')
+                      }
+                    } 
+                })
+              
+
             },
         }
+        
 
     });
           

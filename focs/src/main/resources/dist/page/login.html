@@ -138,7 +138,6 @@
               let res = await loginApi(this.loginForm)
               if (String(res.code) === '1') {
                 localStorage.setItem('userInfo', JSON.stringify(res.data))
-                sessionStorage.setItem('lastActivityTime', Date.now())
                 this.$message.success('Successfully Login Your Account！')
                 if(localStorage.getItem('redirect') == 'submitEnquiry.html'){
                   localStorage.removeItem('redirect');
@@ -148,7 +147,7 @@
                   window.location.href = '/dist/index.html';
                 }, 500); // 0.5secs
               } else {
-                this.$message.error(res.msg)
+                this.$message.error('Account not found')
                 this.loading = false
               }
             }

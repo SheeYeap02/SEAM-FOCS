@@ -4,9 +4,8 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.seam.focs.DTO.ProfileEmergencyDTO;
 import com.seam.focs.common.Result;
-import com.seam.focs.entity.EmergencyInfo;
-import com.seam.focs.entity.Intake;
-import com.seam.focs.entity.ProfileInfo;
+import com.seam.focs.entity.*;
+import com.seam.focs.service.ApplicationService;
 import com.seam.focs.service.DetailedInfoService;
 import com.seam.focs.service.IntakeService;
 import lombok.extern.slf4j.Slf4j;
@@ -23,6 +22,9 @@ public class IntakeController {
     @Autowired
     private IntakeService intakeService;
 
+    @Autowired
+    private ApplicationService applicationService;
+
     /**
      *
      * @param intakes
@@ -32,6 +34,18 @@ public class IntakeController {
     public Result<String> save(@RequestBody List<Intake> intakes) {
         log.info("New Intake, Details: {}", intakes.toString());
         intakeService.saveBatch(intakes);
+
+        //To get back the intake
+        LambdaQueryWrapper<Intake> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(Intake::getApplicantId, intakes.get(0).getApplicantId());
+        Intake intake = intakeService.getOne(queryWrapper);
+
+        //After completed automatically set into the application
+        LambdaQueryWrapper<Application> queryWrapper2 = new LambdaQueryWrapper<>();
+        queryWrapper2.eq(Application::getApplicantId, intakes.get(0).getApplicantId());
+        Application application = applicationService.getOne(queryWrapper2);
+        application.setIntakeId(intake.getIntakeId());
+        applicationService.save(application);
         return Result.success("New Intake Details Added Successfully");
     }
 
