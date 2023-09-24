@@ -216,12 +216,12 @@
             if (localStorage.getItem('userInfo') == null) {
                 //navigate user to other page
                 await new Promise(resolve => {
-                    localStorage.setItem('redirect', '../../focs/submitEnquiry2.html');
-                    sessionStorage.setItem('redirect', '../../focs/submitEnquiry2.html');
+                    localStorage.setItem('redirect', '../focs/submitEnquiry2.html');
+                    sessionStorage.setItem('redirect', '../focs/submitEnquiry2.html');
                     resolve();
                 });
-                localStorage.setItem('redirect', '../../focs/submitEnquiry2.html');
-                sessionStorage.setItem('redirect', '../../focs/submitEnquiry2.html');
+                localStorage.setItem('redirect', '../focs/submitEnquiry2.html');
+                sessionStorage.setItem('redirect', '../focs/submitEnquiry2.html');
                 //window.location.href = "../page/login.html?redirect=submitEnquiry2.html";
                 window.location.href = '/dist/page/login.html?redirect="../focs/submitEnquiry2.html"';
                 //
