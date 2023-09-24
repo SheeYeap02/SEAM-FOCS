@@ -1,3 +1,5 @@
+
+
 //create header element and append to body
 var header = document.createElement("header");
 header.innerHTML = ` <header id="header" class="fixed-top d-flex align-items-center">
@@ -28,5 +30,6 @@ header.innerHTML = ` <header id="header" class="fixed-top d-flex align-items-cen
 
 </div>
 </header>`;
+
 //append header to the first element in body
 document.body.insertBefore(header, document.body.firstChild);
