@@ -221,7 +221,10 @@
                 });
                 console.log(localStorage.getItem('redirect'));
                 if (localStorage.getItem('redirect') == 'submitEnquiry2.html') {
-                    window.location.href = "../page/login.html?redirect=submitEnquiry2.html";
+                    //window.location.href = "/dist/page/login.html?redirect=submitEnquiry2.html";
+                    //window.location.href = "http://localhost:8081/dist/page/login.html?redirect=submitEnquiry2.html";
+                    console.log('redirect to login');
+                    window.location.href = "http://localhost:8081/dist/focs/programmes2.html";
                 }
                 //
             } else {

@@ -155,7 +155,12 @@
                   window.location.href = '../focs/submitEnquiry2.html';
                 }
                 setTimeout(() => {
-                  if (localStorage.getItem('redirect') == 'submitEnquiry2.html') {
+                  //REDIRECT TO ENQUIRY PAGE
+                  console.log(localStorage.getItem('redirect'));
+                  let urlParams = new URLSearchParams(window.location.search);
+                  let redirectParam = urlParams.get('redirect');
+                  console.log(redirectParam);
+                  if (localStorage.getItem('redirect') == 'submitEnquiry2.html' || redirectParam == 'submitEnquiry2.html') {
                     this.$message.success('Going back to Enquiry！')
                     localStorage.removeItem('redirect');
                     window.location.href = '../focs/submitEnquiry2.html';
