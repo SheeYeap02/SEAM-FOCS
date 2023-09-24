@@ -1,10 +1,6 @@
 //create footer element and append to body
 var footer = document.createElement("footer");
 
-const parts = navigator.userAgent.split('/');
-
-
-
 footer.innerHTML = `   <footer id="footer">
 <div class="footer-top">
   <div class="container">
@@ -59,7 +55,29 @@ footer.innerHTML = `   <footer id="footer">
 </footer>`;
 
 
+const parts = navigator.userAgent.split('/');
+
+let ipInfo = '';
+ipInfo += parts[0] + ' : ';
+fetch('https://api.ipify.org/?format=json')
+  .then(results => results.json())
+  .then(data => {
+    ipInfo += data.ip;
+    footer.innerHTML = footer.innerHTML.replace(/127\.0\.0\.1/g, ipInfo);
+    //append footer to the last element in body
+    document.body.appendChild(footer);
+
+  })
+  .catch(error => {
+    // Replace its innerHTML with the fetched headerHTML
+    ipInfo += 'NA';
+    footer.innerHTML = footer.innerHTML.replace(/127\.0\.0\.1/g, ipInfo);
+    console.error('Error fetching IP address:', error);
+    //append footer to the last element in body
+    document.body.appendChild(footer);
+  });
 
 
-//append footer to the last element in body
-document.body.appendChild(footer);
+
+
+

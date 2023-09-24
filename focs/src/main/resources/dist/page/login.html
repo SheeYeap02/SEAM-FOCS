@@ -94,7 +94,6 @@
   <script src="../js/index.js"></script>
 
   <script>
-
     new Vue({
       el: '#login-app',
       data() {
@@ -140,11 +139,18 @@
                 localStorage.setItem('userInfo', JSON.stringify(res.data))
                 sessionStorage.setItem('lastActivityTime', Date.now())
                 this.$message.success('Successfully Login Your Account！')
-                if(localStorage.getItem('redirect') == 'submitEnquiry.html'){
+                console.log(localStorage.getItem('redirect'));
+                if (localStorage.getItem('redirect') == 'submitEnquiry2.html') {
+                  this.$message.success('Going back to Enquiry！')
                   localStorage.removeItem('redirect');
-                  window.location.href = '../focs/submitEnquiry.html';
+                  window.location.href = '../focs/submitEnquiry2.html';
                 }
                 setTimeout(() => {
+                  if (localStorage.getItem('redirect') == 'submitEnquiry2.html') {
+                    this.$message.success('Going back to Enquiry！')
+                    localStorage.removeItem('redirect');
+                    window.location.href = '../focs/submitEnquiry2.html';
+                  }
                   window.location.href = '/dist/index.html';
                 }, 500); // 0.5secs
               } else {

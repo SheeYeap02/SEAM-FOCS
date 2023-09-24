@@ -213,20 +213,21 @@
 
     <script>
         onload = function () {
-            // if (localStorage.getItem('userInfo') == null) {
-            //     //navigate user to other page
-            //     localStorage.setItem('redirect', 'submitEnquiry.html');
-            //     window.location.href = "../page/login.html";
-            //     //
-            // } else {
-            //     //get user info
-            //     var userInfo = JSON.parse(localStorage.getItem('userInfo'));
-            //     console.log(userInfo);
-            //     let userEmail = userInfo['applicantEmail'];
-            //     document.getElementById('email').value = userEmail;
-            //     document.getElementById('name').value = userEmail.split('@')[0];
+            if (localStorage.getItem('userInfo') == null) {
+                //navigate user to other page
+                localStorage.setItem('redirect', 'submitEnquiry2.html');
+                console.log('redirect to login page');
+                window.location.href = "../page/login.html";
+                //
+            } else {
+                //get user info
+                var userInfo = JSON.parse(localStorage.getItem('userInfo'));
+                console.log(userInfo);
+                let userEmail = userInfo['applicantEmail'];
+                document.getElementById('email').value = userEmail;
+                document.getElementById('name').value = userEmail.split('@')[0];
 
-            // }
+            }
 
             document.getElementById('tab2-content').style.display = 'none';
 
@@ -242,8 +243,6 @@
             //let html = document.getElementById('tab2-content').innerHTML;
             let html = "";
             for (let i = 0; i < enquiryList.length; i++) {
-
-
                 let enquiry = enquiryList[i];
                 let email = enquiry['email'];
                 let title = enquiry['title'];
