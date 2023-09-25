@@ -350,8 +350,6 @@
               <form class="form" data-parsley-validate id="">
                 <div class="form-group">
                   <div class="form-check mandatory">
-                    <!-- <input type="checkbox" id="checkbox5" class="form-check-input" data-parsley-required="true" :disabled="!isAllFormCompleted || !diplomaMeet" 
-                        data-parsley-required="true" data-parsley-error-message="You have to accept our terms and conditions to proceed."/> -->
                     <input type="checkbox" id="checkbox5" class="form-check-input" data-parsley-required="true" data-parsley-required-message="You have to accept our terms and conditions to proceed." data-parsley-errors-container="#checkbox-error-container" 
                         :disabled="!isAllFormCompleted || !diplomaMeet" data-parsley-trigger="change"/>
                     <label for="checkbox5" class="form-check-label form-label" data-bs-toggle="tooltip" data-bs-placement="top"  title="You must complete all the forms and meet minimum entry requirements in order to submit application for admission." >AGREE</label>
@@ -750,7 +748,9 @@
                 if (this.isAllFormCompleted) {
                   const stpmResults = this.applications[0].qualification2.preuResultList.filter(result => result.resultType === 'STPM');
                   const creditAndAboveSubjects = stpmResults.filter(result => ['A', 'A-', 'B+', 'B', 'B-', 'C+', 'C'].includes(result.grade));
-                  this.diplomaMeet = creditAndAboveSubjects.length >= 2;
+                  if(!(creditAndAboveSubjects.length >= 2)) {
+                    this.diplomaMeet = false
+                  }
                   // Check if there are at least 2 subjects with Credit and above in STPM
                   return creditAndAboveSubjects.length >= 2;
                 }
@@ -819,7 +819,7 @@
                   ) {
                     return grade + ' met';
                   }
-                
+                  this.diplomaMeet = false;
                   return grade + ' not met';
                 }
             },
