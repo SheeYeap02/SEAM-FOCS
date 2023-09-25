@@ -271,7 +271,7 @@
     
                                          <label for="fileFormat" class="" style="padding-top: 10px">Result Format</label>
                                          <fieldset class="form-group">
-                                            <select v-model="resultFormat" class="form-select" :disabled="!isEditing" id="basicSelect" data-parsley-required="true">
+                                            <select v-model="resultFormat" required class="form-select" :disabled="!isEditing" id="basicSelect" data-parsley-required="true">
                                               <option value="Please select" disabled selected>Please select</option>
                                               <option value="With Brackets">With Brackets</option>
                                               <option value="Without Brackets">Without Brackets</option>
@@ -1259,7 +1259,6 @@
                       this.$message.error(res.msg || 'Fail to handle')
                   }
               }).catch(err => {
-                  alert('Fail to get qualification stpm: ' + err)
                   console.log('Fail to get qualification stpm: ' + err)
                   this.$message.error('Request error：' + err)
               }) 

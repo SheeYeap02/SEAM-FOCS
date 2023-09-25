@@ -17,7 +17,34 @@
       fieldset .form-check:first-child {
           padding-left: 0.7rem; /* Remove padding-left for the first radio button */
       }
-    
+      
+      .load-modal {
+        display: none; 
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7); 
+        z-index: 1000; 
+        justify-content: center;
+        align-items: center;
+        display: flex;
+      }
+      
+      .modal-wrap {
+        /* background-color: #fff;  */
+        text-align: center;
+        padding: 20px;
+        border-radius: 8px;
+        /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+      }
+
+      .spinner {
+        width: 5rem;
+        display: block;
+        margin: 0 auto; 
+      }
     </style>
 
 </head>
@@ -155,7 +182,7 @@
  <div id="declaration-app">
   <section id="list-group-icons">
     <div class="row match-height">
-        <div class="col-lg-6 col-md-12">
+        <div class="col-lg-5 col-md-12">
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">Application for admission checklist </h4>
@@ -185,7 +212,7 @@
                         </ul>
 
                         <div>
-                          <p v-if="checkAllFormCompletion" style="padding-top: 30px;">
+                          <p v-if="checkAllFormCompletion()" style="padding-top: 30px;">
                             All forms have been completed. Please proceed to the qualification verification on the left and/or submit application for admission.
                          </p>
                          <p v-else style="color: rgb(208, 32, 32); padding-top: 30px;">
@@ -196,7 +223,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-6 col-md-12">
+        <div class="col-lg-7 col-md-12">
           <div class="card">
               <div class="card-header">
                   <h4 class="card-title">Qualification Verification</h4>
@@ -204,44 +231,86 @@
               <div class="card-content">
                   <div class="card-body" style="padding-top: 0;">  
                     <div>
-                      <h6 class="card-title">SPM/O LEVEL/EQUIVALENT</h6>
+                      <h4 class="card-title">SPM/O LEVEL/EQUIVALENT</h4>
                       <div v-for="choice in [applications[0].intakes.programmeChoice1, applications[0].intakes.programmeChoice2, applications[0].intakes.programmeChoice3]">
-                        <p :key="choice.programme">
-                          <span v-if="meetsDiplomaCriteria(choice)">
-                            You've met the minimum entry requirements for the following programme:
+                        <p :key="choice.programme" style="margin-bottom: 0.4rem">
+                          <span v-if="choice.programme in programRequirements">
+                            <span v-if="meetsDiplomaCriteria(choice)">
+                              You've met the minimum entry requirements for the following programme:
+                            </span>
+                            <span v-else style="color: rgb(208, 32, 32)">
+                              You've not met the minimum entry requirements for the following programme:
+                            </span>
                           </span>
-                          <span v-else style="color: rgb(208, 32, 32)">
-                            You've not met the minimum entry requirements for the following programme:
+                          <span v-else>
+                            <span v-if="meetsMinimumCredits()">
+                              You've met the minimum entry requirements for the following programme:
+                            </span>
+                            <span v-else style="color: rgb(208, 32, 32)">
+                              You've not met the minimum entry requirements for the following programme:
+                            </span>
                           </span>
                           <br>
-                          {{ choice.programme }}
+                          <p style="font-weight: 900; margin-bottom: 0.4rem;">{{ choice.programme }}</p>
                         </p>
-                      </div>
-                      <div >
-                        <p>Minimum Subject Requirements:</p>
-                        <ul>
-                          <li>
-                            MATHEMATICS: {{ getGrade('MATHEMATICS') }}
-                          </li>
-                          <li>
-                            BAHASA INGGERIS: {{ getGrade('BAHASA INGGERIS') }}
-                          </li>
-                          <li v-if="isAdditionalMathRequired()">
-                            ADDITIONAL MATHEMATICS: {{ getGrade('ADDITIONAL MATHEMATICS') }}
-                          </li>
-                        </ul>
+                        
+                        <div>
+                            <p style="margin-bottom: 0.4rem">Minimum Subject Requirements:</p>
+                            <ul v-if="choice.programme in programRequirements">
+                              <li v-if="isMathRequired(choice.programme)" :style="{ color: (getGrade('MATHEMATICS') || '').includes('not met') ? 'rgb(208, 32, 32)' : '' }">
+                                MATHEMATICS: {{ getGrade('MATHEMATICS') }}
+                              </li>
+                              <li :style="{ color: (getGrade('BAHASA INGGERIS') || '').includes('not met') ? 'rgb(208, 32, 32)' : '' }">
+                                BAHASA INGGERIS: {{ getGrade('BAHASA INGGERIS') }}
+                              </li>
+                              <li v-if="isAdditionalMathRequired(choice.programme)" :style="{ color: (getGrade('ADDITIONAL MATHEMATICS') || '').includes('not met') ? 'rgb(208, 32, 32)' : '' }">
+                                ADDITIONAL MATHEMATICS: {{ getGrade('ADDITIONAL MATHEMATICS') }}
+                              </li>
+                              <li v-if="meetsMinimumCredits()">
+                                At least 3 Credits and above met
+                              </li>
+                              <li v-if="!meetsMinimumCredits()" style="color: rgb(208, 32, 32)">
+                                You need to have at least 3 Credits and above
+                              </li>
+                            </ul>
+                            <ul v-else-if="meetsMinimumCredits()">
+                              <li>
+                                At least 3 Credits and above met
+                              </li>
+                            </ul>
+                            <ul v-else style="color: rgb(208, 32, 32)">
+                              <li>
+                                You need to have at least 3 Credits and above
+                              </li>
+                            </ul>
+                        </div>
+                        <hr>
                       </div>
                       <!-- For Degree -->
-                      <div>
+                      <div style="margin-top: 30px;" v-if="checkForDegreePrograms() && hasDegreeProgramme">
+                        <h4 class="card-title">STPM/A LEVEL/UEC/EQUIVALENT (IF APPLICABLE)</h4>
+                        <p>
+                          <p v-if="meetsDegreeCriteria()">
+                            You've met the minimum entry requirements for the degree programme.
+                          </p>
+                          <p v-else style="color: rgb(208, 32, 32)">
+                            You've not met the minimum entry requirements (2 Credits) for the degree programme.
+                          </p>
+                        </p>
+                        <ul v-if="meetsDegreeCriteria()">
+                          <li>
+                            At least 2 Credits and above met
+                          </li>
+                        </ul>
+                        <ul v-else>
+                          <li style="color: rgb(208, 32, 32)">
+                            You need to have at least 2 Credits and above
+                          </li>
+                        </ul>
                         <hr>
-                        <h6 class="card-title" v-if="hasDegreeProgramme">STPM/A LEVEL/UEC/EQUIVALENT (IF APPLICABLE)</h6>
-                        <p v-if="hasDegreeProgramme && meetsDegreeCriteria()">
-                          You've met the minimum entry requirements for the degree programme.
-                        </p>
-                        <p v-if="hasDegreeProgramme && !meetsDegreeCriteria()" style="color: rgb(208, 32, 32)">
-                          You've not met the minimum entry requirements (2 Credits) for the degree programme.
-                        </p>
                       </div>
+
+
                     </div>
                   </div>
               </div>
@@ -249,6 +318,16 @@
       </div>
     </div>
   </section>
+
+
+  <!-- The modal dialog -->
+  <div id="loading-modal" class="load-modal" style="display: none">
+    <div class="modal-wrap">
+      <img src="../assets/compiled/svg/ball-triangle.svg" class="spinner" alt="Loading">
+      <p style="padding-top: 10px;">Loading...</p>
+    </div>
+  </div>
+
 
   <section id="multiple-column-form">
     <div class="row match-height">
@@ -271,8 +350,10 @@
               <form class="form" data-parsley-validate id="">
                 <div class="form-group">
                   <div class="form-check mandatory">
-                    <input type="checkbox" id="checkbox5" class="form-check-input" data-parsley-required="true" :disabled="!isAllFormCompleted || !diplomaMeet" 
-                        data-parsley-required="true" data-parsley-error-message="You have to accept our terms and conditions to proceed."/>
+                    <!-- <input type="checkbox" id="checkbox5" class="form-check-input" data-parsley-required="true" :disabled="!isAllFormCompleted || !diplomaMeet" 
+                        data-parsley-required="true" data-parsley-error-message="You have to accept our terms and conditions to proceed."/> -->
+                    <input type="checkbox" id="checkbox5" class="form-check-input" data-parsley-required="true" data-parsley-required-message="You have to accept our terms and conditions to proceed." data-parsley-errors-container="#checkbox-error-container" 
+                        :disabled="!isAllFormCompleted || !diplomaMeet" data-parsley-trigger="change"/>
                     <label for="checkbox5" class="form-check-label form-label" data-bs-toggle="tooltip" data-bs-placement="top"  title="You must complete all the forms and meet minimum entry requirements in order to submit application for admission." >AGREE</label>
                   </div>
                 </div>
@@ -338,6 +419,7 @@
         data() {
             return {
                 id: '',
+                applicationId: '',
                 isEditing: true,
                 hasDegreeProgramme: false,
                 gotProfileData: false,
@@ -447,26 +529,17 @@
                       "DIPLOMA IN SOFTWARE ENGINEERING": {mathRequirement: true,addMathRequirement: false,},
                       "BACHELOR OF SOFTWARE ENGINEERING (HONOURS)": {mathRequirement: true,addMathRequirement: false,},
                       "BACHELOR OF INFORMATION TECHNOLOGY (HONOURS) IN SOFTWARE SYSTEMS DEVELOPMENT": {mathRequirement: true,addMathRequirement: false,},
+                      "BACHELOR OF COMPUTER SCIENCE (HONOURS) IN INTERACTIVE SOFTWARE TECHNOLOGY": {mathRequirement: true,addMathRequirement: true,},
                       "BACHELOR OF INFORMATION TECHNOLOGY (HONOURS) IN INTERNET TECHNOLOGY": {mathRequirement: true,addMathRequirement: false,},
                       "BACHELOR OF INFORMATION TECHNOLOGY (HONOURS) IN INFORMATION SECURITY": {mathRequirement: true,addMathRequirement: false,},
-                      "BACHELOR OF COMPUTER SCIENCE (HONOURS) IN DATA SCIENCE": {mathRequirement: true,addMathRequirement: false,},
-                      "BACHELOR OF SCIENCE (HONOURS) IN MANAGEMENT MATHEMATICS WITH COMPUTING": {mathRequirement: true,addMathRequirement: false,},
+                      "BACHELOR OF COMPUTER SCIENCE (HONOURS) IN DATA SCIENCE": {mathRequirement: true,addMathRequirement: true,},
+                      "BACHELOR OF SCIENCE (HONOURS) IN MANAGEMENT MATHEMATICS WITH COMPUTING": {mathRequirement: true,addMathRequirement: true,},
                       "DIPLOMA IN COMPUTER SCIENCE": {mathRequirement: false,addMathRequirement: true,},
-                      "BACHELOR OF COMPUTER SCIENCE (HONOURS) IN DATA SCIENCE": {mathRequirement: false,addMathRequirement: true,},
                       "BACHELOR OF SOFTWARE ENGINEERING (HONOURS)": {mathRequirement: true,addMathRequirement: true,},
                 }
             }
         },
         computed: {
-          checkAllFormCompletion() {
-              if(this.gotProfileData && this.gotIntakeData && this.gotDetailedInfoData && this.gotQualificationData) {
-                  this.isAllFormCompleted = true;
-                  console.log("All forms completed")
-                  return true
-              } else {
-                this.isAllFormCompleted = false;
-              }
-          },
         },
         created() {
             // this.init()
@@ -499,14 +572,15 @@
                         const newData = res.data;
                         if(newData.length > 0) {
                           // this.applications = newData;
-                          this.applications = newData.map(item => ({
-                            ...item,
-                            intakes: {
-                              ...this.applications.intakes,
-                              ...item.intakes
-                            }
-                          }));
-                          console.log(this.applications) 
+                          // this.applications = newData.map(item => ({
+                          //   ...item,
+                          //   intakes: {
+                          //     ...this.applications.intakes,
+                          //     ...item.intakes
+                          //   }
+                          // }));
+                          this.applicationId = newData[0].applicationId
+                          console.log(this.applicationId) 
                           this.findIntake()
                           this.findProfile()
                           this.findDetailedInfo()
@@ -523,7 +597,8 @@
                 })
             },
             findIntake() {
-                  getIntake(this.id).then(res => {
+              if(this.applications[0].intakeId != null) {
+                getIntake(this.id).then(res => {
                       console.log(res)
                       if (String(res.code) === '1') {
                           const newData = res.data;
@@ -558,8 +633,10 @@
                           }
                       } 
                     })
-              },
+              }
+            },
             findProfile() {
+              if(this.applications[0].profileInfoId != null) {
                 getProfile(this.id).then(res => {
                     console.log(res)
                     if (String(res.code) === '1') {
@@ -574,9 +651,11 @@
                       }
                     } 
                 })
+              }
             },
             findDetailedInfo() {
-              getDetailedInfo(this.id).then(res => {
+              if(this.applications[0].detailedInfoId != null) {
+                getDetailedInfo(this.id).then(res => {
                    console.log(res)
                    if (String(res.code) === '1') {
                      console.log(res.data)
@@ -588,9 +667,11 @@
                       }
                    } 
                 })
+              }
             },
             findQualificationSPM() {
-              getQualification(this.id).then(res => {
+              if(this.applications[0].qualificationId != null) {
+                getQualification(this.id).then(res => {
                     console.log(res)
                     if (String(res.code) === '1') {
                         if(res.data.qualificationId) {
@@ -604,6 +685,7 @@
                       }
                     } 
                 })
+              }
             },
             findQualificationSTPM() {
               getQualificationSTPM(this.id).then(res => {
@@ -618,6 +700,16 @@
                   } 
               })
             },
+            meetsMinimumCredits() {
+                if (this.isAllFormCompleted) {
+                  const spmResults = this.applications[0].qualification1.preuResultList.filter(result => result.resultType === 'SPM');
+                  const creditAndAboveSubjects = spmResults.filter(result => ['A+', 'A', 'A-', 'B+', 'B', 'C+', 'C'].includes(result.grade));         
+                  
+                  // Check if there are at least 3 subjects with Credit and above in SPM
+                  return creditAndAboveSubjects.length >= 3;
+                }
+                return false; 
+            },
             meetsDiplomaCriteria(choice) {
               if (this.isAllFormCompleted) {
                   const spmResults = this.applications[0].qualification1.preuResultList.filter(result => result.resultType === 'SPM');
@@ -628,22 +720,29 @@
                   let meetsRequirements = true;
 
                   for (const program of selectedPrograms) {
-                    const requirements = this.programRequirements[program];
-                    const creditAndAboveSubjects = spmResults.filter(result => ['A+', 'A', 'A-', 'B+', 'B', 'C+', 'C', 'D', 'E'].includes(result.grade));
-                    const meetsMathRequirement = requirements.mathRequirement ? mathematicsResult && ['A+', 'A', 'A-', 'B+', 'B', 'C+', 'C'].includes(mathematicsResult.grade) : true;
-                    const meetsAddMathRequirement = requirements.addMathRequirement ?
-                      creditAndAboveSubjects.some(result => result.subject === 'ADDITIONAL MATHEMATICS' && ['A+', 'A', 'A-', 'B+', 'B', 'C+', 'C'].includes(result.grade)) : true;
-                  
-                    // Check if the program's requirements are met
-                    // At least 3 Credits, Inggeris E and above, Mathematics C and above, and some programmes may need "Additional Mathematics"
-                    if (!(creditAndAboveSubjects.length >= 3 &&
-                        bahasaInggerisResult && ['A+', 'A', 'A-', 'B+', 'B', 'C+', 'C', 'D', 'E'].includes(bahasaInggerisResult.grade) &&
-                        meetsMathRequirement && meetsAddMathRequirement)) {
+                    if (this.programRequirements.hasOwnProperty(program)) {
+                      const requirements = this.programRequirements[program];
+                      const creditAndAboveSubjects = spmResults.filter(result => ['A+', 'A', 'A-', 'B+', 'B', 'C+', 'C', 'D', 'E'].includes(result.grade));
+                      const meetsMathRequirement = requirements.mathRequirement ? mathematicsResult && ['A+', 'A', 'A-', 'B+', 'B', 'C+', 'C'].includes(mathematicsResult.grade) : true;
+                      const meetsAddMathRequirement = requirements.addMathRequirement ?
+                        creditAndAboveSubjects.some(result => result.subject === 'ADDITIONAL MATHEMATICS' && ['A+', 'A', 'A-', 'B+', 'B', 'C+', 'C'].includes(result.grade)) : true;
+                    
+                      // Check if the program's requirements are met
+                      // At least 3 Credits, Inggeris E and above, Mathematics C and above, and some programmes may need "Additional Mathematics"
+                      if (!(creditAndAboveSubjects.length >= 3 &&
+                          bahasaInggerisResult && ['A+', 'A', 'A-', 'B+', 'B', 'C+', 'C', 'D', 'E'].includes(bahasaInggerisResult.grade) &&
+                          meetsMathRequirement && meetsAddMathRequirement)) {
+                        meetsRequirements = false;
+                        break;
+                      }
+                    } else {
+                      // Program name not found in programRequirements
+                      console.error(`Program requirements not found for ${program}`);
                       meetsRequirements = false;
                       break;
-                    } 
+                    }
                   }
-                  this.diplomaMeet = meetsRequirements;     
+                  this.diplomaMeet = meetsRequirements;
                   return meetsRequirements;
                 }
             },
@@ -651,11 +750,22 @@
                 if (this.isAllFormCompleted) {
                   const stpmResults = this.applications[0].qualification2.preuResultList.filter(result => result.resultType === 'STPM');
                   const creditAndAboveSubjects = stpmResults.filter(result => ['A', 'A-', 'B+', 'B', 'B-', 'C+', 'C'].includes(result.grade));
-                
+                  this.diplomaMeet = creditAndAboveSubjects.length >= 2;
                   // Check if there are at least 2 subjects with Credit and above in STPM
                   return creditAndAboveSubjects.length >= 2;
                 }
+                return false;
             },
+            checkAllFormCompletion() {
+              if(this.gotProfileData && this.gotIntakeData && this.gotDetailedInfoData && this.gotQualificationData) {
+                  this.isAllFormCompleted = true;
+                  console.log("All forms completed")
+                  return true
+              } else {
+                this.isAllFormCompleted = false;
+              }
+              return false;
+          },
             checkForDegreePrograms() {
               const choices = [
                 this.applications[0].intakes.programmeChoice1,
@@ -666,24 +776,20 @@
               for (const choice of choices) {
                 if (choice.levelOfStudy.includes('DEGREE')) {
                   this.hasDegreeProgramme = true;
-                  break;
+                  console.log("Degree programme: Yes")
+                  return this.hasDegreeProgramme
                 }
               }
             },
-            // isDegreeProgram(choice) {
-            //   alert(choice.levelOfStudy === "DEGREE")
-            //   return choice.levelOfStudy === "DEGREE";
-            // },
-            isAdditionalMathRequired() {
-                const selectedPrograms = [
-                  this.applications[0].intakes.programmeChoice1.programme,
-                  this.applications[0].intakes.programmeChoice2.programme,
-                  this.applications[0].intakes.programmeChoice3.programme
-                ];
-                return selectedPrograms.some(program => {
-                  const requirements = this.programRequirements[program];
-                  return requirements && requirements.addMathRequirement;
-                });
+            isMathRequired(program) {
+                const requirements = this.programRequirements[program];
+                console.log(program + "s Math': " + requirements.mathRequirement)
+                return requirements && requirements.mathRequirement;
+            },
+            isAdditionalMathRequired(program) {
+                const requirements = this.programRequirements[program];
+                console.log(program+ "'s AM': " + requirements.addMathRequirement)
+                return requirements && requirements.addMathRequirement;
             },
             getGrade(subject) {
                 const resultList = this.applications[0].qualification1.preuResultList;
@@ -719,9 +825,23 @@
             },
             submitForm (formName) {
                   event.preventDefault(); 
+                  // const params = {}
+                  // params.submittedDate = Date.now().toISOString();
+                  // params.profileInfo.dateOfBirth = new Date(this.formData.profileInfo.dateOfBirth).toISOString();
 
                   const params = {...this.applications}
-                  updateApplication (this.id).then(res => {
+                  params.applicantId = JSON.parse(window.localStorage.getItem('userInfo')).applicantId;
+                  params.applicationId = this.applicationId
+
+                  // params.detailedInfo.academicProve = '';
+                  // console.log(this.applicationId)
+
+                  document.getElementById('loading-modal').style.display = 'flex';
+
+                  updateApplication (params).then(res => {
+                    setTimeout(() => {
+                      document.getElementById('loading-modal').style.display = 'none';
+                    }, 5000); // 1.5secs
                     console.log(res)
                     if (String(res.code) === '1') {
                         if(res.data) {

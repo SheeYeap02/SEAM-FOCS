@@ -52,7 +52,8 @@ public class ProfileInfoController {
         queryWrapper2.eq(Application::getApplicantId, profile.getApplicantId());
         Application application = applicationService.getOne(queryWrapper2);
         application.setProfileInfoId(profile.getProfileInfoId());
-        applicationService.save(application);
+        log.info("Set to application: {}", application.toString());
+        applicationService.updateById(application);
 
         return Result.success("New Profile and Emergency Info Added Successfully");
     }

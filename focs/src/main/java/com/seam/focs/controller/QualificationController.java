@@ -51,14 +51,16 @@ public class QualificationController {
         //To get back the qualification
         LambdaQueryWrapper<Qualification> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.eq(Qualification::getApplicantId, qualificationPreuResultDTO.getApplicantId());
-        Qualification qua = qualificationService.getOne(queryWrapper);
+        List<Qualification> qua = qualificationService.list(queryWrapper);
 
         //After completed automatically set into the application
         LambdaQueryWrapper<Application> queryWrapper2 = new LambdaQueryWrapper<>();
         queryWrapper2.eq(Application::getApplicantId, qualificationPreuResultDTO.getApplicantId());
         Application application = applicationService.getOne(queryWrapper2);
-        application.setQualificationId(qua.getQualificationId());
-        applicationService.save(application);
+        for(Qualification qualification1: qua) {
+            application.setQualificationId(qualification1.getQualificationId());
+            applicationService.updateById(application);
+        }
         return Result.success("New Qualification and PreuResult Details Added Successfully");
     }
 

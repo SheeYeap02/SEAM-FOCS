@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Slf4j
@@ -39,6 +40,7 @@ public class ApplicationController {
         log.info("This is update {}", application.toString());
 
         application.setStatus("Success");
+        application.setSubmittedDate(LocalDateTime.now());
         applicationService.updateById(application);
 
         return Result.success("Application Updated Successfully");

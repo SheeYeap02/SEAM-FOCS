@@ -253,9 +253,9 @@
                       <td>
                         <span v-if="application.status === 'Pending'" class="badge bg-danger">{{ application.status }}</span>
                         <span v-if="application.status === 'Success'" class="badge bg-success">{{ application.status }}</span>
-
                       </td>
-                      <td><a href="./page/form-intake.html">Edit</a> | <a href="#">Cancel</a></td>
+                      <td v-if="application.status === 'Pending'"><a href="./page/form-intake.html">Edit</a> | <a href="#">Cancel</a></td>
+                      <td v-if="application.status === 'Success'"><a href="#">View</a></td>
                     </tr>
                   </tbody>
                 </table>
@@ -352,7 +352,41 @@
                             "session": "",
                         },
                     }
-                  ]
+                  ],
+                  intakes: {        // Default value, or load from the server
+                    programmeChoice1: {
+                      "session": "",
+                      "campus": "", 
+                      "levelOfStudy": "",
+                      "entryQualification": "",
+                      "programme": "",
+                      "firstSem": "",
+                      "priority": "1",
+                      "applicantId": "",
+                    },
+                    programmeChoice2: {
+                      "session": "",
+                      "campus": "", 
+                      "levelOfStudy": "",
+                      "entryQualification": "",
+                      "programme": "",
+                      "firstSem": "",
+                      "priority": "2",
+                      "applicantId": "",
+                    },
+                    programmeChoice3: {
+                      "session": "",
+                      "campus": "", 
+                      "levelOfStudy": "",
+                      "entryQualification": "",
+                      "programme": "",
+                      "firstSem": "",
+                      "priority": "3",
+                      "applicantId": "",
+                    },
+                            "applicantId": "",
+                            "session": "",
+                        },
                 };
               },
               computed: {},
@@ -366,7 +400,7 @@
                    this.init()
                  } else {
                   // this.$message.warning('Haven\' Login Account')
-                  window.location.href = "./page/login.html";
+                  window.location.href = "/dist/page/login.html";
                  }
               },
               mounted() {
@@ -421,7 +455,8 @@
                     })
                 },
                 findIntake() {
-                  getIntake(this.id).then(res => {
+                  if(this.applications[0].intakeId != null) {
+                    getIntake(this.id).then(res => {
                       console.log(res)
                       if (String(res.code) === '1') {
                           const newData = res.data;
@@ -451,43 +486,11 @@
                               this.applications[0].intakes = programmeChoices;
                               this.applications[0].intakes.session = programmeChoices.programmeChoice1.session;
                           } else {
-                            this.applications.intakes = {
-                                programmeChoice1: {
-                                  "session": "",
-                                  "campus": "",
-                                  "levelOfStudy": "",
-                                  "entryQualification": "",
-                                  "programme": "",
-                                  "firstSem": "",
-                                  "priority": "1",
-                                  "applicantId": "",
-                              },
-                                programmeChoice2: {
-                                  "session": "",
-                                  "campus": "",
-                                  "levelOfStudy": "",
-                                  "entryQualification": "",
-                                  "programme": "",
-                                  "firstSem": "",
-                                  "priority": "2",
-                                  "applicantId": "",
-                              },
-                                programmeChoice3: {
-                                  "session": "",
-                                  "campus": "",
-                                  "levelOfStudy": "",
-                                  "entryQualification": "",
-                                  "programme": "",
-                                  "firstSem": "",
-                                  "priority": "3",
-                                  "applicantId": "",
-                              },
-                                "applicantId": "",
-                                "session": "",
-                            };
+                            this.$message.warning('Haven\' Fill Up Intake & Programme Form!')
                           }
                       } 
                     })
+                  }
                 },
                 startTimer() {
                   this.warningTimerID = window.setTimeout(this.idleLogout, this.idleTimeOut);

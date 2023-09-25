@@ -65,7 +65,8 @@ public class DetailedInfoController {
                 queryWrapper2.eq(Application::getApplicantId, applicantId);
                 Application application = applicationService.getOne(queryWrapper2);
                 application.setDetailedInfoId(di.getDetailedInfoId());
-                applicationService.save(application);
+                log.info("Set to application: {}", application.toString());
+                applicationService.updateById(application);
             } catch (IOException e) {
                 // Handle the exception (e.g., log an error)
                 e.printStackTrace();

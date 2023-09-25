@@ -38,14 +38,16 @@ public class IntakeController {
         //To get back the intake
         LambdaQueryWrapper<Intake> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.eq(Intake::getApplicantId, intakes.get(0).getApplicantId());
-        Intake intake = intakeService.getOne(queryWrapper);
+        queryWrapper.orderByAsc(Intake::getPriority);
+
+        List<Intake> list = intakeService.list(queryWrapper);
 
         //After completed automatically set into the application
         LambdaQueryWrapper<Application> queryWrapper2 = new LambdaQueryWrapper<>();
         queryWrapper2.eq(Application::getApplicantId, intakes.get(0).getApplicantId());
         Application application = applicationService.getOne(queryWrapper2);
-        application.setIntakeId(intake.getIntakeId());
-        applicationService.save(application);
+        application.setIntakeId(list.get(0).getIntakeId());
+        applicationService.updateById(application);
         return Result.success("New Intake Details Added Successfully");
     }
 

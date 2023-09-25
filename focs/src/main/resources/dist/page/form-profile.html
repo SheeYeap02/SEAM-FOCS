@@ -516,7 +516,7 @@
                       'email': ''
                    }
                 },
-                gotData: true,
+                gotData: false,
                 isEditing: true,
                 userInfo: {},
                 races: 
@@ -625,8 +625,6 @@
               },
             submitForm (formName) {
                 event.preventDefault(); 
-                // alert('Halo Man')
-                // window.location.href= '/dist/index.html'
                 console.log(this.formData.profileInfo)
 
                 const params = {...this.formData}
@@ -634,7 +632,6 @@
                 params.profileInfo.gender = this.formData.profileInfo.gender == 'Male' ? 'M' : 'F';
                 params.profileInfo.applicantId = JSON.parse(window.localStorage.getItem('userInfo')).applicantId;
                 params.emergencyInfo.profileInfo = JSON.parse(window.localStorage.getItem('userInfo')).applicantId;
-                // alert(params.profileInfo.fullName + "\n" + params.profileInfo.mykadNo + "\n" + params.emergencyInfo.email)
   
                 if(!this.gotData) {
                     addProfile(params).then(res => {
@@ -642,14 +639,13 @@
                         console.log('Successfully added new profile details！')
                         this.$message.success('Successfully added new profile details！')
                         setTimeout(() => {
-                          location.reload();;
+                          location.reload();
                         }, 500); // 0.5secs
                       } else {
                         this.$message.error(res.msg || 'Fail to handle')
                       }
-                      window.location.href= '/dist/index.html'
                     }).catch(err => {
-                      // alert('Fail to add new profile details！: ' + err)
+                      alert('Fail to add new profile details！: ' + err)
                       console.log('Fail to add new profile details！: ' + err)
                       this.$message.error('Request error：' + err)
                       }) 
