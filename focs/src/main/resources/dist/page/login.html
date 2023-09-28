@@ -159,11 +159,10 @@
                   localStorage.removeItem('redirect');
                   window.location.href = redirectParam;
                 } else if (redirectParam != null) {
-                  window.location.href = redirectParam;
+                  window.location.href = '/dist/index.html';
                 }
                 setTimeout(() => {
                   window.location.href = '/dist/index.html';
-
                 }, 1500); // 0.5secs
               } else {
                 this.$message.error('Account not found')

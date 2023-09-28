@@ -130,6 +130,16 @@
                   </li> 
                 </ul>
             </li>
+            <li class="sidebar-item">
+              <a
+                href="../focs/submitEnquiry2.html"
+                target="_blank"
+                class="sidebar-link"
+              >
+                <i class="bi bi-question-square"></i>
+                <span>Enquiry</span>
+              </a>
+            </li>
             <li class="sidebar-item ">
               <a href="https://web.tarc.edu.my/portal/cpsr/admission/user/Manual.pdf" target="_blank" class='sidebar-link'>
                   <i class="bi bi-journal-richtext"></i>
@@ -355,7 +365,7 @@
                     <label for="checkbox5" class="form-check-label form-label" data-bs-toggle="tooltip" data-bs-placement="top"  title="You must complete all the forms and meet minimum entry requirements in order to submit application for admission." >AGREE</label>
                   </div>
                 </div>
-                <div class="row">
+                <div class="row" v-if="showSubmitBtn">
                   <div class="col-md-12 col-12 d-flex justify-content-end align-items-end" style="padding-top: 20px; ">
                     <div class="col-md-8 d-flex justify-content-end">
                       <button type="submit" class="btn btn-primary me-1 mb-1" @click="submitForm('formData')" :disabled="!isAllFormCompleted || !diplomaMeet" 
@@ -417,6 +427,7 @@
         data() {
             return {
                 id: '',
+                showSubmitBtn: true,
                 applicationId: '',
                 isEditing: true,
                 hasDegreeProgramme: false,
@@ -584,6 +595,10 @@
                           this.findDetailedInfo()
                           this.findQualificationSPM()
                           this.findQualificationSTPM()
+
+                          if(newData[0].status === 'Success') {
+                            this.showSubmitBtn = false;
+                          }
                         } else {
                           this.$message.warning('Pending submission of application!')
                         }
