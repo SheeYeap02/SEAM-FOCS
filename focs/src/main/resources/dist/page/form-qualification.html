@@ -1040,11 +1040,16 @@
                       const standardizedSubjectName = subjectNameMapping[getSubject];
                       const standardSubject = standardizedSubjectName || getSubject;
 
-                      subjectsAndGrades.push({
-                          subject: standardSubject, 
+                      // Check if the detected subject is in subjectOptions
+                      const foundSubject = this.subjectOptions.find(subject => subject.name === standardSubject);
+
+                      if (foundSubject) {
+                        subjectsAndGrades.push({
+                          subject: standardSubject,
                           grade: getGrade,
-                          resultType: this.formData.qualification1.type   
-                      });
+                          resultType: this.formData.qualification1.type
+                        });
+                      }
                   }
                   console.log('Subjects and Grades:')
                   this.preuResultList = []
@@ -1474,11 +1479,15 @@
                     // const standardizedSubjectName = subjectNameMapping[getSubject];
                     // const standardSubject = standardizedSubjectName || getSubject;
 
-                    subjectsAndGrades.push({
+                    // Check if the detected subject is in subjectOptions
+                    const foundSubject = this.subjectOptions.find(subject => subject.name === getSubject);
+                    if (foundSubject) {
+                      subjectsAndGrades.push({
                         subject: getSubject, 
                         grade: getGrade,
                         resultType: this.formData.qualification2.type,   
-                    });
+                      });
+                    }
                 }
                 console.log('Subjects and Grades:')
                 this.preuResultList = []
