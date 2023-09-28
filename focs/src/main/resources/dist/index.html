@@ -145,7 +145,7 @@
                   target="_blank"
                   class="sidebar-link"
                 >
-                  <i class="bi bi-journal-richtext"></i>
+                  <i class="bi bi-question-square"></i>
                   <span>Enquiry</span>
                 </a>
               </li>
@@ -266,6 +266,7 @@
                       </td>
                       <td v-if="application.status === 'Pending'"><a href="./page/form-intake.html">Edit</a> | <a href="#">Cancel</a></td>
                       <td v-if="application.status === 'Success'"><a href="#">View</a></td>
+                      <td v-else><a href="#"></a></td>
                     </tr>
                   </tbody>
                 </table>
