@@ -12,7 +12,7 @@ header.innerHTML = ` <header id="header" class="fixed-top d-flex align-items-cen
 
   <nav id="navbar" class="navbar order-last order-lg-0">
     <ul>
-      <li><a class="nav-link scrollto" href="homePage.html#">Home</a></li>
+      <li><a class="nav-link scrollto" href="homePage.html">Home</a></li>
       <li class="dropdown"><a href="#"><span>Programme</span> <i class="bi bi-chevron-down"></i></a>
         <ul>
           <li><a class="nav-link scrollto" href="programmes2.html">All Programme</a></li>

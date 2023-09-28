@@ -10,7 +10,8 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon">
+    <!-- <link href="assets/img/favicon.png" rel="icon"> -->
+    <link rel="shortcut icon" href="https://web.tarc.edu.my/portal/images/tarucLogo.png" type="image/x-icon">
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
@@ -243,6 +244,16 @@
 
         // Initially, display all staff
         filterAndDisplayStaff();
+
+        // Check if none of the checkboxes are chosen
+        const noFiltersSelected =
+            filters.gender === null &&
+            filters.position.length === 0 &&
+            filters.designation.length === 0;        
+            
+        if (noFiltersSelected) {
+            filterAndDisplayStaff();
+        }
     </script>
 
     <!-- BOOTSTRAP POPUP -->
