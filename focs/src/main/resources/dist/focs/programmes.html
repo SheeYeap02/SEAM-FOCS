@@ -1,263 +1,226 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
 
 <head>
-    <script src="//code.tidio.co/m6kdihlblyie9jlb1otfxudgzisuz4fx.js" async></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <link rel="icon" type="image/png" href="img/newLogo.png"> -->
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>TARUMT FOCS</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <!-- <link href="assets/img/favicon.png" rel="icon"> -->
     <link rel="shortcut icon" href="https://web.tarc.edu.my/portal/images/tarucLogo.png" type="image/x-icon">
-    <title>Programme Detail</title>
-    <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/icons.css">
-    <link rel="stylesheet" href="css/responsee.css">
-    <link rel="stylesheet" href="owl-carousel/owl.carousel.css">
-    <link rel="stylesheet" href="owl-carousel/owl.theme.css">
-    <!-- CUSTOM STYLE -->
-    <link rel="stylesheet" href="css/template-style.css">
-    <link href="https://fonts.googleapis.com/css?family=Barlow:100,300,400,700,800&amp;subset=latin-ext"
-        rel="stylesheet">
-    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
-    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="js/userlog.js"></script>
-    <!-- BOOTSTRAP -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-    <script src="../plugins/axios/axios.min.js"></script>
-    <script src="../plugins/vue/vue.js"></script>
-    <script src="../api/programme.js"></script>
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
-    <!-- MDB -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.css" rel="stylesheet" />
-    <!-- MDB -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.js"></script>
-    <script>
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
 
-    </script>
-    <style>
-        /* Add your CSS styles here */
-        .titleimage {
-            position: relative;
-            height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            font-size: 5em;
-            text-transform: uppercase;
-            font-weight: bold;
-            background-image: url("img/recog.jpg");
-            background-size: cover;
-            background-position: center;
-            margin-top: 2%;
-        }
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5);
-            /* Semi-transparent overlay */
-            backdrop-filter: blur(10px);
-            /* Adjust the blur amount as needed */
-            z-index: -1;
-            /* Place the overlay and blur behind the text */
-        }
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
 
-        .titlestaff {
-            font-size: 2em;
-            /* Adjust the font size */
-            font-weight: bold;
-            /* Make the text bold */
-            text-align: center;
-            /* Center the text */
-            margin-top: 20px;
-            /* Add some top margin */
-        }
+    <!-- GET VISITOR IP ON TERMINAL -->
+    <script type="text/javascript" src="js/devicedetect.js"></script>
 
-        .center2 {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    <!-- =======================================================
+  * Template Name: Scaffold
+  * Updated: Sep 18 2023 with Bootstrap v5.3.2
+  * Template URL: https://bootstrapmade.com/scaffold-bootstrap-metro-style-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
 
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        body>div.input-group.bg-light>div {
-            border: 1px solid black;
-        }
-
-        #nav-tab {
-            border-bottom: 1px solid black;
-        }
-
-        #nav-contact-tab {
-            background: white;
-            font-weight: bold;
-            color: black;
-            font-size: larger;
-
-        }
-
-        #nav-contact-tab:hover {
-            background: black;
-            color: white;
-        }
-
-        .nav-link.active {
-            background: black;
-            color: white;
-        }
-
-        .list-group-item a {
-            color: black;
-            font-size: large;
-        }
-
-        .list-group-item a:hover {
-            color: blue;
-        }
-
-        .image-container {
-            display: flex;
-            /* Use flexbox to arrange items in a row */
-            margin-left: 18%;
-            margin-bottom: 1%;
-        }
-
-        .image-container img {
-            width: 40%;
-            /* Each image takes 50% of the container width */
-            height: auto;
-            /* Maintain aspect ratio */
-        }
-
-        @media (max-width: 767px) {
-            .titleimage {
-                height: 100px;
-                font-size: 2em;
-            }
-
-            .titlestaff {
-                font-size: 1.5em;
-                margin-top: 10px;
-            }
-        }
-    </style>
 </head>
 
-<body class="p-3 m-0 border-0 bd-example">
-    <!-- HEADER -->
-    <header class="grid headerjs">
-    </header>
+<body>
+    <main id="main">
 
-    <!-- Modal -->
-    <div class="modal fade" id="programmeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <!-- ======= Cta Section ======= -->
+        <section id="cta" class="cta mt-5 pd-5">
+            <div class="container pt-5">
+
+                <div class="row">
+                    <div class="col text-center text-lg-start d-flex justify-content-center">
+                        <h3>FOCS Programme</h3>
+                    </div>
                 </div>
-                <div class="modal-body">
-                    <div class="card" id="searchResult">
-                        <div class="card-body">
-                            <ul class="list-group">
-                                <li class="list-group-item">Cras justo odio</li>
-                                <li class="list-group-item">Dapibus ac facilisis in</li>
-                                <li class="list-group-item">Morbi leo risus</li>
-                                <li class="list-group-item">Porta ac consectetur ac</li>
-                                <li class="list-group-item">Vestibulum at eros</li>
-                            </ul>
+
+            </div>
+        </section><!-- End Cta Section -->
+
+        <!-- ======= Portfolio Section ======= -->
+        <section id="portfolio" class="portfolio">
+            <div class="container">
+
+                <div class="section-title" data-aos="fade-up">
+                    <h2>Programme Overview</h2>
+                    <p>
+                        The Faculty of Computing and Information Technology (FOCS) offers a wide range of programmes in
+                        the areas of Information Technology, Software Engineering, Computer Science, Information
+                        Systems, Multimedia, Computer Engineering, and Computer Networking.
+                    </p>
+                </div>
+
+                <div class="row p-2" data-aos="fade-up">
+                    <div class="col-6">
+                        <img class="img-fluid"
+                            src="https://www.tarc.edu.my/files/focs/slide/D56CA81A-6316-4E80-92F6-FB8718DC6C05.jpg"
+                            alt="Image 1">
+                    </div>
+                    <div class="col-6">
+                        <img class="img-fluid"
+                            src="https://www.tarc.edu.my/files/focs/D898CE15-18AF-4DBA-B0CC-C322E090D513.JPG"
+                            alt="Image 2">
+                    </div>
+                </div>
+            </div>
+
+        </section><!-- End Portfolio Section -->
+
+        <!-- ======= Services Section ======= -->
+        <section id="services" class="services section-bg">
+            <div class="container">
+
+                <div class="section-title" data-aos="fade-up">
+                    <h2>Explore Programme</h2>
+                    <p>Struggling to choose between multiple programs? Explore and Compare FOCS IT Courses to Discover
+                        Your Best Fit!</p>
+                </div>
+
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-4 col-lg-2 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in">
+                        <div class="icon-box icon-box-pink">
+                            <div class="icon"><i class="bx bx-tachometer"></i></div>
+                            <h4 class="title"><a href="compareProgramme2.html" target="_blank">Compare Programme</a>
+                            </h4>
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+            </div>
+        </section><!-- End Services Section -->
+
+        <section id="searchProgramme">
+            <div class="section-title mt-5" data-aos="fade-up">
+                <h2>Search Programme</h2>
+                <p>
+                    Search for your desired programme here by entering the programme name or programme code. Find
+                    out more about the programme by clicking on the programme name.
+                </p>
+            </div>
+
+            <div class="container">
+                <div data-aos="fade-up" class="input-group bg-light">
+                    <div class="form-control">
+                        <input type="search" id="search-input" class="form-control" placeholder="Search Programme" />
+                    </div>
+                    <button type="button" onclick="searchPrograms()" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#programmeModal">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="programmeModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Programme Search Result</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="card" id="searchResult">
+                                    <div class="card-body">
+                                        <ul class="list-group">
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <nav data-aos="fade-up" style="padding: 0px !important; margin-top: 30px;">
+                    <div class="nav nav-fill nav-tabs center2" id="nav-tab" role="tablist">
+                        <button class="nav-link  active" id="nav-contact-tab-b" data-bs-toggle="tab"
+                            data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact"
+                            onclick="showTab(1)" aria-selected="false">Bachelor</button>
+                        <button class="nav-link " id="nav-contact-tab-d" data-bs-toggle="tab"
+                            data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact"
+                            onclick="showTab(2)" aria-selected="false">Diploma</button>
+                    </div>
+                </nav>
+
+
+                <div data-aos="fade-up" id="tabcontent center2" style="width: 100%;"
+                    class="m-12 l-6 padding-2x background-white center2">
+                    <div class="tab-content active p-5" id="tab1-content">
+                        <div id="bachelorTab">
+                            Bachelor Information
+                        </div>
+                    </div>
+
+                    <div class="tab-content p-5" id="tab2-content">
+                        <div id="diplomaTab">
+                            Diploma Information
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <div class="titleimage" style="margin-top: 10% !important;">
-        <div class="overlay"></div>
-        PROGRAMMES
-    </div>
-    <h4 class="titlestaff">Programme</h4>
-    <div class="image-container">
-        <img src="https://www.tarc.edu.my/files/focs/slide/A2ABC8BD-5F55-4A18-945B-85CE0D036068.jpg" alt="Image 1">
-        <img src="https://www.tarc.edu.my/files/focs/78BD55AB-1C84-4D3B-A62E-B1F13CDB009C.JPG" alt="Image 2">
-    </div>
-
-    <div class="input-group bg-light"
-        style="border-radius: 20px; padding-right: 10%;padding-left: 10%; flex-wrap: nowrap;">
-        <div class="form-outline">
-            <input type="search" id="search-input" class="form-control" placeholder="Search Programme" />
-            <!-- <label class="form-label" for="search-input">Search</label> -->
-        </div>
-        <button type="button" onclick="searchPrograms()" class="btn btn-primary" data-bs-toggle="modal"
-            data-bs-target="#programmeModal">
-            <i class="fas fa-search"></i>
-        </button>
-    </div>
-
-    <nav style="padding: 0px !important; margin-top: 30px;">
-        <div class="nav nav-fill nav-tabs center2" id="nav-tab" role="tablist">
-            <button class="nav-link  active" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact"
-                type="button" role="tab" aria-controls="nav-contact" onclick="showTab(1)"
-                aria-selected="false">Bachelor</button>
-            <button class="nav-link " id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact"
-                type="button" role="tab" aria-controls="nav-contact" onclick="showTab(2)"
-                aria-selected="false">Diploma</button>
-        </div>
-    </nav>
+        </section>
 
 
-    <div id="tabcontent center2" style="width: 100%;" class="m-12 l-6 padding-2x background-white center2">
-        <div class="tab-content active" id="tab1-content">
-            <div id="bachelorTab">
-                Bachelor Information
-            </div>
-        </div>
 
-        <div class="tab-content" id="tab2-content">
-            <div id="diplomaTab">
-                Diploma Information
-            </div>
-        </div>
-    </div>
+    </main><!-- End #main -->
 
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
 
-    <!-- </main> -->
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
 
+    <!-- Template Main JS File -->
+    <script src="assets/js/header.js"></script>
+    <script src="assets/js/footer.js"></script>
 
-    <footer class="grid footerjs"></footer>
-    <script type="text/javascript" src="js/headerAppend.js"></script>
     <script type="text/javascript" src="js/responsee.js"></script>
     <script type="text/javascript" src="owl-carousel/owl.carousel.js"></script>
     <script type="text/javascript" src="js/template-scripts.js"></script>
+    <script type="text/javascript" src="js/headerAppend.js"></script>
+    <script type="text/javascript" src="js/imgTotxt.js"></script>
+    <script src="//code.tidio.co/m6kdihlblyie9jlb1otfxudgzisuz4fx.js" async></script>
+
+    <!-- BOOTSTRAP POPUP -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../plugins/axios/axios.min.js"></script>
     <script src="../plugins/vue/vue.js"></script>
     <script src="../api/programme.js"></script>
+
     <script>
         displayDegree();
+
         async function displayDegree() {
             const response = await fetch('./js/json/programme.json');
             const data = await response.json();
@@ -279,7 +242,7 @@
                     for (const programTitle in programs) {
                         // List program details inside the program title
                         html += `<ul class="list-group list-group-flush" >`;
-                        html += `<li class="list-group-item"><a style="color:black; display: flex;"
+                        html += `<li class="list-group-item"><a style="color:black; display: flex;" target="_blank"
                              href="/dist/focs/programme.html?level=Degree&cert=${degreeTitle}&programme=${programTitle}">&nbsp;${programTitle}&nbsp; <svg xmlns="http://www.w3.org/2000/svg" display="flex" width="15" height="15" fill="#9FA8DA" class="bi bi-box-arrow-in-down-left" viewBox="0 0 16 16">
   <path fill-rule="evenodd" d="M9.636 2.5a.5.5 0 0 0-.5-.5H2.5A1.5 1.5 0 0 0 1 3.5v10A1.5 1.5 0 0 0 2.5 15h10a1.5 1.5 0 0 0 1.5-1.5V6.864a.5.5 0 0 0-1 0V13.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
   <path fill-rule="evenodd" d="M5 10.5a.5.5 0 0 0 .5.5h5a.5.5 0 0 0 0-1H6.707l8.147-8.146a.5.5 0 0 0-.708-.708L6 9.293V5.5a.5.5 0 0 0-1 0v5z"/></svg></a>
@@ -320,7 +283,7 @@
                     for (const programTitle in programs) {
                         // List program details inside the program title
                         html += `<ul class="list-group list-group-flush" style="color: black;">`;
-                        html += `<li class="list-group-item"><a style="color: black; display: flex;"
+                        html += `<li class="list-group-item"><a style="color: black; display: flex;" target="_blank"
                              href="/dist/focs/programme.html?level=Diploma&cert=${degreeTitle}&programme=${programTitle}">&nbsp;${programTitle}&nbsp; <svg xmlns="http://www.w3.org/2000/svg" display="flex" width="18" height="18" fill="#9FA8DA" class="bi bi-box-arrow-in-down-left" viewBox="0 0 16 16">
   <path fill-rule="evenodd" d="M9.636 2.5a.5.5 0 0 0-.5-.5H2.5A1.5 1.5 0 0 0 1 3.5v10A1.5 1.5 0 0 0 2.5 15h10a1.5 1.5 0 0 0 1.5-1.5V6.864a.5.5 0 0 0-1 0V13.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
   <path fill-rule="evenodd" d="M5 10.5a.5.5 0 0 0 .5.5h5a.5.5 0 0 0 0-1H6.707l8.147-8.146a.5.5 0 0 0-.708-.708L6 9.293V5.5a.5.5 0 0 0-1 0v5z"/></svg></a></li>`;
@@ -335,6 +298,19 @@
                 }
             }
             tab.innerHTML = html;
+        }
+
+        function showTab(tabIndex) {
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            // Hide all tab contents
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Show the selected tab content
+            const selectedTabContent = document.getElementById(`tab${tabIndex}-content`);
+            selectedTabContent.classList.add('active');
         }
 
         async function searchPrograms() {
@@ -354,8 +330,8 @@
                             console.log(c);
                             if (c.toLowerCase().includes(searchInput)) {
                                 //<li class="list-group-item">Cras justo odio</li>
-                                document.getElementById('searchResult').innerHTML += `<li class="list-group-item"><div class="card-body"><a style="color: black;"
-                    href="/dist/focs/programme.html?level=${a}&cert=${b}&programme=${c}">
+                                document.getElementById('searchResult').innerHTML += `<li class="list-group-item"><div class="card-body"><a style="color: black;" target="_blank" 
+                    href="/dist/focs/programme2.html?level=${a}&cert=${b}&programme=${c}">
                                     ${c}
                                 </a></div></li>`;
                                 found = true;
@@ -371,71 +347,30 @@
             }
         }
 
-        // const $axios = axios.create({
-        //     baseURL: 'http://localhost:8081/', // Replace with your API base URL
-        //     timeout: 5000, // Adjust the timeout as needed
-        // });
-        // console.log('PROGRAMMES :', localStorage.getItem('programmes'));
-        // document.addEventListener('DOMContentLoaded', function () {
-        //     new Vue({
-        //         data: {
-        //             programmes: [],
-        //         },
-        //         mounted() {
-        //             // Data not available in localStorage, fetch it from the API
-        //             console.log('MOUNT PROGRAMMES :');
-        //             this.init();
-        //         },
-        //         created() {
-        //             // Call the init method when the component is created
-        //             this.init();
-        //         },
-        //         methods: {
-        //             init() {
-        //                 console.log('INIT PROGRAMMES :');
-        //                 // getAllProgramme()
-        //                 //     .then((response) => {
-        //                 //         console.log('Response:', response);
-        //                 //         // Rest of your code
-        //                 //     })
-        //                 //     .catch((error) => {
-        //                 //         console.error('Error:', error);
-        //                 //         // Rest of your error handling code
-        //                 //     });
-        //                 getAllProgramme()
-        //                     .then((response) => {
-        //                         console.log('Response:', response);
-        //                         this.programmes = response.data.data;
-        //                         console.log('PROGRAMMES :', this.programmes);
-        //                         console.log('Programme1 :', this.programmes[0].programmeName);
-        //                         // Rest of your code
-        //                     })
-        //                     .catch((error) => {
-        //                         console.error('Error:', error);
-        //                         // Rest of your error handling code
-        //                     });
+        //only show bachelor tab when page is loaded
+        document.getElementById("tab2-content").style.display = "none";
+        document.getElementById("nav-contact-tab-b").style.backgroundColor = "#007dfc47";
 
-        //             }
-        //         },
-        //     });
-        // });
-
-
+        //if bachelor tab is clicked, show bachelor tab and hide diploma tab, if diploma tab is clicked, show diploma tab and hide bachelor tab
         function showTab(tabIndex) {
-            const tabContents = document.querySelectorAll('.tab-content');
-
-            // Hide all tab contents
-            tabContents.forEach(content => {
-                content.classList.remove('active');
-            });
-
-            // Show the selected tab content
-            const selectedTabContent = document.getElementById(`tab${tabIndex}-content`);
-            selectedTabContent.classList.add('active');
+            if (tabIndex == 1) {
+                document.getElementById("tab1-content").style.display = "block";
+                document.getElementById("tab2-content").style.display = "none";
+                document.getElementById("nav-contact-tab-b").style.backgroundColor = "#007dfc47";
+                //get diploma tab and set background color to white
+                document.getElementById("nav-contact-tab-d").style.backgroundColor = "white";
+            } else {
+                document.getElementById("tab1-content").style.display = "none";
+                document.getElementById("tab2-content").style.display = "block";
+                //get bachelor tab and set background color to blue
+                document.getElementById("nav-contact-tab-d").style.backgroundColor = "#007dfc47";
+                //get diploma tab and set background color to white
+                document.getElementById("nav-contact-tab-b").style.backgroundColor = "white";
+            }
         }
-
     </script>
-    <script type="text/javascript" src="js/headerAppend.js"></script>
+    <script src="assets/js/main.js"></script>
+
 </body>
 
 </html>

@@ -6,26 +6,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Compare Programme</title>
-    <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/icons.css">
-    <link rel="stylesheet" href="css/responsee.css">
-    <link rel="stylesheet" href="owl-carousel/owl.carousel.css">
-    <link rel="stylesheet" href="owl-carousel/owl.theme.css">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
+    <link rel="shortcut icon" href="https://web.tarc.edu.my/portal/images/tarucLogo.png" type="image/x-icon">
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
+
+    <!-- GET VISITOR IP ON TERMINAL -->
+    <script type="text/javascript" src="js/devicedetect.js"></script>
+
     <!-- CUSTOM STYLE -->
-    <link rel="stylesheet" href="css/template-style.css">
     <link href="https://fonts.googleapis.com/css?family=Barlow:100,300,400,700,800&amp;subset=latin-ext"
         rel="stylesheet">
     <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
     <script type="text/javascript" src="js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="js/userlog.js"></script>
-    <!-- BOOTSTRAP -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
     <style>
         /* Add your CSS styles here */
         .titleimage {
@@ -153,6 +159,10 @@
             /* Maintain aspect ratio */
         }
 
+        img {
+            max-width: 100%;
+        }
+
         @media (max-width: 767px) {
             .titleimage {
                 height: 100px;
@@ -189,123 +199,111 @@
 </head>
 
 <body class="p-3 m-0 border-0 bd-example">
-    <!-- HEADER -->
-    <header class="grid headerjs">
-    </header>
 
-    <!-- MAIN -->
-    <!-- TOP SECTION -->
-    <!-- <header class="grid">
-            <div class="s-12 padding-2x">
-                <h1 class="text-strong text-white text-center center text-size-60 text-uppercase margin-bottom-20">
-                    FIND YOUR BEST</h1>
-                <p class="text-size-20 text-white text-center center text-uppercase">Compare different academic programs or courses to make informed decisions about your academic pursuits</p>
+    <!-- ======= Cta Section ======= -->
+    <section id="cta" class="cta mt-5 pd-5">
+        <div class="container pt-5">
+
+            <div class="row">
+                <div class="col text-center text-lg-start d-flex justify-content-center">
+                    <h3>Compare Programme</h3>
+                </div>
             </div>
-        </header> -->
 
-    <!-- Enlarged image container -->
-    <div class="titleimage" style="margin-top: 100px;">
-        <div class="overlay"></div>
-        PROGRAMMES
-    </div>
-    </br></br>
-    <div class="image-container">
-        <img src="https://www.tarc.edu.my/files/focs/slide/A2ABC8BD-5F55-4A18-945B-85CE0D036068.jpg" alt="Image 1">
-        <img src="https://www.tarc.edu.my/files/focs/78BD55AB-1C84-4D3B-A62E-B1F13CDB009C.JPG" alt="Image 2">
-    </div>
-
-    <h4 class="shell text-center display-4" style="margin: 3%;">Compare Programme</h4>
+        </div>
+    </section><!-- End Cta Section -->
 
     <div id="enlarged-image-container" class="enlarged-image-container">
         <img id="enlarged-image" class="enlarged-image" src="" alt="Enlarged Image">
     </div>
 
-    <div class="table-responsive" style="border: 2px solid darkblue">
-        <table class="table  text-successtable-border">
-            <thead class="border-light" style="background-color: white;">
-                <tr>
-                    <th scope="col" style="border-right: 2px solid darkblue;"></th>
-                    <th scope="col" style="border-right: 2px solid darkblue;width: 40%;">
-                        <select class="form-select" id="progSelect" aria-label="Default select example">
-                            <option value="0" selected>Select Programme</option>
-                        </select>
-                    </th>
-                    <th scope="col" style="width: 40%;">
-                        <select class="form-select" id="progSelect2" aria-label="Default select example">
-                            <option value="0" selected>Select Programme</option>
-                        </select>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr style="background-color: #E5FFFA	;">
-                    <th scope="row" style="border-right: 2px solid darkblue;">Duration</th>
-                    <td id="prog1Duration" style="border-right: 2px solid darkblue;"></td>
-                    <td id="prog2Duration"></td>
-                </tr>
-                <tr style="background-color: white	;">
-                    <th scope="row" style="border-right: 2px solid darkblue;">Campuses</th>
-                    <td style="border-right: 2px solid darkblue;">
-                        <ul class="list-group list-group-flush" id="prog1Campuses" style="color: black;">
+    <div class="container p-2 m-5">
+        <div class="table-responsive ">
+            <table class="table  text-successtable-border">
+                <thead class="border-light" style="background-color: white;">
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">
+                            <select class="form-select" id="progSelect" aria-label="Default select example">
+                                <option value="0" selected>Select Programme</option>
+                            </select>
+                        </th>
+                        <th scope="col" style="width: 40%;">
+                            <select class="form-select" id="progSelect2" aria-label="Default select example">
+                                <option value="0" selected>Select Programme</option>
+                            </select>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background-color: #E5FFFA	;">
+                        <th scope="row" style="border-right: 1px solid #4a5b62;">Duration</th>
+                        <td id="prog1Duration" style="border-right: 1px solid #4a5b62;"></td>
+                        <td id="prog2Duration"></td>
+                    </tr>
+                    <tr style="background-color: white	;">
+                        <th scope="row" style="border-right: 1px solid #4a5b62;">Campuses</th>
+                        <td style="border-right: 1px solid #4a5b62;">
+                            <ul class="list-group list-group-flush" id="prog1Campuses" style="color: black;">
 
-                        </ul>
-                    </td>
-                    <td id="prog2Campuses">
-                        <ul class="list-group list-group-flush" id="prog2Campuses" style="color: black;">
+                            </ul>
+                        </td>
+                        <td id="prog2Campuses">
+                            <ul class="list-group list-group-flush" id="prog2Campuses" style="color: black;">
 
-                        </ul>
-                    </td>
-                </tr>
-                <tr style="background-color: #E5FFFA	;">
-                    <th scope="row" style="border-right: 2px solid darkblue;">Intake</th>
-                    <td id="prog1Intake" style="border-right: 2px solid darkblue;"></td>
-                    <td id="prog2Intake"></td>
-                </tr>
-                <tr style="background-color: white	;">
-                    <th scope="row" style="border-right: 2px solid darkblue;">Career Prospects</th>
-                    <td id="prog1Career" style="border-right: 2px solid darkblue;">
-                        <ul class="list-group list-group-flush" id="prog1Career" style="color: black;">
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr style="background-color: #E5FFFA	;">
+                        <th scope="row" style="border-right: 1px solid #4a5b62;">Intake</th>
+                        <td id="prog1Intake" style="border-right: 1px solid #4a5b62;"></td>
+                        <td id="prog2Intake"></td>
+                    </tr>
+                    <tr style="background-color: white	;">
+                        <th scope="row" style="border-right: 1px solid #4a5b62;">Career Prospects</th>
+                        <td id="prog1Career" style="border-right: 1px solid #4a5b62;">
+                            <ul class="list-group list-group-flush" id="prog1Career" style="color: black;">
 
-                        </ul>
-                    </td>
-                    <td id="prog2Career">
-                        <ul class="list-group list-group-flush" id="prog2Career" style="color: black;">
+                            </ul>
+                        </td>
+                        <td id="prog2Career">
+                            <ul class="list-group list-group-flush" id="prog2Career" style="color: black;">
 
-                        </ul>
-                    </td>
-                </tr>
-                <tr style="background-color: #E5FFFA	;">
-                    <th scope="row" style="border-right: 2px solid darkblue;">Academic Progression</th>
-                    <td id="prog1Progession" style="border-right: 2px solid darkblue;"></td>
-                    <td id="prog2Progession"></td>
-                </tr>
-                <tr style="background-color: white;">
-                    <th scope="row" style="border-right: 2px solid darkblue;">Entry Requirements</th>
-                    <td id="prog1Entry" style="border-right: 2px solid darkblue;"></td>
-                    <td id="prog2Entry"></td>
-                </tr>
-                <tr style="background-color: #E5FFFA	;">
-                    <th scope="row" style="border-right: 2px solid darkblue;">Estimated Fees</th>
-                    <td id="prog1Fee" class="fw-bold" style="border-right: 2px solid darkblue;"></td>
-                    <td id="prog2Fee" class="fw-bold"></td>
-                </tr>
-                <!-- <tr>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr style="background-color: #E5FFFA	;">
+                        <th scope="row" style="border-right: 1px solid #4a5b62;">Academic Progression</th>
+                        <td id="prog1Progession" style="border-right: 1px solid #4a5b62; width: 40%;"></td>
+                        <td id="prog2Progession"></td>
+                    </tr>
+                    <tr style="background-color: white;">
+                        <th scope="row" style="border-right: 1px solid #4a5b62;">Entry Requirements</th>
+                        <td id="prog1Entry" style="border-right: 1px solid #4a5b62; width: 40%;"></td>
+                        <td id="prog2Entry"></td>
+                    </tr>
+                    <tr style="background-color: #E5FFFA	;">
+                        <th scope="row" style="border-right: 1px solid #4a5b62;">Estimated Fees</th>
+                        <td id="prog1Fee" class="fw-bold" style="border-right: 1px solid #4a5b62; "></td>
+                        <td id="prog2Fee" class="fw-bold"></td>
+                    </tr>
+                    <!-- <tr>
                         <th class=""></th>
                         <th class=""><button class="btn btn-primary">Sign-up</button></th>
                         <th class=""><button class="btn btn-primary">Sign-up</button></th>
                     </tr> -->
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
     </div>
-    <div class="bottompicture"><button class="btn btn-primary">Enroll</button>
+    <div class="bottompicture pt-3" style="margin-top: 10%;"><button class="btn btn-primary" onclick="navLogin()">Enroll</button>
     </div>
 
-    <!-- Footer - bottom -->
-    <footer class="grid footerjs"></footer>
-    <script type="text/javascript" src="js/responsee.js"></script>
-    <script type="text/javascript" src="owl-carousel/owl.carousel.js"></script>
-    <script type="text/javascript" src="js/template-scripts.js"></script>
     <script>
+
+        function navLogin(){
+            window.open("/dist/page/login.html?redirect=enroll", "_blank");
+        }
 
         // Function to display the enlarged image
         function enlargeImage(imageSrc) {
@@ -443,7 +441,9 @@
         }
 
     </script>
-    <script type="text/javascript" src="js/headerAppend.js"></script>
+    <script type="text/javascript" src="assets/js/header.js"></script>
+    <script type="text/javascript" src="assets/js/footer.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>
