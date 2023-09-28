@@ -101,6 +101,9 @@
                         <label><input type="checkbox" class="icheck" value="Associate Dean" name="designation">
                             Associate Dean</label>
                     </div></br>
+
+                    <!-- Reset button -->
+                    <button type="button" class="btn btn-danger" id="resetFilters">Reset</button>
                 </div>
 
 
@@ -216,12 +219,26 @@
             }
         }
 
+        // Function to uncheck the opposite gender filter
+        function uncheckOppositeGenderFilter(selectedGender) {
+            const oppositeGender = selectedGender === 'Male' ? 'Female' : 'Male';
+            const genderCheckboxes = document.querySelectorAll(`input.icheck[name="gender"][value="${oppositeGender}"]`);
+            genderCheckboxes.forEach(checkbox => {
+                checkbox.checked = false;
+            });
+        }
+
         // Add event listeners to checkboxes
         const checkboxes = document.querySelectorAll('input.icheck[type="checkbox"]');
         checkboxes.forEach(checkbox => {
             checkbox.addEventListener('change', function () {
                 const groupName = this.name;
                 if (this.checked) {
+                    // If the gender filter is selected, uncheck the opposite gender filter
+                    if (groupName === 'gender') {
+                        uncheckOppositeGenderFilter(this.value);
+                    }
+
                     // Clear the staff list
                     staffList.innerHTML = '';
                     // Add the selected filter to the appropriate filter array
@@ -242,10 +259,25 @@
 
         });
 
+        // Reset button event listener
+        const resetButton = document.getElementById('resetFilters');
+        resetButton.addEventListener('click', function () {
+            // Uncheck all checkboxes
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = false;
+            });
+            // Clear the staff list and reset filters
+            staffList.innerHTML = '';
+            filters.gender = null;
+            filters.position = [];
+            filters.designation = [];
+            filterAndDisplayStaff();
+        });
+
         // Initially, display all staff
         filterAndDisplayStaff();
 
-        
+
     </script>
 
     <!-- BOOTSTRAP POPUP -->
