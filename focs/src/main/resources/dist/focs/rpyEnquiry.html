@@ -242,8 +242,8 @@
                                 let rrdate = new Date(rdate);
 
 
-                                let cccdate = ccdate.getDate() + '/' + ccdate.getMonth() + '/' + ccdate.getFullYear() + ' ' + ccdate.getHours() + ':' + ccdate.getMinutes();
-                                let rrrdate = rrdate.getDate() + '/' + rrdate.getMonth() + '/' + rrdate.getFullYear() + ' ' + rrdate.getHours() + ':' + rrdate.getMinutes();
+                                let cccdate = ccdate.getDate() + '/' + (ccdate.getMonth() + 1) + '/' + ccdate.getFullYear() + ' ' + ccdate.getHours() + ':' + ccdate.getMinutes();
+                                let rrrdate = rrdate.getDate() + '/' + (rrdate.getMonth() + 1) + '/' + rrdate.getFullYear() + ' ' + rrdate.getHours() + ':' + rrdate.getMinutes();
 
                                 // const day = date.getDate();
                                 // const month = date.getMonth() + 1; // Months are zero-based, so add 1
@@ -264,11 +264,11 @@
                                     pending = true;
                                 } else if (status == 'completed') {
                                     html2 += `
-                        <div class="card">
+                        <div class="card" style="margin-top:10px">
                             <div class="card-header" id="headingOne">
                                 <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#col${qryId}"
                                     aria-expanded="false" aria-controls="collapseOne">
-                                    <h5 class="mb-0 text-dark" id="title">
+                                    <h5 class="mb-0 text-dark" id="title" style="text-decoration: none;">
                                         ${title}
                                     </h5>
                                 </button>
