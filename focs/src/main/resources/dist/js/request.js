@@ -46,7 +46,7 @@
       if (res.data.code === 0 || res.data.msg === "NOTLOGIN") {
          console.log("---- /dist/page/login.html ----");
          localStorage.removeItem("userInfo");
-         window.location.href = "../page/login.html";
+         window.location.href = "dist/page/login.html";
       } else {
         return res.data;
       }
