@@ -233,12 +233,12 @@
             document.getElementById('tab2-content').style.display = 'none';
         }
 
-        //onProgress();
+        onProgress();
 
         function onProgress() {
             let enquiryList = JSON.parse(localStorage.getItem('enquiry'));
 
-            console.log(enquiryList);
+            console.log("onProgress:", enquiryList);
 
             //let html = document.getElementById('tab2-content').innerHTML;
             let html = "";
@@ -321,7 +321,6 @@
                 let enquiryList = JSON.parse(localStorage.getItem('enquiry'));
                 enquiryList.push(enquiry);
                 localStorage.setItem('enquiry', JSON.stringify(enquiryList));
-                console.log(enquiryList);
             }
 
             alert('Your enquiry has been submitted successfully!');
@@ -365,7 +364,7 @@
                         "queryStatus": "",
                         "created": new Date().toISOString(),
                         "completed": new Date().toISOString(),
-                        "applicantId": ""
+                        "applicantId": "",
                     },
                 }
             },
@@ -381,10 +380,10 @@
             created() {
                 // Call the init method when the component is created
 
-                if (!localStorage.getItem('userInfo')) {
-                    window.location.href = "/dist/page/login.html?redirect=enquiry";
-                }
-                this.init();
+                // if (!localStorage.getItem('userInfo')) {
+                //     window.location.href = "/dist/page/login.html?redirect=enquiry";
+                // }
+                // this.init();
             },
             methods: {
                 init() {
@@ -405,6 +404,7 @@
                             for (let i = 0; i < enquiryList.length; i++) {
                                 let enquiry = enquiryList[i];
 
+                                console.log("APP ID :" + enquiry['applicantId'] + applicantId);
                                 let appId = enquiry['applicantId'];
                                 if (appId == applicantId) {
                                     let title = enquiry['title'];
@@ -418,8 +418,8 @@
                                     let statusText = 'Pending for reply...';
 
 
-
-                                    if (reply != 'null') {
+                                    console.log("REPLY :", reply);
+                                    if (reply != "null") {
                                         stats = 'border-success';
                                         statusText = 'Replied !';
                                     }
@@ -435,7 +435,7 @@
 
     `;
 
-                                    if (reply != 'null') {
+                                    if (reply != "null") {
                                         html += `
         <div class="card-footer text-muted">
             ${reply}
@@ -460,8 +460,8 @@
                     console.log('ADD QUERY :', enquiry);
 
                     const params = { ...this.enquiry };
-                    params.applicantEmail = localStorage.getItem('username');
-                    params.applicantId = 1;
+                    params.applicantEmail = JSON.parse(localStorage.getItem('userInfo'))['applicantEmail'];
+                    params.applicantId = JSON.parse(localStorage.getItem('userInfo'))['applicantId'];
                     params.title = document.getElementById('title').value;
                     params.question = document.getElementById('message').value;
                     params.reply = 'null';
@@ -474,6 +474,9 @@
                     addQuery(params).then((response) => {
                         console.log('Response:', response);
                         // Rest of your code
+                        alert('Your reply has been submitted successfully!');
+                        window.location.reload();
+                        
                     })
                         .catch((error) => {
                             console.error('Error:', error);
