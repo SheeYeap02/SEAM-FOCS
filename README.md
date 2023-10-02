@@ -2,7 +2,7 @@
 Software Evolution and Maintenance on TAR UMT FOCS 
 
 # Tech Stake
-SpringBoot + MybatisPlus Framework + MySQL + Vue.js + axios
+SpringBoot + MybatisPlus Framework + MySQL + Vue.js + axios + JSON
 
 # Step to run the Application:
 1. First, you need to run the sqlscript to create database
