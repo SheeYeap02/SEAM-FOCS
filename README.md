@@ -34,7 +34,7 @@ SpringBoot + MybatisPlus Framework + MySQL + Vue.js + axios + JSON
     ![image](https://github.com/SheeYeap02/SEAM-FOCS/assets/84632952/a86603bf-af01-4a7b-ae08-c981a81e5cbf)
 9. In your browser, open:
    http://localhost:8080/dist/index.html   <-- this is for enrollment page testing
-   Replace index.html with any other page name to test different parts of the frontend.
+   <br/>Replace index.html with any other page name to test different parts of the frontend.
 
 
 Note: If you face any port conflicts or startup issues, make sure port 8080 is available.
