@@ -1,23 +1,42 @@
 # SEAM-FOCS
 Software Evolution and Maintenance on TAR UMT FOCS 
 
-# Tech Stake
+# Tech Stack
 SpringBoot + MybatisPlus Framework + MySQL + Vue.js + axios + JSON
 
+# Prerequisite
+- Java 8 or above
+- Maven
+- MySQL Server
+- MySQL Workbench (for GUI access)
+- An IDE (e.g., IntelliJ IDEA, Eclipse)
+
 # Step to run the Application:
-1. First, you need to run the sqlscript to create database
-2. Install MySQL Workbench via https://dev.mysql.com/downloads/installer/ 
-3. Latest MySQL Version 8.0.34 is fine, open it when it's done installed (create account also --> remember the username and password!)
-4. Create a schema called "seam", which will be mapped to the application.yml database connection file
+1. Run the SQL Script to Initialize the Database. Locate the SQL script file:
+   <br/>/focs/src/main/resources/database/sqlscript.sql
+   <br/>Note: You will need to run this script after setting up the database schema in the next steps.
+2. Download and install MySQL Workbench from
+   <br/>👉 https://dev.mysql.com/downloads/installer/
+   <br/>Note: During installation, you’ll be prompted to create a MySQL user account. Remember your username and password — you’ll need them later for configuration.
+3. Open MySQL Workbench and create a schema named seam.
+   <br/>
    ![image](https://github.com/SheeYeap02/SEAM-FOCS/assets/84632952/14f01de2-1fcf-453d-8cf3-d312839623c1)
-
-5. Find and run the "sqlscript.sql" file for seam schema under direcotry e.g. C:\{your path where project cloned}\SEAM-FOCS\focs\src\main\resources\database
-6. Check whether the script file run successfully. Databaset is set and open IDE now
-8. Remember to change the setting of application.yml to your own MySQL account's username and password under directory e.g. C:\{your path where project cloned}\SEAM-FOCS\focs\src\main\resources 
-9. Find the SpringBoot Application under directory e.g. C:\{your path where project cloned}\SEAM-FOCS\focs\src\main\java\com\seam\focs
-10. Open "FocsApplication.java" and click to run it directly. It should show something "Run Successfully"
+4. Use the Workbench to run the sqlscript.sql file on the seam schema to initialize tables and seed data.
+5. Open the application.yml file (i.e. located at {path}/focs/src/main/resources/application.yml) to configure Database Connection.
+6. Update the database connection settings with your MySQL username and password:
+   <br/>spring:
+   <br/>   datasource:
+   <br/>    url: jdbc:mysql://localhost:3306/seam
+   <br/>    username: your_mysql_username
+   <br/>    password: your_mysql_password
+7. Navigate to the main application file (e.g. /focs/src/main/java/com/seam/focs/FocsApplication.java)
+8. Run FocsApplication.java as a Spring Boot application. It should show something "Run Successfully"
     ![image](https://github.com/SheeYeap02/SEAM-FOCS/assets/84632952/a86603bf-af01-4a7b-ae08-c981a81e5cbf)
+9. In your browser, open:
+   http://localhost:8080/dist/index.html   <-- this is for enrollment page testing
+   Replace index.html with any other page name to test different parts of the frontend.
 
-11. In browser, type localhost:8080/dist/{your desire page} to view the page. e.g. localhost:8080/dist/index.html  <-- this is for enrollment page testing
 
-Note: You may need to enable or install some plugins like Lombok. IDE will detect for you
+Note: If you face any port conflicts or startup issues, make sure port 8080 is available.
+
+
